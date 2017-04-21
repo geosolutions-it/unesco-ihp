@@ -1,0 +1,14 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load staticfiles %}
+
+{% block title %} {% trans "Time series" %} - {{ block.super }} {% endblock %}
+
+{% block body_class %}timeseries{% endblock %}
+
+{% block body %}
+  <div class="page-header">
+    <h2>{% trans "Coming soon..." %}</h2>
+  </div>
+{% endblock %}

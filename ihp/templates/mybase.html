@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block footer %}
+    <footer class="footer"  style="font-size:11px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="{{ STATIC_URL }}img/logo_ihp_alpha.png" style="margin-left:40px;" alt="UNESCO-International Hydrological Programme"/>
+          </div>
+          <div class="col-md-4" style="margin-top:-20px; font-size:12px;color: #5e5e5e; font-family:Monda,Andale Mono, monospace;">
+          <br>The International Hydrological Programme (IHP) UNESCO/Division of
+          Water Sciences (SC/HYD) </br>
+          <br>7, place Fontenoy 75352 Paris Cedex 07 FRANCE</br>
+          <br>Tel : +33 1 45 68 40 01</br>
+          <p><a target="_blank" style="{color:green; background-color:transparent; text-decoration:none}" href="http://www.unesco.org/water">www.unesco.org/water</a></p>
+          </div>
+          <div class="col-md-4">
+          <!-- <div class="col-md-4" style="font-size:10px;font-family:Monda,Andale Mono, monospace;"> -->
+            <label class="hidden">{% trans "Language" %}</label>
+            {% if csrf_token != "NOTPROVIDED" %}
+            {% get_current_language as LANGUAGE %}
+            <form class="form-inline" action="/i18n/setlang/" method="post">
+            {% csrf_token %}
+              <select class="col-md-6 pull-right" name="language" onchange="javascript:form.submit()">
+                {% for lang in LANGUAGES %}
+                <option value="{{ lang.0 }}" {% ifequal LANGUAGE_CODE lang.0 %} selected="selected"{% endifequal %}>
+                  {{ lang.1 }}
+                </option>
+                {% endfor %}
+              </select>
+            </form>
+            {% endif %}
+          </div>
+         </div>
+        </div>
+      </div>
+    </footer>
+{% endblock footer %}

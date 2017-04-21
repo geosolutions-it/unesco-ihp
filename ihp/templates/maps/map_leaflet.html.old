@@ -1,0 +1,85 @@
+{% load leaflet_tags %}
+
+{% leaflet_js %}
+{% leaflet_css %}
+
+<style>
+    .leaflet-container { /* all maps */
+        height: 400px;
+    }
+</style>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function (event) {
+        var overlay_layers = {};
+        map = L.map('the_map');
+
+        var layer_control = L.control.layers().addTo(map);
+
+	//add elements to maps page
+        var scale_bar = L.control.scale().addTo(map);
+	//var attribution = L.control.attribution({prefix: 'UNESCO-IHP-Wins'}).addTo(map);
+        map.attributionControl.addAttribution('<a href="http://en.unesco.org/themes/water-security/hydrology", class="your_class">UNESCO-IHP-Wins</a>');
+
+        var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+        });
+
+        var unesco = L.tileLayer(
+            'http://en.unesco.org/tiles/{z}/{x}/{y}.png', {
+            attribution: '&copy; unesco'
+        });
+
+    	L.Control.Watermark = L.Control.extend({
+        	onAdd: function(map) {
+            var img = L.DomUtil.create('img');
+
+            img.src = '../static/img/logo.png';
+            img.style.width = '120px';
+
+            return img;
+        	},
+
+        	onRemove: function(map) {
+            // Nothing to do here
+        	}
+    	});
+
+    	L.control.watermark = function(opts) {
+        	return new L.Control.Watermark(opts);
+    	}
+
+    	L.control.watermark({ position: 'bottomright' }).addTo(map);
+
+        map.addLayer(unesco);
+
+        // Add layers
+        {% for layer in layers %}
+            // Add tile layers
+            var tile_layer = L.tileLayer("{{ layer.ows_url }}");
+            if (tile_layer != null) {
+                if ("{{ layer.group }}" == 'background') {
+                    layer_control.addBaseLayer(tile_layer, "{{ layer.name }}");
+                } else {
+                    layer_control.addOverlay(tile_layer, "{{ layer.name }}");
+
+                }
+                if ("{{ layer.visibility }}" === "True") {
+                    map.addLayer(tile_layer);
+                }
+                overlay_layers["{{ layer.name }}"] = tile_layer;
+            }
+        {% endfor %}
+        // Set view port
+        map.setView(new L.LatLng({{ resource.center_x }}, {{ resource.center_y }}), {{ resource.zoom }});
+    });
+
+    function zoom_to_box(map, bbox) {
+        var bounds = [
+            [bbox[1], bbox[0]],
+            [bbox[3], bbox[2]]
+        ];
+        map.fitBounds(bounds);
+    }
+
+
+</script>

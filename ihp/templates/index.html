@@ -1,0 +1,192 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load base_tags %}
+
+{% block title %} UNESCO-IHP│Water Information Network System (WINS) - {% trans "Welcome!" %} - {{ block.super }} {% endblock %}
+
+{% block body_class %}home{% endblock %}
+
+{% block middle %}
+   {{ block.super }}
+  {% block hero %}
+
+<!-- Carousel
+  ================================================== -->
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+      <li data-target="#myCarousel" data-slide-to="4"></li>
+      <li data-target="#myCarousel" data-slide-to="5"></li>
+      <li data-target="#myCarousel" data-slide-to"6"></li>
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+
+  <div class="item active">
+   <video autoplay loop class="first-slide" src="static/img/mp4/IHP.mp4" width="100%" height="500px" style="object-fit:cover;"></video>
+         <div class="container">
+          <div class="carousel-caption" style="margin-top:-20px">
+        <h1 style="font-family:Lato,Helvetica Neue, Helvetica, Arial;vertical-align:text-top;font-size:45px;color:#fff;">{% trans "Welcome to " %}IHP-WINS</h1>
+ 	 <h1 style="font-size:30px; color:#000;">International Hydrological Programme’s Water Information Network System</h1><br />
+            <p class="titre" style="font-size:20px;color:#004983;background:#ccc;opacity:0.7;padding:20px">Founded in 1975, UNESCO’s International Hydrological Programme is the only intergovernmental programme of the UN system devoted to water research, water resources management, and education and capacity building.
+	<br />On IHP-WINS, you will find updated information on water resources around the world and on the different projects of IHP. </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="item">
+         <video autoplay loop class="second-slide" loop src="static/img/mp4/THEME_1.mp4" alt="" width="100%" height="500px"  style="object-fit:cover;"></video>
+  <div class="container">
+   <div class="carousel-caption">
+     <h1 style="font-size:45px;color:#fff;">Water-related disasters</h1><br />
+	<p class="titre" style="font-size:20px;color:#004983;background:#ccc;opacity:0.7;padding:20px">Water-related hazards or hydro-hazards are the results of complex interactions in the ocean-atmosphere-land process cascade, and are expected to increase due to global warming. The challenge is to identify appropriate and timely adaptation measures in a continuously changing environment</p>
+         </div>
+        </div>
+     </div>
+
+      <div class="item">
+        <video autoplay loop class="third-slide" src="static/img/mp4/THEME_2.mp4" alt="" width="100%" height="500px" style="object-fit:cover;" ></video>
+  <div class="container" >
+          <div class="carousel-caption">
+          <h1 style="font-size:45px;color:#fff;" >Groundwater</h1><br />
+            <p class="titre" style="font-size:20px;color:#004983;background:#ccc;opacity:0.7;padding:20px">Groundwater represents 98% of the world’s unfrozen freshwater. Highly reliable, of good quality and with generally modest development costs, groundwater use has increased significantly over the past 50 years. Sustainable adaptation to change, quality deterioration and depletion, and transboundary cooperation over shared aquifers are key challenges.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="item">
+        <video autoplay loop class="fourth-slide" src="static/img/mp4/THEME_3.mp4" alt="" width="100%" height="500px" style="object-fit:cover;" ></video>
+        <div class="container">
+          <div class="carousel-caption">
+           <h1 style="font-size:45px;color:#fff;">Water Scarcity and Quality</h1><br />
+            <p  class="titre" style="font-size:18px;color:#004983;background:#ccc;opacity:0.7;padding:20px">Water scarcity and water quality degradation constitute major challenges for human needs and ecosystems’ integrity. However, the planet’s freshwater resources, if protected and managed sustainably and effectively, can meet water demands and ensure the sustainable development of countries across the world. </p>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="item">
+        <video  autoplay loop class="fifth-slide" src="static/img/mp4/THEME_4.mp4" width="100%" height="500px" style="object-fit:cover;"></video>
+        <div class="container">
+          <div class="carousel-caption">
+           <h1 style="font-size:45px;color:#fff;">Water for Human Settlements</h1><br />
+	<p class="titre" style="font-size:20px;color:#004983;background:#ccc;opacity:0.7;padding:20px">Urban and rural settlements around the world are facing various pressures resulting from population growth, climate change and deterioration of infrastructure systems. New approaches, technologies and system-wide integration can help cities efficiently manage scarcer and less reliable water resources, as water demand continues to increase. </p>
+	</div>
+        </div>
+</div>
+
+      <div class="item">
+        <video  autoplay loop class="sixth-slide" src="static/img/mp4/THEME_5.mp4" width="100%" height="500px" style="object-fit:cover;"></video>
+        <div class="container">
+          <div class="carousel-caption">
+           <h1 style="font-size:45px;color:#fff;">Ecohydrology</h1><br />
+        <p class="titre" style="font-size:20px;color:#004983;background:#ccc;opacity:0.7;padding:20px">By using the understanding of relationships between hydrological and biological processes at different scales, ecohydrology aims at
+improving water security, enhancing biodiversity and furthering opportunities for sustainable development. To do so, it is important to lessen ecological threats and maximize greater harmony within catchment processes.</p> </div>
+        </div>
+       </div>
+
+      <div class="item">
+        <video  autoplay loop class="seventh-slide" src="static/img/mp4/THEME_6.mp4" width="100%" height="500px" style="object-fit:cover;"></video>
+        <div class="container">
+          <div class="carousel-caption">
+           <h1 style="font-size:45px;color:#fff;">Water Education</h1><br />
+        <p class="titre" style="font-size:18px;color:#004983;background:#ccc;opacity:0.7;padding:20px">Water education at all levels is essential for water-related challenges to be met. Expanding beyond the teaching of hydrological sciences, water education aims at advancing scientific knowledge, training professionals and decision-makers, as well as promoting communitywide water conservation and co-management, and enhancing youth awareness.</p> </div>
+        </div>
+       </div>
+
+
+</div>
+
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+
+</div>
+<!-- ///// end carousel -->
+
+
+  <!-- <div class="jumbotron">
+    <div class="container">
+      <h1>{% trans "Welcome" %}</h1>
+      <p>{% blocktrans %}LUDO@]GeoNode is an open source platform for sharing geospatial data and maps.{% endblocktrans %}</p>
+      <p>{% blocktrans %}If you have any questions about the software or service, join our <a href="http://lists.osgeo.org/cgi-bin/mailman/listinfo/geonode-users">mailing list</a>.{% endblocktrans %}</p>
+      <span>{% trans 'Need help?' %} <a href="http://docs.geonode.org/en/latest/tutorials/users/quickstart/index.html">{% trans 'Getting Started' %}</a></span>
+    </div>
+  </div> -->
+  {% endblock %}
+
+  {% block mainbody %}
+  <div class="container" style="font-family:Monda,Andale Mono, monospace;font-size:14px;background:white">
+    <div class="row home-facets">
+    {% with facet_type='home' %}
+     {% facets as facets %}
+      <div class="col-md-4">
+        <p><a href="{% url "layer_browse" %}"><i class="fa fa-square-o fa-5x rotate-45"></i></a></p>
+        <h2><a href="{% url "layer_browse" %}">{{ facets.layer|default:_("No") }} {% blocktrans count counter=facets.layer %}Layer{% plural %}Layers{% endblocktrans %}</a></h2>
+        <p>{% trans "Upload and Download data in standard formats." %}</p>
+        {% if user.is_authenticated %}
+        <p class="text-center"><a class="btn btn-default" href="{% url "layer_upload" %}" role="button">{% trans "Add layers" %} &raquo;</a></p>
+        {% else %}
+        <p class="text-center"><a class="btn btn-default" href="{% url "layer_browse" %}" role="button">{% trans "Explore layers" %} &raquo;</a></p>
+        {% endif %}
+      </div>
+      <div class="col-md-4">
+        <p><a href="{% url "maps_browse" %}"><i class="fa fa-map-marker fa-5x"></i></a></p>
+        <h2><a href="{% url "maps_browse" %}">{{ facets.map|default:_("No") }} {% blocktrans count counter=facets.map %}Map{% plural %}Maps{% endblocktrans %}</a></h2>
+        <p>{% trans "Generate maps which can be shared publicly or restricted to specific users only." %}</p>
+        {% if user.is_authenticated %}
+        <p><a class="btn btn-default" href="{% url "new_map" %}" role="button">{% trans "Create maps" %} &raquo;</a></p>
+        {% else %}
+        <p><a class="btn btn-default" href="{% url "maps_browse" %}" role="button">{% trans "Explore maps" %} &raquo;</a></p>
+        {% endif %}
+      </div>
+      <div class="col-md-4">
+        <p><a href="{% url "profile_browse" %}"><i class="fa fa-user fa-5x"></i></a></p>
+        <h2><a href="{% url "profile_browse" %}">{{ facets.user|default:_("No") }} {% blocktrans count counter=facets.user %}User{% plural %}Users{% endblocktrans %}</a></h2>
+        <p>{% trans "IHP-WINS allows registered users to search and display revelant datasets." %}</p>
+        <p><a class="btn btn-default" href="{% url "profile_browse" %}" role="button">{% trans "See users" %} &raquo;</a></p>
+      </div>
+    {% endwith %}
+    </div>
+  </div>
+  {% verbatim %}
+  <div ng-app="featured">
+    <div ng-repeat="item in featured">
+      <!--{{ item.title }}-->
+    </div>
+  </div>
+  {% endverbatim %}
+  {% endblock %}
+
+{% endblock %}
+
+{% block extra_script %}
+{% if DEBUG_STATIC %}
+<script src="{{ STATIC_URL }}lib/js/angular.js"></script>
+{% endif %}
+  <script type="text/javascript">
+    FEATURED_URL = '{% url 'api_dispatch_list' api_name='api' resource_name='featured' %}'
+    'use strict';
+    (function(){
+      var module = angular.module('featured', []);
+      module.run(function($http, $rootScope){
+        $http.get(FEATURED_URL).success(function(data){
+          $rootScope.featured = data.objects;
+        });
+      });
+    })();
+  </script>
+
+{% endblock extra_script %}
