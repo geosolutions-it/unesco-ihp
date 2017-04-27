@@ -22,9 +22,14 @@
     .leaflet-container { /* all maps */
         height: 400px;
     }
+    
+    .leaflet-control-zoom, .leaflet-control-zoomslider {  /* all controls */
+        position: relative;
+        left: 0px !important;
+    }
 </style>
 <script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function (event) {
+    document.addEventListener("DOMContentLoaded", function (event) {
       L.TileLayer.BetterWMS = L.TileLayer.WMS.extend({
 
         onAdd: function (map) {
@@ -117,7 +122,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
         L.tileLayer.betterWms = function (url, options) {
           return new L.TileLayer.BetterWMS(url, options);
         };
-
         var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         });
@@ -131,6 +135,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
             'http://en.unesco.org/tiles/geodata/{z}/{x}/{y}.png', {
             attribution: '&copy; unesco'
         });
+		
+        var OpenMapSurfer_Roads = L.tileLayer('http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            attribution: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        });
 
         // not yet available
         // var unesco_white = L.tileLayer(
@@ -139,10 +148,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         // });
 
         var base_maps = {
-            "UNESCO" : unesco,
-            "UNESCO GEODATA" : unesco_geodata,
-            // "UNESCO WHITE" : unesco_white,
-            "OSM" : osm,
+            "OpenMapSurfer_Roads": OpenMapSurfer_Roads,
+            'OpenStreetMap': osm
         };
 
         var overlay_layer = {};
@@ -177,8 +184,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
         L.control.watermark({ position: 'bottomright' }).addTo(map);
 
         // L.control.measureControl.addTo(map);
-
-        map.addLayer(unesco);
+        map.addLayer(OpenMapSurfer_Roads);
 
         {% if resource.bbox_string %}
             zoom_to_box(map, [{{ resource.bbox_string }}]);
@@ -191,18 +197,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
                         'opacity': 0.8
                     });
 
-            var url = '/qgis-server/wms_gfi';
-
-            L.tileLayer.betterWms(url, {
+            L.tileLayer.betterWms('{{ resource.ows_url|safe }}', {
               layers: '{{ resource.typename }}',
               transparent: true,
-              format: 'image/png'
+              format: 'image/png8'
             }).addTo(map);
 
         {%  elif resource.ptype == "gxp_wmscsource"  %}
             tile_layer = L.tileLayer.betterWms('{{ resource.ows_url|safe }}', {
                 layers: '{{ resource.typename }}',
-                format: 'image/png',
+                format: 'image/png8',
                 transparent: true,
                 'opacity': 0.8
             });
