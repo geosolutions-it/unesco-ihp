@@ -1,0 +1,119 @@
+{% load leaflet_tags %}
+
+{% leaflet_js %}
+{% leaflet_css %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.15/proj4-src.js"></script>
+
+<style>
+    .leaflet-container { /* all maps */
+        height: 400px;
+    }
+    .leaflet-container { /* all maps */
+        height: 400px;
+    }
+    
+    .leaflet-control-zoom, .leaflet-control-zoomslider {  /* all controls */
+        position: relative;
+        left: 0px !important;
+    }
+</style>
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function (event) {
+
+        /* set base layers */
+        var osm = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
+        });
+        var OpenMapSurfer_Roads = L.tileLayer('http://korona.geog.uni-heidelberg.de/tiles/roads/x={x}&y={y}&z={z}', {
+            maxZoom: 20,
+            attribution: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        });
+        var unesco = L.tileLayer(
+            'http://en.unesco.org/tiles/{z}/{x}/{y}.png', {
+            attribution: '&copy; unesco'
+        });
+        var base_maps = {
+            'OpenStreetMap': osm,
+            'OpenMapSurfer_Roads': OpenMapSurfer_Roads,
+            'unesco': unesco
+        };
+
+        /* init overlay layers */
+        var overlay_layers = {};
+        /* init custom layer */
+        var wmsLayer = null;
+
+        /* set coordinate systems */
+        var firstProjection = proj4('EPSG:3857');   // google mercator
+        var secondProjection = proj4('EPSG:4326');  // WGS84 web mercator
+
+        /* transform {{resource}} point coordinates from google mercator to WSG84 system */
+        var point_wsg84 = proj4(firstProjection,secondProjection,[{{ resource.center_x }}, {{ resource.center_y }}]);
+
+        /* initialize the map on the "the_map" div with a given center and zoom */
+        map = L.map('the_map').setView([point_wsg84[1], point_wsg84[0]],6);
+        map.setZoom({{ resource.zoom }});
+
+	//add elements to maps page
+        var scale_bar = L.control.scale().addTo(map);
+	//var attribution = L.control.attribution({prefix: 'UNESCO-IHP-Wins'}).addTo(map);
+        map.attributionControl.addAttribution('<a href="http://en.unesco.org/themes/water-security/hydrology", class="your_class">UNESCO-IHP-Wins</a>');
+
+    	L.Control.Watermark = L.Control.extend({
+        	onAdd: function(map) {
+            var img = L.DomUtil.create('img');
+
+            img.src = '../static/img/logo.png';
+            img.style.width = '120px';
+
+            return img;
+        	},
+
+        	onRemove: function(map) {
+            // Nothing to do here
+        	}
+    	});
+
+    	L.control.watermark = function(opts) {
+        	return new L.Control.Watermark(opts);
+    	}
+
+    	L.control.watermark({ position: 'bottomright' }).addTo(map);
+        
+        /* add initial base layer to the map */
+        map.addLayer(osm);
+
+        /* loop over the layers used by the map */
+        {% for layer in layers %}
+            if ("{{ layer.group }}" != 'background') {
+                /* if current layer not a background layer, instantiates a WMS tile layer object 
+                 * given the URL of the WMS service and a WMS parameters/options object.
+                 */
+                wmsLayer = L.tileLayer.wms('{{ layer.ows_url }}', {
+                    format: 'image/png',
+                    transparent: true,
+                    layers: '{{ layer.name }}',
+                    'opacity': 0.8
+                });   
+                /* add wmsLayer to the overlay_layers{} and to the map object itself */
+                if (wmsLayer != null) {
+                    overlay_layers["{{ layer.layer_title }}"] = wmsLayer;
+                    map.addLayer(wmsLayer);
+                }
+            }
+        {% endfor %}
+
+        /* add layers control to allow switching between different base layers and switching overlays on/off */
+        layerControl = L.control.layers(
+                base_maps, overlay_layers
+        ).addTo(map);
+    });
+
+    function zoom_to_box(map, bbox) {
+        var bounds = [
+            [bbox[1], bbox[0]],
+            [bbox[3], bbox[2]]
+        ];
+        map.fitBounds(bounds);
+    }
+</script>
