@@ -1,6 +1,6 @@
 data/
 qgis_tiles/**
-geonode_unesco/static_root/**
+ihp/static_root/**
 *.py[cod]
 
 # C extensions
@@ -57,3 +57,4 @@ TODO
 uploaded
 static_root
 
+local_settings.py
