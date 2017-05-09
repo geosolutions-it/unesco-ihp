@@ -23,7 +23,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'django-tastypie==0.11.0',
+        'django-tastypie',
         # 'geonode==2.5.4',
         # 'celery==3.1.18',
         'elasticsearch==2.4.1'  # workaround since geonode doesn't fix version
