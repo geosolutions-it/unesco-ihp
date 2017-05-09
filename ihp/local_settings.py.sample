@@ -19,7 +19,13 @@
 #########################################################################
 import os
 from kombu import Queue
-from geonode.settings import *
+
+try:
+    from geonode.local_settings import *
+except ImportError:
+    pass
+
+from ihp.settings import *
 
 PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 

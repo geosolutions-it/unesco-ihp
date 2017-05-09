@@ -21,7 +21,8 @@
 # Django settings for the GeoNode project.
 
 import os
-from ihp.local_settings import *
+
+from geonode.settings import *
 
 #
 # General Django development settings
