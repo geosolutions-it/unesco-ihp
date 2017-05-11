@@ -18,15 +18,13 @@
 #
 #########################################################################
 
-from django.conf.urls import include, patterns, url
+from django.conf.urls import url
 from django.views.generic import TemplateView
-
 
 from geonode.urls import urlpatterns
 
-
-
-urlpatterns += (# add specific tab for UNESCO
-                url(r'^timeseries/$', TemplateView.as_view(template_name='time_series.html'), name='time_series'),
+urlpatterns += (
+                url(r'^timeseries/$',
+                    TemplateView.as_view(template_name='time_series.html'),
+                    name='time_series'),
                 )
-
