@@ -19,8 +19,11 @@
 #########################################################################
 
 from django.conf.urls import include, patterns, url
+from django.views.generic import TemplateView
+
 
 from geonode.urls import urlpatterns
+
 
 
 urlpatterns += (# add specific tab for UNESCO
