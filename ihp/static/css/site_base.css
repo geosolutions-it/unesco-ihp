@@ -161,14 +161,6 @@ navbar-brand {font-family:Lato;font-size:30px}
 
 .navbar-nav>li>a:hover {font-weight:900;color:#6EAADE}
 
-.navbar-inverse {
-#    background-color: #2a93fc;
-    color:#3276B1;
-}
-
-.navbar-inverse .navbar-brand {
-    color: #004983;
-}
 .navbar>li>a {
     margin-left: -70px;
     padding: 8px 5px;
@@ -640,9 +632,10 @@ fieldset[disabled] .navbar-default .btn-link:hover,
 fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
+
 .navbar-inverse {
   background-color: #222;
-  border-color: #080808;
+  border-bottom: 3px solid #004983;
 }
 .navbar-inverse .navbar-brand {
   color: #9d9d9d;
@@ -656,12 +649,14 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #9d9d9d;
 }
 .navbar-inverse .navbar-nav > li > a {
-  color: #9d9d9d;
+  color: #004983;
+  font-weight: normal;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
-  color: #fff;
+  color: #004983;
   background-color: transparent;
+  font-weight: bold;
 }
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
@@ -1200,4 +1195,3 @@ padding:0;
     content: "\e200"}
 .glyphicon-chevron-right:before {
     content: "\224"}
-
