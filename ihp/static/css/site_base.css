@@ -202,8 +202,10 @@ navbar-brand {font-family:Lato;font-size:30px}
     z-index: 1030;
 }
 
-.navbar-right {position:relative;margin-top:-10px}
-
+.navbar-right {
+  position: relative;
+  margin-top: -10px;
+}
 
 .nav-tabs .dropdown-menu {
   margin-top: -1px;
@@ -531,6 +533,7 @@ navbar-brand {font-family:Lato;font-size:30px}
   .navbar-right {
     float: right !important;
     margin-right: -15px;
+    margin-top: -10px;
   }
   .navbar-right ~ .navbar-right {
     margin-right: 0;

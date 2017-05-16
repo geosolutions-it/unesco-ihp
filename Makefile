@@ -1,13 +1,13 @@
+# bring up the services
 up:
-	# bring up the services
 	docker-compose up -d
 
 build:
 	docker-compose build django
 	docker-compose build celery
 
+# set up the database tables
 sync:
-	# set up the database tablea
 	docker-compose run django python manage.py makemigrations --noinput
 	docker-compose exec django python manage.py migrate account --noinput
 	docker-compose run django python manage.py migrate --noinput
