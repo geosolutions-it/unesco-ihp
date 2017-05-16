@@ -99,7 +99,10 @@
             {% if user.is_authenticated %}
             <li>
               <a href="#" data-toggle="modal" data-target="#UserModal" role="button" aria-expanded="false">
-                {% avatar user 30 %} {{ user.username }}
+                {% avatar user 30 %}
+                {% with full_name=user.first_name | add:' ' | add:user.last_name %}
+                {{ full_name | truncatechars:20 }}
+                {% endwith %}
               </a>
             </li>
             {% else %}
