@@ -27,5 +27,10 @@ setup(
         # 'geonode==2.5.4',
         # 'celery==3.1.18',
         'elasticsearch==2.4.1'  # workaround since geonode doesn't fix version
+        'geonode-user-messages',
     ],
+
+      dependency_links=[
+        'https://github.com/GeoNode/geonode-user-messages/archive/master.zip#egg=geonode-user-messages-0.1.6',
+      ]
 )
