@@ -68,3 +68,6 @@ LOCALE_PATHS = (
 #                           'BIN': '/usr/bin/xvfb-run /usr/bin/wkhtmltopdf',
 #                           'ARGS': []}}
 
+
+
+USER_MESSAGES_ALLOW_MULTIPLE_RECIPIENTS = True
