@@ -101,7 +101,11 @@
               <a href="#" data-toggle="modal" data-target="#UserModal" role="button" aria-expanded="false">
                 {% avatar user 30 %}
                 {% with full_name=user.first_name|add:' '|add:user.last_name %}
-                {{ full_name | truncatechars:20 }}
+                  {% if full_name.strip %}
+                    {{ full_name | truncatechars:20 }}
+                  {% else %}
+                    {{ user.username | truncatechars:20 }}
+                  {% endif %}
                 {% endwith %}
               </a>
             </li>
