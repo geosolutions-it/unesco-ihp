@@ -49,7 +49,7 @@ STATICFILES_DIRS.append(
 
 # Note that Django automatically includes the "templates" dir in all the
 # INSTALLED_APPS, se there is no need to add maps/templates or admin/templates
-TEMPLATES[0]['DIRS'].insert(0, os.path.join(LOCAL_ROOT, "templates"))
+#TEMPLATES[0]['DIRS'].insert(0, os.path.join(LOCAL_ROOT, "templates"))
 TEMPLATES[0]['OPTIONS']['debug'] = True
 
 INSTALLED_APPS += ('ihp',)
@@ -69,5 +69,5 @@ LOCALE_PATHS = (
 #                           'ARGS': []}}
 
 
-
+ADMIN_MODERATE_UPLOADS = True
 USER_MESSAGES_ALLOW_MULTIPLE_RECIPIENTS = True
