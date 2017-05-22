@@ -1,7 +1,7 @@
 {% load i18n %}
+{% block content %}
 
-<article itemscope itemtype="http://schema.org/Dataset" class="description tab-pane {% if not tab or tab == 'info' %}active{% endif %}" id="info">
-  <dl class="dl-horizontal">
+<dl class="dl-horizontal">
     {% if resource.title %}
     <dt>{% trans "Title" %}</dt>
     <dd itemprop="name">{{ resource.title|truncatechars:80 }}</dd>
@@ -27,7 +27,7 @@
 
     {% if resource.abstract %}
     <dt>{% trans "Abstract" %}</dt>
-    <dd itemprop="description">{{ resource.abstract|escape|urlize|linebreaks|safe|truncatechars:1000 }}</dd>
+    <dd itemprop="description">{{ resource.abstract|escape|urlize|linebreaks|safe }}</dd>
     {% endif %}
 
     {% if resource.date %}
@@ -50,7 +50,7 @@
     <dt>{% trans "Keywords" %}</dt>
     <dd itemprop="keywords">
       {% for keyword in resource.keywords.all %}
-	<a itemscope itemtype="http://schema.org/Text" href="{% url "search" %}?keywords__slug__in={{ keyword.slug }}" >
+  <a itemscope itemtype="http://schema.org/Text" href="{% url "search" %}?keywords__slug__in={{ keyword.slug }}" >
           {{ keyword.name }}
         </a>
         {% if not forloop.last %},{% endif %}
@@ -117,9 +117,11 @@
       </dd>
     {% endif %}
 
-    {% if resource.maintenance_frequency %}
     <dt>{% trans "Maintenance Frequency" %}</dt>
+    {% if resource.maintenance_frequency %}
     <dd>{{ resource.maintenance_frequency_title }}</dd>
+    {% else %}
+    <dd></dd>
     {% endif %}
 
     {% if resource.restriction_code_type or resource.constraints_other %}
@@ -131,14 +133,16 @@
         {% endif %}</dd>
     {% endif %}
 
-    {% if resource.edition %}
     <dt>{% trans "Edition" %}</dt>
+    {% if resource.edition %}
     <dd>{{ resource.edition}}</dd>
+    {% else %}
+    <dd></dd>
     {% endif %}
 
     {% if resource.purpose %}
     <dt>{% trans "Purpose" %}</dt>
-    <dd>{{ resource.purpose|escape|urlize|linebreaks|safe|truncatechars:160 }}</dd>
+    <dd>{{ resource.purpose|escape|urlize|linebreaks|safe }}</dd>
     {% endif %}
 
     {% if resource.language %}
@@ -158,7 +162,7 @@
 
     {% if resource.supplemental_information %}
     <dt>{% trans "Supplemental Information" %}</dt>
-    <dd>{{ resource.supplemental_information|truncatechars:500|escape|urlize|linebreaks|safe }}</dd>
+    <dd>{{ resource.supplemental_information|escape|urlize|linebreaks|safe }}</dd>
     {% endif %}
 
     {% if resource.spatial_representation_type %}
@@ -170,4 +174,4 @@
 
   </dl>
 
-</article>
+  {% endblock %}
