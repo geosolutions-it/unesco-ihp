@@ -148,7 +148,9 @@
         // });
 
         var base_maps = {
-            "OpenMapSurfer_Roads": OpenMapSurfer_Roads,
+            //"OpenMapSurfer_Roads": OpenMapSurfer_Roads,
+            'UNESCO': unesco,
+            'UNESCO GEODATA': unesco_geodata,
             'OpenStreetMap': osm
         };
 
@@ -184,7 +186,8 @@
         L.control.watermark({ position: 'bottomright' }).addTo(map);
 
         // L.control.measureControl.addTo(map);
-        map.addLayer(OpenMapSurfer_Roads);
+        //map.addLayer(OpenMapSurfer_Roads);
+        map.addLayer(unesco);
 
         {% if resource.bbox_string %}
             zoom_to_box(map, [{{ resource.bbox_string }}]);

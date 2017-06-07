@@ -36,6 +36,8 @@ LOCAL_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 WSGI_APPLICATION = "ihp.wsgi.application"
 
+ADMIN_MODERATE_UPLOADS = True
+
 # Load more settings from a file called local_settings.py if it exists
 #try:
 #    from local_settings import *
@@ -52,7 +54,7 @@ STATICFILES_DIRS.append(
 TEMPLATES[0]['DIRS'].insert(0, os.path.join(LOCAL_ROOT, "templates"))
 TEMPLATES[0]['OPTIONS']['debug'] = True
 
-INSTALLED_APPS += ('ihp',)
+INSTALLED_APPS += ('pinax.notifications', 'ihp',)
 
 # Location of url mappings
 ROOT_URLCONF = 'ihp.urls'
