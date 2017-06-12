@@ -238,7 +238,7 @@ msgstr "Category is required."
 #: geonode/catalogue/templates/geonode_metadata_full.html:71
 #: geonode/templates/metadata_detail.html:110
 msgid "Owner"
-msgstr "Owner"
+msgstr "Responsible"
 
 #: geonode/base/forms.py:87
 #: geonode/base/templates/base/resourcebase_info_panel.html:34
@@ -547,7 +547,7 @@ msgstr "About"
 
 #: geonode/base/templates/base/_resourcebase_contact_snippet.html:5
 msgid "Owner, Point of Contact, Metadata Author"
-msgstr "Owner, Point of Contact, Metadata Author"
+msgstr "Responsible, Point of Contact, Metadata Author"
 
 #: geonode/base/templates/base/_resourcebase_snippet.html:27
 #: geonode/layers/templates/layers/layer_detail.html:414
@@ -4927,7 +4927,7 @@ msgstr "Categories"
 
 #: geonode/templates/search/_general_filters.html:33
 msgid "Owners"
-msgstr "Owners"
+msgstr "Responsibles"
 
 #: geonode/templates/search/_general_filters.html:49
 msgid "Date begins after:"
