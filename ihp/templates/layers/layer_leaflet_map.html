@@ -141,6 +141,11 @@
             attribution: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         });
 
+        var OpenStreetMap_HOT = L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>'
+        });
+
         // not yet available
         // var unesco_white = L.tileLayer(
         //     'http://en.unesco.org/tiles/white/{z}/{x}/{y}.png', {
@@ -151,7 +156,16 @@
             //"OpenMapSurfer_Roads": OpenMapSurfer_Roads,
             'UNESCO': unesco,
             'UNESCO GEODATA': unesco_geodata,
-            'OpenStreetMap': osm
+            'OpenStreetMap': osm,
+            'Humanitarian OpenStreetMap': OpenStreetMap_HOT,
+            {% for baselayer in map_baselayers %}
+                {% if "mapbox" in baselayer.args.0|lower %}
+                '{{ baselayer.args.0 }}': L.tileLayer('{{ baselayer.args.1.0 }}'.split('$').join(''), {})
+                    {% if not forloop.last %}
+                    ,
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
         };
 
         var overlay_layer = {};
