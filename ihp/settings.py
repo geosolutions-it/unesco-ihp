@@ -22,7 +22,13 @@
 
 import os
 
-from geonode.settings import *
+# Load more settings from a file called local_settings.py if it exists
+try:
+    from ihp.local_settings import *
+#    from geonode.local_settings import *
+except ImportError:
+    from geonode.settings import *
+
 
 #
 # General Django development settings
@@ -37,12 +43,6 @@ LOCAL_ROOT = os.path.abspath(os.path.dirname(__file__))
 WSGI_APPLICATION = "ihp.wsgi.application"
 
 ADMIN_MODERATE_UPLOADS = True
-
-# Load more settings from a file called local_settings.py if it exists
-#try:
-#    from local_settings import *
-#except ImportError:
-#    pass
 
 # Additional directories which hold static files
 STATICFILES_DIRS.append(
