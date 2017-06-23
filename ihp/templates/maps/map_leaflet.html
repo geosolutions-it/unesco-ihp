@@ -1,4 +1,5 @@
 {% load leaflet_tags %}
+{% load api_basemaps_tags %}
 
 {% leaflet_js %}
 {% leaflet_css %}
@@ -40,6 +41,29 @@
             attribution: 'Imagery from <a href="http://giscience.uni-hd.de/">GIScience Research Group @ University of Heidelberg</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         });
 
+        var OpenStreetMap_HOT = L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>'
+        });
+
+        var mapbox_url = 'https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}';
+        var mapbox_token = '{% mapbox_access_token %}';
+        var mapbox_attribution = '&copy; <a href="https://www.mapbox.com/about/maps/">Mapbox</a> &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <a href="https://www.mapbox.com/feedback/" target="_blank">Improve this map</a>';
+
+        var MapBox_SatelliteStreets = L.tileLayer(mapbox_url, {
+            id: 'satellite-streets-v9',
+            attribution: mapbox_attribution,
+            accessToken: mapbox_token,
+            maxZoom: 20
+        });
+
+        var MapBox_Streets = L.tileLayer(mapbox_url, {
+            id: 'streets-v9',
+            attribution: mapbox_attribution,
+            accessToken: mapbox_token,
+            maxZoom: 20
+        });
+
         // not yet available
         // var unesco_white = L.tileLayer(
         //     'http://en.unesco.org/tiles/white/{z}/{x}/{y}.png', {
@@ -50,7 +74,10 @@
             //"OpenMapSurfer_Roads": OpenMapSurfer_Roads,
             'UNESCO': unesco,
             'UNESCO GEODATA': unesco_geodata,
-            'OpenStreetMap': osm
+            'OpenStreetMap': osm,
+            'Humanitarian OpenStreetMap': OpenStreetMap_HOT,
+            'MapBox Satellite Streets': MapBox_SatelliteStreets,
+            'MapBox Streets': MapBox_Streets
         };
 
         /* init overlay layers */
