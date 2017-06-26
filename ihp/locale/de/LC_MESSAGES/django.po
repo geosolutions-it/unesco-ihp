@@ -547,7 +547,7 @@ msgstr "Über"
 
 #: geonode/base/templates/base/_resourcebase_contact_snippet.html:5
 msgid "Owner, Point of Contact, Metadata Author"
-msgstr "Owner, Point of Contact, Metadaten Urheber"
+msgstr "Eigentümer, Point of Contact, Metadaten Urheber"
 
 #: geonode/base/templates/base/_resourcebase_snippet.html:27
 #: geonode/layers/templates/layers/layer_detail.html:414
