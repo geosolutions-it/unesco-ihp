@@ -20,6 +20,7 @@
 
 from django.conf.urls import url
 from django.views.generic import TemplateView
+from ihp.content.views import terms_of_use_view
 
 from geonode.urls import urlpatterns
 
@@ -27,4 +28,7 @@ urlpatterns += (
                 url(r'^timeseries/$',
                     TemplateView.as_view(template_name='time_series.html'),
                     name='time_series'),
+                url(r'^terms-of-use$',
+                    terms_of_use_view,
+                    name='terms-of-use'),
                 )
