@@ -54,7 +54,7 @@ STATICFILES_DIRS.append(
 TEMPLATES[0]['DIRS'].insert(0, os.path.join(LOCAL_ROOT, "templates"))
 TEMPLATES[0]['OPTIONS']['debug'] = True
 
-INSTALLED_APPS += ('pinax.notifications', 'ihp',)
+INSTALLED_APPS += ('pinax.notifications', 'ihp', 'ihp.content')
 
 # Location of url mappings
 ROOT_URLCONF = 'ihp.urls'
