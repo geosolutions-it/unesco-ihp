@@ -42,8 +42,6 @@ LOCAL_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 WSGI_APPLICATION = "ihp.wsgi.application"
 
-ADMIN_MODERATE_UPLOADS = True
-
 # Additional directories which hold static files
 STATICFILES_DIRS.append(
     os.path.join(LOCAL_ROOT, "static"),
@@ -72,4 +70,7 @@ LOCALE_PATHS = (
 
 
 ADMIN_MODERATE_UPLOADS = True
+GROUP_PRIVATE_RESOURCES = True
+MODIFY_TOPICCATEGORY = False
 USER_MESSAGES_ALLOW_MULTIPLE_RECIPIENTS = True
+

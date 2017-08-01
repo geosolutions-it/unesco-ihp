@@ -100,17 +100,23 @@
             {% endif %}
             {% if user.is_authenticated %}
             <li>
-              <a href="#" data-toggle="modal" data-target="#UserModal" role="button" aria-expanded="false">
-                {% avatar user 30 %}
                 {% with full_name=user.first_name|add:' '|add:user.last_name %}
-                  {% if full_name.strip %}
-                    {{ full_name | truncatechars:20 }}
-                  {% else %}
-                    {{ user.username | truncatechars:20 }}
-                  {% endif %}
+                <a href="#" title="{{ full_name }}" data-toggle="modal" data-target="#UserModal" role="button" aria-expanded="false">{% avatar user 30 %}
+                    <span class="fullname">
+                            {% if full_name.strip %}
+                                {{ full_name | truncatechars:20 }}
+                            {% else %}
+                                {{ user.username | truncatechars:20 }}
+                            {% endif %}
+                    </span>
+                </a>
                 {% endwith %}
-                {{ user|unread_threads }}
-              </a>
+            </li>
+            <li>
+                  <a href="{% url "messages_inbox" %}">
+                    <i class="fa fa-inbox fa-stack-2x"></i>
+                    <strong class="fa-stack-1x userthreads">{{ user|unread_threads }}</strong>
+                  </a>
             </li>
             {% else %}
             <li>
