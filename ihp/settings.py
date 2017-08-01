@@ -68,9 +68,8 @@ LOCALE_PATHS = (
 #                           'BIN': '/usr/bin/xvfb-run /usr/bin/wkhtmltopdf',
 #                           'ARGS': []}}
 
-
+FREETEXT_KEYWORDS_READONLY = True
 ADMIN_MODERATE_UPLOADS = True
 GROUP_PRIVATE_RESOURCES = True
-MODIFY_TOPICCATEGORY = False
+MODIFY_TOPICCATEGORY = True
 USER_MESSAGES_ALLOW_MULTIPLE_RECIPIENTS = True
-
