@@ -329,26 +329,36 @@ MAP_BASELAYERS = [{
     "visibility": False,
     "fixed": True,
     "group":"background"
-# }, {
-#     "source": {"ptype": "gxp_xyzlayersource"},
-#     "title": "UNESCO",
-#     "tileStreamLayerName": "UNESCO",
-#     "tileStreamLayerURL": "http://en.unesco.org/tiles/${z}/${x}/${y}.png",
-#     "tileStreamLayerAttribution": "&copy; UNESCO",
-#     "name": "background",
-#     "visibility": False,
-#     "fixed": True,
-#     "group":"background"
-# }, {
-#     "source": {"ptype": "gxp_xyzlayersource"},
-#     "title": "UNESCO GEODATA",
-#     "tileStreamLayerName": "UNESCO GEODATA",
-#     "tileStreamLayerURL": "http://en.unesco.org/tiles/geodata/${z}/${x}/${y}.png",
-#     "tileStreamLayerAttribution": "&copy; UNESCO",
-#     "name": "background",
-#     "visibility": False,
-#     "fixed": True,
-#     "group":"background"
+}, {
+    "source": {"ptype": "gxp_olsource"},
+    "type": "OpenLayers.Layer.XYZ",
+    "title": "Humanitarian OpenStreetMap",
+    "args": ["Humanitarian OpenStreetMap", "http://a.tile.openstreetmap.fr/hot/${z}/${x}/${y}.png"],
+    "name": "background",
+    "attribution": "&copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>, Tiles courtesy of <a href='http://hot.openstreetmap.org/' target='_blank'>Humanitarian OpenStreetMap Team</a>",
+    "visibility": False,
+    "fixed": True,
+    "group":"background"
+}, {
+    "source": {"ptype": "gxp_olsource"},
+    "type": "OpenLayers.Layer.XYZ",
+    "title": "MapBox Satellite Streets",
+    "args": ["MapBox Satellite Streets", "http://api.mapbox.com/styles/v1/mapbox/satellite-streets-v9/tiles/${z}/${x}/${y}?access_token="+MAPBOX_ACCESS_TOKEN],
+    "name": "background",
+    "attribution": "&copy; <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> &copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <a href='https://www.mapbox.com/feedback/' target='_blank'>Improve this map</a>",
+    "visibility": False,
+    "fixed": True,
+    "group":"background"
+}, {
+    "source": {"ptype": "gxp_olsource"},
+    "type": "OpenLayers.Layer.XYZ",
+    "title": "MapBox Streets",
+    "args": ["MapBox Streets", "http://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/${z}/${x}/${y}?access_token="+MAPBOX_ACCESS_TOKEN],
+    "name": "background",
+    "attribution": "&copy; <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> &copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <a href='https://www.mapbox.com/feedback/' target='_blank'>Improve this map</a>",
+    "visibility": False,
+    "fixed": True,
+    "group":"background"
 }, {
     "source": {"ptype": "gxp_osmsource"},
     "type": "OpenLayers.Layer.OSM",
@@ -408,8 +418,10 @@ CELERYD_CONCURENCY = 1
 # Set HAYSTACK_SEARCH to True
 # Run "python manage.py rebuild_index"
 HAYSTACK_SEARCH = False
+
 # Avoid permissions prefiltering
-SKIP_PERMS_FILTER = True
+SKIP_PERMS_FILTER = False
+
 # Update facet counts from Haystack
 HAYSTACK_FACET_COUNTS = False
 HAYSTACK_CONNECTIONS = {
