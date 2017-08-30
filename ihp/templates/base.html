@@ -104,9 +104,9 @@
                 <a href="#" title="{{ full_name }}" data-toggle="modal" data-target="#UserModal" role="button" aria-expanded="false">{% avatar user 30 %}
                     <span class="fullname">
                             {% if full_name.strip %}
-                                {{ full_name | truncatechars:20 }}
+                                {{ full_name | truncatechars:15 }}
                             {% else %}
-                                {{ user.username | truncatechars:20 }}
+                                {{ user.username | truncatechars:15 }}
                             {% endif %}
                     </span>
                 </a>
