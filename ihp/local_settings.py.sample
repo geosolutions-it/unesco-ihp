@@ -32,6 +32,11 @@ SECRET_KEY = '************************'
 
 TIME_ZONE = 'Europe/Paris'
 
+LANGUAGES = (
+    ('en', "English"),
+    ('fr', "Français"),
+)
+
 # prevent signing up by default
 ACCOUNT_OPEN_SIGNUP = True
 ACCOUNT_EMAIL_CONFIRMATION_EMAIL = True
@@ -305,15 +310,6 @@ MAP_BASELAYERS = [{
     "fixed": True,
     "group":"background"
 }, {
-    "source": {"ptype": "gxp_osmsource"},
-    "type": "OpenLayers.Layer.OSM",
-    "title": "OpenStreetMap",
-    "name": "mapnik",
-    "attribution": "&copy; <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors",
-    "visibility": True,
-    "fixed": True,
-    "group": "background"
-}, {
     "source": {"ptype": "gxp_olsource"},
     "type": "OpenLayers.Layer.XYZ",
     "title": "UNESCO",
@@ -353,6 +349,15 @@ MAP_BASELAYERS = [{
 #     "visibility": False,
 #     "fixed": True,
 #     "group":"background"
+}, {
+    "source": {"ptype": "gxp_osmsource"},
+    "type": "OpenLayers.Layer.OSM",
+    "title": "OpenStreetMap",
+    "name": "mapnik",
+    "attribution": "&copy; <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors",
+    "visibility": True,
+    "fixed": True,
+    "group": "background"
 }]
 
 

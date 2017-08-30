@@ -173,9 +173,9 @@
 
         var base_maps = {
             //"OpenMapSurfer_Roads": OpenMapSurfer_Roads,
+            'OpenStreetMap': osm,
             'UNESCO': unesco,
             'UNESCO GEODATA': unesco_geodata,
-            'OpenStreetMap': osm,
             'Humanitarian OpenStreetMap': OpenStreetMap_HOT,
             'MapBox Satellite Streets': MapBox_SatelliteStreets,
             'MapBox Streets': MapBox_Streets
@@ -214,7 +214,8 @@
 
         // L.control.measureControl.addTo(map);
         //map.addLayer(OpenMapSurfer_Roads);
-        map.addLayer(unesco);
+        //map.addLayer(unesco);
+        map.addLayer(osm);
 
         {% if resource.bbox_string %}
             zoom_to_box(map, [{{ resource.bbox_string }}]);

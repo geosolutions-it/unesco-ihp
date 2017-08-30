@@ -72,9 +72,9 @@
 
         var base_maps = {
             //"OpenMapSurfer_Roads": OpenMapSurfer_Roads,
+            'OpenStreetMap': osm,
             'UNESCO': unesco,
             'UNESCO GEODATA': unesco_geodata,
-            'OpenStreetMap': osm,
             'Humanitarian OpenStreetMap': OpenStreetMap_HOT,
             'MapBox Satellite Streets': MapBox_SatelliteStreets,
             'MapBox Streets': MapBox_Streets
@@ -96,9 +96,9 @@
         map = L.map('the_map').setView([point_wsg84[1], point_wsg84[0]],6);
         map.setZoom({{ resource.zoom }});
 
-	//add elements to maps page
+        //add elements to maps page
         var scale_bar = L.control.scale().addTo(map);
-	//var attribution = L.control.attribution({prefix: 'UNESCO-IHP-Wins'}).addTo(map);
+        //var attribution = L.control.attribution({prefix: 'UNESCO-IHP-Wins'}).addTo(map);
         map.attributionControl.addAttribution('<a href="http://en.unesco.org/themes/water-security/hydrology", class="your_class">UNESCO-IHP-Wins</a>');
 
     	L.Control.Watermark = L.Control.extend({
@@ -124,7 +124,8 @@
         
         /* add initial base layer to the map */
         //map.addLayer(OpenMapSurfer_Roads);
-        map.addLayer(unesco);
+        //map.addLayer(unesco);
+        map.addLayer(osm);
 
         /* loop over the layers used by the map */
         {% for layer in layers %}
