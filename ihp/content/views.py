@@ -1,6 +1,12 @@
 from django.shortcuts import redirect
 from django.http.response import HttpResponseNotFound
 from .models import TermsOfUse
+from .forms import SignupForm
+import account.views
+
+
+class SignupView(account.views.SignupView):
+   form_class = SignupForm
 
 
 def terms_of_use_view(request):
