@@ -1,7 +1,12 @@
 from django import forms
-from django.forms.extras.widgets import SelectDateWidget
+from django.utils.safestring import mark_safe
 import account.forms
 
 
 class SignupForm(account.forms.SignupForm):
-    accept = forms.BooleanField(required=True, label='I Accept Terms and Conditions')
+    accept = forms.BooleanField(
+        required=True,
+        label=mark_safe(
+            'I agree to the IHP-WINS <a href="/terms-of-use" target="_blank">Terms of Use</a>'
+        )
+    )
