@@ -24,9 +24,11 @@ from django.utils.datastructures import OrderedDict
 
 
 def populate_username(first_name, last_name):
-    fname = first_name.capitalize()
-    lname = last_name.capitalize()
-    return '{}.{}'.format(fname, lname)
+    fname = u''.join(e for e in first_name if e.isalnum()).lower()
+    lname = u''.join(e for e in last_name if e.isalnum()).lower()
+    import string
+    printable = set(string.printable)
+    return filter(lambda x: x in printable, u'{}.{}'.format(fname, lname).encode('utf-8').strip())
 
 
 class IHPAppConfig(AppConfig):
@@ -51,8 +53,8 @@ class IHPAppConfig(AppConfig):
         view.generate_username = generate_username
 
     def on_signed_up(self, user, form, *args, **kwargs):
-        user.first_name = form.cleaned_data['first_name']
-        user.last_name = form.cleaned_data['last_name']
+        user.first_name = ''.join(e for e in form.cleaned_data['first_name'] if e.isalnum())
+        user.last_name = ''.join(e for e in form.cleaned_data['last_name'] if e.isalnum())
         user.save()
         form.cleaned_data['username'] = user.username
 

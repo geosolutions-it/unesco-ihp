@@ -89,6 +89,12 @@
     <dt>{% trans "Point of Contact" %}</dt>
     <dd><a href="{{ resource.poc.user.get_absolute_url }}">{{ resource.poc.user.username }}</a></dd>
     {% endif %}
+
+    {% if resource.group %}
+    <dt>{% trans "Group" %}</dt>
+    <dd><a href="/groups/group/{{ resource.group.name }}/activity/">{{ resource.group.name }}</a> </dd>
+    {% endif %}
+
   </dl>
 
   <dl class="dl-horizontal">
