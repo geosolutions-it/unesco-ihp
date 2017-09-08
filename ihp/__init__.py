@@ -18,15 +18,15 @@
 #
 #########################################################################
 
+import string
 from django import forms
 from django.apps import AppConfig
 from django.utils.datastructures import OrderedDict
 
 
 def populate_username(first_name, last_name):
-    fname = u''.join(e for e in first_name if e.isalnum()).lower()
-    lname = u''.join(e for e in last_name if e.isalnum()).lower()
-    import string
+    fname = u''.join(e for e in first_name if e in string.ascii_letters).lower()
+    lname = u''.join(e for e in last_name if e in string.ascii_letters).lower()
     printable = set(string.printable)
     return filter(lambda x: x in printable, u'{}.{}'.format(fname, lname).encode('utf-8').strip())
 

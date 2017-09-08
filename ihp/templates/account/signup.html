@@ -37,9 +37,27 @@
 
 {% block extra_script %}
 {{ block.super }}
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#id_username').focus();
-        });
-    </script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#id_username').focus();
+    });
+  </script>
+
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      function filterKeyStrokes(event) {
+        const character = String.fromCharCode(event.which);
+        if (/^[a-zA-Z]*$/.test(character) || event.which < ' '.charCodeAt(0)) {
+          return true;
+        }
+        return false;
+      }
+
+      const first_name_input = $("#id_first_name");
+      const last_name_input = $("#id_last_name");
+      first_name_input.keypress(filterKeyStrokes);
+      last_name_input.keypress(filterKeyStrokes);
+    });
+  </script>
 {% endblock %}
