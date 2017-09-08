@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GeoNode\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-08 11:37+0200\n"
+"POT-Creation-Date: 2017-09-08 16:01+0200\n"
 "PO-Revision-Date: 2016-08-23 13:57+0000\n"
 "Last-Translator: Julien Collaer <julien.collaer@opengeode.be>\n"
 "Language-Team: Romanian (http://www.transifex.com/geonode/geonode/language/"
@@ -36,12 +36,37 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
 "2:1));\n"
 
+#: ihp/content/forms.py:8
+#, fuzzy
+#| msgid "style name"
+msgid "First name"
+msgstr "Numele de stil"
+
+#: ihp/content/forms.py:10
+#, fuzzy
+#| msgid "style name"
+msgid "Last name"
+msgstr "Numele de stil"
+
+#: ihp/content/forms.py:14
+msgid "I agree to the IHP-WINS Terms of use"
+msgstr ""
+
 #: ihp/templates/account/signup.html:7 ihp/templates/account/signup.html:11
-#: ihp/templates/account/signup.html:24
+#: ihp/templates/account/signup.html:25
 msgid "Sign up"
 msgstr "Înregistrează-te"
 
-#: ihp/templates/account/signup.html:29
+#: ihp/templates/account/signup.html:23
+msgid ""
+"Before start using this service you must carefully read and agree to the"
+msgstr ""
+
+#: ihp/templates/account/signup.html:23 ihp/templates/mybase.html:23
+msgid "Terms of use"
+msgstr ""
+
+#: ihp/templates/account/signup.html:30
 msgid "Sorry, registrations are not open at this time."
 msgstr "Ne pare rău, înregistrările nu sunt deschise în acest moment."
 
@@ -810,10 +835,6 @@ msgstr "Metadata Autor"
 msgid "About Us"
 msgstr "Despre"
 
-#: ihp/templates/mybase.html:23
-msgid "Terms of use"
-msgstr ""
-
 #: ihp/templates/mybase.html:24
 #, fuzzy
 #| msgid "Getting Started"
@@ -860,7 +881,7 @@ msgstr "Clar"
 #: ihp/templates/search/_search_content.html:34
 #, python-format
 msgid "%(facet_type | title)s"
-msgid_plural "%(facet_type | title)ss"
+msgid_plural "%(facet_type | title)s"
 msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
@@ -1484,9 +1505,6 @@ msgstr ""
 
 #~ msgid "Remove selected maps/data"
 #~ msgstr "Scoateți hărți selectate / date"
-
-#~ msgid "style name"
-#~ msgstr "Numele de stil"
 
 #~ msgid "sld text"
 #~ msgstr "Text SLD"

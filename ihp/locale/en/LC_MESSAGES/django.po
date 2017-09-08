@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GeoNode\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-08 11:37+0200\n"
+"POT-Creation-Date: 2017-09-08 16:01+0200\n"
 "PO-Revision-Date: 2016-08-23 13:57+0000\n"
 "Last-Translator: Julien Collaer <julien.collaer@opengeode.be>\n"
 "Language-Team: English (http://www.transifex.com/geonode/geonode/language/"
@@ -34,12 +34,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ihp/content/forms.py:8
+#, fuzzy
+#| msgid "style name"
+msgid "First name"
+msgstr "style name"
+
+#: ihp/content/forms.py:10
+#, fuzzy
+#| msgid "style name"
+msgid "Last name"
+msgstr "style name"
+
+#: ihp/content/forms.py:14
+msgid "I agree to the IHP-WINS Terms of use"
+msgstr ""
+
 #: ihp/templates/account/signup.html:7 ihp/templates/account/signup.html:11
-#: ihp/templates/account/signup.html:24
+#: ihp/templates/account/signup.html:25
 msgid "Sign up"
 msgstr "Sign up"
 
-#: ihp/templates/account/signup.html:29
+#: ihp/templates/account/signup.html:23
+msgid ""
+"Before start using this service you must carefully read and agree to the"
+msgstr ""
+
+#: ihp/templates/account/signup.html:23 ihp/templates/mybase.html:23
+#, fuzzy
+#| msgid "The user"
+msgid "Terms of use"
+msgstr "The user"
+
+#: ihp/templates/account/signup.html:30
 msgid "Sorry, registrations are not open at this time."
 msgstr "Sorry, registrations are not open at this time."
 
@@ -802,12 +829,6 @@ msgstr "Metadata Author"
 msgid "About Us"
 msgstr "About"
 
-#: ihp/templates/mybase.html:23
-#, fuzzy
-#| msgid "The user"
-msgid "Terms of use"
-msgstr "The user"
-
 #: ihp/templates/mybase.html:24
 #, fuzzy
 #| msgid "Getting Started"
@@ -854,7 +875,7 @@ msgstr "Clear"
 #: ihp/templates/search/_search_content.html:34
 #, python-format
 msgid "%(facet_type | title)s"
-msgid_plural "%(facet_type | title)ss"
+msgid_plural "%(facet_type | title)s"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -1690,9 +1711,6 @@ msgstr ""
 
 #~ msgid "YYYYMMDD'T'hhmmss'Z'"
 #~ msgstr "YYYYMMDD'T'hhmmss'Z'"
-
-#~ msgid "style name"
-#~ msgstr "style name"
 
 #~ msgid "sld text"
 #~ msgstr "sld text"

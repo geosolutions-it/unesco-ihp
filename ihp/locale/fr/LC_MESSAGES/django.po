@@ -32,8 +32,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GeoNode\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-08 11:37+0200\n"
-"PO-Revision-Date: 2017-09-08 11:38+0200\n"
+"POT-Creation-Date: 2017-09-08 16:01+0200\n"
+"PO-Revision-Date: 2017-09-08 16:02+0200\n"
 "Last-Translator: Julien Collaer <julien.collaer@opengeode.be>\n"
 "Language-Team: French (http://www.transifex.com/geonode/geonode/language/"
 "fr/)\n"
@@ -44,12 +44,35 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 2.0.3\n"
 
+#: ihp/content/forms.py:8
+msgid "First name"
+msgstr "Prénom"
+
+#: ihp/content/forms.py:10
+msgid "Last name"
+msgstr "Nom de famille"
+
+#: ihp/content/forms.py:14
+msgid "I agree to the IHP-WINS Terms of use"
+msgstr "J’accepte les Conditions d’utilisation"
+
 #: ihp/templates/account/signup.html:7 ihp/templates/account/signup.html:11
-#: ihp/templates/account/signup.html:24
+#: ihp/templates/account/signup.html:25
 msgid "Sign up"
 msgstr "S'identifier"
 
-#: ihp/templates/account/signup.html:29
+#: ihp/templates/account/signup.html:23
+msgid ""
+"Before start using this service you must carefully read and agree to the"
+msgstr ""
+"Avant de commencer à utiliser ce service, vous devez soigneusement lu et "
+"j’accepte les"
+
+#: ihp/templates/account/signup.html:23 ihp/templates/mybase.html:23
+msgid "Terms of use"
+msgstr "Conditions d’utilisation"
+
+#: ihp/templates/account/signup.html:30
 msgid "Sorry, registrations are not open at this time."
 msgstr ""
 "Désolé, les inscriptions de nouveaux utilisateurs ne sont pas ouvertes pour "
@@ -796,10 +819,6 @@ msgstr "Auteur des métadonnées"
 msgid "About Us"
 msgstr "À propos"
 
-#: ihp/templates/mybase.html:23
-msgid "Terms of use"
-msgstr "L'utilisateur"
-
 #: ihp/templates/mybase.html:24
 msgid "Get Started"
 msgstr "Démarrer avec GeoNode"
@@ -844,9 +863,9 @@ msgstr "Vider"
 #: ihp/templates/search/_search_content.html:34
 #, python-format
 msgid "%(facet_type | title)s"
-msgid_plural "%(facet_type | title)ss"
-msgstr[0] ""
-msgstr[1] ""
+msgid_plural "%(facet_type | title)s"
+msgstr[0] "%(facet_type | title)s"
+msgstr[1] "%(facet_type | title)s"
 
 #: ihp/templates/search/_search_content.html:34
 msgid "found"
@@ -859,6 +878,9 @@ msgstr "Série temporelle"
 #: ihp/templates/time_series.html:12
 msgid "Coming soon..."
 msgstr "À venir…"
+
+#~ msgid "I agree to the"
+#~ msgstr "J’accepte"
 
 #~ msgid "Homepage - Hall of Fame"
 #~ msgstr "Acceuil - Hall of Fame"
@@ -1637,9 +1659,6 @@ msgstr "À venir…"
 
 #~ msgid "A Layer was deleted"
 #~ msgstr "Une couche a été supprimée"
-
-#~ msgid "style name"
-#~ msgstr "nom du style"
 
 #~ msgid "sld text"
 #~ msgstr "texte du sld"
