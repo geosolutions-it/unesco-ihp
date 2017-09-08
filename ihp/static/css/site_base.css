@@ -38,6 +38,10 @@ body
 footer {
     background: rgb(32, 59, 100);
     padding: 1.5em;
+    bottom: -10px;
+    right: 0px;
+    position: fixed;
+    left: 0px;
 }
 
 footer a {

@@ -20,7 +20,9 @@
 
 from django.conf.urls import url
 from django.views.generic import TemplateView
-from ihp.content.views import terms_of_use_view, SignupView
+from ihp.content.views import (terms_of_use_view,
+                               about_us_content_view,
+                               SignupView)
 
 import geonode.urls
 
@@ -33,6 +35,9 @@ urlpatterns = [
                 url(r'^terms-of-use$',
                     terms_of_use_view,
                     name='terms-of-use'),
+                url(r'^about-us$',
+                    about_us_content_view,
+                    name='about-us'),
                 url(r'^account/signup/$',
                     SignupView.as_view(),
                     name="account_signup"),

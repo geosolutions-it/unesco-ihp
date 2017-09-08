@@ -1,0 +1,95 @@
+{% extends "layers/layer_base.html" %}
+{% load i18n %}
+{% load dialogos_tags %}
+{% load agon_ratings_tags %}
+{% load bootstrap_tags %}
+{% load pagination_tags %}
+{% load url from future %}
+{% load base_tags %}
+{% load guardian_tags %}
+
+{% block title %}{% trans "About Us" %} — {{ block.super }}{% endblock %}
+
+{% block head %}
+{{ block.super }}
+
+<style>
+
+    #banner {
+        background: url({{ STATIC_URL }}/img/IHP-WINS_logo_letter.png) 1px 0 no-repeat;
+        /* background-size: 100% 100%; */
+        /* background-color: lightblue; */
+        width: 100%;
+        min-width: 800px;
+        height: 100%;
+        z-index: 0;
+        position: fixed;
+        opacity: 0.8;
+        left: 10px;
+        top: 180px;
+    }
+
+    #left {
+        float: left;
+        margin: 5px 0 0 10px;
+        /* height: 40px; */
+    }
+
+    #right {
+        float: right;
+        margin: 5px 10px 0 0;
+        /* height: 40px; */
+    }
+
+</style>
+
+{% endblock %}
+
+{% block middle %}
+   {{ block.super }}
+  {% block hero %}
+
+<div id="banner">
+    <!-- img id="left" src="{{ STATIC_URL }}/img/IHP-WINS logo letter.png" / -->
+</div>
+
+  {% endblock %}
+
+  {% block mainbody %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div class="row">
+
+                                <div class="page-header">
+                                    {% if lang == 'en' %}
+                                        <h2 class="page-title">{{ obj.title_en }}</h2>
+                                    {% elif lang == 'fr' %}
+                                        <h2 class="page-title">{{ obj.title_fr }}</h2>
+                                    {% endif %}
+                                </div>
+
+                                <div class="row">
+                                  <div class="col-md-8">
+                                  {% autoescape off %}
+                                    {% if lang == 'en' %}
+                                        <div>{{ obj.content_en }}</div>
+                                    {% elif lang == 'fr' %}
+                                        <div>{{ obj.content_fr }}</div>
+                                    {% endif %}
+                                  {% endautoescape %}
+                                  </div> <!-- col-md-4 -->
+
+                                  <div class="col-md-4">  
+                                  </div> <!-- col-md-4 -->
+                                </div> <!-- row -->
+                </div>
+            </div>
+        </div>
+    </div>
+ {% endblock %}
+{% endblock %}
+
+{% block extra_script %}
+{{ block.super }}
+{% endblock extra_script %}
