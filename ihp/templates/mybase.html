@@ -5,39 +5,52 @@
     <footer class="footer"  style="font-size:11px;">
       <div class="container">
         <div class="row">
-          <div class="col-md-4">
-            <img src="{{ STATIC_URL }}img/logo_ihp_alpha.png" style="margin-left:40px;width:300px" alt="UNESCO-International Hydrological Programme"/>
-          </div>
-          <div class="col-md-4" style="margin-top:-20px; font-size:12px;color: #5e5e5e; font-family:Monda,Andale Mono, monospace;">
-          <br>The International Hydrological Programme (IHP)
-          <br>UNESCO/Division of Water Sciences (SC/HYD)
-          <br>7, place Fontenoy
-          <br>75352 Paris Cedex 07 FRANCE
-          <br>
-          <br>Tel : +33 1 45 68 40 01
-          <br>Email : <a href="mailto:ihp-wins@unesco.org">ihp-wins@unesco.org</a>
-          <br><a href="{% url 'terms-of-use' %}">Terms of use</a>
-          <br>
-          <p><a target="_blank" style="{color:green; background-color:transparent; text-decoration:none}" href="http://www.en.unesco.org/ihp-wins">www.en.unesco.org/ihp-wins</a></p>
-          </div>
-          <div class="col-md-4">
-          <!-- <div class="col-md-4" style="font-size:10px;font-family:Monda,Andale Mono, monospace;"> -->
-            <label class="hidden">{% trans "Language" %}</label>
-            {% if csrf_token != "NOTPROVIDED" %}
-            {% get_current_language as LANGUAGE %}
-            <form class="form-inline" action="/i18n/setlang/" method="post">
-            {% csrf_token %}
-              <select class="col-md-6 pull-right" name="language" onchange="javascript:form.submit()">
-                {% for lang in LANGUAGES %}
-                <option value="{{ lang.0 }}" {% ifequal LANGUAGE_CODE lang.0 %} selected="selected"{% endifequal %}>
-                  {{ lang.1 }}
-                </option>
-                {% endfor %}
-              </select>
-            </form>
-            {% endif %}
-          </div>
-         </div>
+            <div class="col-sm-2 col-md-2">
+                <div class="row">
+                    <!-- div1 -->
+                    <div class="col-sm-12 col-md-6" >
+                        <a href="http://en.unesco.org/ihp-wins" target="_new">
+                            <img src="{{ STATIC_URL }}img/unesco_ihp_sdg_en_white_transparent.png" style="margin-left:10px;width:100px" alt="UNESCO-International Hydrological Programme"/>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <div class="row">
+                    <!-- div2 -->
+                    <div class="col-sm-12 col-md-12" style="margin-top:5px;font-size:12px;color: #ffffff; font-family:Monda,Andale Mono, monospace;font-size: medium;font-weight: bold;">
+                        About Us &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="{% url 'terms-of-use' %}" target="_new">Terms of use</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                        Get Started &nbsp;&nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <div class="row">
+                    <!-- div3 -->
+                    <div class="col-sm-12 col-md-6" >
+                        <label class="hidden">{% trans "Language" %}</label>
+                        {% if csrf_token != "NOTPROVIDED" %}
+                        {% get_current_language as LANGUAGE %}
+                        <form class="form-inline" action="/i18n/setlang/" method="post">
+                        {% csrf_token %}
+                          <select class="col-sm-12 pull-right" name="language" onchange="javascript:form.submit()">
+                            {% for lang in LANGUAGES %}
+                            <option value="{{ lang.0 }}" {% ifequal LANGUAGE_CODE lang.0 %} selected="selected"{% endifequal %}>
+                              {{ lang.1 }}
+                            </option>
+                            {% endfor %}
+                          </select>
+                        </form>
+                        {% endif %}
+                    </div>
+
+                    <!-- div4 -->
+                    <div class="col-sm-12 col-md-6" style="margin-top:5px;font-size:12px;color: #ffffff; font-family:Monda,Andale Mono, monospace;">
+                        Powered by <a href="http://www.geonode.org" target="_new"><img src="{{ STATIC_URL }}img/geonode_logo.png" style="margin-left:10px;width:80px" alt="GeoNode"/></a>
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
     </footer>
