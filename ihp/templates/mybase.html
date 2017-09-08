@@ -19,9 +19,9 @@
                 <div class="row">
                     <!-- div2 -->
                     <div class="col-sm-12 col-md-12" style="margin-top:5px;font-size:12px;color: #ffffff; font-family:Monda,Andale Mono, monospace;font-size: medium;font-weight: bold;">
-                        About Us &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="{% url 'terms-of-use' %}" target="_new">Terms of use</a> &nbsp;&nbsp;&nbsp;&nbsp;
-                        Get Started &nbsp;&nbsp;&nbsp;&nbsp;
+                        {% trans "About Us" %} &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="{% url 'terms-of-use' %}" target="_new">{% trans "Terms of use" %}</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                        {% trans "Get Started" %} &nbsp;&nbsp;&nbsp;&nbsp;
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
 
                     <!-- div4 -->
                     <div class="col-sm-12 col-md-6" style="margin-top:5px;font-size:12px;color: #ffffff; font-family:Monda,Andale Mono, monospace;">
-                        Powered by <a href="http://www.geonode.org" target="_new"><img src="{{ STATIC_URL }}img/geonode_logo.png" style="margin-left:10px;width:80px" alt="GeoNode"/></a>
+                        {% trans "Powered by" %} <a href="http://www.geonode.org" target="_new"><img src="{{ STATIC_URL }}img/geonode_logo.png" style="margin-left:10px;width:80px" alt="GeoNode"/></a>
                     </div>
                 </div>
             </div>

@@ -29,7 +29,7 @@ msgstr ""
 "Project-Id-Version: GeoNode\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-25 02:28-0500\n"
-"PO-Revision-Date: 2016-08-23 11:58+0000\n"
+"PO-Revision-Date: 2017-09-08 11:31+0200\n"
 "Last-Translator: Julien Collaer <julien.collaer@opengeode.be>\n"
 "Language-Team: French (http://www.transifex.com/geonode/geonode/language/"
 "fr/)\n"
@@ -38,6 +38,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 2.0.3\n"
 
 #: geonode/static/geonode/js/search/search.js:373
 msgid "Enter your text here ..."
@@ -50,7 +51,7 @@ msgstr "Entrer votre région ici ..."
 #: geonode/static/geonode/js/upload/FileType.js:33
 #, javascript-format
 msgid "Missing a %s file, which is required"
-msgstr "Il manque un fichier %s, qui est obligatoire."
+msgstr "Il manque un fichier %s, qui est obligatoire"
 
 #: geonode/static/geonode/js/upload/FileTypes.js:7
 msgid "ESRI Shapefile"
@@ -88,43 +89,43 @@ msgstr "National Imagery Transmission Format"
 
 #: geonode/static/geonode/js/upload/FileTypes.js:61
 msgid "Controlled Image Base-1 Meter"
-msgstr ""
+msgstr "Base d'image contrôlée-1 Meter"
 
 #: geonode/static/geonode/js/upload/FileTypes.js:68
 msgid "Controlled Image Base-5 Meter"
-msgstr ""
+msgstr "Base d'images contrôlée-5 mètres"
 
 #: geonode/static/geonode/js/upload/FileTypes.js:75
 msgid "Controlled Image Base-10 Meter"
-msgstr ""
+msgstr "Base d'images contrôlée-10 mètres"
 
 #: geonode/static/geonode/js/upload/FileTypes.js:82
 msgid "CADRG-Global Navigation Chart"
-msgstr ""
+msgstr "CADRG-Carte de navigation mondiale"
 
 #: geonode/static/geonode/js/upload/FileTypes.js:89
 msgid "CADRG-Jet Navigation Chart"
-msgstr ""
+msgstr "Tableau de navigation CADRG-Jet"
 
 #: geonode/static/geonode/js/upload/FileTypes.js:96
 msgid "CADRG-Operational Navigation Chart"
-msgstr ""
+msgstr "Graphique de navigation opérationnelle CADRG"
 
 #: geonode/static/geonode/js/upload/FileTypes.js:103
 msgid "CADRG-Tactical Pilotage Chart"
-msgstr ""
+msgstr "Graphique de pilotage tactique CADRG"
 
 #: geonode/static/geonode/js/upload/FileTypes.js:110
 msgid "CADRG-Joint Operations Graphic"
-msgstr ""
+msgstr "CADRG-Joint Operations Graphic"
 
 #: geonode/static/geonode/js/upload/FileTypes.js:117
 msgid "CADRG-Topographic Line Map 100K"
-msgstr ""
+msgstr "CADRG-Topographic Line Map 100K"
 
 #: geonode/static/geonode/js/upload/FileTypes.js:124
 msgid "CADRG-Topographic Line Map 50K"
-msgstr ""
+msgstr "CADRG-Topographic Line Map 50K"
 
 #: geonode/static/geonode/js/upload/FileTypes.js:131
 msgid "JPEG2000"
@@ -171,7 +172,7 @@ msgstr ""
 
 #: geonode/static/geonode/js/upload/LayerInfo.js:404
 msgid "You can continue configuring your layer."
-msgstr "Vous pouvez configurer votre couche"
+msgstr "Vous pouvez configurer votre couche."
 
 #: geonode/static/geonode/js/upload/LayerInfo.js:422
 #: geonode/static/geonode/js/upload/LayerInfo.js:509
@@ -215,15 +216,15 @@ msgstr ""
 
 #: geonode/static/lib/js/assets.min.js:2
 msgid "<iframe frameborder='0' width='0' height='0'/>"
-msgstr ""
+msgstr "<iframe frameborder='0' width='0' height='0'/>"
 
 #: geonode/static/lib/js/assets.min.js:4
 msgid "<script>"
-msgstr ""
+msgstr "<script>"
 
 #: geonode/static/lib/js/assets.min.js:4
 msgid "<div>"
-msgstr ""
+msgstr "<div>"
 
 #: geonode/templates/lang.js:9 geonode/templates/lang.js:236
 msgid "Cancel"
@@ -599,7 +600,7 @@ msgstr "de"
 
 #: geonode/templates/lang.js:170 geonode/templates/lang.js:191
 msgid "Your search did not match any items."
-msgstr "Il n'y a pas de résultats à votre recherche"
+msgstr "Il n'y a pas de résultats à votre recherche."
 
 #: geonode/templates/lang.js:171
 msgid "Search Maps"
