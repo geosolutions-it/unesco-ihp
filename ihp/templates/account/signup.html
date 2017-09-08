@@ -17,7 +17,6 @@
       <fieldset>
       {% csrf_token %}
       {{ form|as_bootstrap }}
-      <a href="{% url 'terms-of-use' %}" target="_blank">Terms of Use</a>
       {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
       {% endif %}
