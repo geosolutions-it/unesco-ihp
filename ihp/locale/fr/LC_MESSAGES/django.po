@@ -32,8 +32,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GeoNode\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-08 16:01+0200\n"
-"PO-Revision-Date: 2017-09-08 16:02+0200\n"
+"POT-Creation-Date: 2017-09-11 11:43+0200\n"
+"PO-Revision-Date: 2017-09-11 11:43+0200\n"
 "Last-Translator: Julien Collaer <julien.collaer@opengeode.be>\n"
 "Language-Team: French (http://www.transifex.com/geonode/geonode/language/"
 "fr/)\n"
@@ -56,6 +56,46 @@ msgstr "Nom de famille"
 msgid "I agree to the IHP-WINS Terms of use"
 msgstr "J’accepte les Conditions d’utilisation"
 
+#: ihp/templates/about_us_content_template.html:11
+#: ihp/templates/about_us_content_template.html:102
+#: ihp/templates/contact_us_content_template.html:11
+#: ihp/templates/contact_us_content_template.html:93
+#: ihp/templates/faq_page_template.html:11
+#: ihp/templates/faq_page_template.html:89 ihp/templates/mybase.html:22
+msgid "About Us"
+msgstr "À propos"
+
+#: ihp/templates/about_us_content_template.html:85
+msgid "Partners"
+msgstr "Partenaires"
+
+#: ihp/templates/about_us_content_template.html:87
+msgid ""
+"IHP’s Water Information Network System has partnered with various "
+"organizations that share their data."
+msgstr ""
+"Le système de réseau d'information sur l'eau de l'IHP s'est associé à "
+"diverses organisations qui partagent leurs données."
+
+#: ihp/templates/about_us_content_template.html:103
+#: ihp/templates/contact_us_content_template.html:94
+#: ihp/templates/faq_page_template.html:90
+msgid "F.A.Q."
+msgstr "F.A.Q."
+
+#: ihp/templates/about_us_content_template.html:104
+#: ihp/templates/contact_us_content_template.html:95
+#: ihp/templates/faq_page_template.html:91
+msgid "Contact Us"
+msgstr "Contactez-nous"
+
+#: ihp/templates/about_us_content_template.html:105
+#: ihp/templates/account/signup.html:23
+#: ihp/templates/contact_us_content_template.html:96
+#: ihp/templates/faq_page_template.html:92 ihp/templates/mybase.html:23
+msgid "Terms of use"
+msgstr "Conditions d’utilisation"
+
 #: ihp/templates/account/signup.html:7 ihp/templates/account/signup.html:11
 #: ihp/templates/account/signup.html:25
 msgid "Sign up"
@@ -67,10 +107,6 @@ msgid ""
 msgstr ""
 "Avant de commencer à utiliser ce service, vous devez soigneusement lu et "
 "j’accepte les"
-
-#: ihp/templates/account/signup.html:23 ihp/templates/mybase.html:23
-msgid "Terms of use"
-msgstr "Conditions d’utilisation"
 
 #: ihp/templates/account/signup.html:30
 msgid "Sorry, registrations are not open at this time."
@@ -312,6 +348,10 @@ msgstr "Renseignements supplémentaires"
 #: ihp/templates/metadata_detail.html:250
 msgid "Spatial Representation Type"
 msgstr "Type de représentation spatiale"
+
+#: ihp/templates/faq_page_template.html:69
+msgid "Frequently Asked Questions"
+msgstr "Questions fréquemment posées"
 
 #: ihp/templates/index.html:6
 msgid "Welcome!"
@@ -814,10 +854,6 @@ msgstr "Lien en ligne"
 #: ihp/templates/metadata_detail.html:331
 msgid "Metadata Author"
 msgstr "Auteur des métadonnées"
-
-#: ihp/templates/mybase.html:22
-msgid "About Us"
-msgstr "À propos"
 
 #: ihp/templates/mybase.html:24
 msgid "Get Started"
@@ -2799,9 +2835,6 @@ msgstr "À venir…"
 
 #~ msgid "Keywords:"
 #~ msgstr "Mots-clés :"
-
-#~ msgid "Contact:"
-#~ msgstr "Contact :"
 
 #~ msgid "Services"
 #~ msgstr "Services"

@@ -1,0 +1,175 @@
+{% extends "layers/layer_base.html" %}
+{% load i18n %}
+{% load dialogos_tags %}
+{% load agon_ratings_tags %}
+{% load bootstrap_tags %}
+{% load pagination_tags %}
+{% load url from future %}
+{% load base_tags %}
+{% load guardian_tags %}
+
+{% block title %}{% trans "Frequently Asked Questions" %} — {{ block.super }}{% endblock %}
+
+{% block head %}
+{{ block.super }}
+
+<style>
+
+    #banner {
+        background: url({{ STATIC_URL }}/img/IHP-WINS_logo_letter.png) 1px 0 no-repeat;
+        /* background-size: 100% 100%; */
+        /* background-color: lightblue; */
+        width: 100%;
+        min-width: 800px;
+        height: 100%;
+        z-index: 0;
+        position: fixed;
+        opacity: 0.8;
+        left: 10px;
+        top: 180px;
+    }
+
+    #left {
+        float: left;
+        margin: 5px 0 0 10px;
+        /* height: 40px; */
+    }
+
+    #right {
+        float: right;
+        margin: 5px 10px 0 0;
+        /* height: 40px; */
+    }
+
+    .active {
+        background-color: #cccccc !important;
+        font-weight: bold !important;
+    }
+
+    .faqHeader {
+        font-size: 27px;
+        margin: 20px;
+    }
+
+    .panel-heading [data-toggle="collapse"]:after {
+        font-family: 'FontAwesome';
+        content: "\f078"; /* "play" icon */
+        float: right;
+        color: #F58723;
+        font-size: 18px;
+        line-height: 22px;
+        /* rotate "play" icon from > (right arrow) to down arrow */
+    /*    -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg); */
+    }
+
+    .panel-heading [data-toggle="collapse"].collapsed:after {
+        /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
+    /*    -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+        transform: rotate(90deg); */
+        color: #454444;
+    }
+</style>
+
+{% endblock %}
+
+{% block middle %}
+   {{ block.super }}
+  {% block hero %}
+
+<div id="banner">
+    <!-- img id="left" src="{{ STATIC_URL }}/img/IHP-WINS logo letter.png" / -->
+</div>
+
+  {% endblock %}
+
+  {% block mainbody %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div class="row">
+
+                                <div class="page-header">
+                                    <h2 class="page-title">{% trans "Frequently Asked Questions" %}</h2>
+                                </div>
+
+                                <div class="row">
+                                  <div class="col-md-8">
+                                  {% autoescape off %}
+                                    {% if lang == 'en' %}
+                                        <div class="panel-group" id="accordion">
+                                            {% for faq_topic in obj %}
+                                                <div class="faqHeader">{{ faq_topic.title_en }}</div>
+                                                {% for faq_question in faq_topic.faqs %}
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title" style="font-size:16px">
+                                                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse_id{{ forloop.counter }}">{{ faq_question.title_en }}</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapse_id{{ forloop.counter }}" class="panel-collapse collapse">
+                                                            <div class="panel-body">
+                                                                {{ faq_question.content_en }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                            {% endfor %}
+                                        </div>
+                                    {% elif lang == 'fr' %}
+                                        <div class="panel-group" id="accordion">
+                                            {% for faq_topic in obj %}
+                                                <div class="faqHeader">{{ faq_topic.title_fr }}</div>
+                                                {% for faq_question in faq_topic.faqs %}
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h4 class="panel-title" style="font-size:16px">
+                                                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse_id{{ forloop.counter }}">{{ faq_question.title_fr }}</a>
+                                                            </h4>
+                                                        </div>
+                                                        <div id="collapse_id{{ forloop.counter }}" class="panel-collapse collapse">
+                                                            <div class="panel-body">
+                                                                {{ faq_question.content_fr }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                  {% endautoescape %}
+                                  </div> <!-- col-md-4 -->
+
+                                  <!-- div class="col-md-4" -->
+                                    <aside class="col-sm-3" role="complementary">
+                                        <div class="region region-sidebar-second">
+                                            <section id="block-menu-block-1" class="block block-menu-block well block-menu-block-1 clearfix">
+                                                <!-- div class="menu-block-wrapper menu-block-1 menu-name-main-menu parent-mlid-0 menu-level-2" -->
+                                                <ul class="menu nav">
+                                                    <li class="first leaf menu-mlid-733"><a href="{% url 'about-us' %}" target="_new">{% trans "About Us" %}</a></li>
+                                                    <li class="leaf menu-mlid-514 active"><a href="{% url 'faq-page' %}" target="_new">{% trans "F.A.Q." %}</a></li>
+                                                    <li class="leaf menu-mlid-512"><a href="{% url 'contact-us' %}" target="_new">{% trans "Contact Us" %}</a></li>
+                                                    <li class="last menu-mlid-515"><a href="{% url 'terms-of-use' %}" target="_new">{% trans "Terms of use" %}</a></li>
+                                                </ul>
+                                                <!-- /div -->
+                                            </section>
+                                        </div>
+                                    </aside>
+                                  </div> <!-- col-md-4 -->
+                                </div> <!-- row -->
+                </div>
+            </div>            
+        </div>
+    </div>
+ {% endblock %}
+{% endblock %}
+
+{% block extra_script %}
+{{ block.super }}
+{% endblock extra_script %}

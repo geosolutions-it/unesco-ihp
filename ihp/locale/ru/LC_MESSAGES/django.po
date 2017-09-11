@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GeoNode\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-08 16:01+0200\n"
+"POT-Creation-Date: 2017-09-11 11:44+0200\n"
 "PO-Revision-Date: 2016-08-23 13:57+0000\n"
 "Last-Translator: Julien Collaer <julien.collaer@opengeode.be>\n"
 "Language-Team: Russian (http://www.transifex.com/geonode/geonode/language/"
@@ -55,6 +55,50 @@ msgstr "название стиля"
 msgid "I agree to the IHP-WINS Terms of use"
 msgstr ""
 
+#: ihp/templates/about_us_content_template.html:11
+#: ihp/templates/about_us_content_template.html:102
+#: ihp/templates/contact_us_content_template.html:11
+#: ihp/templates/contact_us_content_template.html:93
+#: ihp/templates/faq_page_template.html:11
+#: ihp/templates/faq_page_template.html:89 ihp/templates/mybase.html:22
+#, fuzzy
+#| msgid "About"
+msgid "About Us"
+msgstr "Инфо"
+
+#: ihp/templates/about_us_content_template.html:85
+msgid "Partners"
+msgstr ""
+
+#: ihp/templates/about_us_content_template.html:87
+msgid ""
+"IHP’s Water Information Network System has partnered with various "
+"organizations that share their data."
+msgstr ""
+
+#: ihp/templates/about_us_content_template.html:103
+#: ihp/templates/contact_us_content_template.html:94
+#: ihp/templates/faq_page_template.html:90
+msgid "F.A.Q."
+msgstr ""
+
+#: ihp/templates/about_us_content_template.html:104
+#: ihp/templates/contact_us_content_template.html:95
+#: ihp/templates/faq_page_template.html:91
+#, fuzzy
+#| msgid "Contact:"
+msgid "Contact Us"
+msgstr "Контакты:"
+
+#: ihp/templates/about_us_content_template.html:105
+#: ihp/templates/account/signup.html:23
+#: ihp/templates/contact_us_content_template.html:96
+#: ihp/templates/faq_page_template.html:92 ihp/templates/mybase.html:23
+#, fuzzy
+#| msgid "The user"
+msgid "Terms of use"
+msgstr "Пользователь"
+
 #: ihp/templates/account/signup.html:7 ihp/templates/account/signup.html:11
 #: ihp/templates/account/signup.html:25
 msgid "Sign up"
@@ -64,12 +108,6 @@ msgstr "Подписаться"
 msgid ""
 "Before start using this service you must carefully read and agree to the"
 msgstr ""
-
-#: ihp/templates/account/signup.html:23 ihp/templates/mybase.html:23
-#, fuzzy
-#| msgid "The user"
-msgid "Terms of use"
-msgstr "Пользователь"
 
 #: ihp/templates/account/signup.html:30
 msgid "Sorry, registrations are not open at this time."
@@ -313,6 +351,10 @@ msgstr "Дополнительная информация"
 #: ihp/templates/metadata_detail.html:250
 msgid "Spatial Representation Type"
 msgstr "Тип пространственного представления"
+
+#: ihp/templates/faq_page_template.html:69
+msgid "Frequently Asked Questions"
+msgstr ""
 
 #: ihp/templates/index.html:6
 msgid "Welcome!"
@@ -835,12 +877,6 @@ msgstr ""
 #: ihp/templates/metadata_detail.html:331
 msgid "Metadata Author"
 msgstr "Автор метаданных"
-
-#: ihp/templates/mybase.html:22
-#, fuzzy
-#| msgid "About"
-msgid "About Us"
-msgstr "Инфо"
 
 #: ihp/templates/mybase.html:24
 #, fuzzy
@@ -2656,9 +2692,6 @@ msgstr ""
 
 #~ msgid "Keywords:"
 #~ msgstr "Ключевые слова:"
-
-#~ msgid "Contact:"
-#~ msgstr "Контакты:"
 
 #~ msgid "Services"
 #~ msgstr "Сервисы"

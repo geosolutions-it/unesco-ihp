@@ -8,7 +8,7 @@
 {% load base_tags %}
 {% load guardian_tags %}
 
-{% block title %}{% trans "About Us" %} — {{ block.super }}{% endblock %}
+{% block title %}{% trans "Contact Us" %} — {{ block.super }}{% endblock %}
 
 {% block head %}
 {{ block.super }}
@@ -82,15 +82,6 @@
                                         <div>{{ obj.content_fr }}</div>
                                     {% endif %}
                                   {% endautoescape %}
-                                  <h2 class="page-title">{% trans "Partners" %}</h2>
-                                  <p>
-                                    {% trans "IHP’s Water Information Network System has partnered with various organizations that share their data." %}
-                                  </p>
-                                  <p>
-                                    {% for p in partners %}
-                                        <a href="{{ p.href }}" rel="nofollow"><img alt="" src="{{ p.upload.url }}" style="height:{{ p.height }}px; width:{{ p.width }}px"></a>
-                                    {% endfor %}
-                                  </p>
                                   </div> <!-- col-md-4 -->
 
                                   <!-- div class="col-md-4" -->
@@ -99,9 +90,9 @@
                                             <section id="block-menu-block-1" class="block block-menu-block well block-menu-block-1 clearfix">
                                                 <!-- div class="menu-block-wrapper menu-block-1 menu-name-main-menu parent-mlid-0 menu-level-2" -->
                                                 <ul class="menu nav">
-                                                    <li class="first leaf menu-mlid-733 active"><a href="{% url 'about-us' %}" target="_new">{% trans "About Us" %}</a></li>
+                                                    <li class="first leaf menu-mlid-733"><a href="{% url 'about-us' %}" target="_new">{% trans "About Us" %}</a></li>
                                                     <li class="leaf menu-mlid-514"><a href="{% url 'faq-page' %}" target="_new">{% trans "F.A.Q." %}</a></li>
-                                                    <li class="leaf menu-mlid-512"><a href="{% url 'contact-us' %}" target="_new">{% trans "Contact Us" %}</a></li>
+                                                    <li class="leaf menu-mlid-512 active"><a href="{% url 'contact-us' %}" target="_new">{% trans "Contact Us" %}</a></li>
                                                     <li class="last menu-mlid-515"><a href="{% url 'terms-of-use' %}" target="_new">{% trans "Terms of use" %}</a></li>
                                                 </ul>
                                                 <!-- /div -->
