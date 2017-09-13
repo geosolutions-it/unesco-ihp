@@ -26,9 +26,9 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 MEDIA_ROOT = '/home/geosolutions/work/repo/ihp/ihp/uploaded/'
 STATIC_ROOT = '/home/geosolutions/work/repo/ihp/ihp/static_root'
 
-SECRET_KEY = '************************'
+SECRET_KEY = '**********************************************'
 
-#SITEURL = "http://localhost:8000/"
+SITEURL = "http://ihp-wins.unesco.org"
 
 TIME_ZONE = 'Europe/Paris'
 
@@ -58,18 +58,18 @@ if EMAIL_ENABLE:
 DATABASES = {
     'default': {
          'ENGINE': 'django.db.backends.postgresql_psycopg2',
-         'USER': '******',
+         'USER': 'geonode',
          'NAME': 'geonode_ihp',
          'HOST': 'localhost',
-         'PASSWORD': '******',
+         'PASSWORD': '*********',
      },
     # vector datastore for uploads
     'datastore' : {
-        #'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'ENGINE': '', # Empty ENGINE name disables
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        # 'ENGINE': '', # Empty ENGINE name disables
         'NAME': 'geonode_ihp_data',
-        'USER' : '*****',
-        'PASSWORD' : '*****',
+        'USER' : 'geonode',
+        'PASSWORD' : '**********',
         'HOST' : 'localhost',
         'PORT' : '5432',
     }
@@ -88,7 +88,7 @@ OGC_SERVER_DEFAULT_USER = os.getenv(
 )
 
 OGC_SERVER_DEFAULT_PASSWORD = os.getenv(
-    'GEOSERVER_ADMIN_PASSWORD', 'geoserver'
+    'GEOSERVER_ADMIN_PASSWORD', '***********'
 )
 
 # OGC (WMS/WFS/WCS) Server Settings
@@ -110,7 +110,7 @@ OGC_SERVER = {
         'WPS_ENABLED' : False,
         'LOG_FILE': '/home/geosolutions/work/logs/geoserver.log',
         # Set to dictionary identifier of database containing spatial data in DATABASES dictionary to enable
-        'DATASTORE': '', #'datastore',
+        'DATASTORE': 'datastore',
     }
 }
 
@@ -144,8 +144,8 @@ CATALOGUE = {
         # 'URL': 'http://localhost:8080/deegree-csw-demo-3.0.4/services',
 
         # login credentials (for GeoNetwork)
-        'USER': '*****',
-        'PASSWORD': '*****',
+        'USER': 'admin',
+        'PASSWORD': '*********',
     }
 }
 
@@ -217,7 +217,6 @@ GEONODE_APPS = (
     'geonode.geoserver',
     'geonode.upload',
     'geonode.tasks',
-
 )
 
 GEONODE_APPS = GEONODE_APPS + GEONODE_CONTRIB_APPS
@@ -262,7 +261,7 @@ INSTALLED_APPS = (
     'floppyforms',
 
     # Theme
-    "pinax_theme_bootstrap_account",
+    # "pinax_theme_bootstrap_account",
     "pinax_theme_bootstrap",
     'django_forms_bootstrap',
 
@@ -298,7 +297,7 @@ ALT_OSM_BASEMAPS = os.environ.get('ALT_OSM_BASEMAPS', False)
 CARTODB_BASEMAPS = os.environ.get('CARTODB_BASEMAPS', False)
 STAMEN_BASEMAPS = os.environ.get('STAMEN_BASEMAPS', False)
 THUNDERFOREST_BASEMAPS = os.environ.get('THUNDERFOREST_BASEMAPS', False)
-MAPBOX_ACCESS_TOKEN = os.environ.get('MAPBOX_ACCESS_TOKEN', None)
+MAPBOX_ACCESS_TOKEN = "pk.eyJ1Ijoic2xhY2giLCJhIjoiY2o0NDJ6ZzZtMTVkazJxbWdjNWtkYm52ZCJ9.AVDZ_gFD_85c4DfiHRj1xg"
 BING_API_KEY = os.environ.get('BING_API_KEY', None)
 
 MAP_BASELAYERS = [{
@@ -401,6 +400,9 @@ PINAX_NOTIFICATIONS_LOCK_WAIT_TIMEOUT = -1
 # or notification
 NOTIFICATIONS_MODULE = 'pinax.notifications'
 
+if NOTIFICATION_ENABLED:
+    INSTALLED_APPS += (NOTIFICATIONS_MODULE, )
+
 # set to true to have multiple recipients in /message/create/
 USER_MESSAGES_ALLOW_MULTIPLE_RECIPIENTS = True
 
@@ -409,7 +411,7 @@ BROKER_URL = REDIS_URL
 CELERY_RESULT_BACKEND = REDIS_URL
 
 CELERYD_HIJACK_ROOT_LOGGER = False
-CELERYD_CONCURENCY = 1
+CELERYD_CONCURENCY = 2
 
 # Haystack Search Backend Configuration. To enable,
 # first install the following:
@@ -466,7 +468,7 @@ LOGGING = {
             'formatter': 'simple'
         },
         'mail_admins': {
-            'level': 'ERROR', 'filters': ['require_debug_false'],
+            'level': 'INFO', 'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler',
         }
     },
@@ -481,5 +483,7 @@ LOGGING = {
             "handlers": ["console"], "level": "INFO", },
         "pycsw": {
             "handlers": ["console"], "level": "INFO", },
+        "ihp": {
+            "handlers": ["console"], "level": "DEBUG", },
         },
     }
