@@ -20,6 +20,7 @@
 
 from django.conf.urls import url
 from django.views.generic import TemplateView
+from geonode.sitemap import LayerSitemap
 from ihp.content.views import (terms_of_use_view,
                                about_us_content_view,
                                contact_us_content_view,
@@ -30,7 +31,17 @@ import geonode.urls
 
 print geonode.urls.urlpatterns
 
+sitemaps = {
+    "layer": LayerSitemap,
+}
+
 urlpatterns = [
+                url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps},
+                           name='sitemap'),
+                # url(r'^robots.txt$', lambda r: HttpResponse("User-agent: *\nDisallow: /", mimetype="text/plain"))
+                url(r'^robots\.txt$',
+                    TemplateView.as_view(template_name='robots.txt'),
+                    name='robots'),
                 url(r'^timeseries/$',
                     TemplateView.as_view(template_name='time_series.html'),
                     name='time_series'),

@@ -154,6 +154,11 @@ a:hover {font-family: Monda,Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;col
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
+.home .jumbotron .container h1 {
+  line-height: normal !important;
+  margin-top: 0;
+}
+
 /* ** START ** */
 /* - NAVBAR - */
 
@@ -163,6 +168,7 @@ a:hover {font-family: Monda,Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;col
     /* background: url(../img/texture.jpg) 1px 0 no-repeat; */
     background-repeat: repeat-x;
     font-size:16px;
+    background-size: auto 110px;
 }
 
 .navbar-header{font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;color:#3276B1;font-size:16px}
@@ -205,7 +211,30 @@ navbar-brand {font-family:Lato;font-size:30px}
 }
 
 .navbar-inverse .navbar-nav>li>a:hover {
-    color: #004983;
+    color: #fff;
+}
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #004983;
+}
+
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #004983;
+}
+
+.navbar-inverse .navbar-toggle:focus .icon-bar,
+.navbar-inverse .navbar-toggle:hover .icon-bar {
+    background-color: #fff;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+  border-top: none;
+}
+
+
+.navbar-header button {
+    margin-top: 39px;
 }
 
 .navbar-collapse {
@@ -214,9 +243,26 @@ navbar-brand {font-family:Lato;font-size:30px}
 
 /* .navbar{background-color:#0075D1;} */
 
+@media (min-width: 991px) {
+  
+}
+
+@media (min-width: 768px) and (max-width: 991px)   {
+  
+}
+
+@media (max-width: 768px)   {
+  
+}
+
+
 @media (min-width: 768px) {
     .home .navbar-inverse {
-        background-color: rgba(255, 255, 255, 0.54);
+        background-color: rgba(255, 255, 255, 0.75);
+    }
+    
+    .navbar-inverse {
+      background-color: rgba(255, 255, 255, 0.9);
     }
 
     .navbar > .container .navbar-brand,
@@ -252,6 +298,11 @@ navbar-brand {font-family:Lato;font-size:30px}
       width: 100%;
       font-size: 10px;
     }
+    /*
+    .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+      display: none;
+      margin: 0;
+    }*/
 
     .navbar-right {
       position: absolute;
