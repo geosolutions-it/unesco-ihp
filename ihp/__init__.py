@@ -20,15 +20,17 @@
 
 import re
 import string
+import logging
 from django import forms
 from django.apps import AppConfig
+from django.db import models
+from django.db.models import signals
 from django.utils.datastructures import OrderedDict
 from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.utils.translation import ugettext_lazy as _
-
 
 alnum_re = re.compile(r'^[a-zA-Z][A-Za-z_-]*$')
 
@@ -41,6 +43,21 @@ def populate_username(first_name, last_name):
 
 class IHPAppConfig(AppConfig):
     name = 'ihp'
+
+    def _get_logger(self):
+        return logging.getLogger(self.__class__.__module__)
+
+    def patch_resource_base(self, cls):
+        self._get_logger().info("Patching Resource Base")
+        doi_help_text = _(
+            'a DOI will be added by Admin before publication.')
+        doi = models.TextField(
+            _('DOI'),
+            blank=True,
+            null=True,
+            help_text=doi_help_text)
+        cls.add_to_class('doi', doi)
+        # cls._meta.add_field(doi)
 
     def patch_form(self, form_cls):
         form_cls.declared_fields.pop('username', None)
@@ -87,6 +104,10 @@ class IHPAppConfig(AppConfig):
         form.cleaned_data['username'] = user.username
 
     def ready(self):
+        from geonode.base.models import ResourceBase
+
+        self.patch_resource_base(ResourceBase)
+
         from account.forms import SignupForm
         from account.views import SignupView
         from account.signals import user_signed_up
