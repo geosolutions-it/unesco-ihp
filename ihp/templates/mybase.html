@@ -9,8 +9,8 @@
                 <div class="row">
                     <!-- div1 -->
                     <div class="col-sm-12 col-md-6" >
-                        <a href="http://en.unesco.org/ihp-wins" target="_new">
-                            <img src="{{ STATIC_URL }}img/unesco_ihp_sdg_en_white_transparent.png" style="margin-left:10px;width:100px" alt="UNESCO-International Hydrological Programme"/>
+                        <a href="http://en.unesco.org/ihp-wins">
+                            <img src="{{ STATIC_URL }}img/unesco_ihp_sdg_en_white2_transparent_FOOTER.png" style="margin-left:10px;width:100px" alt="UNESCO-International Hydrological Programme"/>
                         </a>
                     </div>
                 </div>
@@ -19,9 +19,9 @@
                 <div class="row">
                     <!-- div2 -->
                     <div class="col-sm-12 col-md-12" style="margin-top:5px;font-size:12px;color: #ffffff; font-family:Monda,Andale Mono, monospace;font-size: medium;font-weight: bold;">
-                        <a href="{% url 'about-us' %}" target="_new">{% trans "About Us" %}</a> &nbsp;&nbsp;&nbsp;&nbsp;
-                        <a href="{% url 'terms-of-use' %}" target="_new">{% trans "Terms of use" %}</a> &nbsp;&nbsp;&nbsp;&nbsp;
-                        {% trans "Get Started" %} &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="{% url 'about-us' %}">{% trans "About Us" %}</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="{% url 'terms-of-use' %}">{% trans "Terms of use" %}</a> &nbsp;&nbsp;&nbsp;&nbsp;
+                        <a href="{% url 'get-started' 1 %}">{% trans "Get Started" %}</a> &nbsp;&nbsp;&nbsp;&nbsp;
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
 
                     <!-- div4 -->
                     <div class="col-sm-12 col-md-6" style="margin-top:5px;font-size:12px;color: #ffffff; font-family:Monda,Andale Mono, monospace;">
-                        {% trans "Powered by" %} <a href="http://www.geonode.org" target="_new"><img src="{{ STATIC_URL }}img/geonode_logo.png" style="margin-left:10px;width:80px" alt="GeoNode"/></a>
+                        {% trans "Powered by" %} <a href="http://www.geonode.org"><img src="{{ STATIC_URL }}img/geonode_logo.png" style="margin-left:10px;width:80px" alt="GeoNode"/></a>
                     </div>
                 </div>
             </div>

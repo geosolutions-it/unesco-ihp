@@ -7,22 +7,29 @@ from .models import (TermsOfUse,
                      AboutUsPageContent,
                      ContactUsPageContent,
                      PartnerIcon,
-                     FaqTopic)
+                     FaqTopic,
+                     DocumentationPage)
 from .forms import SignupForm
 import account.views
 
 
 class SignupView(account.views.SignupView):
-   form_class = SignupForm
+    form_class = SignupForm
 
 
 def terms_of_use_view(request):
+    terms_of_use = None
     try:
         terms_of_use = TermsOfUse.objects.order_by('-id').get()
     except TermsOfUse.DoesNotExist:
         return HttpResponseNotFound()
 
-    return redirect(terms_of_use.upload.url)
+    context = RequestContext(request, {
+        'lang': get_language(),
+        'obj' : terms_of_use
+    })
+
+    return render_to_response('terms_of_use_template.html', context_instance = context)
 
 
 def about_us_content_view(request):
@@ -71,3 +78,28 @@ def faq_page_view(request):
     })
 
     return render_to_response('faq_page_template.html', context_instance = context)
+
+
+def documentation_page_view(request, pk=1):
+    doc_pages = None
+    toc = None
+    max_depth = 1
+    try:
+        doc_root = DocumentationPage.objects.get(pk=pk)
+        doc_pages = DocumentationPage.objects.get(pk=pk)\
+            .get_descendants(include_self=True)\
+            .filter(level__lte=doc_root.level + max_depth)\
+            .order_by('order').all()
+        toc = DocumentationPage.objects.filter(level__lte=1)\
+            .order_by('order').all()
+    except DocumentationPage.DoesNotExist:
+        return HttpResponseNotFound()
+
+    context = RequestContext(request, {
+        'lang': get_language(),
+        'obj' : doc_pages,
+        'toc' : toc,
+        'pk' : int(pk)
+    })
+
+    return render_to_response('doc_page_template.html', context_instance = context)

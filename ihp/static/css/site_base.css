@@ -43,7 +43,7 @@ footer {
     right: 0px;
     position: fixed;
     left: 0px;
-    z-index: 2;
+    z-index: 500;
 }
 
 footer a {
@@ -73,15 +73,24 @@ p,input
 {
     padding-bottom: 100px;    /* height of footer */
 }
-
+.badge {
+  background-color: rgb(32, 59, 100);
+}
 .container {}
 
 .wrap{height:100%;margin-top:30px}
 
-/*#wrap {
-    padding-top: 40px;
-    padding-bottom: 100px;
-}*/
+#wrap {
+    padding-bottom: 90px;
+}
+
+#paneltbar {
+    margin-top: 110px !important;
+}
+
+.home #wrap {
+  padding-bottom: 90px;
+}
 
 /*
 .block, .div {
@@ -91,33 +100,39 @@ p,input
 */
 
 body.maps li#nav_maps a {
-    color: #004983;
+    color: #fff;
+    background-color: #004983;
     font-weight: 900;
 }
 
 body.layers li#nav_layers a {
-    color: #004983;
+    color: #fff;
+    background-color: #004983;
     font-weight: 900;
 }
 
 body.documents li#nav_documents a {
-    color: #004983;
+    color: #fff;
+    background-color: #004983;
     font-weight: 900;
 
 }
 
 body.people li#nav_people a {
-    color: #004983;
+    color: #fff;
+    background-color: #004983;
     font-weight: 900;
 }
 
 body.groups li#nav_groups a {
-    color: #004983;
+    color: #fff;
+    background-color: #004983;
     font-weight: 900;
 }
 
 body.timeseries li#nav_timeseries a {
-    color: #004983;
+    color: #fff;
+    background-color: #004983;
     font-weight: 900;
 }
 
@@ -211,6 +226,7 @@ navbar-brand {font-family:Lato;font-size:30px}
     color: #004983;
     font-size:12px;
     padding: 7px !important;
+    height: 36px;
 }
 
 .navbar-inverse .navbar-nav>li>a:hover {
@@ -244,7 +260,9 @@ navbar-brand {font-family:Lato;font-size:30px}
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
   border-top: none;
 }
-
+nav.filter h4 {
+    background-color: #2c689c;
+}
 
 .navbar-header button {
     margin-top: 36px;
@@ -284,9 +302,55 @@ navbar-brand {font-family:Lato;font-size:30px}
   margin-top: 0 !important;
 }
 
+#navbar .navbar-form .form-control:focus + .input-group-btn button,
+#navbar .navbar-form .form-control:focus + .yourlabs-autocomplete + .input-group-btn button 
+ {
+  border-color: rgba(102, 175, 233, 0.6);
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#navbar .navbar-form .form-control:focus {
+  border-color: rgba(102, 175, 233, 0.6);
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#navbar .navbar-form .form-control {
+  border-right: none;
+}
+
+#navbar .navbar-form button {
+    background-color: #fff;
+    color: #004983;
+    border: 1px solid #ccc;
+    border-left: none;
+}
+
+.nav.navbar-nav.navbar-right .fa-inbox {
+  width: 22px;
+  height: 22px;
+  position: static;
+  color: #004983;
+}
+
+.nav.navbar-nav.navbar-right a:hover .fa-inbox {
+  color: #fff;
+}
+
+.nav.navbar-nav.navbar-right img {
+  width: 22px;
+  height: 22px;
+  margin-right: 10px;
+}
+
+.nav.navbar-nav.navbar-right .userthreads {
+  width: 36px;
+}
+
 @media (min-width: 768px) {
     .home .navbar-inverse {
-        background-color: rgba(255, 255, 255, 0.75);
+        background-color: rgba(255, 255, 255, 0.8);
     }
     
     #navbar .navbar-form {
@@ -294,7 +358,7 @@ navbar-brand {font-family:Lato;font-size:30px}
     }
     
     .navbar-inverse {
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(255, 255, 255, 0.8);
     }
     
     .nav.navbar-nav {
@@ -308,6 +372,7 @@ navbar-brand {font-family:Lato;font-size:30px}
     .navbar > .container .navbar-brand,
     .navbar > .container-fluid .navbar-brand {
       background: url(../img/unesco_ihp_en_transparent.png) 1px 0 no-repeat;
+      background-size: 360px 104px;
       height: 110px;
       margin-left: -110px;
       margin-right: 0px;
@@ -360,6 +425,7 @@ navbar-brand {font-family:Lato;font-size:30px}
   .navbar > .container .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
     background: url(../img/unesco_ihp_en_transparent.png) 1px 0 no-repeat;
+    background-size: 360px 104px;
     height: 110px;
     margin-left: 0px;
     margin-right: 0px;
@@ -368,25 +434,24 @@ navbar-brand {font-family:Lato;font-size:30px}
     width: 360px;
   }
 /*
-  .navbar-form .input-group {
-    margin-right: 0;
-    display: none !important;
-  }*/
-/*
-  .navbar-form .input-group > .form-control {
-    margin-right: 0;
-    display: none !important;
-  }*/
-
   .nav.navbar-nav.navbar-right .fullname {
     margin-right: 0;
     display: none !important;
+  }*/
+}
+
+@media (min-width: 991px) {
+  #navbar .navbar-nav {
+      margin-left: 20px !important;
+  }
+  #navbar .navbar-nav.navbar-right {
+    margin-left: 0 !important;
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1200px) and (min-width: 991px) {
   #navbar .navbar-form {
-      margin: 0 !important;
+      margin: 10px 0 0 0 !important
   }
   
   
@@ -395,7 +460,7 @@ navbar-brand {font-family:Lato;font-size:30px}
   }
   
   #navbar .navbar-nav.navbar-right {
-    margin-top: 0px !important;
+    margin-top: 10px !important;
     margin-right: 10px !important;
   }
 }
@@ -407,16 +472,34 @@ navbar-brand {font-family:Lato;font-size:30px}
     padding-right: 0;
   }
   
+  #navbar .navbar-nav {
+      width: auto !important;
+        margin-top: 10px !important;
+  }
+  
+  #navbar .navbar-nav.navbar-right {
+    float: none !important;
+    clear: both !important;
+    margin: 0 !important;
+/* margin: 10px -175px 0 0 !important; */
+/* margin-top: 10px !important; */
+/* right: 200px !important; */
+  }
+  
+  #navbar .navbar-form {
+      display: none !important;
+  }
+  
   #navbar {
       overflow: hidden;
   }
   
   .home .navbar-inverse {
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: rgba(255, 255, 255, 0.8);
   }
   
   .navbar-inverse {
-    background-color: rgba(255,255,255,0.9);
+    background-color: rgba(255,255,255,0.8);
   }
   /*.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
     display: none;
@@ -429,42 +512,29 @@ navbar-brand {font-family:Lato;font-size:30px}
     margin-top: 0px !important;
     right: 200px !important;
   }
+}
+
+@media (max-width: 450px) {
+  body{
+      padding-top: 50px;
+  }
+  #paneltbar {
+      margin-top: 50px !important;
+  }
+  .navbar {
+      background-size: auto 50px;
+  }
   
-  body.maps li#nav_maps a {
-      color: #fff;
-      background-color: #004983;
-      font-weight: 900;
+  .navbar > .container .navbar-brand,
+  .navbar > .container-fluid .navbar-brand {
+    height: 50px;
+    width: 200px;
+    background-size: auto 50px;
   }
-
-  body.layers li#nav_layers a {
-      color: #fff;
-      background-color: #004983;
-      font-weight: 900;
-  }
-
-  body.documents li#nav_documents a {
-      color: #fff;
-      background-color: #004983;
-      font-weight: 900;
-
-  }
-
-  body.people li#nav_people a {
-      color: #fff;
-      background-color: #004983;
-      font-weight: 900;
-  }
-
-  body.groups li#nav_groups a {
-      color: #fff;
-      background-color: #004983;
-      font-weight: 900;
-  }
-
-  body.timeseries li#nav_timeseries a {
-      color: #fff;
-      background-color: #004983;
-      font-weight: 900;
+  
+  .navbar-header button {
+    margin-bottom: 0;
+    margin-top: 6px;
   }
 }
 
@@ -473,12 +543,49 @@ navbar-brand {font-family:Lato;font-size:30px}
     padding-left: 15px;
     padding-right: 15px;
   }
+  #navbar li {
+    padding: 0 10px;
+  }
+  #wrap {
+      padding-bottom: 145px;
+  }
+  
+  .home #wrap {
+    padding-bottom: 145px;
+  }
+  
+  .footer .row > div {
+      float: none !important;
+      clear: both !important;
+      text-align: center;
+  }
+  
+  .footer .row > .col-sm-6 .row {
+    text-align: center;
+  }
+  
+  .footer .row > .col-sm-6 .row .col-sm-12 {
+    font-size: 12px !important;
+  }
+  
+  .footer .row > .col-sm-6 .row a {
+    cursor: pointer;
+  }
+  
+  .footer .row > .col-sm-4 select {
+    float: none !important;
+    clear: both !important;
+    margin-top: 10px;
+  }
+}
+.footer select {
+  background-color: #3276B1;
+  color: #fff;
+  border: none;
 }
 
-
 .nav.navbar-nav.navbar-right .userthreads {
-    left:2px;
-    bottom:4px;
+    top:-6px;
     color: darkorange;
 }
 

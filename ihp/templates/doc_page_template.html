@@ -1,0 +1,147 @@
+{% extends "layers/layer_base.html" %}
+{% load i18n %}
+{% load dialogos_tags %}
+{% load agon_ratings_tags %}
+{% load bootstrap_tags %}
+{% load pagination_tags %}
+{% load url from future %}
+{% load base_tags %}
+{% load guardian_tags %}
+
+{% block title %}{% trans "Get Started" %} — {{ block.super }}{% endblock %}
+
+{% block head %}
+{{ block.super }}
+
+<style>
+
+    #banner {
+        /* background: url({{ STATIC_URL }}/img/IHP-WINS_logo_letter.png) 1px 0 no-repeat; */
+        /* background-size: 100% 100%; */
+        /* background-color: lightblue; */
+        width: 100%;
+        min-width: 800px;
+        height: 100%;
+        z-index: 0;
+        position: fixed;
+        opacity: 0.8;
+        left: 10px;
+        top: 180px;
+    }
+
+    #left {
+        float: left;
+        margin: 5px 0 0 10px;
+        /* height: 40px; */
+    }
+
+    #right {
+        float: right;
+        margin: 5px 10px 0 0;
+        /* height: 40px; */
+    }
+
+    .active {
+        background-color: #cccccc !important;
+        font-weight: bold !important;
+    }
+</style>
+
+{% endblock %}
+
+{% block middle %}
+   {{ block.super }}
+  {% block hero %}
+
+<div id="banner">
+    <!-- img id="left" src="{{ STATIC_URL }}/img/IHP-WINS logo letter.png" / -->
+</div>
+
+  {% endblock %}
+
+  {% block mainbody %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div class="row">
+
+                            {% autoescape off %}
+                                {% with obj|first as doc_root %}
+                                <div class="page-header">
+                                    {% if lang == 'en' %}
+                                        <h2 class="page-title">{{ doc_root.title_en }}</h2>
+                                    {% elif lang == 'fr' %}
+                                        <h2 class="page-title">{{ doc_root.title_fr }}</h2>
+                                    {% endif %}
+                                </div>
+                                {% endwith %}
+
+                                <div class="row">
+                                  <div class="col-md-8">
+                                    {% if lang == 'en' %}
+                                        {% with obj|first as doc_root %}
+                                        <div>{{ doc_root.content_en }}</div>
+                                        {% endwith %}
+                                    {% elif lang == 'fr' %}
+                                        {% with obj|first as doc_root %}
+                                        <div>{{ doc_root.content_fr }}</div>
+                                        {% endwith %}
+                                    {% endif %}
+                                  
+                                  {% for doc_topic in obj %}
+                                    {% if doc_topic.id != pk %}
+                                      {% if lang == 'en' %}
+                                      <h3 class="page-title">{{ doc_topic.title_en }}</h3>
+                                      <p>
+                                        {{ doc_topic.content_en }}
+                                      </p>
+                                      {% elif lang == 'fr' %}
+                                      <h3 class="page-title">{{ doc_topic.title_fr }}</h3>
+                                      <p>
+                                        {{ doc_topic.content_fr }}
+                                      </p>
+                                      {% endif %}
+                                    {% endif %}
+                                  {% endfor %}
+                                  </div> <!-- col-md-4 -->
+                            {% endautoescape %}
+
+                                  <!-- div class="col-md-4" -->
+                                    <aside class="col-sm-3" role="complementary">
+                                        <div class="region region-sidebar-second">
+                                            <section id="block-menu-block-1" class="block block-menu-block well block-menu-block-1 clearfix">
+                                                <!-- div class="menu-block-wrapper menu-block-1 menu-name-main-menu parent-mlid-0 menu-level-2" -->
+                                                <ul class="menu nav">
+                                                    {% with toc|first as doc_root %}
+                                                        {% if lang == 'en' %}
+                                                        <li class="first leaf menu-mlid-733 {% if doc_root.id == pk %}active{% endif %}"><a href="{% url 'get-started' doc_root.id %}">{{ doc_root.title_en }}</a></li>
+                                                        {% elif lang == 'fr' %}
+                                                        <li class="first leaf menu-mlid-733 {% if doc_root.id == pk %}active{% endif %}"><a href="{% url 'get-started' doc_root.id %}">{{ doc_root.title_fr }}</a></li>
+                                                        {% endif %}
+                                                        {% for doc_topic in toc %}
+                                                            {% if doc_topic.id != doc_root.id %}
+                                                              {% if lang == 'en' %}
+                                                              <li class="leaf menu-mlid-514 {% if doc_topic.id == pk %}active{% endif %}"><a href="{% url 'get-started' doc_topic.id %}">{{ doc_topic.title_en }}</a></li>
+                                                              {% elif lang == 'fr' %}
+                                                              <li class="leaf menu-mlid-514 {% if doc_topic.id == pk %}active{% endif %}"><a href="{% url 'get-started' doc_topic.id %}">{{ doc_topic.title_fr }}</a></li>
+                                                              {% endif %}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    {% endwith %}
+                                                </ul>
+                                                <!-- /div -->
+                                            </section>
+                                        </div>
+                                    </aside>
+                                  </div> <!-- col-md-4 -->
+                                </div> <!-- row -->
+                </div>
+            </div>            
+        </div>
+    </div>
+ {% endblock %}
+{% endblock %}
+
+{% block extra_script %}
+{{ block.super }}
+{% endblock extra_script %}

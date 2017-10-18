@@ -18,15 +18,23 @@
 #
 #########################################################################
 
+import re
 import string
 from django import forms
 from django.apps import AppConfig
 from django.utils.datastructures import OrderedDict
+from django.contrib import messages
+from django.contrib.auth import get_user_model
+from django.http import HttpResponseRedirect
+from django.shortcuts import render_to_response, get_object_or_404, redirect
+from django.utils.translation import ugettext_lazy as _
 
+
+alnum_re = re.compile(r'^[a-zA-Z][A-Za-z_-]*$')
 
 def populate_username(first_name, last_name):
-    fname = u''.join(e for e in first_name if e in string.ascii_letters).lower()
-    lname = u''.join(e for e in last_name if e in string.ascii_letters).lower()
+    fname = u''.join(e for e in first_name if e in string.ascii_letters or '-' == e).lower()
+    lname = u''.join(e for e in last_name if e in string.ascii_letters or '-' == e).lower()
     printable = set(string.printable)
     return filter(lambda x: x in printable, u'{}.{}'.format(fname, lname).encode('utf-8').strip())
 
@@ -49,12 +57,32 @@ class IHPAppConfig(AppConfig):
     def patch_view(self, view):
         def generate_username(s, form):
             c = form.cleaned_data
-            return populate_username(c['first_name'], c['last_name'])
+            username = populate_username(c['first_name'], c['last_name'])
+            User = get_user_model()
+            from account.utils import get_user_lookup_kwargs
+            lookup_kwargs = get_user_lookup_kwargs({
+                "{username}__iexact": username
+            })
+            qs = User.objects.filter(**lookup_kwargs)
+            if not qs.exists():
+                return username
+            else:
+                lookup_kwargs = get_user_lookup_kwargs({
+                    "{username}__startswith": username
+                })
+                qs = User.objects.filter(**lookup_kwargs)
+                username += '_{}'.format((qs.count()))
+                try:
+                    User.objects.get(username__iexact=username)
+                except User.DoesNotExist:
+                    return username
+            raise forms.ValidationError(_("This username already exists."))
+
         view.generate_username = generate_username
 
     def on_signed_up(self, user, form, *args, **kwargs):
-        user.first_name = ''.join(e for e in form.cleaned_data['first_name'] if e.isalnum())
-        user.last_name = ''.join(e for e in form.cleaned_data['last_name'] if e.isalnum())
+        user.first_name = ''.join(e for e in form.cleaned_data['first_name'] if e in string.ascii_letters or '-' == e)
+        user.last_name = ''.join(e for e in form.cleaned_data['last_name'] if e in string.ascii_letters or '-' == e)
         user.save()
         form.cleaned_data['username'] = user.username
 

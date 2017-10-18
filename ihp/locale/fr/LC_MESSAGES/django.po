@@ -33,7 +33,7 @@ msgstr ""
 "Project-Id-Version: GeoNode\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-11 11:43+0200\n"
-"PO-Revision-Date: 2017-09-11 11:43+0200\n"
+"PO-Revision-Date: 2017-10-04 19:52+0200\n"
 "Last-Translator: Julien Collaer <julien.collaer@opengeode.be>\n"
 "Language-Team: French (http://www.transifex.com/geonode/geonode/language/"
 "fr/)\n"
@@ -42,7 +42,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.0.3\n"
+"X-Generator: Poedit 2.0.4\n"
 
 #: ihp/content/forms.py:8
 msgid "First name"
@@ -299,7 +299,7 @@ msgstr "Régions"
 #: ihp/templates/base/_resourcebase_info_panel.html:84
 #: ihp/templates/metadata_detail.html:112
 msgid "Owner"
-msgstr "Propriétaire"
+msgstr "Responsable"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:89
 msgid "Point of Contact"
@@ -603,7 +603,7 @@ msgstr "Édition avancée"
 
 #: ihp/templates/layers/layer_detail.html:339
 msgid "Upload Metadata"
-msgstr "Métadonnées de téléchargement"
+msgstr "Téléchargement"
 
 #: ihp/templates/layers/layer_detail.html:346
 #: ihp/templates/layers/layer_detail.html:477
@@ -616,7 +616,7 @@ msgstr "Modifier"
 
 #: ihp/templates/layers/layer_detail.html:350
 msgid "Upload"
-msgstr "Charger/Ajouter image"
+msgstr "Téléchargement"
 
 #: ihp/templates/layers/layer_detail.html:351
 msgid "Manage"
@@ -869,7 +869,7 @@ msgstr "Catégories"
 
 #: ihp/templates/search/_general_filters.html:51
 msgid "Owners"
-msgstr "Propriétaires"
+msgstr "Responsables"
 
 #: ihp/templates/search/_general_filters.html:68
 msgid "Date begins after:"

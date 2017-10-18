@@ -4,7 +4,8 @@ from ihp.content.models import (TermsOfUse,
                                 ContactUsPageContent,
                                 PartnerIcon,
                                 FaqTopic,
-                                FaqQuestion)
+                                FaqQuestion,
+                                DocumentationPage)
 
 
 admin.site.register(TermsOfUse)
@@ -13,3 +14,4 @@ admin.site.register(ContactUsPageContent)
 admin.site.register(PartnerIcon)
 admin.site.register(FaqTopic)
 admin.site.register(FaqQuestion)
+admin.site.register(DocumentationPage)

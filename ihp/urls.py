@@ -25,6 +25,7 @@ from ihp.content.views import (terms_of_use_view,
                                about_us_content_view,
                                contact_us_content_view,
                                faq_page_view,
+                               documentation_page_view,
                                SignupView)
 
 import geonode.urls
@@ -54,6 +55,9 @@ urlpatterns = [
                 url(r'^faq-page$',
                     faq_page_view,
                     name='faq-page'),
+                url(r'^get-started/(?P<pk>\d+)/$',
+                    documentation_page_view,
+                    name='get-started'),
                 url(r'^contact-us$',
                     contact_us_content_view,
                     name='contact-us'),

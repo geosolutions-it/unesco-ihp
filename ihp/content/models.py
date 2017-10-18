@@ -1,12 +1,17 @@
 from django.db import models
+from mptt.models import MPTTModel, TreeForeignKey
 
 
 class TermsOfUse(models.Model):
-    upload = models.FileField(upload_to='terms-of-use')
+    title_en = models.TextField()
+    title_fr = models.TextField()
+
+    content_en = models.TextField()
+    content_fr = models.TextField()
 
     def __str__(self):
         return "{} #{} '{}'".format(self.__class__.__name__, self.id,
-                                  self.upload)
+                                  self.title_en)
 
 
 class AboutUsPageContent(models.Model):
@@ -83,3 +88,32 @@ class FaqQuestion(models.Model):
     def __str__(self):
         return "{} #{} '{}'".format(self.__class__.__name__, self.id,
                                   self.title_en)
+
+
+class DocumentationPage(MPTTModel):
+    name = models.CharField(max_length=255, null=False)
+
+    title_en = models.TextField()
+    title_fr = models.TextField()
+    order = models.PositiveIntegerField()
+
+    content_en = models.TextField()
+    content_fr = models.TextField()
+
+    parent = TreeForeignKey(
+        'self',
+        null=True,
+        blank=True,
+        related_name='children',
+        on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ("order",)
+        verbose_name_plural = 'Documentation'
+
+    class MPTTMeta:
+        order_insertion_by = ['order']
+
+    def __str__(self):
+        return "{} #{} '{}'".format(self.__class__.__name__, self.id,
+                                  self.name)
