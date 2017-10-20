@@ -136,20 +136,60 @@ body.timeseries li#nav_timeseries a {
     font-weight: 900;
 }
 
+.page-title {
+  display: block;
+  /* overflow: hidden;
+  text-overflow: ellipsis;*/
+  overflow: visible; 
+  white-space: normal;
+  height:auto; /* just added this line */
+}
+
 nav_layers {font-size:16px}
+
+.nav > li,
+.nav > li > a {
+  position: relative;
+  display: block;
+  margin-bottom: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
 
 .list-group-item {
   position: relative;
   display: block;
-  padding: 8px 0px;
+  padding: 10px 15px;
   margin-bottom: -1px;
   background-color: #fff;
   border: 1px solid #ddd;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+}
+
+.category-item {
+    width: 180px;
+    display: block;
+    float: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
+.category-item:hover {
+    overflow: visible; 
+    white-space: normal;
+    height:auto; /* just added this line */
 }
 
 .form-control{margin-top:0px;font-family:Monda,Andale Mono, monospace;font-size:15px;}
 
-.btn-primary {margin-top:10px}
+.btn-primary {margin-top:0px}
 
 a {font-family: Monda,Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;color:#3276B1}
 a:hover {font-family: Monda,Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;color:#3276B1}
@@ -347,6 +387,25 @@ nav.filter h4 {
 .nav.navbar-nav.navbar-right .userthreads {
   width: 36px;
 }
+
+/* **************************** ADVANCED METADATA FORMS ***** */
+
+#div_id_resource-tkeywords,
+#div_id_resource-restriction_code_type,
+#div_id_resource-license,
+#div_id_resource-metadata_uploaded_preserve,
+#div_id_resource-alternate,
+#div_id_resource-typename,
+#div_id_resource-is_mosaic,
+#div_id_resource-has_time,
+#div_id_resource-has_elevation,
+#div_id_resource-time_regex,
+#div_id_resource-elevation_regex
+{
+    display: none;
+}
+
+/* **************************** ADVANCED METADATA FORMS - END */
 
 @media (min-width: 768px) {
     .home .navbar-inverse {

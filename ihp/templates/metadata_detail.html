@@ -41,7 +41,7 @@
     <dl class="dl-horizontal">
         {% if resource.title %}
         <dt>{% trans "Title" %}</dt>
-        <dd>{{ resource.title|truncatechars:80 }}</dd>
+        <dd>{{ resource.title }}</dd>
         {% endif %}
 
         {% if resource.abstract %}
@@ -105,6 +105,8 @@
         <dt>{% trans "Featured" %}</dt>
         <dd>{% if resource.featured %} {% trans "Yes" %} {% else %} {% trans "No" %} {% endif %}</dd>
 
+        <dt>{% trans "DOI" %}</dt>
+        <dd>{{ resource.doi }}</dd>
 
     </dl>
 

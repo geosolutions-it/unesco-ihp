@@ -58,8 +58,6 @@
                                 <div class="col-lg-7">
                                     <span><label for="{{ document_form.title|id }}">{{ document_form.title.label }}</label></span>
                                     {{ document_form.title }}
-                                    <span><label for="{{ document_form.title|id }}">{{ document_form.links.label }}</label></span>
-                                    {{ document_form.links }}
                                     <div>
                                         <span><label for="{{ document_form.abstract|id }}">{{ document_form.abstract.label }}</label></span>
                                         {{ document_form.abstract }}
@@ -186,9 +184,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -279,9 +274,15 @@
                              {% endif %}
                           </div>
                       </div>
-            </div>
+            </div>            
         </div>
-      </div></div></div>
+      </div>
+        <div class="row">
+            <span><label for="{{ document_form.title|id }}">{{ document_form.links.label }}</label></span>
+            {{ document_form.links }}
+        </div>        
+      </div>
+      </div>
     </div>
 </div>
   <div id="settings" class="tab-pane fade" style="overflow: hidden;">
