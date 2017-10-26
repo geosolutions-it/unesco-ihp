@@ -156,6 +156,8 @@ nav_layers {font-size:16px}
   white-space: nowrap;
   text-overflow: ellipsis;
   word-wrap: break-word;
+  pointer-events: auto;
+  cursor: pointer;
 }
 
 .list-group-item {
@@ -404,6 +406,9 @@ nav.filter h4 {
 {
     display: none;
 }
+
+label[for="id_resource-constraints_other"]:before{content:'Restrictions'; font-size: 14px;}
+label[for="id_resource-constraints_other"]{ font-size: 0; }
 
 /* **************************** ADVANCED METADATA FORMS - END */
 
