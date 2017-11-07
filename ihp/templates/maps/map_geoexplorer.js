@@ -16,6 +16,11 @@ Ext.onReady(function() {
         {% if PROXY_URL %}
         proxy: '{{ PROXY_URL }}',
         {% endif %}
+        {% if 'access_token' in request.session %}
+        access_token: "{{request.session.access_token}}",
+        {% else %}
+        access_token: null,
+        {% endif %}
         {% if MAPFISH_PRINT_ENABLED %}
         printService: "{{GEOSERVER_BASE_URL}}pdf/",
         {% else %}

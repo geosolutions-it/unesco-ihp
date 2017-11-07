@@ -59709,38 +59709,70 @@ GeoExt.data.PrintProviderBase = Ext.extend(Ext.util.Observable, {
         }
 
         var encodedLegends = undefined;
-        if (options.legend && (this.fireEvent("beforeencodelegend", this, options.legend) === true)) {
+        var legend = options.legend;
+        var jsonData = {'pages': pages};
+        if (legend && (this.fireEvent("beforeencodelegend", this, jsonData, legend) === true)) {
             encodedLegends = [];
-            var legend = options.legend;
-            var rendered = legend.rendered;
-            if (!rendered && legend) {
-                try {
-                    legend = legend.cloneConfig({
-                        renderTo: document.body,
-                        hidden: true
-                    });
-                } catch(err) {
-                    console.log(err);
-                    debugger;
-                }
+            if (jsonData.legends) {
+                encodedLegends = jsonData.legends;
+
+
+
+
+
+
+
+
+
+
             }
-            if (legend.items) {
-                legend.items.each(function(cmp) {
-                    if (!cmp.hidden) {
-                        var encFn = this.encoders.legends[cmp.getXType()];
-                        encodedLegends = encodedLegends.concat(
-                            encFn.call(this, cmp, pages[0].scale.get("value"))
-                        );
+            else {
+                var rendered = legend.rendered;
+                if (!rendered && legend) {
+                    try {
+                        legend = legend.cloneConfig({
+                            renderTo: document.body,
+                            hidden: true
+                        });
+                    } catch(err) {
+                        console.log(err);
                     }
-                }, this);
-            }
-            if (!rendered && legend) {
-                try {
-                    legend.destroy();
-                } catch(err) {
-                    console.log(err);
-                    debugger;
+
+
+
+
+
+
+
+
                 }
+                if (legend.actions) {
+                    for (actionNum in legend.actions) {
+                        var action = legend.actions[actionNum];
+                        if (action.items) {
+                            for (itemNum in action.items) {
+                                var cmp = action.items[itemNum];
+                                if (!cmp.hidden) {
+                                    var encFn = this.encoders.legends[cmp.getXType()];
+                                    encodedLegends = encodedLegends.concat(
+                                        encFn.call(this, cmp, pages[0].scale.get("value"))
+                                    );
+                                }
+                            }
+                        }
+                    }
+                }
+                if (!rendered && legend) {
+                    try {
+                        legend.destroy();
+                    } catch(err) {
+                        console.log(err);
+                    }
+                }
+            }
+        } else {
+            if (jsonData.legends) {
+                encodedLegends = jsonData.legends;
             }
         }
         this.requestPrint(map, pages, encodedLayers, encodedOverviewLayers, encodedLegends, callback);
@@ -60190,6 +60222,15 @@ GeoExt.data.PrintProvider = Ext.extend(GeoExt.data.PrintProviderBase, {
                     extension: "png"
                 });
             },
+            "XYZ": function (layer) {
+				var enc = this.encoders.layers.TileCache.call(this, layer);
+				return Ext.apply(enc, {
+					type: 'XYZ',
+					baseURL: enc.baseURL.substr(0, enc.baseURL.indexOf("$")),
+					extension: enc.baseURL.substr(enc.baseURL.lastIndexOf("$")).split(".").pop(),
+					tileOriginCorner: layer.tileOriginCorner
+				});
+			},
             "TMS": function(layer) {
                 var enc = this.encoders.layers.TileCache.call(this, layer);
                 return Ext.apply(enc, {
@@ -78775,7 +78816,7 @@ Ext.preg(gxp.plugins.Legend.prototype.ptype, gxp.plugins.Legend);
 /** FILE: plugins/Print.js **/
 /**
  * Copyright (c) 2008-2011 The Open Planning Project
- * 
+ *
  * Published under the GPL license.
  * See https://github.com/opengeo/gxp/raw/master/license.txt for the full text
  * of the license.
@@ -78805,7 +78846,7 @@ Ext.namespace("gxp.plugins");
  *    which is currently mirrored at git://github.com/GeoNode/PrintPreview.git.
  */
 gxp.plugins.Print = Ext.extend(gxp.plugins.Tool, {
-    
+
     /** api: ptype = gxp_print */
     ptype: "gxp_print",
 
@@ -78910,8 +78951,16 @@ gxp.plugins.Print = Ext.extend(gxp.plugins.Tool, {
                                     if (node.component && !node.component.hidden) {
                                         var cmp = node.component;
                                         var encFn = this.encoders.legends[cmp.getXType()];
-                                        encodedLegends = encodedLegends.concat(
-                                            encFn.call(this, cmp, jsonData.pages[0].scale));
+
+                                        var legendEncoded = encFn.call(this, cmp, jsonData.pages[0].scale);
+                                        try {
+                                            if((!legendEncoded[0].classes[0].icons[0].match(/\bformat/gi))) {
+                                                legendEncoded[0].classes[0].icons[0] += "&format=image/png";
+                                            }
+                                        } catch(err) {
+                                            console.log(legendEncoded);
+                                        }
+                                        encodedLegends = encodedLegends.concat(legendEncoded);
                                     }
                                 }, provider);
                             }
@@ -79025,17 +79074,34 @@ gxp.plugins.Print = Ext.extend(gxp.plugins.Tool, {
                     for (key in this.target.tools) {
                         tool = this.target.tools[key];
                         if (tool.ptype === "gxp_legend") {
-                            legend = tool.getLegendPanel();
+                            try {
+                                legend = tool.getLegendPanel();
+                            } catch(err) {
+                                legend = tool;
+                            }
                             break;
                         }
                     }
+
                     // if not found, look for a layer manager instead
-                    if (legend === null) {
+                    if (!legend || legend === null) {
                         for (key in this.target.tools) {
                             tool = this.target.tools[key];
                             if (tool.ptype === "gxp_layermanager") {
                                 legend = tool;
                                 break;
+                            }
+                        }
+                    }
+
+                    if (!legend || legend === null) {
+                        if (this.target.viewerTools) {
+                            for (key in this.target.viewerTools) {
+                                tool = this.target.viewerTools[key];
+                                if (tool.ptype === "gxp_layermanager") {
+                                    legend = tool;
+                                    break;
+                                }
                             }
                         }
                     }
@@ -79431,7 +79497,7 @@ Ext.preg("gxp_geoserverstylewriter", gxp.plugins.GeoServerStyleWriter);
 /** FILE: plugins/WMSRasterStylesDialog.js **/
 /**
  * Copyright (c) 2008-2011 The Open Planning Project
- * 
+ *
  * Published under the GPL license.
  * See https://github.com/opengeo/gxp/raw/master/license.txt for the full text
  * of the license.
@@ -79456,16 +79522,16 @@ Ext.namespace("gxp.plugins");
  *
  *    TODO replace this with true raster support instead of squeezing it into
  *    a VectorLegend as if we were dealing with vector styles.
- */   
+ */
 gxp.plugins.WMSRasterStylesDialog = {
-    
+
     /** private: property[isRaster]
      *  ``Boolean`` Are we dealing with a raster layer with RasterSymbolizer?
      *  This is needed because we create pseudo rules from a RasterSymbolizer's
      *  ColorMap, and for this we need special treatment in some places.
      */
     isRaster: null,
-    
+
     init: function(target) {
         Ext.apply(target, gxp.plugins.WMSRasterStylesDialog);
     },
@@ -79478,7 +79544,7 @@ gxp.plugins.WMSRasterStylesDialog = {
         ];
         return new OpenLayers.Rule({symbolizers: symbolizers});
     },
-    
+
     /** private: method[addRule]
      */
     addRule: function() {
@@ -79499,7 +79565,7 @@ gxp.plugins.WMSRasterStylesDialog = {
         }
         this.updateRuleRemoveButton();
     },
-    
+
     /** private: method[removeRule]
      */
     removeRule: function() {
@@ -79515,7 +79581,7 @@ gxp.plugins.WMSRasterStylesDialog = {
             gxp.WMSStylesDialog.prototype.removeRule.apply(this, arguments);
         }
     },
-    
+
     /** private: method[duplicateRule]
      */
     duplicateRule: function() {
@@ -79540,12 +79606,12 @@ gxp.plugins.WMSRasterStylesDialog = {
         }
         this.updateRuleRemoveButton();
     },
-    
+
     editRule: function() {
         this.isRaster ? this.editPseudoRule() :
             gxp.WMSStylesDialog.prototype.editRule.apply(this, arguments);
     },
-    
+
     /** private: method[editPseudoRule]
      *  Edit a pseudo rule of a RasterSymbolizer's ColorMap.
      */
@@ -79587,11 +79653,16 @@ gxp.plugins.WMSRasterStylesDialog = {
                                 allowBlank: false,
                                 fieldLabel: "Quantity",
                                 validator: function(value) {
-                                    var rules = this.getComponent("rulesfieldset").items.get(0).rules;
-                                    for (var i=rules.length-1; i>=0; i--) {
-                                        if (rule !== rules[i] && rules[i].name == value) {
-                                            return "Quantity " + value + " is already defined";
+                                    try {
+                                        var rules = this.getComponent("rulesfieldset").items.get(0).rules;
+                                        for (var i=rules.length-1; i>=0; i--) {
+                                            if (rule !== rules[i] && rules[i].name == value) {
+                                                return "Quantity " + value + " is already defined";
+                                            }
                                         }
+                                    }
+                                    catch(err) {
+                                        console.log(err);
                                     }
                                     return true;
                                 },
@@ -79656,10 +79727,10 @@ gxp.plugins.WMSRasterStylesDialog = {
         // remove stroke fieldset
         var strokeSymbolizer = pseudoRuleDlg.findByType("gxp_strokesymbolizer")[0];
         strokeSymbolizer.ownerCt.remove(strokeSymbolizer);
-        
+
         pseudoRuleDlg.show();
     },
-    
+
     /** private: method[savePseudoRules]
      *  Takes the pseudo rules from the legend and adds them as
      *  RasterSymbolizer ColorMap back to the userStyle.
@@ -79668,14 +79739,14 @@ gxp.plugins.WMSRasterStylesDialog = {
         var style = this.selectedStyle;
         var legend = this.getComponent("rulesfieldset").items.get(0);
         var userStyle = style.get("userStyle");
-        
+
         var pseudoRules = legend.rules;
         pseudoRules.sort(function(a,b) {
             var left = parseFloat(a.name);
             var right = parseFloat(b.name);
             return left === right ? 0 : (left < right ? -1 : 1);
         });
-        
+
         var symbolizer = userStyle.rules[0].symbolizers[0];
         symbolizer.colorMap = pseudoRules.length > 0 ?
             new Array(pseudoRules.length) : undefined;
@@ -79692,7 +79763,7 @@ gxp.plugins.WMSRasterStylesDialog = {
         }
         this.afterRuleChange(this.selectedRule);
     },
-    
+
     /** private: method[createLegend]
      *  :arg rules: ``Array``
      *  :arg options:
@@ -79707,7 +79778,7 @@ gxp.plugins.WMSRasterStylesDialog = {
             this.isRaster = false;
             this.addVectorLegend(rules);
         }
-    },    
+    },
 
     /** private: method[addRasterLegend]
      *  :arg rules: ``Array``
@@ -79717,12 +79788,12 @@ gxp.plugins.WMSRasterStylesDialog = {
      *  Creates the vector legend for the pseudo rules that are created from
      *  the RasterSymbolizer of the first rule and adds it to the rules
      *  fieldset.
-     *  
+     *
      *  Supported options:
      *
      *  * selectedRuleIndex: ``Number`` The index of a pseudo rule to select
      *    in the legend.
-     */  
+     */
     addRasterLegend: function(rules, options) {
         options = options || {};
         //TODO raster styling support is currently limited to one rule, and
@@ -79741,10 +79812,10 @@ gxp.plugins.WMSRasterStylesDialog = {
             enableDD: false
         });
     },
-    
+
     /** private: method[createPseudoRule]
      *  :arg colorMapEntry: ``Object``
-     *  
+     *
      *  Creates a pseudo rule from a ColorMapEntry.
      */
     createPseudoRule: function(colorMapEntry) {
@@ -79755,7 +79826,7 @@ gxp.plugins.WMSRasterStylesDialog = {
                 rules = fieldset.items.get(0).rules;
                 for (var i=rules.length-1; i>=0; i--) {
                     quantity = Math.max(quantity, parseFloat(rules[i].name));
-                }            
+                }
             }
         }
         colorMapEntry = Ext.applyIf(colorMapEntry || {}, {
@@ -79784,7 +79855,7 @@ gxp.plugins.WMSRasterStylesDialog = {
             (this.isRaster === false &&
                 this.getComponent("rulesfieldset").items.get(0).rules.length <= 1));
     }
-    
+
 };
 
 /** api: ptype = gxp_wmsrasterstylesdialog */
@@ -101513,13 +101584,13 @@ var GeoExplorer = Ext.extend(gxp.Viewer, {
     contactText: "Contact",
     aboutThisMapText: "About this Map",
     // End i18n.
-    
+
     /**
      * private: property[mapPanel]
      * the :class:`GeoExt.MapPanel` instance for the main viewport
      */
     mapPanel: null,
-    
+
     constructor: function(config) {
         this.mapItems = [
             {
@@ -101546,54 +101617,54 @@ var GeoExplorer = Ext.extend(gxp.Viewer, {
             text: gxp.plugins.Print.prototype.tooltip,
             ptype: "gxp_print",
             iconCls: "gxp-icon-print",
-            customParams: {outputFilename: 'GeoExplorer-print'},
+            // customParams: {outputFilename: 'GeoExplorer-print'},
             printService: config.printService,
             checked: true
         }, {
-            leaf: true, 
-            text: gxp.plugins.Navigation.prototype.tooltip, 
-            checked: true, 
+            leaf: true,
+            text: gxp.plugins.Navigation.prototype.tooltip,
+            checked: true,
             iconCls: "gxp-icon-pan",
-            ptype: "gxp_navigation", 
+            ptype: "gxp_navigation",
             toggleGroup: "navigation"
         }, {
-            leaf: true, 
-            text: gxp.plugins.WMSGetFeatureInfo.prototype.infoActionTip, 
-            checked: true, 
+            leaf: true,
+            text: gxp.plugins.WMSGetFeatureInfo.prototype.infoActionTip,
+            checked: true,
             iconCls: "gxp-icon-getfeatureinfo",
             ptype: "gxp_wmsgetfeatureinfo",
             format: 'grid',
             toggleGroup: "interaction"
         }, {
-            leaf: true, 
-            text: gxp.plugins.Measure.prototype.measureTooltip, 
-            checked: true, 
+            leaf: true,
+            text: gxp.plugins.Measure.prototype.measureTooltip,
+            checked: true,
             iconCls: "gxp-icon-measure-length",
             ptype: "gxp_measure",
             controlOptions: {immediate: true},
             toggleGroup: "interaction"
         }, {
-            leaf: true, 
-            text: gxp.plugins.Zoom.prototype.zoomInTooltip + " / " + gxp.plugins.Zoom.prototype.zoomOutTooltip, 
-            checked: true, 
+            leaf: true,
+            text: gxp.plugins.Zoom.prototype.zoomInTooltip + " / " + gxp.plugins.Zoom.prototype.zoomOutTooltip,
+            checked: true,
             iconCls: "gxp-icon-zoom-in",
             ptype: "gxp_zoom"
         }, {
-            leaf: true, 
-            text: gxp.plugins.NavigationHistory.prototype.previousTooltip + " / " + gxp.plugins.NavigationHistory.prototype.nextTooltip, 
-            checked: true, 
+            leaf: true,
+            text: gxp.plugins.NavigationHistory.prototype.previousTooltip + " / " + gxp.plugins.NavigationHistory.prototype.nextTooltip,
+            checked: true,
             iconCls: "gxp-icon-zoom-previous",
             ptype: "gxp_navigationhistory"
         }, {
-            leaf: true, 
-            text: gxp.plugins.ZoomToExtent.prototype.tooltip, 
-            checked: true, 
+            leaf: true,
+            text: gxp.plugins.ZoomToExtent.prototype.tooltip,
+            checked: true,
             iconCls: gxp.plugins.ZoomToExtent.prototype.iconCls,
             ptype: "gxp_zoomtoextent"
         }, {
-            leaf: true, 
-            text: gxp.plugins.Legend.prototype.tooltip, 
-            checked: true, 
+            leaf: true,
+            text: gxp.plugins.Legend.prototype.tooltip,
+            checked: true,
             iconCls: "gxp-icon-legend",
             ptype: "gxp_legend"
         }, {
@@ -101609,10 +101680,10 @@ var GeoExplorer = Ext.extend(gxp.Viewer, {
         }];
 
         GeoExplorer.superclass.constructor.apply(this, arguments);
-    }, 
+    },
 
     loadConfig: function(config) {
-        
+
         var mapUrl = window.location.hash.substr(1);
         var match = mapUrl.match(/^maps\/(\d+)$/);
         if (match) {
@@ -101660,7 +101731,7 @@ var GeoExplorer = Ext.extend(gxp.Viewer, {
                 /**
                  * Special handling for links from local GeoServer.
                  *
-                 * The layers query string value indicates layers to add as 
+                 * The layers query string value indicates layers to add as
                  * overlays from the local source.
                  *
                  * The bbox query string value indicates the initial extent in
@@ -101686,32 +101757,32 @@ var GeoExplorer = Ext.extend(gxp.Viewer, {
                      config.sources.local.requiredProperties = [];
                  }
             }
-            
+
             this.applyConfig(config);
         }
-        
+
     },
-    
+
     displayXHRTrouble: function(msg, status) {
-        
+
         Ext.Msg.show({
             title: this.xhrTroubleText + status,
             msg: msg,
             icon: Ext.MessageBox.WARNING
         });
-        
+
     },
-    
+
     /** private: method[initPortal]
      * Create the various parts that compose the layout.
      */
     initPortal: function() {
-        this.createTools();        
-        GeoExplorer.superclass.initPortal.apply(this, arguments);        
+        this.createTools();
+        GeoExplorer.superclass.initPortal.apply(this, arguments);
     },
-    
+
     /** private: method[createTools]
-     * Create the toolbar configuration for the main panel.  This method can be 
+     * Create the toolbar configuration for the main panel.  This method can be
      * extended by derived explorer classes such as :class:`GeoExplorer.Composer`
      * or :class:`GeoExplorer.Viewer` to provide specialized controls.
      */
@@ -101724,7 +101795,7 @@ var GeoExplorer = Ext.extend(gxp.Viewer, {
             scope: this
         });
     },
-    
+
     /** private: method[showUrl]
      */
     showUrl: function() {
@@ -101747,7 +101818,7 @@ var GeoExplorer = Ext.extend(gxp.Viewer, {
         win.show();
         win.items.first().selectText();
     },
-    
+
     /** api: method[getBookmark]
      *  :return: ``String``
      *
@@ -101758,12 +101829,12 @@ var GeoExplorer = Ext.extend(gxp.Viewer, {
             OpenLayers.Util.getParameters(),
             {q: Ext.util.JSON.encode(this.getState())}
         );
-        
+
         // disregard any hash in the url, but maintain all other components
-        var url = 
+        var url =
             document.location.href.split("?").shift() +
             "?" + Ext.urlEncode(params);
-        
+
         return url;
     },
 
@@ -101777,8 +101848,8 @@ var GeoExplorer = Ext.extend(gxp.Viewer, {
         });
 
         var about = Ext.applyIf(this.about, {
-            title: '', 
-            "abstract": '', 
+            title: '',
+            "abstract": '',
             contact: ''
         });
 
@@ -101807,7 +101878,7 @@ var GeoExplorer = Ext.extend(gxp.Viewer, {
         });
         win.show();
     },
-    
+
     /** private: method[getState]
      *  :returns: ``Òbject`` the state of the viewer
      */
@@ -101818,7 +101889,6 @@ var GeoExplorer = Ext.extend(gxp.Viewer, {
         return state;
     }
 });
-
 
 /** FILE: GeoExplorer/Composer.js **/
 /**
@@ -101934,7 +102004,7 @@ GeoExplorer.Composer = Ext.extend(GeoExplorer, {
                 actions: ["mapmenu"],  actionTarget: "paneltbar"
             }, {
                 ptype: "gxp_print",
-                customParams: {outputFilename: 'GeoExplorer-print'},
+                // customParams: {outputFilename: 'GeoExplorer-print'},
                 printService: config.printService,
                 actionTarget: "paneltbar",
                 showButtonText: true
