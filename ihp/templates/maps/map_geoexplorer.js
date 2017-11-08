@@ -21,11 +21,14 @@ Ext.onReady(function() {
         {% else %}
         access_token: null,
         {% endif %}
+
         {% if MAPFISH_PRINT_ENABLED %}
         printService: "{{GEOSERVER_BASE_URL}}pdf/",
         {% else %}
-        printService: "",
-        {% endif %} 
+        printService: null,
+        printCapabilities: null,
+        {% endif %}
+
         /* The URL to a REST map configuration service.  This service 
          * provides listing and, with an authenticated user, saving of 
          * maps on the server for sharing and editing.
