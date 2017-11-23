@@ -58,3 +58,6 @@ uploaded
 static_root
 
 local_settings.py
+
+# pycharm IDE files
+.idea
