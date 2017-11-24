@@ -85,26 +85,26 @@ SOCIALACCOUNT_FORMS = {
     "signup": "ihp.content.forms.UnescoSocialAccountSignupForm",
 }
 INSTALLED_APPS += (
-    'allauth.socialaccount.providers.linkedin',
+    'allauth.socialaccount.providers.linkedin_oauth2',
     'allauth.socialaccount.providers.facebook',
 )
 
 SOCIALACCOUNT_PROVIDERS = {
-    'linkedin': {
+    'linkedin_oauth2': {
         'SCOPE': [
             'r_emailaddress',
             'r_basicprofile',
         ],
         'PROFILE_FIELDS': [
-            'email-address',
-            'first-name',
+            'emailAddress',
+            'firstName',
             'headline',
             'id',
             'industry',
-            'last-name',
-            'picture-url',
+            'lastName',
+            'pictureUrl',
             'positions',
-            'public-profile-url',
+            'publicProfileUrl',
             'location',
             'specialties',
             'summary',
@@ -133,5 +133,5 @@ SOCIALACCOUNT_PROVIDERS = {
 
 SOCIALACCOUNT_PROFILE_EXTRACTORS = {
     "facebook": "geonode.people.profileextractors.FacebookExtractor",
-    "linkedin": "geonode.people.profileextractors.LinkedInExtractor",
+    "linkedin_oauth2": "geonode.people.profileextractors.LinkedInExtractor",
 }
