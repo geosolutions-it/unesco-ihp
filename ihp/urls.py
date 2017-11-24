@@ -25,8 +25,7 @@ from ihp.content.views import (terms_of_use_view,
                                about_us_content_view,
                                contact_us_content_view,
                                faq_page_view,
-                               documentation_page_view,
-                               SignupView)
+                               documentation_page_view)
 
 import geonode.urls
 
@@ -61,7 +60,4 @@ urlpatterns = [
                 url(r'^contact-us$',
                     contact_us_content_view,
                     name='contact-us'),
-                url(r'^account/signup/$',
-                    SignupView.as_view(),
-                    name="account_signup"),
               ] + geonode.urls.urlpatterns
