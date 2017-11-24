@@ -76,3 +76,63 @@ GROUP_MANDATORY_RESOURCES = True
 MODIFY_TOPICCATEGORY = True
 USER_MESSAGES_ALLOW_MULTIPLE_RECIPIENTS = True
 DISPLAY_WMS_LINKS = True
+
+ACCOUNT_FORMS = {
+    "signup": "ihp.content.forms.UnescoLocalAccountSignupForm",
+}
+
+SOCIALACCOUNT_AUTO_SIGNUP = False
+SOCIALACCOUNT_FORMS = {
+    "signup": "ihp.content.forms.UnescoSocialAccountSignupForm",
+}
+INSTALLED_APPS += (
+    'allauth.socialaccount.providers.linkedin_oauth2',
+    'allauth.socialaccount.providers.facebook',
+)
+
+SOCIALACCOUNT_PROVIDERS = {
+    'linkedin_oauth2': {
+        'SCOPE': [
+            'r_emailaddress',
+            'r_basicprofile',
+        ],
+        'PROFILE_FIELDS': [
+            'emailAddress',
+            'firstName',
+            'headline',
+            'id',
+            'industry',
+            'lastName',
+            'pictureUrl',
+            'positions',
+            'publicProfileUrl',
+            'location',
+            'specialties',
+            'summary',
+        ]
+    },
+    'facebook': {
+        'METHOD': 'oauth2',
+        'SCOPE': [
+            'email',
+            'public_profile',
+        ],
+        'FIELDS': [
+            'id',
+            'email',
+            'name',
+            'first_name',
+            'last_name',
+            'verified',
+            'locale',
+            'timezone',
+            'link',
+            'gender',
+        ]
+    },
+}
+
+SOCIALACCOUNT_PROFILE_EXTRACTORS = {
+    "facebook": "geonode.people.profileextractors.FacebookExtractor",
+    "linkedin_oauth2": "geonode.people.profileextractors.LinkedInExtractor",
+}
