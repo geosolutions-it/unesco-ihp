@@ -33,7 +33,6 @@ except ImportError:
 #
 # General Django development settings
 #
-
 SITENAME = 'ihp'
 
 # Defines the directory that contains the settings file as the LOCAL_ROOT
@@ -52,7 +51,6 @@ STATICFILES_DIRS.append(
 TEMPLATES[0]['DIRS'].insert(0, os.path.join(LOCAL_ROOT, "templates"))
 TEMPLATES[0]['OPTIONS']['debug'] = True
 
-
 # If you want to enable Mosaics use the following configuration
 #UPLOADER = {
 ##    'BACKEND': 'geonode.rest',
@@ -63,7 +61,6 @@ TEMPLATES[0]['OPTIONS']['debug'] = True
 #        'GEOGIG_ENABLED': False,
 #    }
 #}
-
 
 CATALOGUE = {
     'default': {
@@ -197,6 +194,8 @@ LOCALE_PATHS = (
 #                           'BIN': '/usr/bin/xvfb-run /usr/bin/wkhtmltopdf',
 #                           'ARGS': []}}
 
+CLIENT_RESULTS_LIMIT = 20
+API_LIMIT_PER_PAGE = 1000
 FREETEXT_KEYWORDS_READONLY = True
 RESOURCE_PUBLISHING = True
 ADMIN_MODERATE_UPLOADS = True
