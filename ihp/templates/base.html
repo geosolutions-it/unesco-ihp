@@ -57,13 +57,13 @@
           <ul class="nav navbar-nav">
             {% block tabs %}
             <li id="nav_layers">
-              <a href="{% url "layer_browse" %}">{% trans "Layers" %}</a>
+              <a href="{% url "layer_browse" %}?limit={{ CLIENT_RESULTS_LIMIT }}">{% trans "Layers" %}</a>
             </li>
             <li id="nav_maps">
-              <a href="{% url "maps_browse" %}">{% trans "Maps" %}</a>
+              <a href="{% url "maps_browse" %}?limit={{ CLIENT_RESULTS_LIMIT }}">{% trans "Maps" %}</a>
             </li>
             <li id="nav_documents">
-              <a href="{% url "document_browse" %}">{% trans "Documents" %}</a>
+              <a href="{% url "document_browse" %}?limit={{ CLIENT_RESULTS_LIMIT }}">{% trans "Documents" %}</a>
             </li>
            {% block extra_tab %}
            {% endblock %}
@@ -75,7 +75,7 @@
             </li>
 
             <li id="nav_timeseries">
-              <a href="{% url "time_series" %}">{% trans "TimeSeries" %}</a>
+              <a href="{% url "time_series" %}?limit={{ CLIENT_RESULTS_LIMIT }}">{% trans "TimeSeries" %}</a>
             </li>
             {% endblock %}
           </ul>
