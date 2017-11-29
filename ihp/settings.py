@@ -212,18 +212,6 @@ LANGUAGES = (
     ('fr', "Français"),
 )
 
-#Define email service on GeoNode
-EMAIL_ENABLE = True
-
-if EMAIL_ENABLE:
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_HOST = 'localhost'
-    EMAIL_PORT = 25
-    EMAIL_HOST_USER = ''
-    EMAIL_HOST_PASSWORD = ''
-    EMAIL_USE_TLS = False
-    DEFAULT_FROM_EMAIL = 'Ihp-Wins <no-reply-wins@geo-solutions.it>'
-
 # prevent signing up by default
 ACCOUNT_OPEN_SIGNUP = True
 ACCOUNT_EMAIL_REQUIRED = True
