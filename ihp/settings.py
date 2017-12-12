@@ -52,15 +52,23 @@ TEMPLATES[0]['DIRS'].insert(0, os.path.join(LOCAL_ROOT, "templates"))
 TEMPLATES[0]['OPTIONS']['debug'] = True
 
 # If you want to enable Mosaics use the following configuration
-#UPLOADER = {
-##    'BACKEND': 'geonode.rest',
-#    'BACKEND': 'geonode.importer',
-#    'OPTIONS': {
-#        'TIME_ENABLED': True,
-#        'MOSAIC_ENABLED': True,
-#        'GEOGIG_ENABLED': False,
-#    }
-#}
+UPLOADER = {
+    # 'BACKEND': 'geonode.rest',
+    'BACKEND': 'geonode.importer',
+    'OPTIONS': {
+        'TIME_ENABLED': True,
+        'MOSAIC_ENABLED': False,
+        'GEOGIG_ENABLED': False,
+    },
+    'SUPPORTED_CRS': [
+        'EPSG:4326',
+        'EPSG:3785',
+        'EPSG:3857',
+        'EPSG:900913',
+        'EPSG:32647',
+        'EPSG:32736'
+    ]
+}
 
 CATALOGUE = {
     'default': {
@@ -495,6 +503,28 @@ SKIP_PERMS_FILTER = False
 #}
 #HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 # HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+MONITORING_ENABLED = True
+# add following lines to your local settings to enable monitoring
+if MONITORING_ENABLED:
+    INSTALLED_APPS += ('geonode.contrib.monitoring',)
+    MIDDLEWARE_CLASSES += ('geonode.contrib.monitoring.middleware.MonitoringMiddleware',)
+#                           'corsheaders.middleware.CorsMiddleware',
+#                           'django.middleware.common.CommonMiddleware',
+#    )
+
+    MONITORING_CONFIG = None
+    MONITORING_HOST_NAME = 'localhost'
+#    CORS_ORIGIN_ALLOW_ALL = True
+    MONITORING_SERVICE_NAME = 'local-geonode'
+    MONITORING_HOST_NAME = 'ihp-wins-dev.geo-solutions.it'
+
+INSTALLED_APPS += ('geonode.contrib.ows_api',)
+
+# GEOIP_PATH = "/usr/local/share/GeoIP"
+GEOIP_PATH = os.path.join(os.path.dirname(__file__), '..', 'GeoLiteCity.dat')
 
 LOGGING = {
     'version': 1,
