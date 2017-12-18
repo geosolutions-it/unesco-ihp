@@ -1,5 +1,1 @@
-git+git://github.com/geopython/OWSLib@master#egg=OWSLib-0.14-dev
-git+git://github.com/cezio/django-user-accounts@252_255_mixed#egg=django-user-accounts-2.0.2dev
-git+git://github.com/pinax/pinax-notifications.git@v3.0.1#egg=pinax-notifications-3.0.1
-pinax-theme-bootstrap==4.0.1
--e git://github.com/geosolutions-it/geonode.git@unesco_ihp_m1#egg=geonode
+-e git://github.com/geosolutions-it/geonode.git@unesco_ihp_m2#egg=geonode
