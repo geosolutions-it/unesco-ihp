@@ -41,6 +41,8 @@ LOCAL_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 WSGI_APPLICATION = "ihp.wsgi.application"
 
+LOGIN_URL = '/account/login/'
+
 # Additional directories which hold static files
 STATICFILES_DIRS.append(
     os.path.join(LOCAL_ROOT, "static"),
