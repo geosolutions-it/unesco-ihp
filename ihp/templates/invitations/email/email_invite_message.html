@@ -1,0 +1,70 @@
+{% load i18n %}
+<p>Dear Sir/Madam,</p>
+<p>{{ inviter_name }} is inviting you to join {{ site_name }}.</p>
+<p>
+    To do so, please register at {{ invite_url}}. Then send a message through
+    {{ SITEURL }}{% url 'message_create' inviter_id %} to
+    {{ inviter_first_name }} to confirm your willingness to join her/his
+    group(s).
+</p>
+<p>{{ inviter_name }} manages the following groups:</p>
+<ul>
+    {% for group in groups %}
+        <li><a href="{{ SITEURL }}{% url "group_detail" group %}">{{ group }}</a></li>
+    {% endfor %}
+</ul>
+<p>We look forward to seeing you on the platform,</p>
+<p>The IHP-WINS team</p>
+<table>
+    <tr>
+        <td><img src="{{ SITEURL }}{{ STATIC_URL }}img/logo_ihp_alpha_small.png"></td>
+        <td>
+            <strong>IHP-WINS</strong><br>
+            The Water Information Network System<br>
+            International Hydrological Programme<br>
+            UNESCO
+        </td>
+    </tr>
+    <tr>
+        <td><img src="{{ SITEURL }}{{ STATIC_URL }}img/logo_ihp_black_small.png"></td>
+        <td>
+            7. Place Fontenoy, 75007 Paris, France<br>
+            Email: <a href="mailto:ihp-wins@unesco.org">ihp-wins@unesco.org</a>
+        </td>
+    </tr>
+</table>
+<hr>
+<p>Madame, Monsieur,</p>
+<p>{{ inviter_name }} vous invite à rejoindre {{ site_name }}.</p>
+<p>
+    Pour cela, merci de vous enregistrer sur {{ invite_url}}. Ensuite, vous
+    pourrez envoyer un message à {{ inviter_first_name }} via
+    {{ site_name}}{% url 'message_create' inviter_id %} pour confirmer votre
+    volonté de rejoindre son groupe.
+</p>
+<p>{{ inviter_name }} gère les groupes suivantes:</p>
+<ul>
+    {% for group in groups %}
+        <li><a href="{{ site_name }}{% url "group_detail" group %}">{{ group }}</a></li>
+    {% endfor %}
+</ul>
+<p>Au plaisir de vous croiser sur la plateforme,</p>
+<p>L’équipe IHP-WINS</p>
+<table>
+    <tr>
+        <td><img src="{{ SITEURL }}{{ STATIC_URL }}img/logo_ihp_alpha_small.png"></td>
+        <td>
+            <strong>IHP-WINS</strong><br>
+            The Water Information Network System<br>
+            International Hydrological Programme<br>
+            UNESCO
+        </td>
+    </tr>
+    <tr>
+        <td><img src="{{ SITEURL }}{{ STATIC_URL }}img/logo_ihp_black_small.png"></td>
+        <td>
+            7. Place Fontenoy, 75007 Paris, France<br>
+            Email: <a href="mailto:ihp-wins@unesco.org">ihp-wins@unesco.org</a>
+        </td>
+    </tr>
+</table>
