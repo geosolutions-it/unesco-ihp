@@ -28,6 +28,7 @@ setup(
         # 'celery==3.1.18',
         'elasticsearch==2.4.1',  # workaround since geonode doesn't fix version
         'geonode-user-messages',
+        'pycountry',
     ],
 
       dependency_links=[

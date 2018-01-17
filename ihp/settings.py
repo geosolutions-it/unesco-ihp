@@ -292,7 +292,7 @@ SOCIALACCOUNT_PROVIDERS = {
 
 SOCIALACCOUNT_PROFILE_EXTRACTORS = {
     "facebook": "geonode.people.profileextractors.FacebookExtractor",
-    "linkedin_oauth2": "geonode.people.profileextractors.LinkedInExtractor",
+    "linkedin_oauth2": "ihp.content.profileextractors.LinkedInExtractor",
 }
 
 # MAPs and Backgrounds
