@@ -186,6 +186,9 @@ INSTALLED_APPS = (
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    # photo gallery
+    'photologue',
+    'sortedm2m',
 ) + GEONODE_APPS + ('tastypie',)
 
 INSTALLED_APPS += ('ihp', 'ihp.content')
