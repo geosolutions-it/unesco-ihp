@@ -29,6 +29,7 @@ setup(
         'elasticsearch==2.4.1',  # workaround since geonode doesn't fix version
         'geonode-user-messages',
         'pycountry',
+        'photologue==3.7',  # later releases depend on django>=1.11
     ],
 
       dependency_links=[

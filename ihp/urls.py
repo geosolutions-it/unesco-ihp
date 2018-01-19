@@ -18,6 +18,7 @@
 #
 #########################################################################
 
+from django.conf.urls import include
 from django.conf.urls import url
 from django.views.generic import TemplateView
 from geonode.sitemap import LayerSitemap
@@ -60,4 +61,5 @@ urlpatterns = [
                 url(r'^contact-us$',
                     contact_us_content_view,
                     name='contact-us'),
+                url(r'^photologue/', include('photologue.urls', namespace='photologue')),
               ] + geonode.urls.urlpatterns

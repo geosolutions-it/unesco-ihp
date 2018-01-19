@@ -1,0 +1,46 @@
+{% load i18n %}
+{% autoescape off %}
+
+Dear Sir/Madam,
+
+{{ inviter_name }} is inviting you to join {{ site_name }}
+
+To do so, please register at:
+
+    {{ invite_url}}
+
+{{ inviter_name }} manages the following groups:
+{% for group in groups %}
+- {{ group }}
+{% endfor %}
+
+After registering, send {{ inviter_first_name }} a message through {{ site_name}}{% url 'message_create' inviter_id %} expressing your willingness to join her/his group(s).
+
+
+We look forward to seeing you on the platform,
+
+The IHP-WINS team
+
+
+---
+
+Madame, Monsieur,
+
+{{ inviter_name }} vous invite à rejoindre {{ site_name }}
+
+Pour cela, merci de vous enregistrer sur:
+
+    {{ invite_url}}
+
+{{ inviter_name }} gère les groupes suivantes:
+{% for group in groups %}
+- {{ group }}
+{% endfor %}
+
+Ensuite, vous pourrez envoyer un message à {{ inviter_first_name }} via {{ site_name}}{% url 'message_create' inviter_id %} pour confirmer votre volonté de rejoindre son groupe.
+
+Au plaisir de vous croiser sur la plateforme,
+
+L’équipe IHP-WINS
+
+{% endautoescape %}
