@@ -4,10 +4,10 @@ source ~/.virtualenvs/geonode/bin/activate
 
 pushd $(dirname $0)
 
-DJANGO_SETTINGS_MODULE=ihp.settings python manage.py makemigrations --merge
-DJANGO_SETTINGS_MODULE=ihp.settings python manage.py makemigrations
-DJANGO_SETTINGS_MODULE=ihp.settings python manage.py migrate
-DJANGO_SETTINGS_MODULE=ihp.settings python manage.py collectstatic --noinput
+DJANGO_SETTINGS_MODULE=ihp.settings python -W ignore manage.py makemigrations --merge
+DJANGO_SETTINGS_MODULE=ihp.settings python -W ignore manage.py makemigrations
+DJANGO_SETTINGS_MODULE=ihp.settings python -W ignore manage.py migrate
+DJANGO_SETTINGS_MODULE=ihp.settings python -W ignore manage.py collectstatic --noinput
 
 touch ihp/wsgi.py
 
