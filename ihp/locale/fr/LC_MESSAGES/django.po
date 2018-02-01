@@ -237,6 +237,10 @@ msgstr "Administration"
 msgid "Help"
 msgstr "Aide"
 
+#: ihp/templates/base.html:260
+msgid "Invite Users"
+msgstr "Inviter des utilisateurs"
+
 #: ihp/templates/base.html:261
 msgid "Log out"
 msgstr "Se déconnecter"
@@ -244,6 +248,10 @@ msgstr "Se déconnecter"
 #: ihp/templates/base.html:298
 msgid "Type your search here ..."
 msgstr "Entrez votre recherche ici..."
+
+#: ihp/templates/invitations/forms/_invite.html:13
+msgid "Max. 200 email addresses"
+msgstr "Max: 200 adresses e-mail"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:6
 #: ihp/templates/metadata_detail.html:43

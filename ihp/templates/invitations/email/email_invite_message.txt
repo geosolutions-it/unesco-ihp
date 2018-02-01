@@ -1,46 +1,61 @@
 {% load i18n %}
 {% autoescape off %}
+English / Français
 
 Dear Sir/Madam,
 
-{{ inviter_name }} is inviting you to join {{ site_name }}
+{{ inviter_name }} is inviting you to join the Water Information Network System ({{ site_name }}).
 
-To do so, please register at:
+To do so, please register at {{ invite_url }} .
 
-    {{ invite_url}}
+Once you receive the confirmation that your account is activated, you can notify {{ inviter_name }} that you wish to join her/his group(s) through this link
 
-{{ inviter_name }} manages the following groups:
+{{ SITEURL }}{% url 'message_create' inviter_id %}?subject=Request%20to%20join%20your%20group&content=Dear%20group%20manager%2C%0A%0AI%20am%20now%20a%20member%20of%20IHP-WINS%2C%20and%20I%20would%20like%20to%20join%20the%20group%20that%20you%20are%20managing.%0APlease%20add%20me%20to%20your%20group.%0A%0AThank%20you. 
+
+{{ inviter_name }} is a member of the following group(s):
 {% for group in groups %}
 - {{ group }}
 {% endfor %}
 
-After registering, send {{ inviter_first_name }} a message through {{ site_name}}{% url 'message_create' inviter_id %} expressing your willingness to join her/his group(s).
-
-
 We look forward to seeing you on the platform,
 
-The IHP-WINS team
+The IHP-WINS team.
 
+IHP-WINS
+The Water Information Network System
+International Hydrological Programme
+UNESCO
+
+7. Place Fontenoy, 75007 Paris, France
+Email: ihp-wins@unesco.org
 
 ---
 
 Madame, Monsieur,
 
-{{ inviter_name }} vous invite à rejoindre {{ site_name }}
+{{ inviter_name }} vous invite à rejoindre le Système de Réseau d’Information sur l’Eau ({{ site_name }}).
 
-Pour cela, merci de vous enregistrer sur:
+Pour cela, merci de vous enregistrer sur {{ invite_url }} .
 
-    {{ invite_url}}
+Une fois reçue la confirmation d’activation de votre compte, vous pouvez informer {{ inviter_name }} que vous souhaitez rejoindre son(ses) groupe(s) via ce lien
 
-{{ inviter_name }} gère les groupes suivantes:
+{{ SITEURL }}{% url 'message_create' inviter_id %}?subject=Request%20to%20join%20your%20group&content=Dear%20group%20manager%2C%0A%0AI%20am%20now%20a%20member%20of%20IHP-WINS%2C%20and%20I%20would%20like%20to%20join%20the%20group%20that%20you%20are%20managing.%0APlease%20add%20me%20to%20your%20group.%0A%0AThank%20you. 
+
+{{ inviter_name }} est membre du(des) groupe(s) suivant(s):
 {% for group in groups %}
 - {{ group }}
 {% endfor %}
 
-Ensuite, vous pourrez envoyer un message à {{ inviter_first_name }} via {{ site_name}}{% url 'message_create' inviter_id %} pour confirmer votre volonté de rejoindre son groupe.
-
 Au plaisir de vous croiser sur la plateforme,
 
-L’équipe IHP-WINS
+L’équipe IHP-WINS.
+
+IHP-WINS
+The Water Information Network System
+International Hydrological Programme
+UNESCO
+
+7. Place Fontenoy, 75007 Paris, France
+Email: ihp-wins@unesco.org
 
 {% endautoescape %}
