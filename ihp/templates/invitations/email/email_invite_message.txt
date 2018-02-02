@@ -6,7 +6,7 @@ Dear Sir/Madam,
 
 {{ inviter_name }} is inviting you to join the Water Information Network System ({{ SITEURL }}).
 
-To do so, please register at {% url "account_signup" %} .
+To do so, please register at {{ SITEURL }}{% url "account_signup" %} .
 
 Once you receive the confirmation that your account is activated, you can notify {{ inviter_name }} that you wish to join her/his group(s) through this link
 
@@ -35,7 +35,7 @@ Madame, Monsieur,
 
 {{ inviter_name }} vous invite à rejoindre le Système de Réseau d’Information sur l’Eau ({{ SITEURL }}).
 
-Pour cela, merci de vous enregistrer sur {% url "account_signup" %} .
+Pour cela, merci de vous enregistrer sur {{ SITEURL }}{% url "account_signup" %} .
 
 Une fois reçue la confirmation d’activation de votre compte, vous pouvez informer {{ inviter_name }} que vous souhaitez rejoindre son(ses) groupe(s) via ce lien
 
