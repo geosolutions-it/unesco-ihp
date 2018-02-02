@@ -1,9 +1,9 @@
 {% load i18n %}
 <i>English / Français</i>
 <p>Dear Sir/Madam,</p>
-<p><strong>{{ inviter_name }}</strong>  is inviting you to join the Water Information Network System ({{ site_name }}).</p>
+<p><strong>{{ inviter_name }}</strong>  is inviting you to join the Water Information Network System (<a href="{{ SITEURL }}">{{ site_name }}</a>).</p>
 <p>
-    To do so, please register at <a href="{{ invite_url }}">IHP-WINS Registration</a>.
+    To do so, please register at <a href="{% url "account_signup" %}">IHP-WINS Registration</a>.
 </p>
 <p>
     Once you receive the confirmation that your account is activated, you can notify <strong>{{ inviter_name }}</strong> that you wish to join her/his group(s) through <a href="{{ SITEURL }}{% url 'message_create' inviter_id %}?subject=Request%20to%20join%20your%20group&content=Dear%20group%20manager%2C%0A%0AI%20am%20now%20a%20member%20of%20IHP-WINS%2C%20and%20I%20would%20like%20to%20join%20the%20group%20that%20you%20are%20managing.%0APlease%20add%20me%20to%20your%20group.%0A%0AThank%20you.">this link</a>.
@@ -36,9 +36,9 @@
 </table>
 <hr>
 <p>Madame, Monsieur,</p>
-<p><strong>{{ inviter_name }}</strong> vous invite à rejoindre le Système de Réseau d’Information sur l’Eau ({{ site_name }}).</p>
+<p><strong>{{ inviter_name }}</strong> vous invite à rejoindre le Système de Réseau d’Information sur l’Eau (<a href="{{ SITEURL }}">{{ site_name }}</a>).</p>
 <p>
-    Pour cela, merci de vous enregistrer sur <a href="{{ invite_url }}">Inscriptions IHP-WINS</a>.
+    Pour cela, merci de vous enregistrer sur <a href="{% url "account_signup" %}">Inscriptions IHP-WINS</a>.
 </p>
 <p>
     Une fois reçue la confirmation d’activation de votre compte, vous pouvez informer <strong>{{ inviter_name }}</strong> que vous souhaitez rejoindre son(ses) groupe(s) via <a href="{{ SITEURL }}{% url 'message_create' inviter_id %}?subject=Request%20to%20join%20your%20group&content=Dear%20group%20manager%2C%0A%0AI%20am%20now%20a%20member%20of%20IHP-WINS%2C%20and%20I%20would%20like%20to%20join%20the%20group%20that%20you%20are%20managing.%0APlease%20add%20me%20to%20your%20group.%0A%0AThank%20you.">ce lien</a>.
