@@ -54,6 +54,13 @@ STATICFILES_DIRS.append(
 TEMPLATES[0]['DIRS'].insert(0, os.path.join(LOCAL_ROOT, "templates"))
 TEMPLATES[0]['OPTIONS']['debug'] = True
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/var/tmp/django_cache',
+    }
+}
+
 # If you want to enable Mosaics use the following configuration
 UPLOADER = {
     # 'BACKEND': 'geonode.rest',
@@ -466,6 +473,10 @@ PINAX_NOTIFICATIONS_BACKENDS = [
 # Queue non-blocking notifications.
 PINAX_NOTIFICATIONS_QUEUE_ALL = False
 PINAX_NOTIFICATIONS_LOCK_WAIT_TIMEOUT = -1
+
+# PINAX_NOTIFICATIONS_HOOKSET = "pinax.notifications.hooks.DefaultHookSet"
+NOTIFICATIONS_ENABLED_BY_DEFAULT = False
+PINAX_NOTIFICATIONS_HOOKSET = "geonode.people.hooks.IHPNotificationsHookSet"
 
 # pinax.notifications
 # or notification
