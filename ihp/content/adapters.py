@@ -53,6 +53,11 @@ class UnescoLocalAccountAdapter(LocalAccountAdapter):
        http://django-allauth.readthedocs.io/en/latest/advanced.html#creating-and-populating-user-instances
 
     """
+    def __init__(self, *args, **kwargs):
+        super(UnescoLocalAccountAdapter, self).__init__(*args, **kwargs)
+
+    def clean_recommendation(self, recommendation):
+        return recommendation
 
     def populate_username(self, request, user):
         # validate the already generated username with django validation
@@ -73,6 +78,7 @@ class UnescoLocalAccountAdapter(LocalAccountAdapter):
             # ])
 
         User = get_user_model()
+
         lookup_kwargs = get_user_lookup_kwargs({
             "{username}__iexact": safe_username
         })
@@ -100,3 +106,11 @@ class UnescoLocalAccountAdapter(LocalAccountAdapter):
 
         if not _user_name_is_valid:
             raise forms.ValidationError(_("This username already exists."))
+
+    def save_user(self, request, sociallogin, form=None):
+        user = super(UnescoLocalAccountAdapter, self).save_user(request, sociallogin, form=form)
+        if form:
+            recommendation = form.cleaned_data["recommendation"]
+            user_field(user, 'recommendation', recommendation or None)
+            user.save()
+        return user
