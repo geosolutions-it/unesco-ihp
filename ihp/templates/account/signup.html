@@ -16,13 +16,12 @@
         <div class="col-md-8">
             {% get_providers as socialaccount_providers %}
             {% if socialaccount_providers %}
-                <p>{% blocktrans with site.name as site_name %}Sign up with one
-                    of your existing third party accounts{% endblocktrans %}</p>
+                <p>{% blocktrans with site.name as site_name %}Sign up with one of your existing third party accounts{% endblocktrans %}</p>
                 {% include "socialaccount/snippets/provider_list.html" with process="signup" %}
                 {% include "socialaccount/snippets/login_extra.html" %}
                 <hr>
             {% endif %}
-            <p>Create a new local account</p>
+            <p>{% trans "Create a new local account" %}</p>
             <form id="signup_form" method="post" action="{% url "account_signup" %}" autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
                 <fieldset>
                     {% csrf_token %}

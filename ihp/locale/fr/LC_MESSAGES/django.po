@@ -33,7 +33,7 @@ msgstr ""
 "Project-Id-Version: GeoNode\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-09-11 11:43+0200\n"
-"PO-Revision-Date: 2017-10-04 19:52+0200\n"
+"PO-Revision-Date: 2018-02-08 13:55+0100\n"
 "Last-Translator: Julien Collaer <julien.collaer@opengeode.be>\n"
 "Language-Team: French (http://www.transifex.com/geonode/geonode/language/"
 "fr/)\n"
@@ -42,7 +42,28 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.0.4\n"
+"X-Generator: Poedit 2.0.6\n"
+
+msgid "Sign up with one of your existing third party accounts"
+msgstr "Inscrivez-vous avec l'un de vos comptes tiers existants"
+
+msgid "Create a new local account"
+msgstr "Créer un nouveau compte local"
+
+msgid "I have read and agree with the "
+msgstr "J'ai lu et j'accepte les "
+
+msgid "IHP-WINS Terms of use"
+msgstr "conditions d'utilisation de IHP-WINS"
+
+msgid "Who recommended you IHP-WINS?"
+msgstr "Qui vous a recommandé IHP-WINS?"
+
+msgid "Name of the person"
+msgstr "Nom de la personne"
+
+msgid "Name of the person who recommended you IHP-WINS"
+msgstr "Nom de la personne qui vous a recommandé IHP-WINS"
 
 #: ihp/content/forms.py:8
 msgid "First name"

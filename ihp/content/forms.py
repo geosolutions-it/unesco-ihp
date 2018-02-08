@@ -42,11 +42,8 @@ def _replace_username_with_first_last(form):
         label=_(u"Who recommended you IHP-WINS?"),
         widget=forms.TextInput(attrs={'placeholder': _("Name of the person")}))
     terms_url = "%s/terms-of-use" % settings.SITEURL
-    agreement_message = _(
-        "I have read and agree with the "
-        "<a href={!r} target='_blank' rel='noopener noreferrer'>"
-        "IHP-WINS Terms of use"
-        "<a>".format(terms_url)
-    )
+    terms_href = "<a href={!r} target='_blank' rel='noopener noreferrer'>".format(terms_url)
+    terms_href = "%s%s%s" % (terms_href, _("IHP-WINS Terms of use"), "<a>")
+    agreement_message = "%s %s" % (_("I have read and agree with the "), terms_href)
     fields["terms_agreement"] = forms.BooleanField(label=agreement_message)
     form.fields = fields
