@@ -29,6 +29,7 @@ try:
 except ImportError:
     from geonode.settings import *
 
+
 DEBUG = False
 
 #
@@ -63,10 +64,10 @@ CACHES = {
 
 # If you want to enable Mosaics use the following configuration
 UPLOADER = {
-    # 'BACKEND': 'geonode.rest',
-    'BACKEND': 'geonode.importer',
+    'BACKEND': 'geonode.rest',
+    # 'BACKEND': 'geonode.importer',
     'OPTIONS': {
-        'TIME_ENABLED': True,
+        'TIME_ENABLED': False,
         'MOSAIC_ENABLED': False,
         'GEOGIG_ENABLED': False,
     },
