@@ -535,9 +535,9 @@ if MONITORING_ENABLED:
 #    )
 
     MONITORING_CONFIG = None
-    MONITORING_HOST_NAME = 'localhost'
+    MONITORING_HOST_NAME = 'ihp-wins.unesco.org'
 #    CORS_ORIGIN_ALLOW_ALL = True
-    MONITORING_SERVICE_NAME = 'local-geonode'
+    MONITORING_SERVICE_NAME = 'geonode'
     MONITORING_HOST_NAME = 'ihp-wins.unesco.org'
 
 INSTALLED_APPS += ('geonode.contrib.ows_api',)
