@@ -548,6 +548,12 @@ TEMPLATE_CONTEXT_PROCESSORS += ('django.core.context.processors.request', )
 # GEOIP_PATH = "/usr/local/share/GeoIP"
 GEOIP_PATH = os.path.join(os.path.dirname(__file__), '..', 'GeoLiteCity.dat')
 
+UNOCONV_ENABLE = True
+
+if UNOCONV_ENABLE:
+   UNOCONV_EXECUTABLE = '/usr/bin/unoconv'
+   UNOCONV_TIMEOUT = 60  # seconds
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,
