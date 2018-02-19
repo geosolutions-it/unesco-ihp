@@ -330,6 +330,9 @@ msgstr "Régions"
 msgid "Owner"
 msgstr "Responsable"
 
+msgid "Responsible"
+msgstr "Responsable"
+
 #: ihp/templates/base/_resourcebase_info_panel.html:89
 msgid "Point of Contact"
 msgstr "Point de Contact"
@@ -1231,6 +1234,9 @@ msgstr "À venir…"
 
 #~ msgid "Owner, Point of Contact, Metadata Author"
 #~ msgstr "Propriétaire, Point de contact, Auteur des métadonnées"
+
+msgid "Responsible, Point of Contact, Metadata Author"
+msgstr "Responsable, Point de contact, Auteur des métadonnées"
 
 #~ msgid "More info"
 #~ msgstr "Plus d'infos"
