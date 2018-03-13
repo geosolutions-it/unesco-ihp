@@ -98,6 +98,12 @@ msgstr ""
 "Le système de réseau d'information sur l'eau de l'IHP s'est associé à "
 "diverses organisations qui partagent leurs données."
 
+#: ihp/templates/about_us_content_template.html:90
+msgid ""
+"Development, installation and configuration professional services have been provided by"
+msgstr ""
+"Les services professionnels de développement, d'installation et de configuration ont été fournis par"
+
 #: ihp/templates/about_us_content_template.html:103
 #: ihp/templates/contact_us_content_template.html:94
 #: ihp/templates/faq_page_template.html:90
