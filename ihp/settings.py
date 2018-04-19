@@ -109,6 +109,7 @@ GEONODE_APPS = (
     # 'geonode.contrib.risks',
     'geonode.people',
     'geonode.base',
+    'geonode.client',
     'geonode.layers',
     'geonode.maps',
     'geonode.proxy',
@@ -540,9 +541,6 @@ if MONITORING_ENABLED:
     MONITORING_SERVICE_NAME = 'local-geonode'
 
 INSTALLED_APPS += ('geonode.contrib.ows_api',)
-
-from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
-TEMPLATE_CONTEXT_PROCESSORS += ('django.core.context.processors.request', )
 
 # GEOIP_PATH = "/usr/local/share/GeoIP"
 GEOIP_PATH = os.path.join(os.path.dirname(__file__), '..', 'GeoLiteCity.dat')
