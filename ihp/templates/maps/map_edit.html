@@ -2,6 +2,7 @@
 
 {% load i18n %}
 {% load base_tags %}
+{% load client_lib_tags %}
 
 {% block title %} {% trans "Edit Map" %} - {{ block.super }} {% endblock %}
 {% block head %}
@@ -31,15 +32,7 @@
 
 <div id="watermark"><!-- a href="http://en.unesco.org/themes/water-security/hydrology", class="watermark-link">UNESCO-IHP-Wins</a --></div>
 
-
-	{% if preview == 'geoext' %}
-		{% include 'maps/map_geoexplorer.js' %}
-	{% elif preview == 'react' %}
-		{% include 'geonode-client/edit_map.html' %}
-	{% else %}
-		{% include 'maps/map_geoexplorer.js' %}
-	{% endif %}
-
+    {% get_map_edit %}
 	{{ block.super }}
 {% endblock %}
 
