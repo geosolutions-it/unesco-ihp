@@ -87,6 +87,9 @@
                                     {% trans "IHP’s Water Information Network System has partnered with various organizations that share their data." %}
                                   </p>
                                   <p>
+                                    {% trans "Development, installation and configuration professional services have been provided by" %}&nbsp;<a href="https://www.geo-solutions.it">GeoSolutions</a>.
+                                  </p>
+                                  <p>
                                     {% for p in partners %}
                                         <a href="{{ p.href }}" rel="nofollow"><img alt="" src="{{ p.upload.url }}" style="height:{{ p.height }}px; width:{{ p.width }}px"></a>
                                     {% endfor %}
