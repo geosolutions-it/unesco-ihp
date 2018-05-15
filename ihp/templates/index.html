@@ -1,4 +1,4 @@
-{% extends "site_base.html" %}
+{% extends "geonode_base.html" %}
 {% load i18n %}
 {% load staticfiles %}
 {% load base_tags %}
@@ -8,7 +8,8 @@
 {% block body_class %}home{% endblock %}
 
 {% block middle %}
-   {{ block.super }}
+  {{ block.super }}
+
   {% block hero %}
 
 <!-- Carousel ================================================== 
@@ -176,14 +177,14 @@ improving water security, enhancing biodiversity and furthering opportunities fo
   {% endverbatim %}
   {% endblock %}
 
-{% endblock %}
+  {% endblock %}
 
 {% block extra_script %}
+{{ block.super }}
 {% if DEBUG_STATIC %}
 <script src="{{ STATIC_URL }}lib/js/angular.js"></script>
 {% endif %}
-
-  <script type="text/javascript">
+<script type="text/javascript">
     FEATURED_URL = '{% url 'api_dispatch_list' api_name='api' resource_name='featured' %}'
     'use strict';
     (function(){
@@ -194,6 +195,8 @@ improving water security, enhancing biodiversity and furthering opportunities fo
         });
       });
     })();
-  </script>
-
+</script>
+<script>
+	$('[data-toggle="tooltip"]').tooltip({container: 'body'});
+</script>
 {% endblock extra_script %}

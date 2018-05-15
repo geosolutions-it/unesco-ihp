@@ -14,15 +14,13 @@
     <meta Http-Equiv="Pragma-directive: no-cache">
     <meta Http-Equiv="Cache-directive: no-cache">
 
-    <title>{% block title %}{{ SITE_NAME }}{% endblock %}</title>
+    <title>{% block title %}{{ SITE_NAME }}{% endblock title %}</title>
     {% block head %}
       {% if DEBUG_STATIC %}
-      <link href="{{ STATIC_URL }}lib/css/jquery.dataTables.css?v={{ VERSION }}" rel="stylesheet" />
-      <link href="{{ STATIC_URL }}lib/css/select2.css?v={{ VERSION }}" rel="stylesheet"/>
-      <link href="{{ STATIC_URL }}lib/css/bootstrap.min.css?v={{ VERSION }}" rel="stylesheet"/>
-      <link href="{{ STATIC_URL }}lib/css/jquery-ui.css?v={{ VERSION }}" rel="stylesheet"/>
-      <link href="{{ STATIC_URL }}lib/css/bootstrap-datetimepicker.css?v={{ VERSION }}" rel="stylesheet"/>
-      <link href="{{ STATIC_URL }}lib/css/bootstrap-tokenfield.css?v={{ VERSION }}" rel="stylesheet"/>
+          <link href="{{ STATIC_URL }}lib/css/jquery.dataTables.css?v={{ VERSION }}" rel="stylesheet" />
+          <link href="{{ STATIC_URL }}lib/css/select2.css?v={{ VERSION }}" rel="stylesheet"/>
+          <link href="{{ STATIC_URL }}lib/css/bootstrap.min.css?v={{ VERSION }}" rel="stylesheet"/>
+          <link href="{{ STATIC_URL }}lib/css/jquery-ui.css?v={{ VERSION }}" rel="stylesheet"/>
       {% else %}
         <link href="{{ STATIC_URL }}lib/css/assets.min.css?v={{ VERSION }}" rel="stylesheet"/>
       {% endif %}
@@ -33,10 +31,8 @@
       <style type="text/css">[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}</style>
 
       {% block extra_head %}
-      {% endblock %}
-      {% block leaflet_head %}
-      {% endblock %}
-    {% endblock %}
+      {% endblock extra_head %}
+    {% endblock head %}
     <!--[if IE]>
       <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
       <style>
@@ -77,7 +73,7 @@
               <a href="{% url "document_browse" %}?limit={{ CLIENT_RESULTS_LIMIT }}">{% trans "Documents" %}</a>
             </li>
            {% block extra_tab %}
-           {% endblock %}
+           {% endblock extra_tab %}
             <li id="nav_people">
               <a href="{% url "profile_browse" %}">{% trans "People" %}</a>
             </li>
@@ -88,7 +84,7 @@
             <li id="nav_timeseries">
               <a href="{% url "time_series" %}?limit={{ CLIENT_RESULTS_LIMIT }}">{% trans "TimeSeries" %}</a>
             </li>
-            {% endblock %}
+            {% endblock tabs %}
           </ul>
           {% trans "Search" as search_text %}
           <form class="navbar-form" id="search" action="{% url "search" %}" >
@@ -112,7 +108,7 @@
             {% if user.is_authenticated %}
             <li>
                 {% with full_name=user.first_name|add:' '|add:user.last_name %}
-                <a href="#" title="{{ full_name }}" data-toggle="modal" data-target="#UserModal" role="button" aria-expanded="false">{% avatar user 30 %}
+                <a href="#" title="{{ full_name }}" data-toggle="modal" data-target="#UserModal" role="button" aria-expanded="false">{% autoescape off %}{% avatar user 30 %}{% endautoescape %}
                     <span class="fullname">
                             {% if full_name.strip %}
                                 {{ full_name | truncatechars:15 }}
@@ -163,10 +159,17 @@
         {% block sidebar %}{% endblock %}
         </div>
       </div>
-      {% endblock %}
+      {% endblock body_outer %}
     </div>
     {% endblock middle %}
+
+    {% block extra_mainbody %}
+    {% endblock extra_mainbody %}
+
   </div>
+
+    {% block monitoring %}
+    {% endblock monitoring %}
 
     {% block footer %}
     <footer class="footer">
@@ -211,11 +214,11 @@
           <form class="form-signin" role="form" action="{% url "account_login" %}?next={{ request.path }}" method="post">
             <div class="modal-body">
               {% csrf_token %}
-              {%  get_providers as socialaccount_providers %}
+              {% get_providers as socialaccount_providers %}
               {% if socialaccount_providers %}
                   {% include "socialaccount/snippets/provider_list.html" with process="login" %}
                   {% include "socialaccount/snippets/login_extra.html" %}
-                  <hr>
+                <hr>
               {% endif %}
               <div class="form-group">
                 <label for="id_username" class="sr-only">{% trans "Username" %}:</label>
@@ -252,7 +255,7 @@
               <li><a href="{% url "recent-activity" %}"><i class="fa fa-fire"></i> {% trans "Recent Activity" %}</a></li>
               <li><a href="{% url "messages_inbox" %}"><i class="fa fa-inbox"></i> {% trans "Inbox" %}</a></li>
               {% if USE_NOTIFICATIONS %}
-                <li><a href="{% url "notice_settings" %}"><i class="fa fa-bell"></i> {% trans "Notifications" %}</a></li>
+                <li><a href="{% url "pinax_notifications:notice_settings" %}"><i class="fa fa-bell"></i> {% trans "Notifications" %}</a></li>
               {% endif %}
               {% if perms.announcements.can_manage %}
               <li><a href="{% url "announcements_list" %}"><i class="fa fa-bullhorn"></i> {% trans "Announcements" %}</a></li>
@@ -308,7 +311,7 @@
     <script src="{{ STATIC_URL }}geonode/js/utils/utils.js?v={{ VERSION }}"></script>
     <script src="{{ STATIC_URL }}geonode/js/base/base.js?v={{ VERSION }}"></script>
     {% include 'autocomplete_light/static.html' %}
-    <script type="text/javascript" src="{% url 'django.views.i18n.javascript_catalog' %}"></script>
+    <script type="text/javascript" src="{% url "javascript-catalog" %}"></script>
     {% block extra_script %}{% endblock extra_script %}
     <script type="text/javascript">
         var autocomplete = $('#search_input').yourlabsAutocomplete({
