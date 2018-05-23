@@ -27,26 +27,31 @@
 
 <div class="page-header">
 <style>
-#paneltbar {
-    margin-top: 1px !important;
-}
+    #paneltbar {
+        margin-top: 1px !important;
+    }
 
-#watermark{
-    display: block;
-    background: url(../static/img/unesco_ihp_en_transparent.png) center center no-repeat;
-    background-size: 182px;
-    width: 182px;
-    height: 110px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    bottom: 0;
-    z-index: 99;
-}
-.watermark-link {
-    bottom: 0px;
-    position: absolute;
-}
+    #watermark{
+        display: block;
+        background: url(../static/img/unesco_ihp_en_transparent.png) center center no-repeat;
+        background-size: 182px;
+        width: 182px;
+        height: 110px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        bottom: 0;
+        z-index: 99;
+    }
+    .watermark-link {
+        bottom: 0px;
+        position: absolute;
+    }
+
+    .x-tool-unpin {
+        background-position: 0 -150px;
+        display: none;
+    }
 </style>
 
 <h2 class="page-title">{{ resource.title }}</h2>
