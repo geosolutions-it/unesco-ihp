@@ -111,6 +111,12 @@ LANGUAGES = (
     ('fr', "Français"),
 )
 
+LICENSES = {
+    'ENABLED': True,
+    'DETAIL': 'never',
+    'METADATA': 'never',
+}
+
 # prevent signing up by default
 ACCOUNT_OPEN_SIGNUP = True
 ACCOUNT_EMAIL_REQUIRED = True
