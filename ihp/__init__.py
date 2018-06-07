@@ -53,9 +53,16 @@ class IHPAppConfig(AppConfig):
         cls.add_to_class('doi', doi)
         # cls._meta.add_field(doi)
 
+    def run_setup_hooks(self, *args, **kwargs):
+        from django.conf import settings
+        from .celeryapp import app as celeryapp
+        if 'celeryapp' not in settings.INSTALLED_APPS:
+            settings.INSTALLED_APPS += (celeryapp, )
+
     def ready(self):
         from geonode.base.models import ResourceBase
         self.patch_resource_base(ResourceBase)
+        self.run_setup_hooks()
 
 
 default_app_config = 'ihp.IHPAppConfig'
