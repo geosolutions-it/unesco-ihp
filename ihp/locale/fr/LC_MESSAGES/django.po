@@ -32,11 +32,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GeoNode\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-11 11:43+0200\n"
-"PO-Revision-Date: 2018-02-08 13:55+0100\n"
+"POT-Creation-Date: 2018-05-18 09:50+0200\n"
+"PO-Revision-Date: 2018-05-18 11:20+0200\n"
 "Last-Translator: Julien Collaer <julien.collaer@opengeode.be>\n"
-"Language-Team: French (http://www.transifex.com/geonode/geonode/language/"
-"fr/)\n"
+"Language-Team: French (http://www.transifex.com/geonode/geonode/language/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,201 +43,220 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Poedit 2.0.6\n"
 
-msgid "Sign up with one of your existing third party accounts"
-msgstr "Inscrivez-vous avec l'un de vos comptes tiers existants"
-
-msgid "Create a new local account"
-msgstr "Créer un nouveau compte local"
-
-msgid "I have read and agree with the "
-msgstr "J'ai lu et j'accepte les "
-
 msgid "IHP-WINS Terms of use"
 msgstr "conditions d'utilisation de IHP-WINS"
-
-msgid "Who recommended you IHP-WINS?"
-msgstr "Qui vous a recommandé IHP-WINS?"
-
-msgid "Name of the person"
-msgstr "Nom de la personne"
 
 msgid "Name of the person who recommended you IHP-WINS"
 msgstr "Nom de la personne qui vous a recommandé IHP-WINS"
 
-#: ihp/content/forms.py:8
+#: ihp/__init__.py:47
+msgid "a DOI will be added by Admin before publication."
+msgstr ""
+
+#: ihp/__init__.py:49 ihp/templates/base/_resourcebase_info_panel.html:98
+#: ihp/templates/metadata_detail.html:116
+msgid "DOI"
+msgstr ""
+
+#: ihp/content/adapters.py:108
+msgid "This username already exists."
+msgstr ""
+
+#: ihp/content/forms.py:34
 msgid "First name"
 msgstr "Prénom"
 
-#: ihp/content/forms.py:10
+#: ihp/content/forms.py:35
 msgid "Last name"
 msgstr "Nom de famille"
 
-#: ihp/content/forms.py:14
+#: ihp/content/forms.py:42
+msgid "Who recommended you IHP-WINS?"
+msgstr "Qui vous a recommandé IHP-WINS?"
+
+#: ihp/content/forms.py:43
+msgid "Name of the person"
+msgstr "Nom de la personne"
+
+#: ihp/content/forms.py:46
 msgid "I agree to the IHP-WINS Terms of use"
 msgstr "J’accepte les Conditions d’utilisation"
 
-#: ihp/templates/about_us_content_template.html:11
-#: ihp/templates/about_us_content_template.html:102
-#: ihp/templates/contact_us_content_template.html:11
-#: ihp/templates/contact_us_content_template.html:93
-#: ihp/templates/faq_page_template.html:11
-#: ihp/templates/faq_page_template.html:89 ihp/templates/mybase.html:22
+#: ihp/content/forms.py:47
+msgid "I have read and agree with the "
+msgstr "J'ai lu et j'accepte les "
+
+#: ihp/templates/about_us_content_template.html:10
+#: ihp/templates/about_us_content_template.html:104
+#: ihp/templates/contact_us_content_template.html:92
+#: ihp/templates/faq_page_template.html:154 ihp/templates/mybase.html:22
+#: ihp/templates/terms_of_use_template.html:92
 msgid "About Us"
 msgstr "À propos"
 
-#: ihp/templates/about_us_content_template.html:85
+#: ihp/templates/about_us_content_template.html:84
 msgid "Partners"
 msgstr "Partenaires"
 
-#: ihp/templates/about_us_content_template.html:87
-msgid ""
-"IHP’s Water Information Network System has partnered with various "
-"organizations that share their data."
-msgstr ""
-"Le système de réseau d'information sur l'eau de l'IHP s'est associé à "
-"diverses organisations qui partagent leurs données."
+#: ihp/templates/about_us_content_template.html:86
+msgid "IHP’s Water Information Network System has partnered with various organizations that share their data."
+msgstr "Le système de réseau d'information sur l'eau de l'IHP s'est associé à diverses organisations qui partagent leurs données."
 
-#: ihp/templates/about_us_content_template.html:103
-#: ihp/templates/contact_us_content_template.html:94
-#: ihp/templates/faq_page_template.html:90
+#: ihp/templates/about_us_content_template.html:89
+msgid "Development, installation and configuration professional services have been provided by"
+msgstr ""
+
+#: ihp/templates/about_us_content_template.html:105
+#: ihp/templates/contact_us_content_template.html:93
+#: ihp/templates/faq_page_template.html:155
+#: ihp/templates/terms_of_use_template.html:93
 msgid "F.A.Q."
 msgstr "F.A.Q."
 
-#: ihp/templates/about_us_content_template.html:104
-#: ihp/templates/contact_us_content_template.html:95
-#: ihp/templates/faq_page_template.html:91
+#: ihp/templates/about_us_content_template.html:106
+#: ihp/templates/contact_us_content_template.html:10
+#: ihp/templates/contact_us_content_template.html:94
+#: ihp/templates/faq_page_template.html:156
+#: ihp/templates/terms_of_use_template.html:94
 msgid "Contact Us"
 msgstr "Contactez-nous"
 
-#: ihp/templates/about_us_content_template.html:105
-#: ihp/templates/account/signup.html:23
-#: ihp/templates/contact_us_content_template.html:96
-#: ihp/templates/faq_page_template.html:92 ihp/templates/mybase.html:23
+#: ihp/templates/about_us_content_template.html:107
+#: ihp/templates/contact_us_content_template.html:95
+#: ihp/templates/faq_page_template.html:157 ihp/templates/mybase.html:23
+#: ihp/templates/terms_of_use_template.html:10
+#: ihp/templates/terms_of_use_template.html:95
 msgid "Terms of use"
 msgstr "Conditions d’utilisation"
 
-#: ihp/templates/account/signup.html:7 ihp/templates/account/signup.html:11
-#: ihp/templates/account/signup.html:25
+#: ihp/templates/account/signup.html:7 ihp/templates/account/signup.html:8
+#: ihp/templates/account/signup.html:12 ihp/templates/account/signup.html:32
 msgid "Sign up"
 msgstr "S'identifier"
 
+#: ihp/templates/account/signup.html:18
+msgid "Sign up with one of your existing third party accounts"
+msgstr "Inscrivez-vous avec l'un de vos comptes tiers existants"
+
 #: ihp/templates/account/signup.html:23
-msgid ""
-"Before start using this service you must carefully read and agree to the"
-msgstr ""
-"Avant de commencer à utiliser ce service, vous devez soigneusement lu et "
-"j’accepte les"
+msgid "Create a new local account"
+msgstr "Créer un nouveau compte local"
+
+msgid "Before start using this service you must carefully read and agree to the"
+msgstr "Avant de commencer à utiliser ce service, vous devez soigneusement lu et j’accepte les"
 
 #: ihp/templates/account/signup.html:30
 msgid "Sorry, registrations are not open at this time."
-msgstr ""
-"Désolé, les inscriptions de nouveaux utilisateurs ne sont pas ouvertes pour "
-"le moment."
+msgstr "Désolé, les inscriptions de nouveaux utilisateurs ne sont pas ouvertes pour le moment."
 
-#: ihp/templates/base.html:60
+#: ihp/templates/base.html:67
 msgid "Layers"
 msgstr "Couches"
 
-#: ihp/templates/base.html:63
+#: ihp/templates/base.html:70
 msgid "Maps"
 msgstr "Cartes"
 
-#: ihp/templates/base.html:66
+#: ihp/templates/base.html:73
 msgid "Documents"
 msgstr "Documents"
 
-#: ihp/templates/base.html:71
+#: ihp/templates/base.html:78
 msgid "People"
 msgstr "Utilisateurs"
 
-#: ihp/templates/base.html:74
+#: ihp/templates/base.html:81
 msgid "Groups"
 msgstr "Groupes"
 
-#: ihp/templates/base.html:78
+#: ihp/templates/base.html:85
 msgid "TimeSeries"
 msgstr "Des séries chronologiques"
 
-#: ihp/templates/base.html:82
+#: ihp/templates/base.html:89
 msgid "Search"
 msgstr "Rechercher"
 
-#: ihp/templates/base.html:99
+#: ihp/templates/base.html:106
 msgid "Register"
 msgstr "S'inscrire"
 
-#: ihp/templates/base.html:124 ihp/templates/base.html.py:198
-#: ihp/templates/base.html:216
+#: ihp/templates/base.html:131 ihp/templates/base.html:212
+#: ihp/templates/base.html:236
 msgid "Sign in"
 msgstr "Se connecter"
 
-#: ihp/templates/base.html:165 ihp/templates/mybase.html:50
+#: ihp/templates/base.html:179 ihp/templates/mybase.html:50
 msgid "Powered by"
 msgstr "Réalisé avec"
 
-#: ihp/templates/base.html:165
+#: ihp/templates/base.html:179
 msgid "GeoNode"
 msgstr "GeoNode"
 
-#: ihp/templates/base.html:165
+#: ihp/templates/base.html:179
 msgid "version"
 msgstr "version"
 
-#: ihp/templates/base.html:166
+#: ihp/templates/base.html:180
 msgid "Developers"
 msgstr "Développeurs"
 
-#: ihp/templates/base.html:167
+#: ihp/templates/base.html:181
 msgid "About"
 msgstr "À propos"
 
-#: ihp/templates/base.html:170
-#: ihp/templates/base/_resourcebase_info_panel.html:150
-#: ihp/templates/metadata_detail.html:230 ihp/templates/mybase.html:32
+#: ihp/templates/base.html:184
+#: ihp/templates/base/_resourcebase_info_panel.html:153
+#: ihp/templates/metadata_detail.html:240 ihp/templates/mybase.html:32
 msgid "Language"
 msgstr "Langue"
 
-#: ihp/templates/base.html:204 ihp/templates/base.html.py:205
+#: ihp/templates/base.html:224 ihp/templates/base.html:225
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
-#: ihp/templates/base.html:208 ihp/templates/base.html.py:209
+#: ihp/templates/base.html:228 ihp/templates/base.html:229
 msgid "Password"
 msgstr "Mot de passe"
 
-#: ihp/templates/base.html:212
+#: ihp/templates/base.html:232
 msgid "Remember Me"
 msgstr "Se souvenir de moi"
 
-#: ihp/templates/base.html:228
+#: ihp/templates/base.html:248
 msgid "Menu"
 msgstr "Menu"
 
-#: ihp/templates/base.html:232
+#: ihp/templates/base.html:252
 msgid "Upload Layers"
 msgstr "Ajouter des couches"
 
-#: ihp/templates/base.html:234
+#: ihp/templates/base.html:254
 msgid "Profile"
 msgstr "Profil"
 
-#: ihp/templates/base.html:235
+#: ihp/templates/base.html:255
 msgid "Recent Activity"
 msgstr "Activité récente"
 
-#: ihp/templates/base.html:236
+#: ihp/templates/base.html:256
 msgid "Inbox"
 msgstr "Boîte de réception"
 
-#: ihp/templates/base.html:238
+#: ihp/templates/base.html:258
 msgid "Notifications"
 msgstr "Notifications"
 
-#: ihp/templates/base.html:241
+#: ihp/templates/base.html:261
 msgid "Announcements"
 msgstr "Annonces"
 
-#: ihp/templates/base.html:244
+#: ihp/templates/base.html:263 ihp/templates/invitations/forms/_invite.html:7
+msgid "Invite Users"
+msgstr "Inviter des utilisateurs"
+
+#: ihp/templates/base.html:264
 msgid "Remote Services"
 msgstr "Services distants"
 
@@ -250,23 +268,22 @@ msgstr "Inviter un utilisateur"
 msgid "GeoServer"
 msgstr "GeoServer"
 
-#: ihp/templates/base.html:250
+#: ihp/templates/base.html:271
+msgid "Monitoring"
+msgstr ""
+
+#: ihp/templates/base.html:274
 msgid "Admin"
 msgstr "Administration"
 
-#: ihp/templates/base.html:255
+#: ihp/templates/base.html:279
 msgid "Help"
 msgstr "Aide"
 
-#: ihp/templates/base.html:260
-msgid "Invite Users"
-msgstr "Inviter des utilisateurs"
-
-#: ihp/templates/base.html:261
 msgid "Log out"
 msgstr "Se déconnecter"
 
-#: ihp/templates/base.html:298
+#: ihp/templates/base.html:322
 msgid "Type your search here ..."
 msgstr "Entrez votre recherche ici..."
 
@@ -280,13 +297,13 @@ msgid "Title"
 msgstr "Titre"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:11
-#: ihp/templates/base/_resourcebase_info_panel.html:104
+#: ihp/templates/base/_resourcebase_info_panel.html:107
 msgid "SRID"
 msgstr "SRID"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:16
-#: ihp/templates/base/_resourcebase_info_panel.html:109
-#: ihp/templates/metadata_detail.html:57 ihp/templates/metadata_detail.html:193
+#: ihp/templates/base/_resourcebase_info_panel.html:112
+#: ihp/templates/metadata_detail.html:57 ihp/templates/metadata_detail.html:203
 msgid "License"
 msgstr "License"
 
@@ -297,25 +314,29 @@ msgstr "Résumé"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:34
 #: ihp/templates/metadata_detail.html:71
-#: ihp/templates/search/_general_filters.html:66
 msgid "Date"
 msgstr "Date"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:45
-#: ihp/templates/layers/layer_detail.html:511
+#: ihp/templates/layers/layer_detail.html:689
 #: ihp/templates/metadata_detail.html:76
 msgid "Type"
 msgstr "Type"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:50
-#: ihp/templates/metadata_detail.html:81 ihp/templates/metadata_detail.html:142
-#: ihp/templates/metadata_detail.html:284
-#: ihp/templates/metadata_detail.html:360
-#: ihp/templates/search/_h_keywords_filter.html:3
+#: ihp/templates/metadata_detail.html:81 ihp/templates/metadata_detail.html:152
+#: ihp/templates/metadata_detail.html:294
+#: ihp/templates/metadata_detail.html:370
 msgid "Keywords"
 msgstr "Mots-clés"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:62
+#: ihp/templates/documents/document_metadata_advanced.html:58
+#: ihp/templates/documents/layouts/doc_panels.html:88
+#: ihp/templates/layers/layer_metadata_advanced.html:79
+#: ihp/templates/layers/layouts/panels.html:313
+#: ihp/templates/maps/layouts/map_panels.html:111
+#: ihp/templates/maps/map_metadata_advanced.html:58
 #: ihp/templates/metadata_detail.html:88
 msgid "Category"
 msgstr "Catégorie"
@@ -326,7 +347,7 @@ msgid "Regions"
 msgstr "Régions"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:84
-#: ihp/templates/metadata_detail.html:112
+#: ihp/templates/metadata_detail.html:122
 msgid "Owner"
 msgstr "Responsable"
 
@@ -334,54 +355,276 @@ msgid "Responsible"
 msgstr "Responsable"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:89
+#: ihp/templates/documents/document_metadata.html:42
+#: ihp/templates/documents/document_metadata.html:66
+#: ihp/templates/documents/document_metadata_advanced.html:33
+#: ihp/templates/documents/document_metadata_advanced.html:82
+#: ihp/templates/layers/layer_metadata.html:53
+#: ihp/templates/layers/layer_metadata.html:84
+#: ihp/templates/layers/layer_metadata_advanced.html:44
+#: ihp/templates/layers/layer_metadata_advanced.html:124
+#: ihp/templates/maps/map_metadata.html:68
+#: ihp/templates/maps/map_metadata_advanced.html:82
 msgid "Point of Contact"
 msgstr "Point de Contact"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:94
+#: ihp/templates/documents/layouts/doc_panels.html:107
+#: ihp/templates/layers/layouts/panels.html:333
+#: ihp/templates/maps/layouts/map_panels.html:130
+#: ihp/templates/metadata_detail.html:112
 msgid "Group"
 msgstr "Groupe"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:121
-#: ihp/templates/metadata_detail.html:206
+#: ihp/templates/base/_resourcebase_info_panel.html:124
+#: ihp/templates/metadata_detail.html:216
 msgid "Maintenance Frequency"
 msgstr "Fréquence de maintenance"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:129
-#: ihp/templates/metadata_detail.html:211
+#: ihp/templates/base/_resourcebase_info_panel.html:132
+#: ihp/templates/metadata_detail.html:221
 msgid "Restrictions"
 msgstr "Restrictions"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:137
-#: ihp/templates/metadata_detail.html:220
+#: ihp/templates/base/_resourcebase_info_panel.html:140
+#: ihp/templates/metadata_detail.html:230
 msgid "Edition"
 msgstr "Edition"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:145
-#: ihp/templates/metadata_detail.html:225
+#: ihp/templates/base/_resourcebase_info_panel.html:148
+#: ihp/templates/metadata_detail.html:235
 msgid "Purpose"
 msgstr "Objectif"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:155
-#: ihp/templates/metadata_detail.html:235
+#: ihp/templates/base/_resourcebase_info_panel.html:158
+#: ihp/templates/metadata_detail.html:245
 msgid "Temporal Extent"
 msgstr "Intervalle de temps"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:160
-#: ihp/templates/metadata_detail.html:240
+#: ihp/templates/base/_resourcebase_info_panel.html:163
+#: ihp/templates/metadata_detail.html:250
 msgid "Data Quality"
 msgstr "Qualité des données"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:165
-#: ihp/templates/metadata_detail.html:245
+#: ihp/templates/base/_resourcebase_info_panel.html:168
+#: ihp/templates/metadata_detail.html:255
 msgid "Supplemental Information"
 msgstr "Renseignements supplémentaires"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:170
-#: ihp/templates/metadata_detail.html:250
+#: ihp/templates/base/_resourcebase_info_panel.html:173
+#: ihp/templates/metadata_detail.html:260
 msgid "Spatial Representation Type"
 msgstr "Type de représentation spatiale"
 
-#: ihp/templates/faq_page_template.html:69
+#: ihp/templates/doc_page_template.html:10 ihp/templates/mybase.html:24
+msgid "Get Started"
+msgstr "Démarrer avec GeoNode"
+
+#: ihp/templates/documents/document_detail.html:43
+msgid "External Resource"
+msgstr "Ressouce externe"
+
+#: ihp/templates/documents/document_detail.html:72
+msgid "Rate this document"
+msgstr "Noter ce document"
+
+#: ihp/templates/documents/document_detail.html:76
+#: ihp/templates/layers/layer_detail.html:264
+#: ihp/templates/maps/map_detail.html:91
+msgid "Average Rating"
+msgstr "Evaluation moyenne"
+
+#: ihp/templates/documents/document_detail.html:96
+#: ihp/templates/layers/layer_detail.html:448
+#: ihp/templates/maps/map_detail.html:111
+msgid "Metadata Detail"
+msgstr "Détail métadonnée"
+
+#: ihp/templates/documents/document_detail.html:104
+#: ihp/templates/documents/document_detail.html:106
+#: ihp/templates/documents/document_detail.html:108
+msgid "Download Document"
+msgstr "Télécharger le document"
+
+#: ihp/templates/documents/document_detail.html:112
+#: ihp/templates/layers/layer_detail.html:288
+msgid "Request Download"
+msgstr "Demander le téléchargement"
+
+#: ihp/templates/documents/document_detail.html:118
+#: ihp/templates/documents/document_detail.html:125
+msgid "Edit Document"
+msgstr "Editer le document"
+
+#: ihp/templates/documents/document_detail.html:133
+#: ihp/templates/documents/document_metadata.html:17
+#: ihp/templates/layers/layer_detail.html:468
+#: ihp/templates/layers/layer_metadata.html:19
+#: ihp/templates/maps/map_detail.html:150
+#: ihp/templates/maps/map_metadata.html:20
+#: ihp/templates/metadata_detail.html:32
+msgid "Metadata"
+msgstr "Métadonnées"
+
+#: ihp/templates/documents/document_detail.html:134
+#: ihp/templates/layers/layer_detail.html:469
+#: ihp/templates/maps/map_detail.html:151
+msgid "Wizard"
+msgstr "Assistant"
+
+#: ihp/templates/documents/document_detail.html:135
+#: ihp/templates/layers/layer_detail.html:470
+#: ihp/templates/maps/map_detail.html:152
+msgid "Advanced Edit"
+msgstr "Édition avancée"
+
+#: ihp/templates/documents/document_detail.html:141
+#: ihp/templates/layers/layer_detail.html:501
+#: ihp/templates/layers/layouts/panels.html:260
+#: ihp/templates/maps/layouts/map_panels.html:59
+#: ihp/templates/maps/map_detail.html:158
+msgid "Thumbnail"
+msgstr "Thumbnail"
+
+#: ihp/templates/documents/document_detail.html:142
+#: ihp/templates/layers/layer_detail.html:502
+#: ihp/templates/maps/map_detail.html:159
+msgid "Set"
+msgstr "Définir"
+
+#: ihp/templates/documents/document_detail.html:148
+msgid "Document"
+msgstr "Document"
+
+#: ihp/templates/documents/document_detail.html:150
+#: ihp/templates/layers/layer_detail.html:510
+msgid "Replace"
+msgstr "Remplacer"
+
+#: ihp/templates/documents/document_detail.html:153
+#: ihp/templates/layers/layer_detail.html:516
+#: ihp/templates/maps/map_detail.html:167
+msgid "Remove"
+msgstr "Supprimer"
+
+#: ihp/templates/documents/document_detail.html:160
+#: ihp/templates/documents/document_detail.html:196
+#: ihp/templates/layers/layer_detail.html:432
+#: ihp/templates/layers/layer_detail.html:523
+#: ihp/templates/layers/layer_detail.html:569
+#: ihp/templates/maps/map_detail.html:129
+#: ihp/templates/maps/map_detail.html:173
+msgid "Close"
+msgstr "Fermer"
+
+#: ihp/templates/documents/document_detail.html:167
+#: ihp/templates/documents/document_detail.html:174
+#: ihp/templates/layers/layer_detail.html:531
+#: ihp/templates/layers/layer_detail.html:539
+msgid "Download Metadata"
+msgstr "Télécharger les métadonnées"
+
+#: ihp/templates/documents/document_detail.html:203
+#, fuzzy
+#| msgid "Resource using this document"
+msgid "Resources using this document"
+msgstr "Ressources utilisant ce document"
+
+#: ihp/templates/documents/document_detail.html:205
+msgid "List of resources using this document:"
+msgstr "Liste des ressources utilisant ce document:"
+
+#: ihp/templates/documents/document_detail.html:211
+msgid "This document is not related to any maps or layers"
+msgstr "Ce document ne concerne pas des cartes ou des couches"
+
+#: ihp/templates/documents/document_detail.html:218
+#: ihp/templates/layers/layer_detail.html:678
+#: ihp/templates/maps/map_detail.html:219
+msgid "Permissions"
+msgstr "Autorisations"
+
+#: ihp/templates/documents/document_detail.html:219
+msgid "Click the button below to change the permissions of this document."
+msgstr "Cliquez sur le bouton ci-dessous pour changer les permissions de ce document."
+
+#: ihp/templates/documents/document_detail.html:220
+msgid "Change Document Permissions"
+msgstr "Changer les autorisations du document"
+
+#: ihp/templates/documents/document_metadata.html:17
+#, python-format
+msgid "for %(document_title)s"
+msgstr ""
+
+#: ihp/templates/documents/document_metadata.html:35
+#: ihp/templates/documents/document_metadata_advanced.html:26
+#: ihp/templates/layers/layer_metadata.html:46
+#: ihp/templates/layers/layer_metadata_advanced.html:37
+#: ihp/templates/maps/map_metadata.html:44
+#: ihp/templates/maps/map_metadata_advanced.html:34
+msgid "Error updating metadata.  Please check the following fields: "
+msgstr "Erreur lors de la mise à jour des métadonnées. Merci de vérifier les champs suivants:"
+
+#: ihp/templates/documents/document_metadata.html:38
+#: ihp/templates/documents/document_metadata_advanced.html:29
+#: ihp/templates/layers/layer_metadata.html:49
+#: ihp/templates/layers/layer_metadata_advanced.html:40
+#: ihp/templates/metadata_detail.html:341
+msgid "Metadata Author"
+msgstr "Auteur des métadonnées"
+
+#: ihp/templates/documents/document_metadata.html:71
+#: ihp/templates/documents/document_metadata_advanced.html:87
+#: ihp/templates/layers/layer_metadata.html:89
+#: ihp/templates/layers/layer_metadata_advanced.html:129
+#: ihp/templates/maps/map_metadata.html:73
+#: ihp/templates/maps/map_metadata_advanced.html:87
+msgid "Metadata Provider"
+msgstr "Fournisseur de métadonnées"
+
+#: ihp/templates/documents/document_metadata.html:77
+#: ihp/templates/layers/layer_metadata.html:97
+#: ihp/templates/maps/map_metadata.html:79
+msgid "<< Back"
+msgstr ""
+
+#: ihp/templates/documents/document_metadata.html:78
+#: ihp/templates/documents/document_metadata_advanced.html:48
+#: ihp/templates/documents/document_metadata_advanced.html:92
+#: ihp/templates/layers/layer_metadata.html:98
+#: ihp/templates/layers/layer_metadata_advanced.html:69
+#: ihp/templates/layers/layer_metadata_advanced.html:137
+#: ihp/templates/maps/map_metadata.html:80
+#: ihp/templates/maps/map_metadata_advanced.html:49
+#: ihp/templates/maps/map_metadata_advanced.html:93
+msgid "Update"
+msgstr "Mise à jour"
+
+#: ihp/templates/documents/document_metadata.html:79
+#: ihp/templates/layers/layer_metadata.html:99
+#: ihp/templates/maps/map_metadata.html:81
+#, fuzzy
+#| msgid "Next"
+msgid "Next >>"
+msgstr "Suivant"
+
+#: ihp/templates/documents/document_metadata_advanced.html:16
+msgid "Explore Documents"
+msgstr "Explorer les documents"
+
+#: ihp/templates/documents/document_metadata_advanced.html:17
+#: ihp/templates/layers/layer_metadata_advanced.html:17
+#: ihp/templates/maps/map_metadata_advanced.html:17
+msgid "Edit Metadata"
+msgstr "Modifier les métadonnées"
+
+#: ihp/templates/documents/document_metadata_advanced.html:22
+msgid "Editing details for"
+msgstr "Mettre à jour les détails de"
+
+#: ihp/templates/faq_page_template.html:10
+#: ihp/templates/faq_page_template.html:98
 msgid "Frequently Asked Questions"
 msgstr "Questions fréquemment posées"
 
@@ -389,380 +632,560 @@ msgstr "Questions fréquemment posées"
 msgid "Welcome!"
 msgstr "Bienvenue!"
 
-#: ihp/templates/index.html:33
+#: ihp/templates/index.html:34
 msgid "Welcome to "
 msgstr "Bienvenue sur "
 
-#: ihp/templates/index.html:121
+#: ihp/templates/index.html:122
 msgid "Welcome"
 msgstr "Bienvenue"
 
-#: ihp/templates/index.html:122
-msgid ""
-"GeoNode is an open source platform for sharing geospatial data and maps."
-msgstr ""
-"GeoNode est une plateforme libre / Open Source de gestion et de partage de "
-"données géographiques et de cartes."
-
 #: ihp/templates/index.html:123
-msgid ""
-"If you have any questions about the software or service, join our <a href="
-"\"http://lists.osgeo.org/cgi-bin/mailman/listinfo/geonode-users\">mailing "
-"list</a>."
-msgstr ""
-"Si vous avez des questions concernant le logiciel ou des services s'y "
-"rapportant, joignez-nous sur notre <a href=\"http://lists.osgeo.org/cgi-bin/"
-"mailman/listinfo/geonode-users\">mailing list</a>."
+msgid "GeoNode is an open source platform for sharing geospatial data and maps."
+msgstr "GeoNode est une plateforme libre / Open Source de gestion et de partage de données géographiques et de cartes."
 
 #: ihp/templates/index.html:124
+msgid "If you have any questions about the software or service, join our <a href=\"http://lists.osgeo.org/cgi-bin/mailman/listinfo/geonode-users\">mailing list</a>."
+msgstr "Si vous avez des questions concernant le logiciel ou des services s'y rapportant, joignez-nous sur notre <a href=\"http://lists.osgeo.org/cgi-bin/mailman/listinfo/geonode-users\">mailing list</a>."
+
+#: ihp/templates/index.html:125
 msgid "Need help?"
 msgstr "Besoin d'aide ?"
 
-#: ihp/templates/index.html:124
+#: ihp/templates/index.html:125
 msgid "Getting Started"
 msgstr "Démarrer avec GeoNode"
 
-#: ihp/templates/index.html:128
+#: ihp/templates/index.html:129
 msgid "Welcome to the Water Information Network System"
 msgstr "Bienvenue au système du réseau d'information sur l'eau"
 
-#: ihp/templates/index.html:129
+#: ihp/templates/index.html:130
 msgid "by the International Hydrological Programme of UNESCO"
 msgstr "par le Programme hydrologique international de l'UNESCO"
 
-#: ihp/templates/index.html:143 ihp/templates/index.html.py:153
-#: ihp/templates/index.html:163 ihp/templates/metadata_detail.html:103
+#: ihp/templates/index.html:144 ihp/templates/index.html:154
+#: ihp/templates/index.html:164 ihp/templates/metadata_detail.html:103
 #: ihp/templates/metadata_detail.html:106
+#: ihp/templates/metadata_detail.html:109
 msgid "No"
 msgstr "Pas de"
 
-#: ihp/templates/index.html:143 ihp/templates/layers/layer_detail.html:365
+#: ihp/templates/index.html:144 ihp/templates/layers/layer_detail.html:508
 msgid "Layer"
 msgid_plural "Layers"
 msgstr[0] "Couche"
 msgstr[1] "Couches"
 
-#: ihp/templates/index.html:144
-msgid ""
-"Click to search for geospatial data published by other users, organizations "
-"and public sources. Download data in standard formats."
-msgstr ""
-"Cliquer pour rechercher des données spatiales publiées par d'autres "
-"utilisateurs, organisations ou de sources publiques. Télécharger ces données "
-"dans des formats standards."
+#: ihp/templates/index.html:145
+msgid "Click to search for geospatial data published by other users, organizations and public sources. Download data in standard formats."
+msgstr "Cliquer pour rechercher des données spatiales publiées par d'autres utilisateurs, organisations ou de sources publiques. Télécharger ces données dans des formats standards."
 
-#: ihp/templates/index.html:146
+#: ihp/templates/index.html:147
 msgid "Add layers"
 msgstr "Ajouter des couches"
 
-#: ihp/templates/index.html:148
+#: ihp/templates/index.html:149
 msgid "Explore layers"
 msgstr "Explorer les couches"
 
-#: ihp/templates/index.html:153 ihp/templates/maps/map_view.html:6
+#: ihp/templates/index.html:154 ihp/templates/maps/map_detail.html:165
+#: ihp/templates/maps/map_view.html:7
 msgid "Map"
 msgid_plural "Maps"
 msgstr[0] "Carte"
 msgstr[1] "Cartes"
 
-#: ihp/templates/index.html:154
-msgid ""
-"Data is available for browsing, aggregating and styling to generate maps "
-"which can be saved, downloaded, shared publicly or restricted to specify "
-"users only."
-msgstr ""
-"Les données sont disponibles pour la navigation, l'agrégation et le coiffage "
-"pour générer des cartes qui peuvent être enregistrées, téléchargées, "
-"partagées publiquement ou restreintes pour spécifier les utilisateurs "
-"uniquement."
+#: ihp/templates/index.html:155
+msgid "Data is available for browsing, aggregating and styling to generate maps which can be saved, downloaded, shared publicly or restricted to specify users only."
+msgstr "Les données sont disponibles pour la navigation, l'agrégation et le coiffage pour générer des cartes qui peuvent être enregistrées, téléchargées, partagées publiquement ou restreintes pour spécifier les utilisateurs uniquement."
 
-#: ihp/templates/index.html:156
+#: ihp/templates/index.html:157
 msgid "Create maps"
 msgstr "Créer des cartes"
 
-#: ihp/templates/index.html:158
+#: ihp/templates/index.html:159
 msgid "Explore maps"
 msgstr "Explorer les cartes"
 
-#: ihp/templates/index.html:163
+#: ihp/templates/index.html:164
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Utilisateur"
 msgstr[1] "Utilisateurs"
 
-#: ihp/templates/index.html:164
-msgid ""
-"IHP-WINS allows registered users to easily upload geospatial data and "
-"various documents in several formats."
-msgstr ""
-"IHP-WINS permet aux utilisateurs enregistrés de télécharger facilement des "
-"données géospatiales et divers documents dans plusieurs formats."
-
 #: ihp/templates/index.html:165
+msgid "IHP-WINS allows registered users to easily upload geospatial data and various documents in several formats."
+msgstr "IHP-WINS permet aux utilisateurs enregistrés de télécharger facilement des données géospatiales et divers documents dans plusieurs formats."
+
+#: ihp/templates/index.html:166
 msgid "See users"
 msgstr "Voir les utilisateurs"
 
-#: ihp/templates/layers/layer_detail.html:65
+#: ihp/templates/invitations/forms/_invite.html:14
+msgid "Email"
+msgstr "Email"
+
+#: ihp/templates/layers/layer_detail.html:57
+#, fuzzy
+#| msgid "Services"
+msgid "Service is"
+msgstr "Services"
+
+#: ihp/templates/layers/layer_detail.html:57
+msgid "online"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:57
+msgid "offline"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:84
+msgid "Layer WMS GetCapabilities document"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:94
 msgid "Filter Granules"
 msgstr "Granulés de filtration"
 
-#: ihp/templates/layers/layer_detail.html:68
+#: ihp/templates/layers/layer_detail.html:97
 msgid "Active Filter:"
 msgstr "Filtre actif :"
 
-#: ihp/templates/layers/layer_detail.html:74
+#: ihp/templates/layers/layer_detail.html:103
 msgid "Granule ID"
 msgstr "ID de granule"
 
-#: ihp/templates/layers/layer_detail.html:75
+#: ihp/templates/layers/layer_detail.html:104
 msgid "Bounding Box"
 msgstr "Zone de délimitation"
 
-#: ihp/templates/layers/layer_detail.html:76
+#: ihp/templates/layers/layer_detail.html:105
 msgid "Time"
 msgstr "Période"
 
-#: ihp/templates/layers/layer_detail.html:77
+#: ihp/templates/layers/layer_detail.html:106
 msgid "Elevation"
 msgstr "Élévation"
 
-#: ihp/templates/layers/layer_detail.html:78
+#: ihp/templates/layers/layer_detail.html:107
 msgid "Actions"
 msgstr "Actions"
 
-#: ihp/templates/layers/layer_detail.html:140
+#: ihp/templates/layers/layer_detail.html:169
 msgid "Dimension"
 msgstr "Dimension"
 
-#: ihp/templates/layers/layer_detail.html:141
+#: ihp/templates/layers/layer_detail.html:170
 msgid "Enabled"
 msgstr "Activé"
 
-#: ihp/templates/layers/layer_detail.html:142
+#: ihp/templates/layers/layer_detail.html:171
 msgid "Regex"
 msgstr "Expression Régulière (Regex)"
 
-#: ihp/templates/layers/layer_detail.html:147
+#: ihp/templates/layers/layer_detail.html:176
 msgid "TIME"
 msgstr "TEMPS"
 
-#: ihp/templates/layers/layer_detail.html:148
-#: ihp/templates/layers/layer_detail.html:153
+#: ihp/templates/layers/layer_detail.html:177
+#: ihp/templates/layers/layer_detail.html:182
 msgid "True"
 msgstr "Vrai"
 
-#: ihp/templates/layers/layer_detail.html:148
-#: ihp/templates/layers/layer_detail.html:153
+#: ihp/templates/layers/layer_detail.html:177
+#: ihp/templates/layers/layer_detail.html:182
 msgid "False"
 msgstr "Faux"
 
-#: ihp/templates/layers/layer_detail.html:152
+#: ihp/templates/layers/layer_detail.html:181
 msgid "ELEVATION"
 msgstr "ÉLÉVATION"
 
-#: ihp/templates/layers/layer_detail.html:163
+#: ihp/templates/layers/layer_detail.html:192
 msgid "Attribute Name"
 msgstr "Nom de l'attribut"
 
-#: ihp/templates/layers/layer_detail.html:164
+#: ihp/templates/layers/layer_detail.html:193
+#: ihp/templates/layers/layer_metadata_advanced.html:107
+#: ihp/templates/layers/layouts/panels.html:522
 msgid "Label"
 msgstr "Etiquette"
 
-#: ihp/templates/layers/layer_detail.html:165
+#: ihp/templates/layers/layer_detail.html:194
+#: ihp/templates/layers/layer_metadata_advanced.html:108
+#: ihp/templates/layers/layouts/panels.html:523
 msgid "Description"
 msgstr "Description"
 
-#: ihp/templates/layers/layer_detail.html:167
+#: ihp/templates/layers/layer_detail.html:196
 msgid "Range"
 msgstr "Etendue"
 
-#: ihp/templates/layers/layer_detail.html:168
+#: ihp/templates/layers/layer_detail.html:197
 msgid "Average"
 msgstr "Moyenne"
 
-#: ihp/templates/layers/layer_detail.html:169
+#: ihp/templates/layers/layer_detail.html:198
 msgid "Median"
 msgstr "Médiane"
 
-#: ihp/templates/layers/layer_detail.html:170
+#: ihp/templates/layers/layer_detail.html:199
 msgid "Standard Deviation"
 msgstr "Ecart type"
 
-#: ihp/templates/layers/layer_detail.html:231
+#: ihp/templates/layers/layer_detail.html:260
 msgid "Rate this layer"
 msgstr "Evaluer cette couche"
 
-#: ihp/templates/layers/layer_detail.html:235
-msgid "Average Rating"
-msgstr "Evaluation moyenne"
+#: ihp/templates/layers/layer_detail.html:280
+msgid "Analyze with"
+msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:252
-#: ihp/templates/layers/layer_detail.html:265
+#: ihp/templates/layers/layer_detail.html:285
+#: ihp/templates/layers/layer_detail.html:298
 msgid "Download Layer"
 msgstr "Télécharger la couche"
 
-#: ihp/templates/layers/layer_detail.html:255
-msgid "Request Download"
-msgstr "Demander le téléchargement"
+#: ihp/templates/layers/layer_detail.html:332
+#, fuzzy
+#| msgid "Are you sure you want to log out?"
+msgid "Do you want to filter it?"
+msgstr "Êtes-vous sûr de vouloir vous déconnecter? "
 
-#: ihp/templates/layers/layer_detail.html:304
-#: ihp/templates/layers/layer_detail.html:377
-#: ihp/templates/layers/layer_detail.html:423
-msgid "Close"
-msgstr "Fermer"
+#: ihp/templates/layers/layer_detail.html:335
+msgid "Loading..."
+msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:316
-msgid "Metadata Detail"
-msgstr "Détail métadonnée"
+#: ihp/templates/layers/layer_detail.html:339
+#, fuzzy
+#| msgid "Select an attribute"
+msgid "Filter by attributes"
+msgstr "Sélectionner un attribut"
 
-#: ihp/templates/layers/layer_detail.html:322
-#: ihp/templates/layers/layer_detail.html:329
+#: ihp/templates/layers/layer_detail.html:346
+msgid "Match"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:361
+#, fuzzy
+#| msgid "the following map"
+msgid "of the following:"
+msgstr "la carte suivante"
+
+#: ihp/templates/layers/layer_detail.html:368
+#: ihp/templates/layers/layer_metadata_advanced.html:106
+#: ihp/templates/layers/layouts/panels.html:521
+msgid "Attribute"
+msgstr "Attribut"
+
+#: ihp/templates/layers/layer_detail.html:385
+msgid "Operator"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:419
+msgid "Pick your download format:"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:454
+#: ihp/templates/layers/layer_detail.html:461
 msgid "Edit Layer"
 msgstr "Editer la couche"
 
-#: ihp/templates/layers/layer_detail.html:336
-#: ihp/templates/metadata_detail.html:32
-msgid "Metadata"
-msgstr "Métadonnées"
-
-#: ihp/templates/layers/layer_detail.html:337
-msgid "Wizard"
-msgstr "Assistant"
-
-#: ihp/templates/layers/layer_detail.html:338
-msgid "Advanced Edit"
-msgstr "Édition avancée"
-
-#: ihp/templates/layers/layer_detail.html:339
 msgid "Upload Metadata"
 msgstr "Téléchargement"
 
-#: ihp/templates/layers/layer_detail.html:346
-#: ihp/templates/layers/layer_detail.html:477
+#: ihp/templates/layers/layer_detail.html:478
+#: ihp/templates/layers/layer_detail.html:493
+#: ihp/templates/layers/layer_detail.html:639
 msgid "Styles"
 msgstr "Styles"
 
-#: ihp/templates/layers/layer_detail.html:348
+#: ihp/templates/layers/layer_detail.html:480
+#: ihp/templates/layers/layer_detail.html:494
+#: ihp/templates/layers/layouts/panels.html:275
+#: ihp/templates/maps/layouts/map_panels.html:74
+#: ihp/templates/maps/map_detail.html:166
 msgid "Edit"
 msgstr "Modifier"
 
-#: ihp/templates/layers/layer_detail.html:350
+#: ihp/templates/layers/layer_detail.html:483
 msgid "Upload"
 msgstr "Téléchargement"
 
-#: ihp/templates/layers/layer_detail.html:351
+#: ihp/templates/layers/layer_detail.html:484
 msgid "Manage"
 msgstr "Gérer"
 
-#: ihp/templates/layers/layer_detail.html:358
-msgid "Thumbnail"
-msgstr "Thumbnail"
+msgid "Edit data"
+msgstr "Modifier"
 
-#: ihp/templates/layers/layer_detail.html:359
-msgid "Set"
-msgstr "Définir"
-
-#: ihp/templates/layers/layer_detail.html:367
-msgid "Replace"
-msgstr "Remplacer"
-
-#: ihp/templates/layers/layer_detail.html:370
-msgid "Remove"
-msgstr "Supprimer"
-
-#: ihp/templates/layers/layer_detail.html:385
-#: ihp/templates/layers/layer_detail.html:393
-msgid "Download Metadata"
-msgstr "Télécharger les métadonnées"
-
-#: ihp/templates/layers/layer_detail.html:431
+#: ihp/templates/layers/layer_detail.html:577
 msgid "Legend"
 msgstr "Légende"
 
-#: ihp/templates/layers/layer_detail.html:445
+#: ihp/templates/layers/layer_detail.html:591
 msgid "Maps using this layer"
 msgstr "Liste des cartes utilisant cette couche"
 
-#: ihp/templates/layers/layer_detail.html:447
+#: ihp/templates/layers/layer_detail.html:593
 msgid "List of maps using this layer:"
 msgstr "Liste des cartes utilisant cette couche:"
 
-#: ihp/templates/layers/layer_detail.html:453
+#: ihp/templates/layers/layer_detail.html:599
 msgid "This layer is not currently used in any maps."
 msgstr "Cette couche n'est actuellement utilisée par aucune carte."
 
-#: ihp/templates/layers/layer_detail.html:458
+#: ihp/templates/layers/layer_detail.html:604
 msgid "Create a map using this layer"
 msgstr "Créer une carte utilisant cette couche"
 
-#: ihp/templates/layers/layer_detail.html:459
+#: ihp/templates/layers/layer_detail.html:605
 msgid "Click the button below to generate a new map based on this layer."
-msgstr ""
-"Cliquez sur le bouton ci-dessous pour générer une nouvelle carte basée sur "
-"cette couche."
+msgstr "Cliquez sur le bouton ci-dessous pour générer une nouvelle carte basée sur cette couche."
 
-#: ihp/templates/layers/layer_detail.html:460
-#: ihp/templates/search/_search_content.html:16
+#: ihp/templates/layers/layer_detail.html:606
 msgid "Create a Map"
 msgstr "Créer une carte"
 
-#: ihp/templates/layers/layer_detail.html:465
+#: ihp/templates/layers/layer_detail.html:610
+msgid "Add the layer to an existing map"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:618
+#, fuzzy
+#| msgid "Click the button below to change the permissions of this layer."
+msgid "Click the button below to add the layer to the selected map."
+msgstr "Cliquez sur le bouton ci-dessous pour changer les autorisations de cette couche."
+
+#: ihp/templates/layers/layer_detail.html:620
+#, fuzzy
+#| msgid "Edit Map"
+msgid "Add to Map"
+msgstr "Editer la carte"
+
+#: ihp/templates/layers/layer_detail.html:627
 msgid "Documents related to this layer"
 msgstr "Documents relatifs à cette couche"
 
-#: ihp/templates/layers/layer_detail.html:466
+#: ihp/templates/layers/layer_detail.html:628
 msgid "List of documents related to this layer:"
 msgstr "Liste des documents relatifs à cette couche:"
 
-#: ihp/templates/layers/layer_detail.html:478
-msgid ""
-"The following styles are associated with this layer. Choose a style to view "
-"it in the preview map."
-msgstr ""
-"Les styles suivants sont associés à cette couche. Choisissez un style pour "
-"l'appliquer dans la carte de prévisualisation."
+#: ihp/templates/layers/layer_detail.html:640
+msgid "The following styles are associated with this layer. Choose a style to view it in the preview map."
+msgstr "Les styles suivants sont associés à cette couche. Choisissez un style pour l'appliquer dans la carte de prévisualisation."
 
-#: ihp/templates/layers/layer_detail.html:491
+#: ihp/templates/layers/layer_detail.html:654
+#: ihp/templates/layers/layer_detail.html:668
 msgid "No styles associated with this layer"
 msgstr "Aucun style n'est associé à cette couche"
 
-#: ihp/templates/layers/layer_detail.html:500
-msgid "Permissions"
-msgstr "Autorisations"
-
 #: ihp/templates/layers/layer_detail.html:501
 msgid "Click the button below to change the permissions of this layer."
-msgstr ""
-"Cliquez sur le bouton ci-dessous pour changer les autorisations de cette "
-"couche."
+msgstr "Cliquez sur le bouton ci-dessous pour changer les autorisations de cette couche."
 
-#: ihp/templates/layers/layer_detail.html:502
+#: ihp/templates/layers/layer_detail.html:680
 msgid "Change Layer Permissions"
 msgstr "Changer les autorisations de la couche"
 
-#: ihp/templates/layers/layer_detail.html:509
+#: ihp/templates/layers/layer_detail.html:687
 msgid "External service layer"
 msgstr "Couche de service externe"
 
-#: ihp/templates/layers/layer_detail.html:510
+#: ihp/templates/layers/layer_detail.html:688
 msgid "Source"
 msgstr "Source"
 
-#: ihp/templates/maps/map_edit.html:6
+#: ihp/templates/layers/layer_metadata.html:19
+#, python-format
+msgid "for %(layer_title)s"
+msgstr ""
+
+#: ihp/templates/layers/layer_metadata.html:37
+#: ihp/templates/layers/layer_metadata_advanced.html:28
+msgid ""
+"Note: this layer's orginal metadata was populated and preserved by importing a metadata XML file.\n"
+"          This metadata cannot be edited."
+msgstr ""
+"Note : les métadonnées de la couche ont été définies par import d'un fichier de données XML. \n"
+"Ces métadonnées ne peuvent pas être modifiées."
+
+#: ihp/templates/layers/layer_metadata.html:40
+#: ihp/templates/layers/layer_metadata_advanced.html:31
+msgid ""
+"Note: this layer's orginal metadata was populated by importing a metadata XML file.\n"
+"          GeoNode's metadata import supports a subset of ISO, FGDC, and Dublin Core metadata elements.\n"
+"          Some of your original metadata may have been lost."
+msgstr ""
+"Note : les métadonnées d'origine de cette couche ont été créé sur base d'un import d'un fichier XML.\n"
+"Les métadonnées de GeoNode supporte en partie les éléments de métadonnées des types ISO, FGDC et Dublin Core.\n"
+"Certaines de vos métadonnées d'origine pourraient avoir été perdues."
+
+#: ihp/templates/layers/layer_metadata.html:62
+#: ihp/templates/layers/layer_metadata_advanced.html:53
+#: ihp/templates/layers/layer_metadata_advanced.html:102
+msgid "Attributes"
+msgstr "Attributs"
+
+#: ihp/templates/layers/layer_metadata.html:96
+#: ihp/templates/layers/layer_metadata_advanced.html:68
+#: ihp/templates/layers/layer_metadata_advanced.html:136
+#: ihp/templates/metadata_detail.html:28
+msgid "Return to Layer"
+msgstr "Revenir à la couche"
+
+#: ihp/templates/layers/layer_metadata_advanced.html:16
+msgid "Explore Layers"
+msgstr "Explorer les couches"
+
+#: ihp/templates/layers/layer_metadata_advanced.html:22
+#, python-format
+msgid ""
+"\n"
+"        Editing details for %(layer_title)s\n"
+"      "
+msgstr ""
+"\n"
+"        Modifier les informations pour %(layer_title)s\n"
+"      "
+
+#: ihp/templates/layers/layer_metadata_advanced.html:109
+#: ihp/templates/layers/layouts/panels.html:524
+msgid "Display Order"
+msgstr "Ordre d'affichage"
+
+#: ihp/templates/layers/layouts/panels.html:269
+#: ihp/templates/maps/layouts/map_panels.html:68
+msgid "Save"
+msgstr "Enregistrer"
+
+#: ihp/templates/maps/map_detail.html:87
+msgid "Rate this Map"
+msgstr "Noter cette carte"
+
+#: ihp/templates/maps/map_detail.html:105
+#: ihp/templates/maps/map_detail.html:120
+msgid "Download Map"
+msgstr "Télécharger la carte"
+
+#: ihp/templates/maps/map_detail.html:124
+msgid "Download Data Layers"
+msgstr "Télécharger les couches de données"
+
+#: ihp/templates/maps/map_detail.html:125
+msgid "Download Web Map Context"
+msgstr "Télécharger le Web Map Context"
+
+#: ihp/templates/maps/map_detail.html:136
+#: ihp/templates/maps/map_detail.html:143 ihp/templates/maps/map_edit.html:7
 msgid "Edit Map"
 msgstr "Editer la carte"
 
-#: ihp/templates/maps/map_new.html:6
+#: ihp/templates/maps/map_detail.html:180
+#, fuzzy
+#| msgid "New Map"
+msgid "View Map"
+msgstr "Nouvelle carte"
+
+#: ihp/templates/maps/map_detail.html:190
+msgid "Map Layers"
+msgstr "Couches de la Carte"
+
+#: ihp/templates/maps/map_detail.html:191
+msgid "This map uses the following layers:"
+msgstr "Cette carte utilise les couches suivantes :"
+
+#: ihp/templates/maps/map_detail.html:207
+msgid "Documents related to this map"
+msgstr "Documents relatifs à cette carte"
+
+#: ihp/templates/maps/map_detail.html:208
+msgid "List of documents related to this map:"
+msgstr "Liste des documents relatifs à cette carte:"
+
+#: ihp/templates/maps/map_detail.html:220
+msgid "Specify which users can view or modify this map"
+msgstr "Spécifie quels utilisateurs peuvent voir ou modifier cette carte"
+
+#: ihp/templates/maps/map_detail.html:221
+msgid "Change Permissions of this Map"
+msgstr "Changer les autorisations de cette carte"
+
+#: ihp/templates/maps/map_detail.html:227
+msgid "Copy this map"
+msgstr "Copier cette carte"
+
+#: ihp/templates/maps/map_detail.html:228
+msgid "Duplicate this map and modify it for your own purposes"
+msgstr "Copier cette carte et la modifier pour vos propres besoins"
+
+#: ihp/templates/maps/map_detail.html:229
+msgid "Create a New Map"
+msgstr "Créer une nouvelle carte"
+
+#: ihp/templates/maps/map_detail.html:234
+msgid "Map WMS"
+msgstr "Carte WMS"
+
+#: ihp/templates/maps/map_detail.html:236
+msgid "WMS layer group for local map layers"
+msgstr "Groupe de couches WMS pour les couches de la carte locale"
+
+#: ihp/templates/maps/map_detail.html:237
+msgid "on"
+msgstr "sur   les"
+
+#: ihp/templates/maps/map_detail.html:237
+msgid "local OWS"
+msgstr "OWS local"
+
+#: ihp/templates/maps/map_detail.html:240
+msgid "Publish local map layers as WMS layer group"
+msgstr "Publier la carte locale des couches comme groupe de couche WMS"
+
+#: ihp/templates/maps/map_detail.html:241
+msgid "Publish Map WMS"
+msgstr "Publier la carte WMS"
+
+#: ihp/templates/maps/map_metadata.html:20
+#, python-format
+msgid "for %(map_title)s"
+msgstr ""
+
+#: ihp/templates/maps/map_metadata.html:38
+#: ihp/templates/maps/map_metadata_advanced.html:28
+msgid ""
+"Note: this map's orginal metadata was populated by importing a metadata XML file.\n"
+"        GeoNode's metadata import supports a subset of ISO, FGDC, and Dublin Core metadata elements.\n"
+"        Some of your original metadata may have been lost."
+msgstr ""
+"Note: les métadonnées originales de cette carte ont été remplies à partir d'un import d'un fichier de métadonnées sous format XML.\n"
+"L'import de métadonnées XML réalisé par GeoNode supporte certains éléments des formats ISO, FGDC et Dublin Core.\n"
+"Certaines parties des métadonnées originales peuvent donc avoir été perdues"
+
+#: ihp/templates/maps/map_metadata_advanced.html:16
+msgid "Explore Maps"
+msgstr "Voir les cartes"
+
+#: ihp/templates/maps/map_metadata_advanced.html:22
+#, python-format
+msgid ""
+"\n"
+"        Editing details for %(map_title)s\n"
+"      "
+msgstr ""
+"\n"
+"        Mettre à jour les informations de %(map_title)s\n"
+"      "
+
+#: ihp/templates/maps/map_new.html:7
 msgid "New Map"
 msgstr "Nouvelle carte"
 
 #: ihp/templates/metadata_detail.html:26
 msgid "Return to Document"
 msgstr "Revenir au document"
-
-#: ihp/templates/metadata_detail.html:28
-msgid "Return to Layer"
-msgstr "Revenir à la couche"
 
 #: ihp/templates/metadata_detail.html:30
 msgid "Return to Map"
@@ -773,123 +1196,131 @@ msgid "Identification"
 msgstr "Identification"
 
 #: ihp/templates/metadata_detail.html:102
-msgid "Published"
-msgstr "Publié"
+#, fuzzy
+#| msgid "Not provided"
+msgid "Approved"
+msgstr "Non fourni"
 
 #: ihp/templates/metadata_detail.html:103
 #: ihp/templates/metadata_detail.html:106
+#: ihp/templates/metadata_detail.html:109
 msgid "Yes"
 msgstr "Oui"
 
 #: ihp/templates/metadata_detail.html:105
+#: ihp/templates/photologue/photo_detail.html:9
+msgid "Published"
+msgstr "Publié"
+
+#: ihp/templates/metadata_detail.html:108
 msgid "Featured"
 msgstr "Fournie"
 
-#: ihp/templates/metadata_detail.html:120
-#: ihp/templates/metadata_detail.html:262
-#: ihp/templates/metadata_detail.html:338
+#: ihp/templates/metadata_detail.html:130
+#: ihp/templates/metadata_detail.html:272
+#: ihp/templates/metadata_detail.html:348
 msgid "Name"
 msgstr "Nom"
 
-#: ihp/templates/metadata_detail.html:123
-#: ihp/templates/metadata_detail.html:265
-#: ihp/templates/metadata_detail.html:341
+#: ihp/templates/metadata_detail.html:133
+#: ihp/templates/metadata_detail.html:275
+#: ihp/templates/metadata_detail.html:351
 msgid "email"
 msgstr "email"
 
-#: ihp/templates/metadata_detail.html:126
-#: ihp/templates/metadata_detail.html:268
-#: ihp/templates/metadata_detail.html:344
+#: ihp/templates/metadata_detail.html:136
+#: ihp/templates/metadata_detail.html:278
+#: ihp/templates/metadata_detail.html:354
 msgid "Position"
 msgstr "Position"
 
-#: ihp/templates/metadata_detail.html:129
-#: ihp/templates/metadata_detail.html:271
-#: ihp/templates/metadata_detail.html:347
+#: ihp/templates/metadata_detail.html:139
+#: ihp/templates/metadata_detail.html:281
+#: ihp/templates/metadata_detail.html:357
 msgid "Organization"
 msgstr "Organisation"
 
-#: ihp/templates/metadata_detail.html:132
-#: ihp/templates/metadata_detail.html:274
-#: ihp/templates/metadata_detail.html:350
+#: ihp/templates/metadata_detail.html:142
+#: ihp/templates/metadata_detail.html:284
+#: ihp/templates/metadata_detail.html:360
 msgid "Location"
 msgstr "Lieux"
 
-#: ihp/templates/metadata_detail.html:135
-#: ihp/templates/metadata_detail.html:277
-#: ihp/templates/metadata_detail.html:353
+#: ihp/templates/metadata_detail.html:145
+#: ihp/templates/metadata_detail.html:287
+#: ihp/templates/metadata_detail.html:363
 msgid "Voice"
 msgstr "Téléphone"
 
-#: ihp/templates/metadata_detail.html:138
-#: ihp/templates/metadata_detail.html:280
-#: ihp/templates/metadata_detail.html:356
+#: ihp/templates/metadata_detail.html:148
+#: ihp/templates/metadata_detail.html:290
+#: ihp/templates/metadata_detail.html:366
 msgid "Fax"
 msgstr "Fax"
 
-#: ihp/templates/metadata_detail.html:153
+#: ihp/templates/metadata_detail.html:163
 msgid "Information"
 msgstr "Information"
 
-#: ihp/templates/metadata_detail.html:158
+#: ihp/templates/metadata_detail.html:168
 msgid "Identification Image"
 msgstr "Identification de l'image"
 
-#: ihp/templates/metadata_detail.html:167
+#: ihp/templates/metadata_detail.html:177
 msgid "Spatial Resolution"
 msgstr "Résolution spatiale"
 
-#: ihp/templates/metadata_detail.html:170
-msgid "Projetion System"
+#: ihp/templates/metadata_detail.html:180
+#, fuzzy
+#| msgid "Projetion System"
+msgid "Projection System"
 msgstr "Système de projection"
 
-#: ihp/templates/metadata_detail.html:173
+#: ihp/templates/metadata_detail.html:183
 msgid "Extension x0"
 msgstr "Extension x0"
 
-#: ihp/templates/metadata_detail.html:176
+#: ihp/templates/metadata_detail.html:186
 msgid "Extension x1"
 msgstr "Extension x1"
 
-#: ihp/templates/metadata_detail.html:179
+#: ihp/templates/metadata_detail.html:189
 msgid "Extension y0"
 msgstr "Extension y0"
 
-#: ihp/templates/metadata_detail.html:182
+#: ihp/templates/metadata_detail.html:192
 msgid "Extension y1"
 msgstr "Extension y1"
 
-#: ihp/templates/metadata_detail.html:187
+#: ihp/templates/metadata_detail.html:197
 msgid "Features"
 msgstr "Fonctionnalités"
 
-#: ihp/templates/metadata_detail.html:257
+#: ihp/templates/metadata_detail.html:267
 msgid "Contact Points"
 msgstr "Points de contact"
 
-#: ihp/templates/metadata_detail.html:298
+#: ihp/templates/metadata_detail.html:308
 msgid "References"
 msgstr "Références"
 
-#: ihp/templates/metadata_detail.html:303
+#: ihp/templates/metadata_detail.html:313
 msgid "Link Online"
 msgstr "Lien en ligne"
 
-#: ihp/templates/metadata_detail.html:306
+#: ihp/templates/metadata_detail.html:316
 msgid "Metadata Page"
 msgstr "Page de métadonnées"
 
-#: ihp/templates/metadata_detail.html:310
+#: ihp/templates/metadata_detail.html:320
 msgid "Online Link"
 msgstr "Lien en ligne"
 
-#: ihp/templates/metadata_detail.html:331
-msgid "Metadata Author"
-msgstr "Auteur des métadonnées"
-
-#: ihp/templates/mybase.html:24
-msgid "Get Started"
-msgstr "Démarrer avec GeoNode"
+#: ihp/templates/photologue/photo_detail.html:21
+#, fuzzy
+#| msgid "This CSW server contains the following services"
+msgid "This photo is found in the following galleries"
+msgstr "Le serveur CSW de métadonnées comprend les services suivants"
 
 #: ihp/templates/search/_extent_filter.html:3
 msgid "Extent"
@@ -938,6 +1369,37 @@ msgstr[1] "%(facet_type | title)s"
 #: ihp/templates/search/_search_content.html:34
 msgid "found"
 msgstr "trouvé"
+
+#: ihp/templates/pinax/notifications/account_active/full.txt:3
+msgid "Your account has been approved and is now active."
+msgstr "Votre compte a été accepté et est maintenant actif."
+
+#: ihp/templates/pinax/notifications/account_active/full.txt:5
+msgid "You can use the login form at"
+msgstr "Vous pouvez vous authentifier sur la page d'authentification sur "
+
+#: ihp/templates/pinax/notifications/account_active/short.txt:3
+msgid "Your account is now active"
+msgstr "Votre compte est activé"
+
+#: ihp/templates/pinax/notifications/email_subject.txt:1
+#, fuzzy, python-format
+#| msgid "Messages"
+msgid "%(message)s"
+msgstr "Messages"
+
+#: ihp/templates/socialaccount/signup.html:6
+#, fuzzy
+#| msgid "Sign up"
+msgid "Signup"
+msgstr "S'identifier"
+
+#: ihp/templates/socialaccount/signup.html:9
+#: ihp/templates/socialaccount/signup.html:21
+#, fuzzy
+#| msgid "Sign up"
+msgid "Sign Up"
+msgstr "S'identifier"
 
 #: ihp/templates/time_series.html:6
 msgid "Time series"
@@ -1056,9 +1518,7 @@ msgstr "À venir…"
 #~ msgstr "Demander pour télécharger la ressource"
 
 #~ msgid "A request for downloading a resource was sent"
-#~ msgstr ""
-#~ "Une requête d'authorisation de téléchargement de la ressource a été "
-#~ "envoyée"
+#~ msgstr "Une requête d'authorisation de téléchargement de la ressource a été envoyée"
 
 #~ msgid "function performed by the responsible party"
 #~ msgstr "fonction remplie par l'équipe responsable"
@@ -1076,24 +1536,13 @@ msgstr "À venir…"
 #~ msgstr "Bref résumé du contenu de la (des) ressource(s)"
 
 #~ msgid "summary of the intentions with which the resource(s) was developed"
-#~ msgstr ""
-#~ "résumé des objectifs pour lesquels cette / ces ressource(s) a/ont été(s) "
-#~ "développée(s)"
+#~ msgstr "résumé des objectifs pour lesquels cette / ces ressource(s) a/ont été(s) développée(s)"
 
-#~ msgid ""
-#~ "frequency with which modifications and deletions are made to the data "
-#~ "after it is first produced"
-#~ msgstr ""
-#~ "fréquences avec laquelle les modifications et les suppressions sont "
-#~ "réalisées sur les données après création"
+#~ msgid "frequency with which modifications and deletions are made to the data after it is first produced"
+#~ msgstr "fréquences avec laquelle les modifications et les suppressions sont réalisées sur les données après création"
 
-#~ msgid ""
-#~ "commonly used word(s) or formalised word(s) or phrase(s) used to describe "
-#~ "the subject (space or comma-separated"
-#~ msgstr ""
-#~ "mot(s) utilisé(s) couramment ou mot(s) formalisé(s) ou expression(s) "
-#~ "utilisée(s) pour décrire l'objet (séparation par des espaces ou des "
-#~ "virgules"
+#~ msgid "commonly used word(s) or formalised word(s) or phrase(s) used to describe the subject (space or comma-separated"
+#~ msgstr "mot(s) utilisé(s) couramment ou mot(s) formalisé(s) ou expression(s) utilisée(s) pour décrire l'objet (séparation par des espaces ou des virgules"
 
 #~ msgid "keyword identifies a location"
 #~ msgstr "mot-clé identifiant un emplacement"
@@ -1101,12 +1550,8 @@ msgstr "À venir…"
 #~ msgid "limitation(s) placed upon the access or use of the data."
 #~ msgstr "limitation(s) relative(s) à l'accès ou à l'usage des données"
 
-#~ msgid ""
-#~ "other restrictions and legal prerequisites for accessing and using the "
-#~ "resource or metadata"
-#~ msgstr ""
-#~ "autres restrictions et prérequis légaux pour l'accès et l'utilisation de "
-#~ "la ressource ou des métadonnées "
+#~ msgid "other restrictions and legal prerequisites for accessing and using the resource or metadata"
+#~ msgstr "autres restrictions et prérequis légaux pour l'accès et l'utilisation de la ressource ou des métadonnées "
 
 #~ msgid "license of the dataset"
 #~ msgstr "licence du jeu de données"
@@ -1114,17 +1559,11 @@ msgstr "À venir…"
 #~ msgid "language used within the dataset"
 #~ msgstr "langue du jeu de données"
 
-#~ msgid ""
-#~ "high-level geographic data thematic classification to assist in the "
-#~ "grouping and search of available geographic data sets."
-#~ msgstr ""
-#~ "classification thématique détaillée de données géographiques pour aider à "
-#~ "regrouper et à chercher des jeux de données géographiques disponibles."
+#~ msgid "high-level geographic data thematic classification to assist in the grouping and search of available geographic data sets."
+#~ msgstr "classification thématique détaillée de données géographiques pour aider à regrouper et à chercher des jeux de données géographiques disponibles."
 
 #~ msgid "method used to represent geographic information in the dataset."
-#~ msgstr ""
-#~ "méthode utilisée pour représenter l'information géographique dans le jeu "
-#~ "de données"
+#~ msgstr "méthode utilisée pour représenter l'information géographique dans le jeu de données"
 
 #~ msgid "time period covered by the content of the dataset (start)"
 #~ msgstr "période couverte par le contenu du jeu de données (début)"
@@ -1132,12 +1571,8 @@ msgstr "À venir…"
 #~ msgid "time period covered by the content of the dataset (end)"
 #~ msgstr "période couverte par le contenu du jeu de données (fin)"
 
-#~ msgid ""
-#~ "general explanation of the data producer's knowledge about the lineage of "
-#~ "a dataset"
-#~ msgstr ""
-#~ "explication générale de la connaissance du producteur de données sur la "
-#~ "lignée d'un jeu de données"
+#~ msgid "general explanation of the data producer's knowledge about the lineage of a dataset"
+#~ msgstr "explication générale de la connaissance du producteur de données sur la lignée d'un jeu de données"
 
 #~ msgid "title"
 #~ msgstr "titre"
@@ -1212,16 +1647,13 @@ msgstr "À venir…"
 #~ msgstr "CSW WKT geometry"
 
 #~ msgid "Should this resource be advertised in home page?"
-#~ msgstr ""
-#~ "Cette ressource doit-elle être publiée sur la page d'accueil du portail ?"
+#~ msgstr "Cette ressource doit-elle être publiée sur la page d'accueil du portail ?"
 
 #~ msgid "Is Published"
 #~ msgstr "est publié(e)"
 
 #~ msgid "Should this resource be published and searchable?"
-#~ msgstr ""
-#~ "Cette ressource doit elle être publiée et visualisable dans les résultats "
-#~ "de recherche ?"
+#~ msgstr "Cette ressource doit elle être publiée et visualisable dans les résultats de recherche ?"
 
 #~ msgid "For example \"kml\""
 #~ msgstr "Par exemple \"kml\""
@@ -1235,8 +1667,8 @@ msgstr "À venir…"
 #~ msgid "Owner, Point of Contact, Metadata Author"
 #~ msgstr "Propriétaire, Point de contact, Auteur des métadonnées"
 
-msgid "Responsible, Point of Contact, Metadata Author"
-msgstr "Responsable, Point de contact, Auteur des métadonnées"
+#~ msgid "Responsible, Point of Contact, Metadata Author"
+#~ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 
 #~ msgid "More info"
 #~ msgstr "Plus d'infos"
@@ -1286,13 +1718,8 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "Favorites for"
 #~ msgstr "Favoris pour"
 
-#~ msgid ""
-#~ "If you have any questions about the software or service, join our <a href="
-#~ "\"https://groups.google.com/d/forum/geonode-users\">mailing list</a>."
-#~ msgstr ""
-#~ "Si vous avez des questions à propos du logiciel ou de services, rejoignez "
-#~ "notre <a href=\"https://groups.google.com/d/forum/geonode-users\">mailing "
-#~ "list</a>."
+#~ msgid "If you have any questions about the software or service, join our <a href=\"https://groups.google.com/d/forum/geonode-users\">mailing list</a>."
+#~ msgstr "Si vous avez des questions à propos du logiciel ou de services, rejoignez notre <a href=\"https://groups.google.com/d/forum/geonode-users\">mailing list</a>."
 
 #~ msgid "Bad HTTP Authorization Credentials."
 #~ msgstr "Mauvais authentifiant d'autorisation HTTP."
@@ -1351,63 +1778,14 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "URL"
 #~ msgstr "URL"
 
-#~ msgid "External Resource"
-#~ msgstr "Ressouce externe"
-
-#~ msgid "Rate this document"
-#~ msgstr "Noter ce document"
-
-#~ msgid "Download Document"
-#~ msgstr "Télécharger le document"
-
-#~ msgid "Edit Document"
-#~ msgstr "Editer le document"
-
-#~ msgid "Document"
-#~ msgstr "Document"
-
 #~ msgid "Resource using this document"
 #~ msgstr "Ressources utilisant ce document"
-
-#~ msgid "List of resources using this document:"
-#~ msgstr "Liste des ressources utilisant ce document:"
 
 #~ msgid "This document is related to a "
 #~ msgstr "Ce document est lié à"
 
-#~ msgid "This document is not related to any maps or layers"
-#~ msgstr "Ce document ne concerne pas des cartes ou des couches"
-
-#~ msgid "Click the button below to change the permissions of this document."
-#~ msgstr ""
-#~ "Cliquez sur le bouton ci-dessous pour changer les autorisations de ce "
-#~ "document"
-
-#~ msgid "Change Document Permissions"
-#~ msgstr "Changer les autorisations du document"
-
-#~ msgid "Explore Documents"
-#~ msgstr "Explorer les documents"
-
 #~ msgid "Upload Documents"
 #~ msgstr "Ajouter des documents"
-
-#~ msgid "Edit Metadata"
-#~ msgstr "Modifier les métadonnées"
-
-#~ msgid "Editing details for"
-#~ msgstr "Mettre à jour les détails de"
-
-#~ msgid "Error updating metadata.  Please check the following fields: "
-#~ msgstr ""
-#~ "Erreur lors de la mise à jour des métadonnées. Merci de vérifier les "
-#~ "champs suivants:"
-
-#~ msgid "Update"
-#~ msgstr "Mise à jour"
-
-#~ msgid "Metadata Provider"
-#~ msgstr "Fournisseur de métadonnées"
 
 #~ msgid "Deleting"
 #~ msgstr "Supprimer"
@@ -1417,13 +1795,11 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 
 #~ msgid ""
 #~ "\n"
-#~ "          Are you sure you want to remove <a href=\"%(document."
-#~ "get_absolute_url)s\">%(document_title)s</a>?\n"
+#~ "          Are you sure you want to remove <a href=\"%(document.get_absolute_url)s\">%(document_title)s</a>?\n"
 #~ "        "
 #~ msgstr ""
 #~ "\n"
-#~ "          Etes vous certain de vouloir supprimer <a href=\"%(document."
-#~ "get_absolute_url)s\">%(document_title)s</a>?\n"
+#~ "          Etes vous certain de vouloir supprimer <a href=\"%(document.get_absolute_url)s\">%(document_title)s</a>?\n"
 #~ "        "
 
 #~ msgid "Yes, I am sure"
@@ -1451,8 +1827,7 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgstr "Vous n'êtes pas autorisé à modifier ce document"
 
 #~ msgid "You are not permitted to modify this document's metadata"
-#~ msgstr ""
-#~ "Vous n'avez pas la permission de modifier les métadonnées de ce document"
+#~ msgstr "Vous n'avez pas la permission de modifier les métadonnées de ce document"
 
 #~ msgid "You are not permitted to view this document"
 #~ msgstr "Vous n'avez pas la permission de voir ce document"
@@ -1473,13 +1848,10 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgstr "Pas de résumé"
 
 #~ msgid "An exception occurred loading data to PostGIS"
-#~ msgstr ""
-#~ "Une erreur s'est produite pendant le chargement des données en PostGIS"
+#~ msgstr "Une erreur s'est produite pendant le chargement des données en PostGIS"
 
 #~ msgid " Additionally an error occured during database cleanup"
-#~ msgstr ""
-#~ "Une erreur s'est également produite pendant le nettoyage de la base de "
-#~ "données"
+#~ msgstr "Une erreur s'est également produite pendant le nettoyage de la base de données"
 
 #~ msgid "Layer Uploaded"
 #~ msgstr "Couche chargée"
@@ -1533,16 +1905,10 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgstr "PNG"
 
 #~ msgid "You don't have permissions to change style for this layer"
-#~ msgstr ""
-#~ "Vous ne disposez pas des autorisations pour modificatier le style de "
-#~ "cette couche"
+#~ msgstr "Vous ne disposez pas des autorisations pour modificatier le style de cette couche"
 
-#~ msgid ""
-#~ "a short version of the name consisting only of letters, numbers, "
-#~ "underscores and hyphens."
-#~ msgstr ""
-#~ "une version courte du nom contenant uniquement des caractères "
-#~ "alphanumériques, des underscores ou des tirets."
+#~ msgid "a short version of the name consisting only of letters, numbers, underscores and hyphens."
+#~ msgstr "une version courte du nom contenant uniquement des caractères alphanumériques, des underscores ou des tirets."
 
 #~ msgid "A group already exists with that slug."
 #~ msgstr "Un groupe existe déjà avec ce 'slug'."
@@ -1559,33 +1925,14 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "Private"
 #~ msgstr "Privé"
 
-#~ msgid ""
-#~ "Public: Any registered user can view and join a public group.<br>Public "
-#~ "(invite-only):Any registered user can view the group.  Only invited users "
-#~ "can join.<br>Private: Registered users cannot see any details about the "
-#~ "group, including membership.  Only invited users can join."
-#~ msgstr ""
-#~ "Publique : Tout les utilisateurs enregistrés peuvent voir et joindre un "
-#~ "groupe publique.<br>Publique (uniquement sur invitation) : Tout les "
-#~ "utilisateurs enregistrés peuvent voir le groupe. Mais il est nécessaire "
-#~ "d'être invité afin de rejoindre ce groupe.<br>Privé : Les utilisateurs "
-#~ "enregistrés ne peuvent voir aucun détails à propos de ce groupe, ni en "
-#~ "voir les membres. Il est possible de rejoindre ce groupe uniquement par "
-#~ "invitation."
+#~ msgid "Public: Any registered user can view and join a public group.<br>Public (invite-only):Any registered user can view the group.  Only invited users can join.<br>Private: Registered users cannot see any details about the group, including membership.  Only invited users can join."
+#~ msgstr "Publique : Tout les utilisateurs enregistrés peuvent voir et joindre un groupe publique.<br>Publique (uniquement sur invitation) : Tout les utilisateurs enregistrés peuvent voir le groupe. Mais il est nécessaire d'être invité afin de rejoindre ce groupe.<br>Privé : Les utilisateurs enregistrés ne peuvent voir aucun détails à propos de ce groupe, ni en voir les membres. Il est possible de rejoindre ce groupe uniquement par invitation."
 
-#~ msgid ""
-#~ "Email used to contact one or all group members, such as a mailing list, "
-#~ "shared email, or exchange group."
-#~ msgstr ""
-#~ "Email utilisé pour contacter un membre ou tout les membres du groupe, tel "
-#~ "une mailing liste, un email partagé, une boîte fonctionelle ou un groupe "
-#~ "d'échange."
+#~ msgid "Email used to contact one or all group members, such as a mailing list, shared email, or exchange group."
+#~ msgstr "Email utilisé pour contacter un membre ou tout les membres du groupe, tel une mailing liste, un email partagé, une boîte fonctionelle ou un groupe d'échange."
 
 #~ msgid "Logo"
 #~ msgstr "Logo"
-
-#~ msgid "Email"
-#~ msgstr "Email"
 
 #~ msgid "Access"
 #~ msgstr "Accès"
@@ -1662,9 +2009,7 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgstr "Tout le monde peut joindre ce groupe"
 
 #~ msgid "Anyone may view this group but membership is by invitation only."
-#~ msgstr ""
-#~ "Tout le monde peut voir ce groupe mais il n'est possible de le rejoindre "
-#~ "que sur invitation"
+#~ msgstr "Tout le monde peut voir ce groupe mais il n'est possible de le rejoindre que sur invitation"
 
 #~ msgid "Membership is by invitation only."
 #~ msgstr "Adhésion uniquement sur invitation."
@@ -1741,16 +2086,13 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgstr "url du sld"
 
 #~ msgid "File cannot be opened, maybe check the encoding"
-#~ msgstr ""
-#~ "Ce fichier ne peut être ouvert, il faut peut-être vérifier l'encodage"
+#~ msgstr "Ce fichier ne peut être ouvert, il faut peut-être vérifier l'encodage"
 
 #~ msgid "attribute name"
 #~ msgstr "nom de l'attribut"
 
 #~ msgid "name of attribute as stored in shapefile/spatial database"
-#~ msgstr ""
-#~ "nom de l'attribut tel qu'il est stocké dans le fichier shape/la base de "
-#~ "données spatiale"
+#~ msgstr "nom de l'attribut tel qu'il est stocké dans le fichier shape/la base de données spatiale"
 
 #~ msgid "attribute description"
 #~ msgstr "description de l'attribut"
@@ -1768,27 +2110,19 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgstr "type d'attribut"
 
 #~ msgid "the data type of the attribute (integer, string, geometry, etc)"
-#~ msgstr ""
-#~ "le type d'attribut de la donnée (entier, chaine de caractères, géométrie, "
-#~ "etc)"
+#~ msgstr "le type d'attribut de la donnée (entier, chaine de caractères, géométrie, etc)"
 
 #~ msgid "visible?"
 #~ msgstr "visible?"
 
 #~ msgid "specifies if the attribute should be displayed in identify results"
-#~ msgstr ""
-#~ "spécifie si l'attribut doit être affiché dans les résultats "
-#~ "d'identification"
+#~ msgstr "spécifie si l'attribut doit être affiché dans les résultats d'identification"
 
 #~ msgid "display order"
 #~ msgstr "ordre d'affichage"
 
-#~ msgid ""
-#~ "specifies the order in which attribute should be displayed in identify "
-#~ "results"
-#~ msgstr ""
-#~ "spécifie l'ordre dans lequel l'attributs doivent être affichés dans les "
-#~ "résultats d'identification"
+#~ msgid "specifies the order in which attribute should be displayed in identify results"
+#~ msgstr "spécifie l'ordre dans lequel l'attributs doivent être affichés dans les résultats d'identification"
 
 #~ msgid "count"
 #~ msgstr "compter"
@@ -1853,70 +2187,22 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "Submit"
 #~ msgstr "Soumettre"
 
-#~ msgid "Edit data"
-#~ msgstr "Modifier"
-
-#~ msgid "Explore Layers"
-#~ msgstr "Explorer les couches"
-
 #~ msgid "This action affects the following maps:"
 #~ msgstr "Cette action affecte les cartes suivantes:"
 
 #~ msgid "No maps are using this layer"
 #~ msgstr "Aucune carte n'utilise cette couche"
 
-#~ msgid ""
-#~ "\n"
-#~ "        Editing details for %(layer_title)s\n"
-#~ "      "
-#~ msgstr ""
-#~ "\n"
-#~ "        Modifier les informations pour %(layer_title)s\n"
-#~ "      "
-
-#~ msgid ""
-#~ "Note: this layer's orginal metadata was populated and preserved by "
-#~ "importing a metadata XML file.\n"
-#~ "          This metadata cannot be edited."
-#~ msgstr ""
-#~ "Note : les métadonnées de la couche ont été définies par import d'un "
-#~ "fichier de données XML. \n"
-#~ "Ces métadonnées ne peuvent pas être modifiées."
-
-#~ msgid ""
-#~ "Note: this layer's orginal metadata was populated by importing a metadata "
-#~ "XML file.\n"
-#~ "          GeoNode's metadata import supports a subset of ISO, FGDC, and "
-#~ "Dublin Core metadata elements.\n"
-#~ "          Some of your original metadata may have been lost."
-#~ msgstr ""
-#~ "Note : les métadonnées d'origine de cette couche ont été créé sur base "
-#~ "d'un import d'un fichier XML.\n"
-#~ "Les métadonnées de GeoNode supporte en partie les éléments de métadonnées "
-#~ "des types ISO, FGDC et Dublin Core.\n"
-#~ "Certaines de vos métadonnées d'origine pourraient avoir été perdues."
-
-#~ msgid "Attributes"
-#~ msgstr "Attributs"
-
-#~ msgid "Attribute"
-#~ msgstr "Attribut"
-
-#~ msgid "Display Order"
-#~ msgstr "Ordre d'affichage"
-
 #~ msgid "Remove Layers"
 #~ msgstr "Supprimer les couches"
 
 #~ msgid ""
 #~ "\n"
-#~ "          Are you sure you want to remove <a href=\"%(layer."
-#~ "get_absolute_url)s\">%(layer_title)s</a>?\n"
+#~ "          Are you sure you want to remove <a href=\"%(layer.get_absolute_url)s\">%(layer_title)s</a>?\n"
 #~ "        "
 #~ msgstr ""
 #~ "\n"
-#~ "          Etes-vous certain de vouloir supprimer <a href=\"%(layer."
-#~ "get_absolute_url)s\">%(layer_title)s</a>?\n"
+#~ "          Etes-vous certain de vouloir supprimer <a href=\"%(layer.get_absolute_url)s\">%(layer_title)s</a>?\n"
 #~ "        "
 
 #~ msgid "Replace Layer"
@@ -1966,13 +2252,11 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 
 #~ msgid ""
 #~ "\n"
-#~ "      Manage Available Styles for <a href=\"/layers/%(layer_title)s\">"
-#~ "%(layer_title)s</a>\n"
+#~ "      Manage Available Styles for <a href=\"/layers/%(layer_title)s\">%(layer_title)s</a>\n"
 #~ "    "
 #~ msgstr ""
 #~ "\n"
-#~ "      Gérer les styles disponibles pour <a href=\"/layers/%(layer_title)s"
-#~ "\">%(layer_title)s</a>\n"
+#~ "      Gérer les styles disponibles pour <a href=\"/layers/%(layer_title)s\">%(layer_title)s</a>\n"
 #~ "    "
 
 #~ msgid "Layer Default Style"
@@ -1981,13 +2265,8 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "Available styles"
 #~ msgstr "Style disponibles"
 
-#~ msgid ""
-#~ "Click on an available style in the upper box to assign it to this layer. "
-#~ "Selected styles appear in the lower box."
-#~ msgstr ""
-#~ "Cliquez dans la boîte supérieure sur un des styles disponibles pour "
-#~ "l'attribuer à cette couche. Les styles sélectionnés apparaissent dans la "
-#~ "zone inférieure."
+#~ msgid "Click on an available style in the upper box to assign it to this layer. Selected styles appear in the lower box."
+#~ msgstr "Cliquez dans la boîte supérieure sur un des styles disponibles pour l'attribuer à cette couche. Les styles sélectionnés apparaissent dans la zone inférieure."
 
 #~ msgid "Update Available Styles"
 #~ msgstr "Mise à jour des styles disponibles"
@@ -2006,8 +2285,7 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 
 #~ msgid ""
 #~ "\n"
-#~ "        A coordinate reference system for this layer could not be "
-#~ "determined.\n"
+#~ "        A coordinate reference system for this layer could not be determined.\n"
 #~ "        Locate or enter the appropriate ESPG code for this layer below.\n"
 #~ "        One way to do this is do visit:\n"
 #~ "        <a href=\"http://prj2epsg.org/search\" target=\"_\">prj2epsg</a>\n"
@@ -2015,10 +2293,8 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ "    "
 #~ msgstr ""
 #~ "\n"
-#~ "        Aucun système de coordonnées géographiques ne peut être déterminé "
-#~ "pour cette couche.\n"
-#~ "        Déterminez ou saissisez ci-dessous le code EPSG approprié pour "
-#~ "cette couche.\n"
+#~ "        Aucun système de coordonnées géographiques ne peut être déterminé pour cette couche.\n"
+#~ "        Déterminez ou saissisez ci-dessous le code EPSG approprié pour cette couche.\n"
 #~ "        Vous pouvez vous aider à le déterminer en visitant ce site:\n"
 #~ "        <a href=\"http://prj2epsg.org/search\" target=\"_\">prj2epsg</a>\n"
 #~ "        et en saisissant ce qui suit:\n"
@@ -2029,59 +2305,44 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 
 #~ msgid ""
 #~ "\n"
-#~ "        There is a problem recognizing the projection of this data. "
-#~ "Please\n"
+#~ "        There is a problem recognizing the projection of this data. Please\n"
 #~ "        reproject this data to a more common projection.\n"
 #~ "        "
 #~ msgstr ""
 #~ "\n"
-#~ "        Il y a un problème pour reconnaître la projection de ces données. "
-#~ "Veuillez\n"
+#~ "        Il y a un problème pour reconnaître la projection de ces données. Veuillez\n"
 #~ "        reprojeter ces données dans une projection plus commune.\n"
 #~ "        "
 
 #~ msgid "Geospatial Data"
 #~ msgstr "Données géospatiales"
 
-#~ msgid ""
-#~ "Please indicate which attributes contain the latitude and longitude "
-#~ "coordinates in the CSV data."
-#~ msgstr ""
-#~ "Veuillez indiquer quels attributs contiennent la latitude et la longitude "
-#~ "dans les données CSV."
+#~ msgid "Please indicate which attributes contain the latitude and longitude coordinates in the CSV data."
+#~ msgstr "Veuillez indiquer quels attributs contiennent la latitude et la longitude dans les données CSV."
 
 #~ msgid ""
 #~ "With this data, GeoNode was able to guess which attributes contain the\n"
 #~ "latitude and longitude coordinates, but please confirm that the correct\n"
 #~ "attributes are selected below."
 #~ msgstr ""
-#~ "Avec ces données, GeoNode a été capable de déterminer quels attributs "
-#~ "définissent la\n"
-#~ "latitude et la longitude, mais merci de confirmer que les attributs "
-#~ "corrects\n"
+#~ "Avec ces données, GeoNode a été capable de déterminer quels attributs définissent la\n"
+#~ "latitude et la longitude, mais merci de confirmer que les attributs corrects\n"
 #~ "sont bien ceux sélectionnés ci-dessous."
 
 #~ msgid "Select an attribute"
 #~ msgstr "Sélectionner un attribut"
 
 #~ msgid ""
-#~ "We did not detect columns that could be used for the latitude and "
-#~ "longitude.\n"
-#~ "Please verify that you have two columns in your csv file that can be used "
-#~ "for\n"
+#~ "We did not detect columns that could be used for the latitude and longitude.\n"
+#~ "Please verify that you have two columns in your csv file that can be used for\n"
 #~ "the latitude and longitude."
 #~ msgstr ""
-#~ "Nous n'avons pas pu détecter les colonnes qui peuvent être utilisées "
-#~ "comme latitude et longitude.\n"
-#~ "Merci de vérifier que votre fichier CSV contient deux colonnes pouvant "
-#~ "être utilisées\n"
+#~ "Nous n'avons pas pu détecter les colonnes qui peuvent être utilisées comme latitude et longitude.\n"
+#~ "Merci de vérifier que votre fichier CSV contient deux colonnes pouvant être utilisées\n"
 #~ "pour la latitude et la longitude."
 
-#~ msgid ""
-#~ "Your upload is either complete or you haven't resumed an earlier one."
-#~ msgstr ""
-#~ "Votre transfert est soit complet, soit vous n'en avez pas repris un plus "
-#~ "récent"
+#~ msgid "Your upload is either complete or you haven't resumed an earlier one."
+#~ msgstr "Votre transfert est soit complet, soit vous n'en avez pas repris un plus récent"
 
 #~ msgid "Upload Form"
 #~ msgstr "Formulaire d'envoi des données vers le serveur"
@@ -2134,12 +2395,8 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "Continuous Intervals"
 #~ msgstr "intervalles continus"
 
-#~ msgid ""
-#~ "for data that is frequently updated, resolution describes the frequency "
-#~ "of updates"
-#~ msgstr ""
-#~ "pour les données fréquement mises à jour, la précision représente la "
-#~ "fréquence des mises à jour"
+#~ msgid "for data that is frequently updated, resolution describes the frequency of updates"
+#~ msgstr "pour les données fréquement mises à jour, la précision représente la fréquence des mises à jour"
 
 #~ msgid "Resolution of time attribute"
 #~ msgstr "Précision de l'attribut de temps"
@@ -2152,18 +2409,13 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 
 #~ msgid ""
 #~ "A feature can currently support one or two time attributes. If a single\n"
-#~ "    attribute is used, the feature is considered relevant at that single "
-#~ "point in time. If two\n"
-#~ "    attributes are used, the second attribute represents the end of a "
-#~ "valid period for the\n"
+#~ "    attribute is used, the feature is considered relevant at that single point in time. If two\n"
+#~ "    attributes are used, the second attribute represents the end of a valid period for the\n"
 #~ "    feature."
 #~ msgstr ""
-#~ "Une fonction peut actuellement supporter un ou deux attributs de temps. "
-#~ "Si un seul\n"
-#~ "attribut est utilisé, l'entité est considérée comme pertinente à ce "
-#~ "moment. Si deux\n"
-#~ "attributs sont utilisés, le deuxième attribut représente la fin de la "
-#~ "période de validité."
+#~ "Une fonction peut actuellement supporter un ou deux attributs de temps. Si un seul\n"
+#~ "attribut est utilisé, l'entité est considérée comme pertinente à ce moment. Si deux\n"
+#~ "attributs sont utilisés, le deuxième attribut représente la fin de la période de validité."
 
 #~ msgid "Selecting an Attribute"
 #~ msgstr "Sélectionnez un attribut"
@@ -2182,14 +2434,12 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 
 #~ msgid ""
 #~ "\n"
-#~ "    For text attributes, one can specify a custom format or use the 'best "
-#~ "guess' approach.\n"
+#~ "    For text attributes, one can specify a custom format or use the 'best guess' approach.\n"
 #~ "    The most common formatting flags are:\n"
 #~ "    "
 #~ msgstr ""
 #~ "\n"
-#~ "Pour les attributs alphanumériques, il est possible de spécifier un "
-#~ "format spécifique ou d'utiliser la méthode de 'supposition'.\n"
+#~ "Pour les attributs alphanumériques, il est possible de spécifier un format spécifique ou d'utiliser la méthode de 'supposition'.\n"
 #~ "Le code de formatage le plus commun est:\n"
 #~ "    "
 
@@ -2212,29 +2462,21 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgstr "seconde en minute"
 
 #~ msgid "Note that single quotes represent a literal character."
-#~ msgstr ""
-#~ "Notez que les simples quotes représentent un caractère alphanumérique."
+#~ msgstr "Notez que les simples quotes représentent un caractère alphanumérique."
 
-#~ msgid ""
-#~ "To remove ambiguity, repeat a code to represent the maximum number of "
-#~ "digits - for example yyyy"
+#~ msgid "To remove ambiguity, repeat a code to represent the maximum number of digits - for example yyyy"
 #~ msgstr ""
 #~ "Pour retirer l’ambiguïté, répétez un code pour représenter le nombre \n"
 #~ "maximum de digits - par exemple yyyy"
 
 #~ msgid "The 'best guess' will handle date and optional time variants of"
-#~ msgstr ""
-#~ "La 'meilleure solution' doit tenir compte de la date et des variations "
-#~ "temporelles de"
+#~ msgstr "La 'meilleure solution' doit tenir compte de la date et des variations temporelles de"
 
 #~ msgid "In terms of the formatting flags noted above, these are"
-#~ msgstr ""
-#~ "En ce qui concerne les codes de formatage mentionnés ci-dessous, il y a"
+#~ msgstr "En ce qui concerne les codes de formatage mentionnés ci-dessous, il y a"
 
-#~ msgid ""
-#~ "Returning to the upload starting page in <span id=\"cnt\">5</span>seconds "
-#~ msgstr ""
-#~ "Retour vers la page des transferts dans <span id=\"cnt\">5</span>secondes "
+#~ msgid "Returning to the upload starting page in <span id=\"cnt\">5</span>seconds "
+#~ msgstr "Retour vers la page des transferts dans <span id=\"cnt\">5</span>secondes "
 
 #~ msgid " Or just go "
 #~ msgstr "Ou tout simplement aller"
@@ -2242,20 +2484,11 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "now"
 #~ msgstr "maintenant"
 
-#~ msgid ""
-#~ "There was an error while attempting to upload your data. Please try "
-#~ "again, or contact and administrator if the problem continues."
-#~ msgstr ""
-#~ "Une erreur est survenue lors du téléchargement de vos données. S'il vous "
-#~ "plaît, essayez de nouveau, ou communiquez avec l'administrateur si le "
-#~ "problème persiste."
+#~ msgid "There was an error while attempting to upload your data. Please try again, or contact and administrator if the problem continues."
+#~ msgstr "Une erreur est survenue lors du téléchargement de vos données. S'il vous plaît, essayez de nouveau, ou communiquez avec l'administrateur si le problème persiste."
 
-#~ msgid ""
-#~ "Note: this layer's orginal metadata was populated and preserved by "
-#~ "importing a metadata XML file. This metadata cannot be edited."
-#~ msgstr ""
-#~ "Note : les métadonnées de la couche ont été définies par import d'un "
-#~ "fichier de données XML. Ces métadonnées ne peuvent pas être modifiées."
+#~ msgid "Note: this layer's orginal metadata was populated and preserved by importing a metadata XML file. This metadata cannot be edited."
+#~ msgstr "Note : les métadonnées de la couche ont été définies par import d'un fichier de données XML. Ces métadonnées ne peuvent pas être modifiées."
 
 #~ msgid "You are not permitted to delete this layer"
 #~ msgstr "Vous n'êtes pas autorisé à supprimer cette couche."
@@ -2267,31 +2500,22 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgstr "Vous n'êtes pas autorisé à modifier cette couche."
 
 #~ msgid "You are not permitted to modify this layer's metadata"
-#~ msgstr ""
-#~ "Vous n'êtes pas autorisé à modifier les métadonnées de cette couche."
+#~ msgstr "Vous n'êtes pas autorisé à modifier les métadonnées de cette couche."
 
 #~ msgid "You are not permitted to view this layer"
 #~ msgstr "Vous n'êtes pas autorisé à modifier cette couche."
 
 #~ msgid "You are attempting to replace a vector layer with a raster."
-#~ msgstr ""
-#~ "Vous essayer de remplacer une couche vectorielle par une couche raster "
-#~ "(image)"
+#~ msgstr "Vous essayer de remplacer une couche vectorielle par une couche raster (image)"
 
 #~ msgid "You are attempting to replace a raster layer with a vector."
-#~ msgstr ""
-#~ "Vous essayer de remplacer une couche raster (image) par une couche "
-#~ "vectorielle"
+#~ msgstr "Vous essayer de remplacer une couche raster (image) par une couche vectorielle"
 
 #~ msgid "Unable to delete layer"
 #~ msgstr "Impossible de supprimer la couche"
 
-#~ msgid ""
-#~ "This layer is a member of a layer group, you must remove the layer from "
-#~ "the group before deleting."
-#~ msgstr ""
-#~ "Cette couche fait partie d'un groupe de couches, vous devez enlever cette "
-#~ "couche du groupe avant de la supprimer."
+#~ msgid "This layer is a member of a layer group, you must remove the layer from the group before deleting."
+#~ msgstr "Cette couche fait partie d'un groupe de couches, vous devez enlever cette couche du groupe avant de la supprimer."
 
 #~ msgid "Map Created"
 #~ msgstr "Carte créée"
@@ -2380,68 +2604,8 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "JSON Configuration"
 #~ msgstr "Configuration format JSON"
 
-#~ msgid "Explore Maps"
-#~ msgstr "Voir les cartes"
-
-#~ msgid "Create a New Map"
-#~ msgstr "Créer une nouvelle carte"
-
 #~ msgid "GeoExplorer"
 #~ msgstr "GeoExplorer"
-
-#~ msgid "Rate this Map"
-#~ msgstr "Noter cette carte"
-
-#~ msgid "Download Map"
-#~ msgstr "Télécharger la carte"
-
-#~ msgid "Download Data Layers"
-#~ msgstr "Télécharger les couches de données"
-
-#~ msgid "Download Web Map Context"
-#~ msgstr "Télécharger le Web Map Context"
-
-#~ msgid "Map Layers"
-#~ msgstr "Couches de la Carte"
-
-#~ msgid "This map uses the following layers:"
-#~ msgstr "Cette carte utilise les couches suivantes :"
-
-#~ msgid "Documents related to this map"
-#~ msgstr "Documents relatifs à cette carte"
-
-#~ msgid "List of documents related to this map:"
-#~ msgstr "Liste des documents relatifs à cette carte:"
-
-#~ msgid "Specify which users can view or modify this map"
-#~ msgstr "Spécifie quels utilisateurs peuvent voir ou modifier cette carte"
-
-#~ msgid "Change Permissions of this Map"
-#~ msgstr "Changer les autorisations de cette carte"
-
-#~ msgid "Copy this map"
-#~ msgstr "Copier cette carte"
-
-#~ msgid "Duplicate this map and modify it for your own purposes"
-#~ msgstr "Copier cette carte et la modifier pour vos propres besoins"
-
-#~ msgid "Map WMS"
-#~ msgstr "Carte WMS"
-
-#~ msgid "WMS layer group for local map layers"
-#~ msgstr "Groupe de couches WMS pour les couches de la carte locale"
-
-#~ msgid "on"
-#~ msgstr "sur"
-
-#~ msgid "local OWS"
-#~ msgstr "OWS local"
-
-#~ msgid "Publish local map layers as WMS layer group"
-#~ msgstr "Publier la carte locale des couches comme groupe de couche WMS"
-
-#~ msgid "Publish Map WMS"
-#~ msgstr "Publier la carte WMS"
 
 #~ msgid "Download"
 #~ msgstr "Télécharger"
@@ -2459,40 +2623,33 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 
 #~ msgid ""
 #~ "\n"
-#~ "      <div class=\"alert alert-warning\">Could not find downloadable "
-#~ "layers for this map. You can go back to  \n"
+#~ "      <div class=\"alert alert-warning\">Could not find downloadable layers for this map. You can go back to  \n"
 #~ "      "
 #~ msgstr ""
 #~ "\n"
-#~ "      <div class=\"alert alert-warning\">Impossible de trouver les "
-#~ "couches téléchargeables pour cette carte. Vous pouvez revenir à   \n"
+#~ "      <div class=\"alert alert-warning\">Impossible de trouver les couches téléchargeables pour cette carte. Vous pouvez revenir à   \n"
 #~ "      "
 
 #~ msgid ""
 #~ "\n"
-#~ "        Additionally, the map contains these layers which will not be "
-#~ "downloaded\n"
+#~ "        Additionally, the map contains these layers which will not be downloaded\n"
 #~ "        due to security restrictions:\n"
 #~ "      "
 #~ msgstr ""
 #~ "\n"
-#~ "        De plus, la carte contient ces couches qui ne pourront pas être "
-#~ "téléchargées\n"
+#~ "        De plus, la carte contient ces couches qui ne pourront pas être téléchargées\n"
 #~ "        pour des restrictions de sécurité:\n"
 #~ "      "
 
 #~ msgid ""
 #~ "\n"
-#~ "        Finally, the map contains these layers which will not be "
-#~ "downloaded\n"
+#~ "        Finally, the map contains these layers which will not be downloaded\n"
 #~ "        because they are not available directly from this GeoNode:\n"
 #~ "      "
 #~ msgstr ""
 #~ "\n"
-#~ "        Finalement, la carte contient ces couches qui ne pourront pas "
-#~ "être téléchargées\n"
-#~ "        car celles-ci ne sont pas directement disponibles depuis cette "
-#~ "plateforme GeoNode:\n"
+#~ "        Finalement, la carte contient ces couches qui ne pourront pas être téléchargées\n"
+#~ "        car celles-ci ne sont pas directement disponibles depuis cette plateforme GeoNode:\n"
 #~ "      "
 
 #~ msgid "Downloading"
@@ -2510,40 +2667,16 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "Download Failed"
 #~ msgstr "Téléchargement échoué"
 
-#~ msgid ""
-#~ "\n"
-#~ "        Editing details for %(map_title)s\n"
-#~ "      "
-#~ msgstr ""
-#~ "\n"
-#~ "Mettre à jour les informations de %(map_title)s"
-
-#~ msgid ""
-#~ "Note: this map's orginal metadata was populated by importing a metadata "
-#~ "XML file.\n"
-#~ "        GeoNode's metadata import supports a subset of ISO, FGDC, and "
-#~ "Dublin Core metadata elements.\n"
-#~ "        Some of your original metadata may have been lost."
-#~ msgstr ""
-#~ "Note: les métadonnées originales de cette carte ont été remplies à partir "
-#~ "d'un import d'un fichier de métadonnées sous format XML.\n"
-#~ "L'import de métadonnées XML réalisé par GeoNode supporte certains "
-#~ "éléments des formats ISO, FGDC et Dublin Core.\n"
-#~ "Certaines parties des métadonnées originales peuvent donc avoir été "
-#~ "perdues"
-
 #~ msgid "Remove Map"
 #~ msgstr "Supprimer la carte"
 
 #~ msgid ""
 #~ "\n"
-#~ "          Are you sure you want to remove <a href=\"%(map."
-#~ "get_absolute_url)s\">%(map_title)s</a>?\n"
+#~ "          Are you sure you want to remove <a href=\"%(map.get_absolute_url)s\">%(map_title)s</a>?\n"
 #~ "        "
 #~ msgstr ""
 #~ "\n"
-#~ "          Are you sure you want to remove <a href=\"%(map."
-#~ "get_absolute_url)s\">%(map_title)s</a>?\n"
+#~ "          Are you sure you want to remove <a href=\"%(map.get_absolute_url)s\">%(map_title)s</a>?\n"
 #~ "        "
 
 #~ msgid "You are not permitted to delete this map."
@@ -2585,29 +2718,17 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "party who authored the resource"
 #~ msgstr "équipe qui est l'auteur de la ressource"
 
-#~ msgid ""
-#~ "party who has processed the data in a manner such that the resource has "
-#~ "been modified"
-#~ msgstr ""
-#~ "equipe qui a traité les données d'une manière telle que la ressource a "
-#~ "été modifié"
+#~ msgid "party who has processed the data in a manner such that the resource has been modified"
+#~ msgstr "equipe qui a traité les données d'une manière telle que la ressource a été modifié"
 
 #~ msgid "party who published the resource"
 #~ msgstr "équipe qui a publié la ressource"
 
-#~ msgid ""
-#~ "party that accepts accountability and responsibility for the data and "
-#~ "ensures         appropriate care and maintenance of the resource"
-#~ msgstr ""
-#~ "groupe qui accepte la responsabilité des données et assure la maintenance "
-#~ "et le support approprié de ces données."
+#~ msgid "party that accepts accountability and responsibility for the data and ensures         appropriate care and maintenance of the resource"
+#~ msgstr "groupe qui accepte la responsabilité des données et assure la maintenance et le support approprié de ces données."
 
-#~ msgid ""
-#~ "party who can be contacted for acquiring knowledge about or acquisition "
-#~ "of the resource"
-#~ msgstr ""
-#~ "équipe qui peut être contactée pour acquérir ou pour obtenir des "
-#~ "informations sur la ressource"
+#~ msgid "party who can be contacted for acquiring knowledge about or acquisition of the resource"
+#~ msgstr "équipe qui peut être contactée pour acquérir ou pour obtenir des informations sur la ressource"
 
 #~ msgid "party who distributes the resource"
 #~ msgstr "équipe qui distribue la ressource"
@@ -2624,11 +2745,8 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "party that owns the resource"
 #~ msgstr "équipe qui possède la ressource"
 
-#~ msgid ""
-#~ "key party responsible for gathering information and conducting research"
-#~ msgstr ""
-#~ "équipe clé qui est responsable de la collecte d'informations et qui "
-#~ "conduit la recherche"
+#~ msgid "key party responsible for gathering information and conducting research"
+#~ msgstr "équipe clé qui est responsable de la collecte d'informations et qui conduit la recherche"
 
 #~ msgid "Email Address"
 #~ msgstr "Adresse mail"
@@ -2666,31 +2784,20 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "role or position of the responsible person"
 #~ msgstr "Rôle ou position de la personne responsable"
 
-#~ msgid ""
-#~ "telephone number by which individuals can speak to the responsible "
-#~ "organization or individual"
-#~ msgstr ""
-#~ "numéro de téléphone permettant de joindre l'organisation ou la personne "
-#~ "responsable"
+#~ msgid "telephone number by which individuals can speak to the responsible organization or individual"
+#~ msgstr "numéro de téléphone permettant de joindre l'organisation ou la personne responsable"
 
 #~ msgid "Facsimile"
 #~ msgstr "Télécopieur"
 
-#~ msgid ""
-#~ "telephone number of a facsimile machine for the responsible organization "
-#~ "or individual"
-#~ msgstr ""
-#~ "numéro de téléphone ou de fax de l'organisation ou la personne responsable"
+#~ msgid "telephone number of a facsimile machine for the responsible organization or individual"
+#~ msgstr "numéro de téléphone ou de fax de l'organisation ou la personne responsable"
 
 #~ msgid "Delivery Point"
 #~ msgstr "Point de livraison"
 
-#~ msgid ""
-#~ "physical and email address at which the organization or individual may be "
-#~ "contacted"
-#~ msgstr ""
-#~ "adresse physique et email auxquelles l'organisation ou la personne "
-#~ "responsable peut être contacté"
+#~ msgid "physical and email address at which the organization or individual may be contacted"
+#~ msgstr "adresse physique et email auxquelles l'organisation ou la personne responsable peut être contacté"
 
 #~ msgid "City"
 #~ msgstr "Ville"
@@ -2713,12 +2820,8 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "country of the physical address"
 #~ msgstr "pays de l'adresse physique"
 
-#~ msgid ""
-#~ "commonly used word(s) or formalised word(s) or phrase(s) used to describe "
-#~ "the subject             (space or comma-separated"
-#~ msgstr ""
-#~ "terme(s) utilisés courrament ou terme(s) légaux ou phrase(s) utilisées "
-#~ "pour décrire le sujet (à séparer par des espaces ou des virgules"
+#~ msgid "commonly used word(s) or formalised word(s) or phrase(s) used to describe the subject             (space or comma-separated"
+#~ msgstr "terme(s) utilisés courrament ou terme(s) légaux ou phrase(s) utilisées pour décrire le sujet (à séparer par des espaces ou des virgules"
 
 #~ msgid "No Group"
 #~ msgstr "Aucun groupe"
@@ -2729,12 +2832,8 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "Forgot Username"
 #~ msgstr "Nom d'utilisateur oublié"
 
-#~ msgid ""
-#~ "Enter your email address and click the submit button. <br />Your username "
-#~ "will be sent to you."
-#~ msgstr ""
-#~ "Entrer votre adresse email et cliquer sur le bouton pour confirmer. <br /"
-#~ ">Votre nom d'utilisateur vous sera transmis par email."
+#~ msgid "Enter your email address and click the submit button. <br />Your username will be sent to you."
+#~ msgstr "Entrer votre adresse email et cliquer sur le bouton pour confirmer. <br />Votre nom d'utilisateur vous sera transmis par email."
 
 #~ msgid "Create Profile"
 #~ msgstr "Créer un profil"
@@ -2889,9 +2988,6 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "Edit Service"
 #~ msgstr "Mettre à jour le service"
 
-#~ msgid "Save"
-#~ msgstr "Enregistrer"
-
 #~ msgid "Service:"
 #~ msgstr "Service :"
 
@@ -2918,28 +3014,18 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 
 #~ msgid ""
 #~ "\n"
-#~ "The Open Geoportal is a consortium comprised of contributions of several "
-#~ "universities and organizations to help\n"
-#~ "facilitate the discovery and acquisition of geospatial data across many "
-#~ "organizations and platforms. Current partners\n"
-#~ "include: Harvard, MIT, MassGIS, Princeton, Columbia, Stanford, UC "
-#~ "Berkeley, UCLA, Yale, and UConn. Built on open source\n"
-#~ "technology, The Open Geoportal provides organizations the opportunity to "
-#~ "share thousands of geospatial data layers,\n"
-#~ "maps, metadata, and development resources through a single common "
-#~ "interface.\n"
+#~ "The Open Geoportal is a consortium comprised of contributions of several universities and organizations to help\n"
+#~ "facilitate the discovery and acquisition of geospatial data across many organizations and platforms. Current partners\n"
+#~ "include: Harvard, MIT, MassGIS, Princeton, Columbia, Stanford, UC Berkeley, UCLA, Yale, and UConn. Built on open source\n"
+#~ "technology, The Open Geoportal provides organizations the opportunity to share thousands of geospatial data layers,\n"
+#~ "maps, metadata, and development resources through a single common interface.\n"
 #~ msgstr ""
 #~ "\n"
-#~ "L'Open Geoportal est un consortium regroupant des contributions de "
-#~ "nombreuses universités et d'organisations afin \n"
-#~ "d'aider et faciliter l'acquisition et la découverte de données "
-#~ "cartographiques à partir de nombreuses plateformes. Les\n"
-#~ "partenaires actuels comprennent : Harvard, MIT, MassGIS, Princeton, "
-#~ "Columbia, Stanford, UC Berkeley, UCLA, Yale, and UConn.\n"
-#~ "Construit sur des technologies libres / Open Source, l'Open Geoportal "
-#~ "fourni à ces organisations l'opportunité de\n"
-#~ "partager des centaines de couches spatiales, cartes, métadonnées, et "
-#~ "ressources de développement à travers une\n"
+#~ "L'Open Geoportal est un consortium regroupant des contributions de nombreuses universités et d'organisations afin \n"
+#~ "d'aider et faciliter l'acquisition et la découverte de données cartographiques à partir de nombreuses plateformes. Les\n"
+#~ "partenaires actuels comprennent : Harvard, MIT, MassGIS, Princeton, Columbia, Stanford, UC Berkeley, UCLA, Yale, and UConn.\n"
+#~ "Construit sur des technologies libres / Open Source, l'Open Geoportal fourni à ces organisations l'opportunité de\n"
+#~ "partager des centaines de couches spatiales, cartes, métadonnées, et ressources de développement à travers une\n"
 #~ "unique interface commune.\n"
 
 #~ msgid "This is an existing service"
@@ -2948,12 +3034,8 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "Could not find any layers in a compatible projection."
 #~ msgstr "Impossible de trouver un couche dans une projection compatible."
 
-#~ msgid ""
-#~ "Could not find any layers in a compatible projection:                     "
-#~ "The spatial id was: %(srs)s and the url %(url)s"
-#~ msgstr ""
-#~ "Impossible de trouver des couches dans un système de projection "
-#~ "compatible: Le SRS était %(srs)s et l'URL %(url)s"
+#~ msgid "Could not find any layers in a compatible projection:                     The spatial id was: %(srs)s and the url %(url)s"
+#~ msgstr "Impossible de trouver des couches dans un système de projection compatible: Le SRS était %(srs)s et l'URL %(url)s"
 
 #~ msgid "You are not permitted to remove this service."
 #~ msgstr "Vous n'etes pas autorisé à supprimer ce service"
@@ -3007,13 +3089,11 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 
 #~ msgid ""
 #~ "\n"
-#~ "      The page you requested does not exist.  Perhaps you are using an "
-#~ "outdated bookmark?\n"
+#~ "      The page you requested does not exist.  Perhaps you are using an outdated bookmark?\n"
 #~ "  "
 #~ msgstr ""
 #~ "\n"
-#~ "      La page que vous avez demandé n'existe pas. Vous avez peut-être "
-#~ "utilisé un favoris qui n'est plus à jour.\n"
+#~ "      La page que vous avez demandé n'existe pas. Vous avez peut-être utilisé un favoris qui n'est plus à jour.\n"
 #~ "  "
 
 #~ msgid "There was a problem loading this page"
@@ -3021,21 +3101,13 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 
 #~ msgid ""
 #~ "\n"
-#~ "            Please contact your GeoNode administrator (he may have "
-#~ "received an email automatically if he configured it properly).\n"
-#~ "            If you are the site administrator, enable debug mode to see "
-#~ "the actual error and fix it or file an issue in <a href=\"http://github."
-#~ "com/GeoNode/geonode/issues\">GeoNode's issue tracker</a>\n"
+#~ "            Please contact your GeoNode administrator (he may have received an email automatically if he configured it properly).\n"
+#~ "            If you are the site administrator, enable debug mode to see the actual error and fix it or file an issue in <a href=\"http://github.com/GeoNode/geonode/issues\">GeoNode's issue tracker</a>\n"
 #~ "            "
 #~ msgstr ""
 #~ "\n"
-#~ "            S'il vous plait, contactez votre administrateur du site (il a "
-#~ "peut-être déjà reçu un email automatiquement si cela a été configuré dans "
-#~ "ce sens).\n"
-#~ "            Si vous etes l'administrateur du site, vous pouvez activer le "
-#~ "mode debug afin de visualiser le problème et le corriger ou nous envoyer "
-#~ "une nouvelle issue sur <a href=\"http://github.com/GeoNode/geonode/issues"
-#~ "\">Le système de tracking des issues GeoNode</a>\n"
+#~ "            S'il vous plait, contactez votre administrateur du site (il a peut-être déjà reçu un email automatiquement si cela a été configuré dans ce sens).\n"
+#~ "            Si vous etes l'administrateur du site, vous pouvez activer le mode debug afin de visualiser le problème et le corriger ou nous envoyer une nouvelle issue sur <a href=\"http://github.com/GeoNode/geonode/issues\">Le système de tracking des issues GeoNode</a>\n"
 #~ "\n"
 #~ "            "
 
@@ -3096,12 +3168,8 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "Who can edit styles for this layer?"
 #~ msgstr "Qui peut modifier les styles de cette couche ?"
 
-#~ msgid ""
-#~ "Who can manage it? (update, delete, change permissions, publish/unpublish "
-#~ "it)"
-#~ msgstr ""
-#~ "Qui peut la gérer ? (modifier, supprimer, modifier les droits et publier "
-#~ "ou dé-publier)"
+#~ msgid "Who can manage it? (update, delete, change permissions, publish/unpublish it)"
+#~ msgstr "Qui peut la gérer ? (modifier, supprimer, modifier les droits et publier ou dé-publier)"
 
 #~ msgid "Set permissions for this resource"
 #~ msgstr "Gérer les autorisations pour cette ressource"
@@ -3121,14 +3189,8 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "Account Pending Approval"
 #~ msgstr "Comptes en attente d'approbation"
 
-#~ msgid ""
-#~ "We have sent the administrators a notice to approve your account "
-#~ "associated with <b>%(email)s</b>. If the account is approved, you will "
-#~ "receive a confirmation notice."
-#~ msgstr ""
-#~ "Nous avons envoyé à l'administrateur un avis afin d'approuver votre "
-#~ "compte associé à <b>%(email)s</b>. Si ce compte est approuvé, vous "
-#~ "recevrez un mail de confirmation."
+#~ msgid "We have sent the administrators a notice to approve your account associated with <b>%(email)s</b>. If the account is approved, you will receive a confirmation notice."
+#~ msgstr "Nous avons envoyé à l'administrateur un avis afin d'approuver votre compte associé à <b>%(email)s</b>. Si ce compte est approuvé, vous recevrez un mail de confirmation."
 
 #~ msgid ""
 #~ "A user on %(site_name)s has created an account using this email address.\n"
@@ -3137,32 +3199,23 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ "\n"
 #~ "If you did not sign up for this site, you can ignore this message.\n"
 #~ msgstr ""
-#~ "Un utilisateur sur %(site_name)s a créé un compte en utilisant cette "
-#~ "adresse mail.\n"
+#~ "Un utilisateur sur %(site_name)s a créé un compte en utilisant cette adresse mail.\n"
 #~ "\n"
-#~ "Pour confirmer votre inscription et votre adresse email aller à "
-#~ "%(activate_url)s\n"
+#~ "Pour confirmer votre inscription et votre adresse email aller à %(activate_url)s\n"
 #~ "\n"
-#~ "Si vous n'avez pas créé de compte sur ce site, vous pouvez ignorer ce "
-#~ "message.\n"
+#~ "Si vous n'avez pas créé de compte sur ce site, vous pouvez ignorer ce message.\n"
 
 #~ msgid "Confirm email address for %(site_name)s"
 #~ msgstr "Confirmer votre adresse mail pour %(site_name)s"
 
 #~ msgid ""
-#~ "You're receiving this email because you or someone else has requested a "
-#~ "password for your user account at %(site_name)s.\n"
-#~ "It can be safely ignored if you did not request a password reset. Click "
-#~ "the link below to reset your password.\n"
+#~ "You're receiving this email because you or someone else has requested a password for your user account at %(site_name)s.\n"
+#~ "It can be safely ignored if you did not request a password reset. Click the link below to reset your password.\n"
 #~ "\n"
 #~ "%(password_reset_url)s\n"
 #~ msgstr ""
-#~ "Vous recevez cet email car vous ou quelqu'un d'autre a demandé la "
-#~ "réinitialisation de votre mot de passe de votre compte du site "
-#~ "%(site_name)s.\n"
-#~ "Ce message peut être ignoré si vous n'etes pas l'auteur de la demande de "
-#~ "changement de mot de passe. Cliquez sur le lien ci-dessous afin de "
-#~ "réinitialiser votre mot de passe.\n"
+#~ "Vous recevez cet email car vous ou quelqu'un d'autre a demandé la réinitialisation de votre mot de passe de votre compte du site %(site_name)s.\n"
+#~ "Ce message peut être ignoré si vous n'etes pas l'auteur de la demande de changement de mot de passe. Cliquez sur le lien ci-dessous afin de réinitialiser votre mot de passe.\n"
 #~ "\n"
 #~ "%(password_reset_url)s\n"
 
@@ -3172,13 +3225,8 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "Confirm your email address"
 #~ msgstr "Confirmer votre adresse mail"
 
-#~ msgid ""
-#~ "We have sent you an email to <b>%(email)s</b> for verification. Follow "
-#~ "the link provided to finalize the signup process."
-#~ msgstr ""
-#~ "Nous avons envoyer un mai à <b>%(email)s</b> pour validation. Suivez le "
-#~ "lien inclus au courrier afin de finaliser la procédure d'enregistrement "
-#~ "de votre compte."
+#~ msgid "We have sent you an email to <b>%(email)s</b> for verification. Follow the link provided to finalize the signup process."
+#~ msgstr "Nous avons envoyer un mai à <b>%(email)s</b> pour validation. Suivez le lien inclus au courrier afin de finaliser la procédure d'enregistrement de votre compte."
 
 #~ msgid "Log in"
 #~ msgstr "S'identifier"
@@ -3216,24 +3264,14 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "Forgotten your password?"
 #~ msgstr "Mot de passe oublié ?"
 
-#~ msgid ""
-#~ "Enter your email address below, and we'll send you an email allowing you "
-#~ "to reset it."
-#~ msgstr ""
-#~ "Entrer votre adresse mail ci-dessous, nous vous enverrons un courrier "
-#~ "vous permettant de réinitialiser votre mot passe."
+#~ msgid "Enter your email address below, and we'll send you an email allowing you to reset it."
+#~ msgstr "Entrer votre adresse mail ci-dessous, nous vous enverrons un courrier vous permettant de réinitialiser votre mot passe."
 
 #~ msgid "Reset my password"
 #~ msgstr "Changer mon mot de passe"
 
-#~ msgid ""
-#~ "If you have any trouble resetting your password, contact us at <a href="
-#~ "\"mailto:%(THEME_ACCOUNT_CONTACT_EMAIL)s\">"
-#~ "%(THEME_ACCOUNT_CONTACT_EMAIL)s</a>."
-#~ msgstr ""
-#~ "Si vous avez le moindre problème pour changer votre mot de passe, "
-#~ "contactez nous à <a href=\"mailto:%(THEME_ACCOUNT_CONTACT_EMAIL)s\">"
-#~ "%(THEME_ACCOUNT_CONTACT_EMAIL)s</a>."
+#~ msgid "If you have any trouble resetting your password, contact us at <a href=\"mailto:%(THEME_ACCOUNT_CONTACT_EMAIL)s\">%(THEME_ACCOUNT_CONTACT_EMAIL)s</a>."
+#~ msgstr "Si vous avez le moindre problème pour changer votre mot de passe, contactez nous à <a href=\"mailto:%(THEME_ACCOUNT_CONTACT_EMAIL)s\">%(THEME_ACCOUNT_CONTACT_EMAIL)s</a>."
 
 #~ msgid "My Activity feed"
 #~ msgstr "Mon flux d'activité"
@@ -3273,13 +3311,11 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 
 #~ msgid ""
 #~ "\n"
-#~ "          Published from <b>%(publish_start)s</b> to <b>%(publish_end)s</"
-#~ "b>.\n"
+#~ "          Published from <b>%(publish_start)s</b> to <b>%(publish_end)s</b>.\n"
 #~ "          "
 #~ msgstr ""
 #~ "\n"
-#~ "          Publié depuis le <b>%(publish_start)s</b> au <b>"
-#~ "%(publish_end)s</b>.\n"
+#~ "          Publié depuis le <b>%(publish_start)s</b> au <b>%(publish_end)s</b>.\n"
 #~ "          "
 
 #~ msgid "Announcements : %(announcement)s"
@@ -3292,9 +3328,7 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgstr "Votre avatar actuel:"
 
 #~ msgid "You haven't uploaded an avatar yet. Please upload one now."
-#~ msgstr ""
-#~ "Vous n'avez pas encore configurer votre avatar. S'il vous plaît "
-#~ "téléchargez-en un sur le serveur maintenant."
+#~ msgstr "Vous n'avez pas encore configurer votre avatar. S'il vous plaît téléchargez-en un sur le serveur maintenant."
 
 #~ msgid "Upload New Image"
 #~ msgstr "Envoyer une nouvelle image"
@@ -3308,12 +3342,8 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "Please select the avatars that you would like to delete."
 #~ msgstr "Veuillez sélectionner les avatars que vous voulez supprimer."
 
-#~ msgid ""
-#~ "You have no avatars to delete. Please <a href=\"%(avatar_change_url)s"
-#~ "\">upload one</a> now."
-#~ msgstr ""
-#~ "Vous n'avez aucun avatar à supprimer. Veuillez en <a href="
-#~ "\"%(avatar_change_url)s\">déposer un sur le serveur</a> maintenant."
+#~ msgid "You have no avatars to delete. Please <a href=\"%(avatar_change_url)s\">upload one</a> now."
+#~ msgstr "Vous n'avez aucun avatar à supprimer. Veuillez en <a href=\"%(avatar_change_url)s\">déposer un sur le serveur</a> maintenant."
 
 #~ msgid "Delete These"
 #~ msgstr "Supprimer ces"
@@ -3360,13 +3390,8 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "GeoNode Help"
 #~ msgstr "GeoNode Aide"
 
-#~ msgid ""
-#~ "This page provides helpful information about how to use the GeoNode. You "
-#~ "can use the sidebar links to navigate to what you want to know."
-#~ msgstr ""
-#~ "Cette page fourni l'aide sur la façon d'utiliser GeoNode. Vous pouvez "
-#~ "utiliser les liens de la barre latérale pour naviguer vers ce que vous "
-#~ "désirez connaître."
+#~ msgid "This page provides helpful information about how to use the GeoNode. You can use the sidebar links to navigate to what you want to know."
+#~ msgstr "Cette page fourni l'aide sur la façon d'utiliser GeoNode. Vous pouvez utiliser les liens de la barre latérale pour naviguer vers ce que vous désirez connaître."
 
 #~ msgid "Sections"
 #~ msgstr "Sections"
@@ -3389,23 +3414,11 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "Remixing a Map"
 #~ msgstr "Remixer une carte"
 
-#~ msgid "Your account has been approved and is now active."
-#~ msgstr "Votre compte a été accepté et est maintenant actif."
-
-#~ msgid "You can use the login form at"
-#~ msgstr "Vous pouvez vous authentifier sur la page d'authentification sur "
-
-#~ msgid "Your account is now active"
-#~ msgstr "Votre compte est activé"
-
 #~ msgid "has requested access to the site."
 #~ msgstr "a demandé un accès au site."
 
-#~ msgid ""
-#~ "You can enable access by setting the user as active on the admin section"
-#~ msgstr ""
-#~ "Vous pouvez octroyer un accès en définissant comme actif les utilisateurs "
-#~ "sur la page d'administration"
+#~ msgid "You can enable access by setting the user as active on the admin section"
+#~ msgstr "Vous pouvez octroyer un accès en définissant comme actif les utilisateurs sur la page d'administration"
 
 #~ msgid "A user has requested access to the site"
 #~ msgstr "Un utilisateur a demandé un accès au site"
@@ -3525,17 +3538,14 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ "\n"
 #~ "        <p class=\"alert alert-warning\">\n"
 #~ "            <span class=\"warning\">Note</span>:\n"
-#~ "            You do not have a verified email address to which notices can "
-#~ "be sent. <a href=\"%(email_url)s\">Add one</a> now.\n"
+#~ "            You do not have a verified email address to which notices can be sent. <a href=\"%(email_url)s\">Add one</a> now.\n"
 #~ "        </p>\n"
 #~ "        "
 #~ msgstr ""
 #~ "\n"
 #~ "        <p class=\"alert alert-warning\">\n"
 #~ "            <span class=\"warning\">Note</span>:\n"
-#~ "            Vous ne disposez pas d'une adresse mail confirmée à laquelle "
-#~ "envoyer les avis. <a href=\"%(email_url)s\">En ajouter une</a> "
-#~ "maintenant.\n"
+#~ "            Vous ne disposez pas d'une adresse mail confirmée à laquelle envoyer les avis. <a href=\"%(email_url)s\">En ajouter une</a> maintenant.\n"
 #~ "        </p>\n"
 #~ "        "
 
@@ -3548,11 +3558,8 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "requested you to download this resource"
 #~ msgstr "vous a demandé l'authorisation de télécharger la ressource suivante"
 
-#~ msgid ""
-#~ "Please go to resource page and assign the download permissions if you wish"
-#~ msgstr ""
-#~ "S'il vous plait rendez-vous à la page décrivant la ressource et assigner "
-#~ "le droit de téléchargement selon vos intentions."
+#~ msgid "Please go to resource page and assign the download permissions if you wish"
+#~ msgstr "S'il vous plait rendez-vous à la page décrivant la ressource et assigner le droit de téléchargement selon vos intentions."
 
 #~ msgid "A resource's download has been requested"
 #~ msgstr "Une authorisation de téléchargement a été demandée"
@@ -3632,8 +3639,6 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "Text"
 #~ msgstr "Texte"
 
-#, fuzzy
-#~| msgid "Search"
 #~ msgid "Search by text"
 #~ msgstr "Rechercher"
 
@@ -3682,12 +3687,8 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "Permission Denied"
 #~ msgstr "Autorisation refusée"
 
-#~ msgid ""
-#~ "information about on-line sources from which the dataset, specification, "
-#~ "or community profile name and extended metadata elements can be obtained"
-#~ msgstr ""
-#~ "information about on-line sources from which the dataset, specification, "
-#~ "or community profile name and extended metadata elements can be obtained"
+#~ msgid "information about on-line sources from which the dataset, specification, or community profile name and extended metadata elements can be obtained"
+#~ msgstr "information about on-line sources from which the dataset, specification, or community profile name and extended metadata elements can be obtained"
 
 #~ msgid "detailed text description of what the online resource is/does"
 #~ msgstr "detailed text description of what the online resource is/does"
@@ -3821,12 +3822,8 @@ msgstr "Responsable, Point de contact, Auteur des métadonnées"
 #~ msgid "Note"
 #~ msgstr "Note"
 
-#~ msgid ""
-#~ "You do not have a verified email address to which notices can be sent. "
-#~ "You can add one by going to <a href=\"%(email_url)s\">Account</a>."
-#~ msgstr ""
-#~ "You do not have a verified email address to which notices can be sent. "
-#~ "You can add one by going to <a href=\"%(email_url)s\">Account</a>."
+#~ msgid "You do not have a verified email address to which notices can be sent. You can add one by going to <a href=\"%(email_url)s\">Account</a>."
+#~ msgstr "You do not have a verified email address to which notices can be sent. You can add one by going to <a href=\"%(email_url)s\">Account</a>."
 
 #~ msgid "Mark all unseen notices seen"
 #~ msgstr "Mark all unseen notices seen"
