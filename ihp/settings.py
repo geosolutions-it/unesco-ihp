@@ -357,7 +357,7 @@ LOGGING = {
     },
     'handlers': {
         'console': {
-            'level': 'INFO',
+            'level': 'DEBUG',
             'class': 'logging.StreamHandler',
             'formatter': 'simple'
         },
@@ -370,7 +370,7 @@ LOGGING = {
         "django": {
             "handlers": ["console"], "level": "INFO", },
         "geonode": {
-            "handlers": ["console"], "level": "INFO", },
+            "handlers": ["console"], "level": "DEBUG", },
         "gsconfig.catalog": {
             "handlers": ["console"], "level": "INFO", },
         "owslib": {
