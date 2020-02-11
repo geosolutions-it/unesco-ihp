@@ -28,10 +28,16 @@
 {% block body_class %}layers{% endblock %}
 
 {% block body_outer %}
-<div class="page-header">
-    <style>
+{% block style %}
+<style>
     #paneltbar {
-        margin-top: 1px !important;
+      margin-top: 1px !important;
+    }
+
+    .msgapi #mapstore-print-panel.modal-dialog {
+      height: 400px;
+      width: 100%;
+      position: absolute;
     }
 
     #watermark{
@@ -55,12 +61,31 @@
         background-position: 0 -150px;
         display: none;
     } */
-
+    
     .x-resizable-pinned {
        z-index: 10000;
     }
-</style>
 
+    #watermark{
+        display: block;
+        background: url(../../static/img/unesco_ihp_en_transparent.png) center center no-repeat;
+        background-size: 182px;
+        width: 182px;
+        height: 110px;
+        position: absolute;
+        top: 180px;
+        right: 20px;
+        bottom: 0;
+        z-index: 1000;
+    }
+    .watermark-link {
+        bottom: 0px;
+        position: absolute;
+    }
+</style>
+{% endblock %}
+
+<div class="page-header">
     <h2 class="page-title">{{ resource.title|default:resource.alternate }}</h2>
     {% if online and storeType == 'remoteStore' %}<em><i class="fa fa-power-off {% if online %}text-success{% else %}text-danger{% endif %}"></i> {% trans "Service is" %} {% if online %}{% trans "online" %}{% else %}{% trans "offline" %}{% endif %} </em>{% endif %}
 </div>

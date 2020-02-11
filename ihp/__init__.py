@@ -47,6 +47,7 @@ class IHPAppConfig(AppConfig):
             'a DOI will be added by Admin before publication.')
         doi = models.TextField(
             _('DOI'),
+            name='doi',
             blank=True,
             null=True,
             help_text=doi_help_text)
@@ -60,8 +61,8 @@ class IHPAppConfig(AppConfig):
             settings.INSTALLED_APPS += (celeryapp, )
 
     def ready(self):
-        from geonode.base.models import ResourceBase
-        self.patch_resource_base(ResourceBase)
+        # from geonode.base.models import ResourceBase
+        # self.patch_resource_base(ResourceBase)
         self.run_setup_hooks()
 
 

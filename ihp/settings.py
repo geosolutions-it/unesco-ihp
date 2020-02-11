@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #########################################################################
 #
-# Copyright (C) 2012 OpenPlans
+# Copyright (C) 2017 OSGeo
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,9 +19,9 @@
 #########################################################################
 
 # Django settings for the GeoNode project.
-
+import ast
 import os
-
+from urlparse import urlparse, urlunparse
 # Load more settings from a file called local_settings.py if it exists
 try:
     from ihp.local_settings import *
@@ -29,71 +29,50 @@ try:
 except ImportError:
     from geonode.settings import *
 
-
-DEBUG = False
-
 #
 # General Django development settings
 #
-SITENAME = 'ihp'
+PROJECT_NAME = 'ihp'
+
+# add trailing slash to site url. geoserver url will be relative to this
+if not SITEURL.endswith('/'):
+    SITEURL = '{}/'.format(SITEURL)
+
+SITENAME = os.getenv("SITENAME", 'ihp')
 
 # Defines the directory that contains the settings file as the LOCAL_ROOT
 # It is used for relative settings elsewhere.
 LOCAL_ROOT = os.path.abspath(os.path.dirname(__file__))
 
-WSGI_APPLICATION = "ihp.wsgi.application"
+WSGI_APPLICATION = "{}.wsgi.application".format(PROJECT_NAME)
 
-# Additional directories which hold static files
-STATICFILES_DIRS.insert(0, os.path.join(LOCAL_ROOT, "static"))
+# Language code for this installation. All choices can be found here:
+# http://www.i18nguy.com/unicode/language-identifiers.html
+LANGUAGE_CODE = os.getenv('LANGUAGE_CODE', "en")
 
-# Note that Django automatically includes the "templates" dir in all the
-# INSTALLED_APPS, se there is no need to add maps/templates or admin/templates
-TEMPLATES[0]['DIRS'].insert(0, os.path.join(LOCAL_ROOT, "templates"))
-TEMPLATES[0]['OPTIONS']['debug'] = True
-
-# CACHES = {
-#     'default': {
-#         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-#         'LOCATION': '/var/tmp/django_cache',
-#     }
-# }
-
-# If you want to enable Mosaics use the following configuration
-UPLOADER = {
-    # 'BACKEND': 'geonode.rest',
-    'BACKEND': 'geonode.importer',
-    'OPTIONS': {
-        'TIME_ENABLED': True,
-        'MOSAIC_ENABLED': False,
-        'GEOGIG_ENABLED': False,
-    },
-    'SUPPORTED_CRS': [
-        'EPSG:4326',
-        'EPSG:3785',
-        'EPSG:3857',
-        'EPSG:900913',
-        'EPSG:32647',
-        'EPSG:32736'
-    ]
-}
-
-INSTALLED_APPS += ('photologue', 'sortedm2m', 'ihp', 'ihp.content')
+if PROJECT_NAME not in INSTALLED_APPS:
+    INSTALLED_APPS += ('photologue', 'sortedm2m', 'ihp', 'ihp.content')
 
 # Location of url mappings
-ROOT_URLCONF = 'ihp.urls'
+ROOT_URLCONF = os.getenv('ROOT_URLCONF', '{}.urls'.format(PROJECT_NAME))
+
+# Additional directories which hold static files
+STATICFILES_DIRS.append(
+    os.path.join(LOCAL_ROOT, "static"),
+)
 
 # Location of locale files
 LOCALE_PATHS = (
     os.path.join(LOCAL_ROOT, 'locale'),
     ) + LOCALE_PATHS
 
-#RISKS = {'DEFAULT_LOCATION': 'AF',
-#         'PDF_GENERATOR': {'NAME': 'weasyprint_api',
-#                           #'NAME': 'wkhtml2pdf',
-#                           'BIN': '/usr/bin/xvfb-run /usr/bin/wkhtmltopdf',
-#                           'ARGS': []}}
+TEMPLATES[0]['DIRS'].insert(0, os.path.join(LOCAL_ROOT, "templates"))
+loaders = TEMPLATES[0]['OPTIONS'].get('loaders') or ['django.template.loaders.filesystem.Loader','django.template.loaders.app_directories.Loader']
+# loaders.insert(0, 'apptemplates.Loader')
+TEMPLATES[0]['OPTIONS']['loaders'] = loaders
+TEMPLATES[0].pop('APP_DIRS', None)
 
-CLIENT_RESULTS_LIMIT = 20
+CLIENT_RESULTS_LIMIT = 5
 API_LIMIT_PER_PAGE = 1000
 FREETEXT_KEYWORDS_READONLY = True
 RESOURCE_PUBLISHING = True
@@ -103,6 +82,7 @@ GROUP_MANDATORY_RESOURCES = True
 MODIFY_TOPICCATEGORY = True
 USER_MESSAGES_ALLOW_MULTIPLE_RECIPIENTS = True
 DISPLAY_WMS_LINKS = True
+FAVORITE_ENABLED = False
 
 TIME_ZONE = 'Europe/Paris'
 
@@ -191,103 +171,6 @@ SOCIALACCOUNT_PROFILE_EXTRACTORS = {
     "linkedin_oauth2": "ihp.content.profileextractors.LinkedInExtractor",
 }
 
-# MAPs and Backgrounds
-
-ALT_OSM_BASEMAPS = os.environ.get('ALT_OSM_BASEMAPS', False)
-CARTODB_BASEMAPS = os.environ.get('CARTODB_BASEMAPS', False)
-STAMEN_BASEMAPS = os.environ.get('STAMEN_BASEMAPS', False)
-THUNDERFOREST_BASEMAPS = os.environ.get('THUNDERFOREST_BASEMAPS', False)
-# MAPBOX_ACCESS_TOKEN = <defined on local_settings>
-BING_API_KEY = os.environ.get('BING_API_KEY', None)
-
-MAP_BASELAYERS = [{
-    "source": {"ptype": "gxp_olsource"},
-    "type": "OpenLayers.Layer",
-    "args": ["No background"],
-    "name": "background",
-    "visibility": False,
-    "fixed": True,
-    "group":"background"
-}, {
-    "source": {"ptype": "gxp_olsource"},
-    "type": "OpenLayers.Layer.XYZ",
-    "title": "UNESCO",
-    "args": ["UNESCO", "http://en.unesco.org/tiles/${z}/${x}/${y}.png"],
-    "wrapDateLine": True,
-    "name": "background",
-    "attribution": "&copy; UNESCO",
-    "visibility": False,
-    "fixed": True,
-    "group":"background"
-}, {
-    "source": {"ptype": "gxp_olsource"},
-    "type": "OpenLayers.Layer.XYZ",
-    "title": "UNESCO GEODATA",
-    "args": ["UNESCO GEODATA", "http://en.unesco.org/tiles/geodata/${z}/${x}/${y}.png"],
-    "name": "background",
-    "attribution": "&copy; UNESCO",
-    "visibility": False,
-    "wrapDateLine": True,
-    "fixed": True,
-    "group":"background"
-}, {
-    "source": {"ptype": "gxp_olsource"},
-    "type": "OpenLayers.Layer.XYZ",
-    "title": "Humanitarian OpenStreetMap",
-    "args": ["Humanitarian OpenStreetMap", "http://a.tile.openstreetmap.fr/hot/${z}/${x}/${y}.png"],
-    "name": "background",
-    "attribution": "&copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>, Tiles courtesy of <a href='http://hot.openstreetmap.org/' target='_blank'>Humanitarian OpenStreetMap Team</a>",
-    "visibility": False,
-    "wrapDateLine": True,
-    "fixed": True,
-    "group":"background"
-}, {
-    "source": {"ptype": "gxp_olsource"},
-    "type": "OpenLayers.Layer.XYZ",
-    "title": "MapBox Satellite Streets",
-    "args": ["MapBox Satellite Streets", "http://api.mapbox.com/styles/v1/mapbox/satellite-streets-v9/tiles/${z}/${x}/${y}?access_token="+MAPBOX_ACCESS_TOKEN],
-    "name": "background",
-    "attribution": "&copy; <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> &copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <a href='https://www.mapbox.com/feedback/' target='_blank'>Improve this map</a>",
-    "visibility": False,
-    "wrapDateLine": True,
-    "fixed": True,
-    "group":"background"
-}, {
-    "source": {"ptype": "gxp_olsource"},
-    "type": "OpenLayers.Layer.XYZ",
-    "title": "MapBox Streets",
-    "args": ["MapBox Streets", "http://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/${z}/${x}/${y}?access_token="+MAPBOX_ACCESS_TOKEN],
-    "name": "background",
-    "attribution": "&copy; <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> &copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <a href='https://www.mapbox.com/feedback/' target='_blank'>Improve this map</a>",
-    "visibility": False,
-    "wrapDateLine": True,
-    "fixed": True,
-    "group":"background"
-}, {
-    "source": {"ptype": "gxp_osmsource"},
-    "type": "OpenLayers.Layer.OSM",
-    "title": "OpenStreetMap",
-    "name": "mapnik",
-    "attribution": "&copy; <a href='http://osm.org/copyright'>OpenStreetMap</a> contributors",
-    "visibility": True,
-    "wrapDateLine": True,
-    "fixed": True,
-    "group": "background"
-}]
-
-
-if 'geonode.geoserver' in INSTALLED_APPS:
-    LOCAL_GEOSERVER = {
-        "source": {
-            "ptype": "gxp_wmscsource",
-            "url": OGC_SERVER['default']['PUBLIC_LOCATION'] + "wms",
-            "restUrl": "/gs/rest"
-        }
-    }
-    baselayers = MAP_BASELAYERS
-    MAP_BASELAYERS = [LOCAL_GEOSERVER]
-    MAP_BASELAYERS.extend(baselayers)
-
 # notification settings
 NOTIFICATION_ENABLED = True
 # PINAX_NOTIFICATIONS_LANGUAGE_MODEL = "allauth.account.Account"
@@ -315,19 +198,6 @@ if NOTIFICATION_ENABLED and 'pinax.notifications' not in INSTALLED_APPS:
 
 # set to true to have multiple recipients in /message/create/
 USER_MESSAGES_ALLOW_MULTIPLE_RECIPIENTS = True
-
-MONITORING_ENABLED = True
-if MONITORING_ENABLED:
-    if 'geonode.contrib.monitoring' not in INSTALLED_APPS:
-        INSTALLED_APPS += ('geonode.contrib.monitoring',)
-    if 'geonode.contrib.monitoring.middleware.MonitoringMiddleware' not in MIDDLEWARE_CLASSES:
-        MIDDLEWARE_CLASSES += ('geonode.contrib.monitoring.middleware.MonitoringMiddleware',)
-    MONITORING_CONFIG = None
-    MONITORING_HOST_NAME = 'ihp-wins-dev.geo-solutions.it'
-    MONITORING_SERVICE_NAME = 'local-geonode'
-
-if 'geonode.contrib.ows_api' not in INSTALLED_APPS:
-    INSTALLED_APPS += ('geonode.contrib.ows_api',)
 
 # GEOIP_PATH = "/usr/local/share/GeoIP"
 GEOIP_PATH = os.path.join(os.path.dirname(__file__), '..', 'GeoLiteCity.dat')
@@ -393,3 +263,9 @@ SECURE_BROWSER_XSS_FILTER = True
 SECURE_SSL_REDIRECT = False
 SECURE_HSTS_SECONDS = 3600
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+# Choose thumbnail generator -- this is the default generator
+THUMBNAIL_GENERATOR = "geonode.layers.utils.create_gs_thumbnail_geonode"
+# THUMBNAIL_GENERATOR_DEFAULT_BG = r"http://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
+# THUMBNAIL_GENERATOR_DEFAULT_BG = r"https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
+THUMBNAIL_GENERATOR_DEFAULT_BG = None

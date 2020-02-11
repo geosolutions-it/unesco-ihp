@@ -94,9 +94,11 @@
                                     <div class="col-lg-12">
                                         {{ map_form.keywords }}
                                     </div>
+                                    {% if THESAURI_FILTERS %}
                                     <div class="col-lg-12 thesauri_keywords">
                                         {{ tkeywords_form }}
                                     </div>
+                                    {% endif %}
                                     <div class="col-lg-6 col-xs-12">
                                         <span><label for="{{ map_form.date_type|id }}">{{ map_form.date_type.label }}</label></span>
                                         <!--<p class="xxs-font-size">(Identification of when a given event occurred)</p>-->

@@ -1,7 +1,10 @@
 {% extends "maps/map_base.html" %}
 {% load i18n %}
+{% load staticfiles %}
 {% load dialogos_tags %}
 {% load agon_ratings_tags %}
+{% load bootstrap_tags %}
+{% load pagination_tags %}
 {% load base_tags %}
 {% load guardian_tags %}
 {% load client_lib_tags %}
@@ -20,15 +23,21 @@
   {{ block.super }}
 {% endblock %}
 
-{% block body_class %}maps{% endblock %}
+{% block body_class %}{% trans "maps" %}{% endblock %}
 
 {% block body_outer %}
   {% overall_rating resource "map" as map_rating %}
 
-<div class="page-header">
+{% block style %}
 <style>
     #paneltbar {
-        margin-top: 1px !important;
+      margin-top: 1px !important;
+    }
+
+    .msgapi #mapstore-print-panel.modal-dialog {
+      height: 400px;
+      width: 100%;
+      position: absolute;
     }
 
     #watermark{
@@ -56,9 +65,28 @@
     .x-resizable-pinned {
        z-index: 10000;
     }
-</style>
 
-<h2 class="page-title">{{ resource.title }}</h2>
+    #watermark{
+        display: block;
+        background: url(../../static/img/unesco_ihp_en_transparent.png) center center no-repeat;
+        background-size: 182px;
+        width: 182px;
+        height: 110px;
+        position: absolute;
+        top: 180px;
+        right: 20px;
+        bottom: 0;
+        z-index: 1000;
+    }
+    .watermark-link {
+        bottom: 0px;
+        position: absolute;
+    }
+</style>
+{% endblock %}
+
+<div class="page-header">
+  <h2 class="page-title">{{ resource.title }}</h2>
 </div>
 
   <div class="row">
@@ -75,8 +103,19 @@
       </div>
 
       <div class="tab-content">
-        {% include "base/resourcebase_info_panel.html" %}
+        <article id="info" class="tab-pane{% if tab == 'info' or not tab %} active{% endif %}">
+          {% include "base/resourcebase_info_panel.html" %}
 
+          {% if USE_GEOSERVER and DISPLAY_WMS_LINKS %}
+          <p>
+            {% if request.user.is_authenticated and 'access_token' in request.session %}
+              <a href="{% url 'capabilities_map' resource.id %}?access_token={{ request.session.access_token }}">
+            {% else %}
+              <a href="{% url 'capabilities_map' resource.id %}">
+            {% endif %}
+            <i class="fa fa-map"></i> {% trans 'Map layers WMS GetCapabilities document' %}</a></p>
+          {% endif %}
+        </article>
         {% block social_links %}
             {% if DISPLAY_SOCIAL %}
               {% include "social_links.html" %}
@@ -103,6 +142,13 @@
           <div class="overall_rating" style="float:left" data-score="{{ map_rating }}"></div> ({{num_votes}})
         </article>
         {% endif %}
+
+        {% if FAVORITE_ENABLED %}
+        <article class="tab-pane" id="favorite">
+          {% include "favorite/_favorite.html" %}
+        </article>
+        {% endif %}
+
       </div>
 
     </div>
@@ -130,8 +176,11 @@
               </div>
               <div class="modal-body">
                 <ul>
-                  <li><a href="{% url "map_download" resource.pk %}">{% trans "Download Data Layers" %}</a></li>
-                  <li><a href="{% url "map_wmc" resource.pk %}" target="_new">{% trans "Download Web Map Context" %}</a></li>
+                    {% if links %}
+                        {% for link in links %}
+                            <li><a href="{{ link.url }}">{{ link.name }}</a></li>
+                        {% endfor %}
+                    {% endif %}
                 <ul>
               </div>
               <div class="modal-footer">
@@ -166,6 +215,7 @@
                     <i class="fa fa-photo fa-3x"></i>
                     <h4>{% trans "Thumbnail" %}</h4>
                     <a class="btn btn-default btn-block btn-xs" href="#" id="set_thumbnail">{% trans "Set" %}</a>
+                    <a class="btn btn-default btn-block btn-xs" href="{% url "thumbnail_upload" resource.resourcebase_ptr.id %}">{% trans "Upload" %}</a>
                   </div>
                   {% endif %}
                   {% if "change_resourcebase" in perms_list %}
@@ -186,7 +236,11 @@
         </div>
         {% endif %}
         <li class="list-group-item">
+        {% if "change_resourcebase" not in perms_list and "change_resourcebase_metadata" not in perms_list %}
           <a href="{% url "map_view" resource.id %}" class="btn btn-default btn-md btn-block">{% trans "View Map" %}</a>
+        {% else %}
+          <a href="{% url "map_edit" resource.id %}" class="btn btn-default btn-md btn-block">{% trans "View Map" %}</a>
+        {% endif %}
         </li>
         {% comment %}
         <li class="list-group-item">
@@ -201,7 +255,7 @@
             {% for layer in resource.layer_set.all %}
             {% ifnotequal layer.group 'background' %}
               {% if layer.local %}
-              <li><a href="{% url "layer_detail" layer.name %}">{{ layer.layer_title }}</a></li>
+              <li><a href="{% url "layer_detail" layer.name %}">{% if layer.layer_title %}{{ layer.layer_title }}{% else %}{{ layer.name }}{% endif %}</a></li>
               {% else %}
               <li>{{ layer.layer_title }}</li>
               {% endif %}
@@ -236,20 +290,24 @@
           <p>{% trans "Duplicate this map and modify it for your own purposes" %}</p>
           <a href="{% url "new_map" %}?copy={{ resource.id }}" class="btn btn-default btn-md btn-block">{% trans "Create a New Map" %}</a>
         </li>
-
-        {% if resource.is_public and "change_resourcebase" in perms_list or resource.layer_group %}
-        <li class="list-group-item">
-          <h4>{% trans "Map WMS" %}</h4>
-          <dl>{% if resource.layer_group %}
-            <dt>{% trans "WMS layer group for local map layers" %}:</dt>
-            <dd><em>{{ resource.layer_group.catalog.name }}</em> ({% trans "on" %} <a href="{{ resource.layer_group.ows }}?service=WMS&request=GetCapabilities">{% trans "local OWS" %}</a>)</dd>
-            {% endif %}</dl>
-          {% if "change_resourcebase" in perms_list %}
-          <p>{% trans "Publish local map layers as WMS layer group" %}</p>
-          <a id="layer-group" href="{%url "map_wms" resource.id %}" class="btn btn-default btn-md btn-block">{% trans "Publish Map WMS" %}</a>
-          {% endif %}
-          <dl id="layer-group-dl"></dl>
-        </li>
+        {% if OGC_SERVER.default.BACKEND == 'geonode.qgis_server' %}
+          <li class="list-group-item">
+              <h4>{% trans "Embed this map" %}</h4>
+              <p>{% trans "Embed this map to your own sites" %}</p>
+              <div class="btn-group btn-block">
+                  <button type="button" class="btn btn-default btn-block dropdown-toggle"
+                          data-toggle="dropdown"
+                          aria-haspopup="true" aria-expanded="false">{% trans "Embed Map" %}<span class="caret"></span></button>
+                  <ul class="dropdown-menu btn-block" id="embed-map-list">
+                      <li id="embed-iframe-link">
+                          <a href="#">{% trans "Embed Iframe Link" %}</a></li>
+                      <li id="embed-widget-link">
+                          <a href="#">{% trans "Embed Widget Link" %}</a></li>
+                      <li>
+                          <a href="{% url 'map_download_leaflet' resource.id %}">{% trans "Download Leaflet page" %}</a></li>
+                  </ul>
+              </div>
+          </li>
         {% endif %}
 
         {% include "base/_resourcebase_contact_snippet.html" %}
@@ -260,92 +318,154 @@
 
   </div>
 
+    <div class="modal fade" id="embed-iframe" tabindex="-1" role="dialog" aria-labelledby="Embed Iframe"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">{% trans "Embed Iframe" %}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{% trans "To embed this map, add the following code snippet and customize its properties (scrolling, width, height) based on your needs to your site" %}:</p>
+                    <p style="font-weight: bold">
+                        &lt;iframe scrolling="yes" src="{{ SITEURL|slice:":-1" }}{% url "map_embed" resource.id %}"
+                        width="480px" height="360px"&gt;&lt;/iframe&gt;
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Close" %}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="embed-widget" tabindex="-1" role="dialog" aria-labelledby="Embed Widget"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">{% trans "Embed Widget" %}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>{% trans "To embed this map, copy the following code snippet into your own page" %}:</p>
+                    <pre id="embed-widget-body" style="font-size: 0.5em"></pre>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-clipboard-target="#embed-widget-body">{% trans "Copy to Clipboard" %}</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Close" %}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
   {% endblock %}
 
 {% block extra_script %}
 {{ block.super }}
-{% if DISPLAY_SOCIAL %}
-    {% include 'facebook_sdk.html' %}
-{% endif %}
-{% if request.user.is_authenticated %}
-      {% user_rating_js request.user resource "map" %}
-{% else %}
-      {% overall_rating resource "map" as the_map_rating %}
-{% endif %}
-{% include 'rating.html' %}
-<script type="text/javascript">
- $(function() {
-
-  {% verbatim %}
-  // Publish layer group
-  // TODO: this should really not be inside a script tag...
-  var $wmsBtn = $("#layer-group"),
-      layerGroupElTpl;
-
-  if ($wmsBtn.length > 0) {
-
-    $wmsBtn.on("click", function(event) {
-      event.preventDefault();
-
-      $.ajax({
-        type: "PUT",
-        url: $wmsBtn.attr("href")
-      })
-
-        .done(function(data) {
-          layerGroupElTpl = "<dt>WMS layer group for local map layers:</dt> \
-            <dd><em>{{layerGroupName}}</em> (on <a href='{{ows}}?service=WMS&request=GetCapabilities'>local OWS</a>)</dd>";
-          $.each(data, function(key, value) {
-            // client-side template hack
-            layerGroupElTpl = layerGroupElTpl.replace("{{"+ key + "}}", value);
-          });
-        })
-
-        .fail(function(){
-          layerGroupElTpl = "<dt>Error:</dt> \
-            <dd>Layer group could not be created.</dd>";
-        })
-
-        .always(function(){
-          $("#layer-group-dl").html(layerGroupElTpl);
+    {% if DISPLAY_SOCIAL %}
+        {% include 'facebook_sdk.html' %}
+    {% endif %}
+    {% if request.user.is_authenticated %}
+          {% user_rating_js request.user resource "map" %}
+    {% else %}
+          {% overall_rating resource "map" as the_map_rating %}
+    {% endif %}
+    {% include 'rating.html' %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            post_url = '{% url 'map_embed_widget' resource.id %}';
+            var formatted_data = "";
+            $.post(post_url, function (data) {
+                data = data.split("\n");
+                data_row = data.length;
+                for (var i=0; i < data_row;i++) {
+                    formatted_data += data[i] + "\n";
+                }
+                $('#embed-widget-body').text(formatted_data);
+            });
         });
+        var clipboard = new ClipboardJS('.btn');
+        clipboard.on('success', function(e) {
+            alert("Code copied");
+        });
+        clipboard.on('error', function(e) {
+            alert("Oops.. something went wrong");
+        });
+     $(function() {
+      {% verbatim %}
+      // Publish layer group
+      // TODO: this should really not be inside a script tag...
+      var $wmsBtn = $("#layer-group"),
+          layerGroupElTpl;
 
-    });
-  };
-  {% endverbatim %}
+      if ($wmsBtn.length > 0) {
 
+        $wmsBtn.on("click", function(event) {
+          event.preventDefault();
 
- });
-{% if DISPLAY_SOCIAL %}
- (function() {
-   var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-   po.src = 'https://apis.google.com/js/plusone.js';
-   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
- })();
-{% endif %}
-  $("#comment_submit_btn").click(function(event) {
-    $.ajax({
-      type: "POST",
-      url: $("#form_post_comment").attr('action'),
-      data: $("#form_post_comment").serialize(),
-      success: function() {
-        $('#form_post_comment_div').modal().find('form')[0].reset();
-        $('#form_post_comment_div').modal('hide');
-        $('#comments_section').load(window.location.pathname + ' #comments_section',
-        		function(){$(this).children().unwrap()})
-      }
-    });
-    return false;
-  });
+          $.ajax({
+            type: "PUT",
+            url: $wmsBtn.attr("href")
+          })
+            .done(function(data) {
+              layerGroupElTpl = "<dt>WMS layer group for local map layers:</dt> \
+                <dd><em>{{layerGroupName}}</em> (on <a href='{{ows}}?service=WMS&request=GetCapabilities'>local OWS</a>)</dd>";
+              $.each(data, function(key, value) {
+                // client-side template hack
+                layerGroupElTpl = layerGroupElTpl.replace("{{"+ key + "}}", value);
+              });
+            })
+            .fail(function(){
+              layerGroupElTpl = "<dt>Error:</dt> \
+                <dd>Layer group could not be created.</dd>";
+            })
+            .always(function(){
+              $("#layer-group-dl").html(layerGroupElTpl);
+            });
 
-</script>
-{% include "_permissions_form_js.html" %}
-<script type="text/javascript" src="{{ STATIC_URL}}geonode/js/utils/thumbnail.js"></script>
-<script type="text/javascript">
-  $('#set_thumbnail').click(function(){
-    createMapThumbnail();
-    $('#edit-map').modal('toggle');
-  });
-</script>
+        });
+      };
+      {% endverbatim %}
+     });
+      $("#comment_submit_btn").click(function(event) {
+        $.ajax({
+          type: "POST",
+          url: $("#form_post_comment").attr('action'),
+          data: $("#form_post_comment").serialize(),
+          success: function() {
+            $('#form_post_comment_div').modal().find('form')[0].reset();
+            $('#form_post_comment_div').modal('hide');
+            $('#comments_section').load(window.location.pathname + ' #comments_section',
+            		function(){$(this).children().unwrap()})
+          }
+        });
+        return false;
+      });
+    </script>
 
-{% endblock %}
+    {% block thumbnail_script %}
+        <script type="text/javascript">
+            {% if preview == 'react' %}
+            $('#set_thumbnail').click(function(){
+              window.setThumbnail({{resource.id}})
+              $('#edit-layer').modal('toggle');
+            });
+            {% else %}
+            $('#set_thumbnail').click(function(){
+              createMapThumbnail();
+              $('#edit-layer').modal('toggle');
+            });
+            {% endif %}
+        </script>
+    {% endblock thumbnail_script %}
+
+    {% if GEONODE_SECURITY_ENABLED %}
+    {% include "_permissions_form_js.html" %}
+    {% endif %}
+
+    {% if FAVORITE_ENABLED %}
+    {% include "favorite/_favorite_js.html" %}
+    {% endif %}
+{% endblock extra_script %}

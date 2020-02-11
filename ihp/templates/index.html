@@ -190,9 +190,16 @@ improving water security, enhancing biodiversity and furthering opportunities fo
     (function(){
       var module = angular.module('featured', []);
       module.run(function($http, $rootScope){
-        $http.get(FEATURED_URL).success(function(data){
-          $rootScope.featured = data.objects;
-        });
+		$http.get(FEATURED_URL).then(successCallback, errorCallback);
+
+		function successCallback(data) {
+			//success code
+          $rootScope.featured = data.data.objects;
+		};
+
+		function errorCallback(error) {
+			//error code
+		};
       });
     })();
 </script>
