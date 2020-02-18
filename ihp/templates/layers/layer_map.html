@@ -1,0 +1,70 @@
+{% extends "layers/layer_base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+{% load dialogos_tags %}
+{% load agon_ratings_tags %}
+{% load bootstrap_tags %}
+{% load pagination_tags %}
+{% load base_tags %}
+{% load guardian_tags %}
+{% load client_lib_tags %}
+
+{% block title %}{{ resource.title|default:resource.alternate }} . {{ block.super }}{% endblock %}
+
+{% block head %}
+
+{% block style %}
+<style>
+    body {
+        padding-top: 0px !important;
+    }
+
+    #ms-container {
+        position: absolute;
+        top: 113px !important;
+        bottom: 0px;
+        width: 100%;
+        z-index: 1029;
+        background-color: white;
+    }
+
+    #paneltbar {
+        margin-top: 78px !important;
+    }
+
+    #watermark{
+        display: block;
+        background: url(../../static/img/unesco_ihp_en_transparent.png) center center no-repeat;
+        background-size: 182px;
+        width: 182px;
+        height: 110px;
+        position: absolute;
+        top: auto;
+        right: 60px;
+        bottom: 0;
+        z-index: 100000;
+    }
+    .watermark-link {
+        bottom: 0px;
+        position: absolute;
+    }
+</style>
+{% endblock %}
+
+<div id="watermark"><!-- a href="http://en.unesco.org/themes/water-security/hydrology", class="watermark-link">UNESCO-IHP-Wins</a --></div>
+
+  {% if TWITTER_CARD %}
+    {% include "base/_resourcebase_twittercard.html" %}
+  {% endif %}
+
+  {% if OPENGRAPH_ENABLED %}
+    {% include "base/_resourcebase_opengraph.html" %}
+  {% endif %}
+
+  {% get_layer_map %}
+{{ block.super }}
+
+{% endblock %}
+
+{% block body_class %}{% trans "layers" %}{% endblock %}
+

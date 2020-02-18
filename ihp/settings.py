@@ -29,6 +29,8 @@ try:
 except ImportError:
     from geonode.settings import *
 
+DEBUG = ast.literal_eval(os.getenv('DEBUG', 'False'))
+
 #
 # General Django development settings
 #
@@ -253,6 +255,7 @@ LOGGING = {
     }
 
 # Security stuff
+API_LOCKDOWN = False
 MIDDLEWARE_CLASSES += ('django.middleware.security.SecurityMiddleware',)
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
@@ -269,3 +272,17 @@ THUMBNAIL_GENERATOR = "geonode.layers.utils.create_gs_thumbnail_geonode"
 # THUMBNAIL_GENERATOR_DEFAULT_BG = r"http://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
 # THUMBNAIL_GENERATOR_DEFAULT_BG = r"https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
 THUMBNAIL_GENERATOR_DEFAULT_BG = None
+
+# Cache Bustin Settings
+CACHE_BUSTING_STATIC_ENABLED = ast.literal_eval(os.environ.get('CACHE_BUSTING_STATIC_ENABLED', 'False'))
+CACHE_BUSTING_MEDIA_ENABLED = ast.literal_eval(os.environ.get('CACHE_BUSTING_MEDIA_ENABLED', 'False'))
+
+if not DEBUG and not S3_STATIC_ENABLED and not S3_MEDIA_ENABLED:
+    if CACHE_BUSTING_STATIC_ENABLED or CACHE_BUSTING_MEDIA_ENABLED:
+        from django.contrib.staticfiles import storage
+        storage.ManifestStaticFilesStorage.manifest_strict = False
+    if CACHE_BUSTING_STATIC_ENABLED:
+        STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+    if CACHE_BUSTING_MEDIA_ENABLED:
+        DEFAULT_FILE_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+

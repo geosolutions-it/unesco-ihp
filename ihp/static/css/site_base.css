@@ -698,12 +698,6 @@ label[for="id_resource-constraints_other"]{ font-size: 0; }
 #video-slider{width:100%;height:500px}
 
 .jumbotron {
-#background: url("../img/unesco-banner.jpg");
-#height:500px;
-/*-moz-transform:scale(0.5);
--webkit-transform:scale(0.5);
--o-transform:scale(0.5);*/
-#margin:0;
 padding:0;
 }
 
