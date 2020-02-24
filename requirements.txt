@@ -1,3 +1,4 @@
-# GeoNode
-# from Pypi:
 -e git+https://github.com/geosolutions-it/geonode.git@unesco_ihp_2.10.2#egg=GeoNode
+
+pycountry
+django-photologue==3.7  # the later releases depend on django >= 1.11
