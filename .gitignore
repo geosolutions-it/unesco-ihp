@@ -64,3 +64,6 @@ local_settings.py
 .idea/
 
 /.vscode/settings.json
+
+/geoserver/
+/celerybeat-schedule

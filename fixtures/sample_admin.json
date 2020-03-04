@@ -13,6 +13,6 @@
 		"user_permissions": [],
 		"username": "admin"
 	},
-	"model": "people.Profile",
+	"model": "ihp_people.IHPProfile",
 	"pk": 1000
 }]
