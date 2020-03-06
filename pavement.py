@@ -28,10 +28,9 @@ import subprocess
 import signal
 import sys
 import time
-import urllib
-import urllib2
 import zipfile
-from urlparse import urlparse
+from urllib.parse import urlparse
+from urllib.request import urlopen, Request
 
 import yaml
 from paver.easy import (BuildFailure, call_task, cmdopts, info, needs, options,
@@ -150,7 +149,7 @@ def setup_geoserver(options):
         if not webapp_dir:
             webapp_dir.makedirs()
 
-        print 'extracting geoserver'
+        print('extracting geoserver')
         z = zipfile.ZipFile(geoserver_bin, "r")
         z.extractall(webapp_dir)
 
@@ -303,8 +302,8 @@ def setup(options):
 def grab_winfiles(url, dest, packagename):
     # Add headers
     headers = {'User-Agent': 'Mozilla 5.10'}
-    request = urllib2.Request(url, None, headers)
-    response = urllib2.urlopen(request)
+    request = Request(url, None, headers)
+    response = urlopen(request)
     with open(dest, 'wb') as writefile:
         writefile.write(response.read())
 
@@ -330,21 +329,21 @@ def win_install_deps(options):
     failed = False
     for package, url in win_packages.iteritems():
         tempfile = download_dir / os.path.basename(url)
-        print "Installing file ... " + tempfile
+        print("Installing file ... " + tempfile)
         grab_winfiles(url, tempfile, package)
         try:
             easy_install.main([tempfile])
         except Exception as e:
             failed = True
-            print "install failed with error: ", e
+            print("install failed with error: {}".format(e))
         os.remove(tempfile)
     if failed and sys.maxsize > 2**32:
-        print "64bit architecture is not currently supported"
-        print "try finding the 64 binaries for py2exe, nose, and pyproj"
+        print("64bit architecture is not currently supported")
+        print("try finding the 64 binaries for py2exe, nose, and pyproj")
     elif failed:
-        print "install failed for py2exe, nose, and/or pyproj"
+        print("install failed for py2exe, nose, and/or pyproj")
     else:
-        print "Windows dependencies now complete.  Run pip install -e geonode --use-mirrors"
+        print("Windows dependencies now complete.  Run pip install -e geonode --use-mirrors")
 
 
 @cmdopts([
@@ -360,9 +359,9 @@ def upgradedb(options):
         sh("python -W ignore manage.py migrate maps 0001 --fake")
         sh("python -W ignore manage.py migrate avatar 0001 --fake")
     elif version is None:
-        print "Please specify your GeoNode version"
+        print("Please specify your GeoNode version")
     else:
-        print "Upgrades from version %s are not yet supported." % version
+        print("Upgrades from version %s are not yet supported." % version)
 
 
 @task
@@ -626,10 +625,10 @@ def start_geoserver(options):
     url = GEOSERVER_BASE_URL
 
     if urlparse(GEOSERVER_BASE_URL).hostname != 'localhost':
-        print "Warning: OGC_SERVER['default']['LOCATION'] hostname is not equal to 'localhost'"
+        print("Warning: OGC_SERVER['default']['LOCATION'] hostname is not equal to 'localhost'")
 
     if not GEOSERVER_BASE_URL.endswith('/'):
-        print "Error: OGC_SERVER['default']['LOCATION'] does not end with a '/'"
+        print("Error: OGC_SERVER['default']['LOCATION'] does not end with a '/'")
         sys.exit(1)
 
     download_dir = path('downloaded').abspath()
@@ -672,27 +671,27 @@ def start_geoserver(options):
                 try:
                     open("../../downloaded/null.txt", 'w+').close()
                 except IOError as e:
-                    print "Chances are that you have Geoserver currently running.  You \
-                            can either stop all servers with paver stop or start only \
-                            the django application with paver start_django."
+                    print("Chances are that you have Geoserver currently running.  You \
+                    can either stop all servers with paver stop or start only \
+                    the django application with paver start_django.")
                     sys.exit(1)
                 loggernullpath = "../../downloaded/null.txt"
 
             try:
                 sh(('java -version'))
             except BaseException:
-                print "Java was not found in your path.  Trying some other options: "
+                print("Java was not found in your path.  Trying some other options: ")
                 javapath_opt = None
                 if os.environ.get('JAVA_HOME', None):
-                    print "Using the JAVA_HOME environment variable"
+                    print("Using the JAVA_HOME environment variable")
                     javapath_opt = os.path.join(os.path.abspath(
                         os.environ['JAVA_HOME']), "bin", "java.exe")
                 elif options.get('java_path'):
                     javapath_opt = options.get('java_path')
                 else:
-                    print "Paver cannot find java in the Windows Environment.  \
+                    print("Paver cannot find java in the Windows Environment.  \
                     Please provide the --java_path flag with your full path to \
-                    java.exe e.g. --java_path=C:/path/to/java/bin/java.exe"
+                    java.exe e.g. --java_path=C:/path/to/java/bin/java.exe")
                     sys.exit(1)
                 # if there are spaces
                 javapath = 'START /B "" "' + javapath_opt + '"'
@@ -995,9 +994,9 @@ def deb(options):
         deb_changelog = path('debian') / 'changelog'
         for idx, line in enumerate(fileinput.input([deb_changelog], inplace=True)):
             if idx == 0:
-                print "geonode (%s) %s; urgency=high" % (simple_version, distribution),
+                print("geonode (%s) %s; urgency=high" % (simple_version, distribution))
             else:
-                print line.replace("urgency=medium", "urgency=high"),
+                print(line.replace("urgency=medium", "urgency=high"))
 
         # Revert workaround for git-dhc bug
         sh('rm -rf .git')
@@ -1024,7 +1023,7 @@ def publish():
     if 'GPG_KEY_GEONODE' in os.environ:
         key = os.environ['GPG_KEY_GEONODE']
     else:
-        print "You need to set the GPG_KEY_GEONODE environment variable"
+        print("You need to set the GPG_KEY_GEONODE environment variable")
         return
 
     if 'PPA_GEONODE' in os.environ:
@@ -1098,19 +1097,17 @@ def kill(arg1, arg2):
         running = False
         for line in lines:
             # this kills all java.exe and python including self in windows
-            if ('%s' %
-                arg2 in line) or (os.name == 'nt' and '%s' %
-                                  arg1 in line):
+            if ('%s' % arg2 in str(line)) or (os.name == 'nt' and '%s' % arg1 in str(line)):
                 running = True
 
                 # Get pid
                 fields = line.strip().split()
 
-                info('Stopping %s (process number %s)' % (arg1, fields[1]))
+                info('Stopping %s (process number %s)' % (arg1, int(fields[1])))
                 if os.name == 'nt':
-                    kill = 'taskkill /F /PID "%s"' % fields[1]
+                    kill = 'taskkill /F /PID "%s"' % int(fields[1])
                 else:
-                    kill = 'kill -9 %s 2> /dev/null' % fields[1]
+                    kill = 'kill -9 %s 2> /dev/null' % int(fields[1])
                 os.system(kill)
 
         # Give it a little more time
@@ -1121,7 +1118,7 @@ def kill(arg1, arg2):
     if running:
         raise Exception('Could not stop %s: '
                         'Running processes are\n%s'
-                        % (arg1, '\n'.join([l.strip() for l in lines])))
+                        % (arg1, '\n'.join([str(l).strip() for l in lines])))
 
 
 def waitfor(url, timeout=300):

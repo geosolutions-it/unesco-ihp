@@ -49,7 +49,7 @@ def read(*rnames):
 
 setup(
     name="ihp",
-    version="2.10.2",
+    version="3.0.0",
     author="",
     author_email="",
     description="ihp, based on GeoNode",

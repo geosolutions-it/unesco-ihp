@@ -21,13 +21,8 @@
 # Django settings for the GeoNode project.
 import os
 import ast
-from urlparse import urlparse, urlunparse
-# Load more settings from a file called local_settings.py if it exists
-try:
-    from ihp.local_settings import *
-#    from geonode.local_settings import *
-except ImportError:
-    from geonode.settings import *
+from urllib.parse import urlparse, urlunparse, urljoin
+from ihp.local_settings import *
 
 DEBUG = ast.literal_eval(os.getenv('DEBUG', 'True'))
 
