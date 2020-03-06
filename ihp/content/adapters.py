@@ -10,9 +10,9 @@ import logging
 import traceback
 
 from django import forms
+from django.urls import reverse
 from django.conf import settings
 from django.core.exceptions import ValidationError
-from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.utils.module_loading import import_string
 from django.contrib.auth import get_user_model
@@ -67,7 +67,7 @@ class UnescoLocalAccountAdapter(LocalAccountAdapter):
         # safe_username = user_username(user)
         try:
             safe_username = populate_username(user_field(user, 'first_name'), user_field(user, 'last_name'))
-        except Exception, e:
+        except Exception as e:
             traceback.print_exc()
             raise forms.ValidationError(e)
             # safe_username = self.generate_unique_username([

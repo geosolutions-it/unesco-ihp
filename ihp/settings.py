@@ -201,7 +201,6 @@ if UNOCONV_ENABLE:
 
 # Security stuff
 API_LOCKDOWN = False
-MIDDLEWARE_CLASSES += ('django.middleware.security.SecurityMiddleware',)
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
 CSRF_COOKIE_HTTPONLY = False
@@ -249,8 +248,8 @@ MONITORING_DISABLE_CSRF = ast.literal_eval(os.environ.get('MONITORING_DISABLE_CS
 if MONITORING_ENABLED:
     if 'geonode.monitoring' not in INSTALLED_APPS:
         INSTALLED_APPS += ('geonode.monitoring',)
-    if 'geonode.monitoring.middleware.MonitoringMiddleware' not in MIDDLEWARE_CLASSES:
-        MIDDLEWARE_CLASSES += \
+    if 'geonode.monitoring.middleware.MonitoringMiddleware' not in MIDDLEWARE:
+        MIDDLEWARE += \
             ('geonode.monitoring.middleware.MonitoringMiddleware',)
 
     # skip certain paths to not to mud stats too much

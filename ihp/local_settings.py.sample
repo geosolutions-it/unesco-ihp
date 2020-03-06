@@ -29,7 +29,7 @@ import ast
 import sys
 from datetime import timedelta
 from distutils.util import strtobool  # noqa
-from urlparse import urlparse, urlunparse, urljoin
+from urllib.parse import urlparse, urlunparse, urljoin
 
 from geonode.settings import *
 
