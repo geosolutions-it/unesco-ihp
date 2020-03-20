@@ -511,8 +511,10 @@
     <script>
 
         $(window).on('load', function() {
-          setTimeout(() => {document.body.scrollTop = 0;});
-          setTimeout(() => {document.documentElement.scrollTop = 0;});
+          setTimeout(() => {
+              document.body.scrollTop = 0;
+              document.documentElement.scrollTop = 0;
+          });
         });
 
 
