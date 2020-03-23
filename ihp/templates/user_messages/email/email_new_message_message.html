@@ -1,12 +1,12 @@
 {% load i18n %}
 <i>English / Français</i>
 <p>Dear Sir/Madam,</p>
-<p>You received a new message.</p>
+<p>You received a new <a href="{{ thread_url }}">message</a>.</p>
 <p>
     To see it so, please click the link below
 </p>
 <p>
-    <a href="{{ thread_url }}">Read message</a>
+    <a href="{{ thread_url }}">{{ thread_url }}</a>
 </p>
 
 <p>We look forward to seeing you on the platform,</p>
@@ -33,12 +33,12 @@
 
 <p>Madame, Monsieur,</p>
 
-<p>Vous avez reçu un nouveau message.</p>
+<p>Vous avez reçu un nouveau <a href="{{ thread_url }}">message</a>.</p>
 <p>
     Pour le voir, veuillez cliquer sur le lien ci-dessous
 </p>
 <p>
-    <a href="{{ thread_url }}">Lire le message</a>
+    <a href="{{ thread_url }}">{{ thread_url }}</a>
 </p>
 
 <p>Au plaisir de vous croiser sur la plateforme,</p>
