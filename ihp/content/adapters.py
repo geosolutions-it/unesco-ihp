@@ -33,7 +33,7 @@ def populate_username(first_name, last_name):
     fname = u''.join(e for e in first_name if e in string.ascii_letters or '-' == e).lower()
     lname = u''.join(e for e in last_name if e in string.ascii_letters or '-' == e).lower()
     printable = set(string.printable)
-    return filter(lambda x: x in printable, u'{}.{}'.format(fname, lname).encode('utf-8').strip())
+    return u''.join(filter(lambda x: x in printable, u'{}.{}'.format(fname, lname).strip()))
 
 
 def get_user_lookup_kwargs(kwargs):
