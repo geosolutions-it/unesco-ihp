@@ -33,7 +33,7 @@ def _replace_username_with_first_last(form):
     fields = OrderedDict()
     fields["first_name"] = forms.CharField(min_length=2, label=_(u"First name"))
     fields["last_name"] = forms.CharField(min_length=2, label=_(u"Last name"))
-    for key, value in form.fields.iteritems():
+    for key, value in form.fields.items():
         fields[key] = value
     fields["recommendation"] = forms.CharField(
         min_length=2,
