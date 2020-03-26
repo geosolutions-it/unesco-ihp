@@ -68,6 +68,49 @@
         }
       });
     });
+
+    $('#id_request_to_join_group').select2(
+    {
+        placeholder: "Search public Group(s)",
+        minimumInputLength: 3,
+        multiple: true,
+        ajax: {
+            url: "/api/group_profile/",
+            dataType: 'json',
+            quietMillis: 100,
+            data: function (params) {
+                return {
+                  title__icontains: params.term,
+                };
+            },
+            processResults: function (data){  
+              if (data.objects.length){
+                return {
+                  results: data.objects.map(d => {
+                    if (d.access === "private"){
+                      return []
+                    }
+                    else {
+                      return ({ id: d.id, text: d.title })
+                    }
+                  }),
+                  pagination: {
+                    // more: !!data.paging.next
+                    more: false
+                  }
+                };
+              }
+              else {
+                return {
+                  results: [],
+                  pagination: {
+                    more: false
+                  }
+                };
+              }
+            },
+        },
+    });
   </script>
 {% endblock %}
 

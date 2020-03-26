@@ -49,8 +49,7 @@ def _replace_username_with_first_last(form):
     fields["country"] = forms.CharField(min_length=2, label=_(u"Country"),
         widget=forms.TextInput(attrs={'placeholder': _(u"Country")}), required=False)
 
-    fields["request_to_join_group"] = forms.ModelMultipleChoiceField(
-        queryset=GroupProfile.objects.all(),
+    fields["request_to_join_group"] = forms.ChoiceField(
         required=False,
         label=_(u"Group(s) you want to join"))
 
