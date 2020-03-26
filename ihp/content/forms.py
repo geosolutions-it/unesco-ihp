@@ -1,10 +1,12 @@
 from allauth.account import forms as account_forms
 from allauth.account.adapter import get_adapter
 from allauth.socialaccount import forms as socialaccount_forms
+from dal_select2_taggit.widgets import TaggitSelect2
 from django import forms
 from django.conf import settings
 from django.utils.datastructures import OrderedDict
 from django.utils.translation import ugettext_lazy as _
+from taggit.forms import TagField
 
 from geonode.groups.models import GroupProfile
 
@@ -49,9 +51,10 @@ def _replace_username_with_first_last(form):
     fields["country"] = forms.CharField(min_length=2, label=_(u"Country"),
         widget=forms.TextInput(attrs={'placeholder': _(u"Country")}), required=False)
 
-    fields["request_to_join_group"] = forms.ChoiceField(
+    fields["request_to_join_group"] = TagField(
         required=False,
-        label=_(u"Group(s) you want to join"))
+        label=_(u"Group(s) you want to join"),
+        widget=TaggitSelect2)
 
     terms_url = "%s/terms-of-use" % settings.SITEURL
     terms_href = "<a href={!r} target='_blank' rel='noopener noreferrer'>".format(terms_url)
