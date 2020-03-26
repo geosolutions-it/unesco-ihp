@@ -59,6 +59,18 @@ class UnescoLocalAccountAdapter(LocalAccountAdapter):
     def clean_recommendation(self, recommendation):
         return recommendation
 
+    def clean_organization(self, organization):
+        return organization
+
+    def clean_position(self, position):
+        return position
+
+    def clean_country(self, country):
+        return country
+
+    def clean_request_to_join_group(self, request_to_join_group):
+        return request_to_join_group
+
     def populate_username(self, request, user):
         # validate the already generated username with django validation
         # if it passes use that, otherwise use django-allauth's way of
@@ -111,6 +123,14 @@ class UnescoLocalAccountAdapter(LocalAccountAdapter):
         user = super(UnescoLocalAccountAdapter, self).save_user(request, sociallogin, form=form)
         if form:
             recommendation = form.cleaned_data["recommendation"]
+            organization = form.cleaned_data["organization"]
+            position = form.cleaned_data["position"]
+            country = form.cleaned_data["country"]
+
             user_field(user, 'recommendation', recommendation or None)
+            user_field(user, 'organization', organization or None)
+            user_field(user, 'position', position or None)
+            user_field(user, 'country', country or None)
+            user.request_to_join_group.add(*request.POST.getlist('request_to_join_group'))
             user.save()
         return user
