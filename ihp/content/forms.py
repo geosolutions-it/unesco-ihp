@@ -1,12 +1,11 @@
+from allauth.account import forms as account_forms
+from allauth.account.adapter import get_adapter
+from allauth.socialaccount import forms as socialaccount_forms
 from django import forms
 from django.conf import settings
-from django.utils.translation import ugettext_lazy as _
 from django.utils.datastructures import OrderedDict
+from django.utils.translation import ugettext_lazy as _
 
-from allauth.account import forms as account_forms
-from allauth.socialaccount import forms as socialaccount_forms
-
-from allauth.account.adapter import get_adapter
 from geonode.groups.models import GroupProfile
 
 
