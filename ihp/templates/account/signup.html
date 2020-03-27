@@ -72,8 +72,9 @@
     $('#id_request_to_join_group').select2(
     {
         placeholder: "Search public Group(s)",
-        minimumInputLength: 3,
+        minimumInputLength: 1,
         multiple: true,
+        allowClear: true,
         ajax: {
             url: "/api/group_profile/",
             dataType: 'json',
