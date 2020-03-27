@@ -21,6 +21,7 @@
 # Django settings for the GeoNode project.
 import os
 import ast
+import urllib
 from urllib.parse import urlparse, urlunparse, urljoin
 from ihp.local_settings import *
 
@@ -244,6 +245,14 @@ MONITORING_DATA_TTL = timedelta(days=int(os.getenv("MONITORING_DATA_TTL", 365)))
 # this will disable csrf check for notification config views,
 # use with caution - for dev purpose only
 MONITORING_DISABLE_CSRF = ast.literal_eval(os.environ.get('MONITORING_DISABLE_CSRF', 'False'))
+
+#This is to force avatar look for default local image first then query its server
+# structure if image hast to be: static/avatar/img/default.jpg
+AVATAR_PROVIDERS = (
+    'avatar.providers.PrimaryAvatarProvider',
+    'avatar.providers.DefaultAvatarProvider',
+    'avatar.providers.GravatarAvatarProvider'
+)
 
 if MONITORING_ENABLED:
     if 'geonode.monitoring' not in INSTALLED_APPS:
