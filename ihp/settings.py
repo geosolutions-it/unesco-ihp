@@ -93,6 +93,9 @@ LICENSES = {
 AUTH_USER_MODEL = os.getenv('AUTH_USER_MODEL', 'ihp_people.IHPProfile')
 AUTH_USER_AUTOCOMPLETE = os.getenv('AUTH_USER_AUTOCOMPLETE', 'IHPProfileProfileAutocomplete')
 
+# allow registered users to sign in using their username or email
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+
 # prevent signing up by default
 ACCOUNT_OPEN_SIGNUP = True
 ACCOUNT_EMAIL_REQUIRED = True
