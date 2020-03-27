@@ -72,12 +72,7 @@
               if (data.objects.length){
                 return {
                   results: data.objects.map(d => {
-                    if (d.access === "private"){
-                      return []
-                    }
-                    else {
                       return ({ id: d.id, text: d.title })
-                    }
                   }),
                   pagination: {
                     // more: !!data.paging.next
