@@ -59,18 +59,6 @@ class UnescoLocalAccountAdapter(LocalAccountAdapter):
     def clean_recommendation(self, recommendation):
         return recommendation
 
-    def clean_organization(self, organization):
-        return organization
-
-    def clean_position(self, position):
-        return position
-
-    def clean_country(self, country):
-        return country
-
-    def clean_request_to_join_group(self, request_to_join_group):
-        return request_to_join_group
-
     def populate_username(self, request, user):
         # validate the already generated username with django validation
         # if it passes use that, otherwise use django-allauth's way of
