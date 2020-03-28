@@ -76,7 +76,7 @@ class TestUserLogin(TestCase):
 
     def test_login_success_with_email(self):
         """
-        Test for sign in success with valid email and assword
+        Test for sign in success with valid email and password
         """
         response = self.client.post(
             self.login_url, data=self.valid_email_and_password_form_data)
