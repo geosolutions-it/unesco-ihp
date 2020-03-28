@@ -8,7 +8,7 @@ from ihp.people.models import IHPProfile
 
 
 @pytest.mark.django_db
-class TestUserRegistration(TestCase):
+class TestUserLogin(TestCase):
     def setUp(self):
         self.user = IHPProfile.objects.create_user(**{
             "username": "valid-username",
