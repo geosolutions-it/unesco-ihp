@@ -67,7 +67,7 @@ class TestUserLogin(TestCase):
         }
 
         self.invalid_username_form_data = {
-            "login": "incorect-username",
+            "login": "incorrect-username",
             "password": "valid-password"
         }
 
