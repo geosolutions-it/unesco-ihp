@@ -24,8 +24,6 @@ when you run "manage.py test".
 
 """
 
-import json
-
 import pytest
 from django.test import TestCase
 from django.urls import reverse
