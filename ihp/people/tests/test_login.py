@@ -80,6 +80,8 @@ class TestUserLogin(TestCase):
             self.login_url, data=self.invalid_email_form_data)
         self.assertEqual(response.status_code, 200)
         self.assertFalse(response.context['user'].is_authenticated)
+        self.assertEqual(response.context['form'].errors['__all__'],
+                         ['The e-mail address and/or password you specified are not correct.'])
 
     def test_failed_login_with_invalid_username(self):
         """
@@ -89,6 +91,8 @@ class TestUserLogin(TestCase):
             self.login_url, data=self.invalid_username_form_data)
         self.assertEqual(response.status_code, 200)
         self.assertFalse(response.context['user'].is_authenticated)
+        self.assertEqual(response.context['form'].errors['__all__'],
+                         ['The username and/or password you specified are not correct.'])
 
     def test_failed_login_with_invalid_password(self):
         """
@@ -98,6 +102,8 @@ class TestUserLogin(TestCase):
             self.login_url, data=self.invalid_password_form_data)
         self.assertEqual(response.status_code, 200)
         self.assertFalse(response.context['user'].is_authenticated)
+        self.assertEqual(response.context['form'].errors['__all__'],
+                         ['The e-mail address and/or password you specified are not correct.'])
 
     def test_failed_login_with_no_login_credentials(self):
         """
@@ -107,3 +113,7 @@ class TestUserLogin(TestCase):
             self.login_url, data={})
         self.assertEqual(response.status_code, 200)
         self.assertFalse(response.context['user'].is_authenticated)
+        self.assertEqual(response.context['form'].errors['login'], [
+            'This field is required.'])
+        self.assertEqual(response.context['form'].errors['password'], [
+            'This field is required.'])
