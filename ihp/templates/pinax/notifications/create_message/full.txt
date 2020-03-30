@@ -13,7 +13,7 @@
 <p>The IHP-WINS team.</p>
 <table>
     <tr>
-        <td><img src="{{logo_url}}"></td>
+        <td><img src="{{site_url}}static/img/logo_ihp_alpha_small.png"></td>
         <td>
             <strong>IHP-WINS</strong><br>
             The Water Information Network System<br>
@@ -22,7 +22,7 @@
         </td>
     </tr>
     <tr>
-        <td><img src="{{logo_url}}"></td>
+        <td><img src="{{site_url}}static/img/logo_ihp_alpha_small.png"></td>
         <td>
             7. Place Fontenoy, 75007 Paris, France<br>
             Email: <a href="mailto:ihp-wins@unesco.org">ihp-wins@unesco.org</a>
@@ -45,7 +45,7 @@
 <p>L’équipe IHP-WINS.</p>
 <table>
     <tr>
-        <td><img src="{{logo_url}}"></td>
+        <td><img src="{{site_url}}static/img/logo_ihp_alpha_small.png"></td>
         <td>
             <strong>IHP-WINS</strong><br>
             The Water Information Network System<br>
@@ -54,7 +54,7 @@
         </td>
     </tr>
     <tr>
-        <td><img src="{{logo_url}}"></td>
+        <td><img src="{{site_url}}static/img/logo_ihp_alpha_small.png"></td>
         <td>
             7. Place Fontenoy, 75007 Paris, France<br>
             Email: <a href="mailto:ihp-wins@unesco.org">ihp-wins@unesco.org</a>
