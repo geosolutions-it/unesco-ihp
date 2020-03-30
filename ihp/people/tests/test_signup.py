@@ -9,6 +9,8 @@ from django.test import Client, TestCase
 from django.urls import reverse
 
 from ihp.people.models import IHPProfile
+from geonode.groups.models import GroupProfile
+from django.contrib.auth.models import Group
 
 
 @pytest.mark.django_db
@@ -18,6 +20,8 @@ class TestUserRegistration(TestCase):
         Setup tests to for user registration
         """
         self.signup_route = reverse('account_signup')
+        group = Group.objects.create(name="Group A")
+        group_profile = GroupProfile.objects.create(group=group, access='public', title='the alpha team')
 
         self.registration_form_data = {
             'first_name': 'Liz',
@@ -30,7 +34,7 @@ class TestUserRegistration(TestCase):
             'position': 'sample position',
             'country': 'cape verde',
             'terms_agreement': 'on',
-            'request_to_join_group': [1, 2, 3]
+            'request_to_join_group': [group_profile.pk]
         }
 
     def test_successfull_user_registration(self):
@@ -40,6 +44,11 @@ class TestUserRegistration(TestCase):
         response = self.client.post(
             self.signup_route, data=self.registration_form_data)
         self.assertEqual(response.status_code, 302)
+
+        user = IHPProfile.objects.get(
+            email=self.registration_form_data['email'])
+        self.assertEqual(user.request_to_join_group.all().first().pk,
+                         self.registration_form_data['request_to_join_group'][0])
 
     def test_failed_user_registration_with_invalid_email(self):
         """
@@ -107,7 +116,7 @@ class TestUserRegistration(TestCase):
     def test_failed_user_registration_disagreement_to_terms_of_use(self):
         """
         Test that registration fails when a user does not agree to IHP the terms of use
-        """  
+        """
         self.registration_form_data.pop('terms_agreement')
         response = self.client.post(
             self.signup_route, data=self.registration_form_data)
@@ -141,4 +150,3 @@ class TestUserRegistration(TestCase):
                          'Ensure this value has at least 2 characters (it has 1).'])
         self.assertEqual(response.context['form'].errors['last_name'], [
                          'Ensure this value has at least 2 characters (it has 1).'])
-
