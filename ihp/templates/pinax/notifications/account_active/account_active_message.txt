@@ -1,0 +1,23 @@
+{% load i18n %}
+
+Dear contributor,
+
+Your account ({{ username }}) has been approved and is now active on the Water Information Network System.
+
+You can now log in to http://{{ current_site.name }}
+
+To manage your account, please go to http://{{ current_site.name }}/notifications/settings/
+
+The IHP-WINS Team
+
+----------------------------------------------------
+
+Cher contributeur,
+
+Votre compte ({{ username }}) a été approuvé et est désormais actif sur le Système de Réseau d’Informations sur l’Eau.
+
+Vous pouvez dès à présent vous connecter sur http://{{ current_site.name }}
+
+Pour gérer votre compte, rendez-vous sur http://{{ current_site.name }}/notifications/settings/
+
+L’équipe IHP-WINS
