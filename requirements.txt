@@ -1,3 +1,4 @@
-GeoNode==2.10.3
+-e git+https://github.com/GeoNode/geonode.git@2.10.x#egg=geonode
+
 pycountry==19.8.18
 django-photologue==3.10
