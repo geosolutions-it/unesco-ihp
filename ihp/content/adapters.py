@@ -123,6 +123,7 @@ class UnescoLocalAccountAdapter(LocalAccountAdapter):
             user_field(user, 'country', country or None)
 
             groups = GroupProfile.objects.filter(pk__in=[
+                # sanitize user input before saving
                 request for request in request_to_join_group if request.isdigit()
             ], access="public")
 
