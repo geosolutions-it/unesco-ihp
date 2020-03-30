@@ -33,7 +33,7 @@ class TestUserRegistration(TestCase):
             'request_to_join_group': [1, 2, 3]
         }
 
-    def test_successfully_user_registration(self):
+    def test_successfull_user_registration(self):
         """
         Test that a user is successfully registered on submission of valid form data
         """
@@ -115,7 +115,7 @@ class TestUserRegistration(TestCase):
         self.assertEqual(response.context['form'].errors['terms_agreement'], [
                          'This field is required.'])
 
-    def test_failed_user_registration_already_existent_email_address(self):
+    def test_failed_user_registration_with_already_existent_email_address(self):
         """
         Test that registration fails when an email that is already in use is provided
         """
