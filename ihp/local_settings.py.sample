@@ -130,12 +130,25 @@ GEOSERVER_LOCATION = os.getenv(
     'GEOSERVER_LOCATION', 'http://localhost:8080/geoserver/'
 )
 
+GEOSERVER_PUBLIC_HOST = os.getenv(
+    'GEOSERVER_PUBLIC_HOST', SITE_HOST_NAME
+)
+
+GEOSERVER_PUBLIC_PORT = os.getenv(
+    'GEOSERVER_PUBLIC_PORT', 8080
+)
+
+_default_public_location = 'http://{}:{}/geoserver/'.format(GEOSERVER_PUBLIC_HOST, GEOSERVER_PUBLIC_PORT) if GEOSERVER_PUBLIC_PORT else 'http://{}/geoserver/'.format(GEOSERVER_PUBLIC_HOST)
+
 GEOSERVER_WEB_UI_LOCATION = os.getenv(
-    'GEOSERVER_WEB_UI_LOCATION', '%sgeoserver/' % SITEURL
+    'GEOSERVER_WEB_UI_LOCATION', GEOSERVER_LOCATION
 )
 
 GEOSERVER_PUBLIC_LOCATION = os.getenv(
-    'GEOSERVER_PUBLIC_LOCATION', '%sgeoserver/' % SITEURL
+    'GEOSERVER_PUBLIC_LOCATION', _default_public_location
+)
+
+ 'GEOSERVER_PUBLIC_LOCATION', '%sgeoserver/' % SITEURL
 )
 
 OGC_SERVER_DEFAULT_USER = os.getenv(
