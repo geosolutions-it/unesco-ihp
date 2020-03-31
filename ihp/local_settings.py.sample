@@ -148,9 +148,6 @@ GEOSERVER_PUBLIC_LOCATION = os.getenv(
     'GEOSERVER_PUBLIC_LOCATION', _default_public_location
 )
 
- 'GEOSERVER_PUBLIC_LOCATION', '%sgeoserver/' % SITEURL
-)
-
 OGC_SERVER_DEFAULT_USER = os.getenv(
     'GEOSERVER_ADMIN_USER', 'admin'
 )
