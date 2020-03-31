@@ -168,7 +168,6 @@ nav_layers {font-size:16px}
   background-color: #fff;
   border: 1px solid #ddd;
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
   word-wrap: break-word;
 }
@@ -674,7 +673,7 @@ label[for="id_resource-constraints_other"]{ font-size: 0; }
 /* ** END ** */
 
 .carousel-inner {
-   # height: 500px;
+   /* height: 500px;*/
 }
 
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
@@ -1120,4 +1119,4 @@ padding:0;
 .glyphicon-tree-deciduous:before {
     content: "\e200"}
 .glyphicon-chevron-right:before {
-    content: "\224"}
+    content: "\224"}}
