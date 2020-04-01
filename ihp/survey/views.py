@@ -9,16 +9,18 @@ from ihp.survey.models import SurveyConfiguration
 class SurveyView(View):
     template_name = u'survey/survey.html'
     form_class = SurveyForm
-    survey_configurations = SurveyConfiguration.objects.get(pk=1)
+    survey_configurations = SurveyConfiguration.objects.all().first()
 
     def get(self, request, *args, **kwargs):
         form = self.form_class()
-        download_url = request.GET.get(u'download_url', u'')
-        next_route = request.GET.get(u'next', u'')
-        survey_enabled = self.survey_configurations.survey_enabled
+        download_url = request.GET.get(u'download_url', None)
+        next_route = request.GET.get(u'next', None)
+
+        # set survey_enabled to a default of True if no admin survey configuration exists
+        survey_enabled = self.survey_configurations.survey_enabled if self.survey_configurations else True
         survey_cookies = request.COOKIES.get(u'survey', None)
 
-        if not survey_enabled or (survey_enabled and survey_cookies == ""):
+        if not survey_enabled or (survey_enabled and survey_cookies == u''):
             return HttpResponseRedirect(download_url)
 
         return render(request, self.template_name, {
@@ -29,14 +31,16 @@ class SurveyView(View):
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
-        download_url = request.GET.get(u'download_url', u'')
-        next_route = request.GET.get(u'next', u'')
-
-        if form.is_valid():
+        download_url = request.GET.get(u'download_url', None)
+        next_route = request.GET.get(u'next', None)
+ 
+        if form.is_valid() and download_url and next_route:
             form.save()
             response = HttpResponseRedirect(download_url)
             response.set_cookie(
-                u'survey', max_age=self.survey_configurations.cookie_expiration_time.total_seconds())
+                # set survey cookie expiration time to a default on one day if no admin survey configuration exists
+                u'survey', max_age=self.survey_configurations.cookie_expiration_time.total_seconds()
+                if self.survey_configurations else 86400)
             return response
 
         return render(request, self.template_name, {
