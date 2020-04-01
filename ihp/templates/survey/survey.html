@@ -25,10 +25,10 @@
                 </fieldset>
             </form>
             <div id="success_message" style="display: none">
-                <h1>Downloading...</h1>
+                <h1>{% trans "Downloading" %}...</h1>
                 <h4>{% trans "Thank you for completing our survey!" %}</h4>
-                <p>If the download doesn't start automatically in a few seconds, please click <a
-                        href="{{ download_url }}">here</a> to access the download URL directly.</p>
+                <p>{% trans "If the download doesn't start automatically in a few seconds, please click " %}<a
+                        href="{{ download_url }}">{% trans "here" %}</a> {% trans "to access the download URL directly" %}.</p>
                 <a href={{ next_route }}>{% trans "Go back to the resource page." %}</a>
             </div>
         </div>
