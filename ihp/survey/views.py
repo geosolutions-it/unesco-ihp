@@ -20,7 +20,7 @@ class SurveyView(View):
         survey_enabled = self.survey_configurations.survey_enabled if self.survey_configurations else True
         survey_cookies = request.COOKIES.get(u'survey', None)
 
-        if not survey_enabled or (survey_enabled and survey_cookies == u''):
+        if not survey_enabled or (survey_enabled and survey_cookies):
             return HttpResponseRedirect(download_url)
 
         return render(request, self.template_name, {
@@ -37,10 +37,13 @@ class SurveyView(View):
         if form.is_valid() and download_url and next_route:
             form.save()
             response = HttpResponseRedirect(download_url)
+
+            # set survey cookie expiration time to a default on one day if no admin survey configuration exists
+            cookie_max_age = self.survey_configurations.cookie_expiration_time.total_seconds() \
+                if self.survey_configurations else 86400
+
             response.set_cookie(
-                # set survey cookie expiration time to a default on one day if no admin survey configuration exists
-                u'survey', max_age=self.survey_configurations.cookie_expiration_time.total_seconds()
-                if self.survey_configurations else 86400)
+                u'survey', u'survey', max_age=cookie_max_age)
             return response
 
         return render(request, self.template_name, {

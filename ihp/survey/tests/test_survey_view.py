@@ -31,7 +31,7 @@ class TestSurveyView(TestCase):
         }
 
     def test_successful_download_with_existing_cookies(self):
-        self.client.cookies = SimpleCookie({"survey": ""})
+        self.client.cookies = SimpleCookie({"survey": "survey"})
         response = self.client.get(
             u"{}?download_url={}&next={}".format(
                 self.survey_route, urllib.parse.quote("http://example.co.uk"), "/")
