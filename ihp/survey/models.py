@@ -18,7 +18,7 @@ class Survey(models.Model):
 
 class SurveyConfiguration(SingletonModel):
     cookie_expiration_time = models.DurationField(default=timedelta(hours=24))
-    survey_enabled = models.BooleanField(default=True)
+    survey_enabled = models.BooleanField(default=False)
 
     class Meta:
         verbose_name_plural = 'SurveyConfiguration'
