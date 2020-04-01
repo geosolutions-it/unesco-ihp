@@ -43,7 +43,7 @@ WSGI_APPLICATION = "{}.wsgi.application".format(PROJECT_NAME)
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = os.getenv('LANGUAGE_CODE', "en")
 
-INSTALLED_APPS += ('photologue', 'sortedm2m', 'ihp', 'ihp.content', 'ihp.people')
+INSTALLED_APPS += ('photologue', 'sortedm2m', 'ihp', 'ihp.content', 'ihp.people', 'ihp.survey')
 
 # Location of url mappings
 ROOT_URLCONF = os.getenv('ROOT_URLCONF', '{}.urls'.format(PROJECT_NAME))
