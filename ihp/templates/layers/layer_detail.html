@@ -315,7 +315,7 @@
                         <li class="active">
                             <ul>
                               {% for link in links %}
-                              <li><a href="{{ link.url }}" target="_blank">{% trans link.name %}</a></li>
+                              <li><a href="{% url "survey" %}?download_url={{ link.url | urlencode }}&next={% url "layer_detail" resource.layer.service_typename %}" target="_blank">{% trans link.name %}</a></li>
                               {% endfor %}
                             </ul>
                         </li>
@@ -421,7 +421,7 @@
                           <h4>{% trans "Pick your download format:" %}</h4>
                           <ul>
                             {% for link in links_download %}
-                            <li><a href="{{ link.url }}" target="_blank" id="{{ link.name | slugify }}" class="urls">{% trans link.name %}</a></li>
+                            <li><a href="{% url "survey" %}?download_url={{ link.url | urlencode }}&next={% url "layer_detail" resource.layer.service_typename %}" target="_blank" id="{{ link.name | slugify }}" class="urls">{% trans link.name %}</a></li>
                             {% endfor %}
                           </ul>
                       </li>
