@@ -394,6 +394,8 @@ def sync(options):
     sh("%s python -W ignore manage.py loaddata fixtures/default_oauth_apps.json" %
        settings)
     sh("%s python -W ignore manage.py loaddata fixtures/initial_data.json" % settings)
+    sh("%s python -W ignore manage.py loaddata fixtures/default_download_survey_settings.json" %
+        settings)
     sh("%s python -W ignore manage.py set_all_layers_alternate" % settings)
 
 

@@ -1,0 +1,10 @@
+[
+    {
+        "model": "survey.SurveyConfiguration",
+        "pk": 1,
+        "fields": {
+            "cookie_expiration_time": "24:00:00",
+            "survey_enabled": true
+        }
+    }
+]
