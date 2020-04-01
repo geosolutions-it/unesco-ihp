@@ -9,15 +9,13 @@ from ihp.survey.models import SurveyConfiguration
 class SurveyView(View):
     template_name = u'survey/survey.html'
     form_class = SurveyForm
-    survey_configurations = SurveyConfiguration.objects.all().first()
 
     def get(self, request, *args, **kwargs):
         form = self.form_class()
         download_url = request.GET.get(u'download_url', None)
         next_route = request.GET.get(u'next', None)
 
-        # set survey_enabled to a default of True if no admin survey configuration exists
-        survey_enabled = self.survey_configurations.survey_enabled if self.survey_configurations else True
+        survey_enabled = SurveyConfiguration.load().survey_enabled
         survey_cookies = request.COOKIES.get(u'ihp_dlsurvey', None)
 
         if not survey_enabled or (survey_enabled and survey_cookies):
@@ -38,9 +36,7 @@ class SurveyView(View):
             form.save()
             response = HttpResponseRedirect(download_url)
 
-            # set survey cookie expiration time to a default on one day if no admin survey configuration exists
-            cookie_max_age = self.survey_configurations.cookie_expiration_time.total_seconds() \
-                if self.survey_configurations else 86400
+            cookie_max_age = SurveyConfiguration.load().cookie_expiration_time.total_seconds()
 
             response.set_cookie(
                 u'ihp_dlsurvey', u'ihp_dlsurvey', max_age=cookie_max_age)
