@@ -18,7 +18,7 @@ class SurveyView(View):
 
         # set survey_enabled to a default of True if no admin survey configuration exists
         survey_enabled = self.survey_configurations.survey_enabled if self.survey_configurations else True
-        survey_cookies = request.COOKIES.get(u'survey', None)
+        survey_cookies = request.COOKIES.get(u'ihp_dlsurvey', None)
 
         if not survey_enabled or (survey_enabled and survey_cookies):
             return HttpResponseRedirect(download_url)
@@ -43,7 +43,7 @@ class SurveyView(View):
                 if self.survey_configurations else 86400
 
             response.set_cookie(
-                u'survey', u'survey', max_age=cookie_max_age)
+                u'ihp_dlsurvey', u'ihp_dlsurvey', max_age=cookie_max_age)
             return response
 
         return render(request, self.template_name, {

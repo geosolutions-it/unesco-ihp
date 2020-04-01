@@ -31,7 +31,7 @@ class TestSurveyView(TestCase):
         }
 
     def test_successful_download_with_existing_cookies(self):
-        self.client.cookies = SimpleCookie({"survey": "survey"})
+        self.client.cookies = SimpleCookie({"ihp_dlsurvey": "ihp_dlsurvey"})
         response = self.client.get(
             u"{}?download_url={}&next={}".format(
                 self.survey_route, urllib.parse.quote("http://example.co.uk"), "/")
@@ -55,7 +55,7 @@ class TestSurveyView(TestCase):
 
         survey = Survey.objects.get(name=self.survey_form_data["name"])
         self.assertEqual(survey.name, self.survey_form_data["name"])
-        self.assertIn("survey", response.client.cookies.keys())
+        self.assertIn("ihp_dlsurvey", response.client.cookies.keys())
 
     def test_failed_survey_submission_with_invalid_email(self):
         self.survey_form_data["email"] = "invald-email"
