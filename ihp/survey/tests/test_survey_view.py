@@ -14,7 +14,7 @@ from http.cookies import SimpleCookie
 
 
 @pytest.mark.django_db
-class TestUserLogin(TestCase):
+class TestSurveyView(TestCase):
     def setUp(self):
         """
         Setup tests to for user survey route forms
