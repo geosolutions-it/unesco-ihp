@@ -23,10 +23,10 @@ class TestSurveyView(TestCase):
         """
         # get survey route
         self.survey_route = reverse("survey")
-        survey_config = SurveyConfiguration.load()
-        survey_config.survey_enabled = True
-        survey_config.cookie_expiration_time = 25
-        survey_config.save()
+        self.survey_config = SurveyConfiguration.load()
+        self.survey_config.survey_enabled = True
+        self.survey_config.cookie_expiration_time = 25
+        self.survey_config.save()
 
         self.survey_form_data = {
             "name": "Sigmon Myers",
@@ -118,3 +118,12 @@ class TestSurveyView(TestCase):
                          "This field is required."])
         self.assertEqual(response.context["form"].errors["reason_for_data_download"], [
                          "This field is required."])
+
+    def test_direct_download_when_download_survey_is_disabled(self):
+        self.survey_config.survey_enabled = False
+        self.survey_config.save()
+        response = self.client.get(
+            u"{}?download_url={}&next={}".format(
+                self.survey_route, urllib.parse.quote("http://example.com"), "/")
+        )
+        self.assertEqual(response.status_code, 302)
