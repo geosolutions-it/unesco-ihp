@@ -43,7 +43,7 @@ footer {
     right: 0px;
     position: fixed;
     left: 0px;
-    z-index: 500;
+    z-index: 1030;
 }
 
 footer a {
@@ -61,6 +61,19 @@ footer a:visited {
 p,input
 {
     font-family: Monda,Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;color:#000
+}
+#watermark{
+        display: block;
+        background: url(../../static/img/unesco_ihp_en_transparent.png) center center no-repeat;
+        background-size: 182px;
+        width: 182px;
+        height: 110px;
+        position: absolute;
+        top: -20px;
+        left: 20px;
+        bottom: 0;
+        /*one below footer and header*/
+        z-index: 1029;
 }
 
 #holder
