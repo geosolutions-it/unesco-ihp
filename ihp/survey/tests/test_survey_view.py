@@ -11,6 +11,8 @@ from django.test import TestCase
 from django.urls import reverse
 
 from ihp.survey.models import Survey, SurveyConfiguration
+from django.contrib.auth import get_user_model
+from django import forms
 
 
 @pytest.mark.django_db
@@ -48,6 +50,37 @@ class TestSurveyView(TestCase):
                 self.survey_route, urllib.parse.quote("http://example.com"), "/")
         )
         self.assertEqual(response.status_code, 200)
+
+    def test_survey_form_prefilled_values_for_authenticate_users(self):
+        user = get_user_model()
+        user = user.objects.create_user(username="Thiago.Silver", email="Thiago@Silver.com",
+                                 country="DZA", organization="PSG", password="very-secret")
+
+        self.client.login(username=user.username, password="very-secret")
+        response = self.client.get(
+            u"{}?download_url={}&next={}".format(
+                self.survey_route, urllib.parse.quote("http://example.com"), "/")
+        )
+        self.assertEqual(response.context["form"].fields['name'].initial, user.username)
+        self.assertEqual(response.context["form"].fields['email'].initial, user.email)
+        self.assertEqual(response.context["form"].fields['country'].initial, user.country)
+        self.assertEqual(response.context["form"].fields['organization'].initial, user.organization)
+
+
+    def test_survey_hidden_form_fields_for_authenticate_users(self):
+        user = get_user_model()
+        user = user.objects.create_user(username="Thiago.Silver", email="Thiago@Silver.com",
+                                 country="DZA", organization="PSG", password="very-secret")
+
+        self.client.login(username=user.username, password="very-secret")
+        response = self.client.get(
+            u"{}?download_url={}&next={}".format(
+                self.survey_route, urllib.parse.quote("http://example.com"), "/")
+        )
+        self.assertEqual(response.context["form"].fields['name'].widget.__class__, forms.HiddenInput().__class__)
+        self.assertEqual(response.context["form"].fields['email'].widget.__class__, forms.HiddenInput().__class__)
+        self.assertEqual(response.context["form"].fields['country'].widget.__class__, forms.HiddenInput().__class__)
+        self.assertEqual(response.context["form"].fields['organization'].widget.__class__, forms.HiddenInput().__class__)
 
     def test_successfully_survey_submission(self):
         response = self.client.post(
