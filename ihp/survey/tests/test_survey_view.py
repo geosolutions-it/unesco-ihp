@@ -40,7 +40,7 @@ class TestSurveyView(TestCase):
         self.assertEqual(response.status_code, 302)
 
     def test_form_rendering_with_missing_survey_cookies(self):
-        SurveyConfiguration.objects.get_or_create(cookie_expiration_time="24:00:00", survey_enabled=True)
+        SurveyConfiguration.objects.get_or_create(cookie_expiration_time=24, survey_enabled=True)
         response = self.client.get(
             u"{}?download_url={}&next={}".format(
                 self.survey_route, urllib.parse.quote("http://example.com"), "/")

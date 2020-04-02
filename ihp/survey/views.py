@@ -36,8 +36,8 @@ class SurveyView(View):
             form.save()
             response = HttpResponseRedirect(download_url)
 
-            cookie_max_age = SurveyConfiguration.load().cookie_expiration_time.total_seconds()
-
+            cookie_max_age = SurveyConfiguration.load().cookie_expiration_time * 3600
+            print('cookie_max_age', cookie_max_age, SurveyConfiguration.load().cookie_expiration_time)
             response.set_cookie(
                 u'ihp_dlsurvey', u'ihp_dlsurvey', max_age=cookie_max_age)
             return response
