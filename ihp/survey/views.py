@@ -11,7 +11,7 @@ class SurveyView(View):
     form_class = SurveyForm
 
     def get(self, request, *args, **kwargs):
-        form = self.form_class()
+        form = self.form_class(**{u'user': request.user})
         download_url = request.GET.get(u'download_url', None)
         next_route = request.GET.get(u'next', None)
 
@@ -31,13 +31,13 @@ class SurveyView(View):
         form = self.form_class(request.POST)
         download_url = request.GET.get(u'download_url', None)
         next_route = request.GET.get(u'next', None)
- 
+
         if form.is_valid() and download_url and next_route:
             form.save()
             response = HttpResponseRedirect(download_url)
 
             cookie_max_age = SurveyConfiguration.load().cookie_expiration_time * 3600
-            print('cookie_max_age', cookie_max_age, SurveyConfiguration.load().cookie_expiration_time)
+
             response.set_cookie(
                 u'ihp_dlsurvey', u'ihp_dlsurvey', max_age=cookie_max_age)
             return response
