@@ -4,14 +4,13 @@ when you run "manage.py test".
 """
 
 import urllib.parse
+from http.cookies import SimpleCookie
 
 import pytest
 from django.test import TestCase
 from django.urls import reverse
 
-from ihp.survey.models import Survey
-from http.cookies import SimpleCookie
-from ihp.survey.models import SurveyConfiguration
+from ihp.survey.models import Survey, SurveyConfiguration
 
 
 @pytest.mark.django_db
@@ -22,12 +21,16 @@ class TestSurveyView(TestCase):
         """
         # get survey route
         self.survey_route = reverse("survey")
+        survey_config = SurveyConfiguration.load()
+        survey_config.survey_enabled = True
+        survey_config.cookie_expiration_time = 25
+        survey_config.save()
 
         self.survey_form_data = {
             "name": "Sigmon Myers",
             "organization": "Unesco",
             "email": "messi@email.com",
-            "country": "Ecuador",
+            "country": "DZA",
             "reason_for_data_download": "Download for research"
         }
 
@@ -40,7 +43,6 @@ class TestSurveyView(TestCase):
         self.assertEqual(response.status_code, 302)
 
     def test_form_rendering_with_missing_survey_cookies(self):
-        SurveyConfiguration.objects.get_or_create(cookie_expiration_time=24, survey_enabled=True)
         response = self.client.get(
             u"{}?download_url={}&next={}".format(
                 self.survey_route, urllib.parse.quote("http://example.com"), "/")
@@ -79,11 +81,7 @@ class TestSurveyView(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context["form"].errors["name"], [
                          "This field is required."])
-        self.assertEqual(response.context["form"].errors["organization"], [
-                         "This field is required."])
         self.assertEqual(response.context["form"].errors["email"], [
-                         "This field is required."])
-        self.assertEqual(response.context["form"].errors["country"], [
                          "This field is required."])
         self.assertEqual(response.context["form"].errors["reason_for_data_download"], [
                          "This field is required."])
