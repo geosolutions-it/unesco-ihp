@@ -32,7 +32,7 @@ class TestUserRegistration(TestCase):
             'recommendation': 'john witchel',
             'organization': 'kanzu code',
             'position': 'sample position',
-            'country': 'cape verde',
+            'country': 'UGA',
             'terms_agreement': 'on',
             'request_to_join_group': [group_profile.pk]
         }

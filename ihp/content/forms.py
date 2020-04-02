@@ -9,6 +9,7 @@ from django.utils.translation import ugettext_lazy as _
 from taggit.forms import TagField
 
 from geonode.groups.models import GroupProfile
+from geonode.base.enumerations import COUNTRIES
 
 
 class UnescoLocalAccountSignupForm(account_forms.SignupForm):
@@ -48,8 +49,7 @@ def _replace_username_with_first_last(form):
         widget=forms.TextInput(attrs={'placeholder': _(u"Organization")}), required=False)
     fields["position"] = forms.CharField(min_length=2, label=_(u"Position"),
         widget=forms.TextInput(attrs={'placeholder': _(u"Position")}), required=False)
-    fields["country"] = forms.CharField(min_length=2, label=_(u"Country"),
-        widget=forms.TextInput(attrs={'placeholder': _(u"Country")}), required=False)
+    fields["country"] = forms.ChoiceField(label=_(u"Country"), choices=COUNTRIES, required=False)
 
     fields["request_to_join_group"] = TagField(
         required=False,
