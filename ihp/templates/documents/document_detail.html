@@ -179,7 +179,7 @@
 					Full metadata
 					</h5>
 					<ul style="list-style: outside none none;padding: 0;">
-						<li><a target="_blank" href="../catalogue/csw_to_extra_format/{{resource.uuid}}/{{resource.title}}.txt"> Text format </a></li>
+						<li><a target="_blank" href="{% url "survey" %}?download_url=../catalogue/csw_to_extra_format/{{resource.uuid}}/{{resource.title}}.txt&next={% url "document_detail" resource.id %}"> Text format </a></li>
 						<li><a target="_blank" href="../catalogue/csw_to_extra_format/{{resource.uuid}}/{{resource.title}}.html"> HTML format </a></li>
 					</ul>
 				</div>

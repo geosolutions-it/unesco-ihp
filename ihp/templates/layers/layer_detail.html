@@ -555,7 +555,7 @@
 				Full metadata
 				 </h5>
                  <ul>
- 					<li><a target="_blank" href="../catalogue/csw_to_extra_format/{{resource.uuid}}/{{resource.title}}.txt"> Text format </a></li>
+ 					<li><a target="_blank" href="{% url "survey" %}?download_url=../catalogue/csw_to_extra_format/{{resource.uuid}}/{{resource.title}}.txt&next={% url "layer_detail" resource.layer.service_typename %}"> Text format </a></li>
  					<li><a target="_blank" href="../catalogue/csw_to_extra_format/{{resource.uuid}}/{{resource.title}}.html"> HTML format </a></li>
  				</ul>
 			</div>
