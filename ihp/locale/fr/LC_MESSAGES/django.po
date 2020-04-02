@@ -121,7 +121,7 @@ msgid "Maps"
 msgstr "Cartes"
 
 #: ihp/templates/base.html:270
-msgid "Library"
+msgid "Documents"
 msgstr "Bibliothèque"
 
 #: ihp/templates/base.html:275
@@ -570,7 +570,7 @@ msgstr "Suivant"
 
 #: ihp/templates/documents/document_metadata_advanced.html:16
 msgid "Explore Documents"
-msgstr "Explorer les documents"
+msgstr "Explorer la bibliothèque"
 
 #: ihp/templates/documents/document_metadata_advanced.html:17
 #: ihp/templates/layers/layer_metadata_advanced.html:17
@@ -1558,9 +1558,6 @@ msgstr "À venir…"
 #~ msgstr ""
 #~ "Désolé, les inscriptions de nouveaux utilisateurs ne sont pas ouvertes "
 #~ "pour le moment."
-
-#~ msgid "Documents"
-#~ msgstr "Documents"
 
 #~ msgid "Invite User"
 #~ msgstr "Inviter un utilisateur"
