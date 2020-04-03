@@ -64,7 +64,7 @@ loaders = TEMPLATES[0]['OPTIONS'].get('loaders') or ['django.template.loaders.fi
 TEMPLATES[0]['OPTIONS']['loaders'] = loaders
 TEMPLATES[0].pop('APP_DIRS', None)
 
-CLIENT_RESULTS_LIMIT = 5
+CLIENT_RESULTS_LIMIT = 25
 API_LIMIT_PER_PAGE = 1000
 FREETEXT_KEYWORDS_READONLY = True
 RESOURCE_PUBLISHING = True
