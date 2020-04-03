@@ -1,4 +1,4 @@
-from datetime import timedelta
+from datetime import datetime
 
 from django.conf import settings
 from django.contrib.auth import get_user_model
@@ -36,7 +36,7 @@ class Survey(models.Model):
     create_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return u'Survey pk=[{}]'.format(self.pk)
+        return u'Survey from {} ({})'.format(self.name, self.create_at.date())
 
 
 class SurveyConfiguration(SingletonModel):
