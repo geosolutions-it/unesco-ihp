@@ -91,6 +91,8 @@ class IHPProfile(GeoNodeProfile):
         null=True,
         help_text=_('Name of the person who recommended you IHP-WINS'))
 
+    request_to_join_group = models.ManyToManyField('groups.GroupProfile', blank=True)
+
     def __init__(self, *args, **kwargs):
         super(IHPProfile, self).__init__(*args, **kwargs)
         self._previous_active_state = self.is_active
