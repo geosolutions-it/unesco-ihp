@@ -180,7 +180,7 @@
 					</h5>
 					<ul style="list-style: outside none none;padding: 0;">
 						<li><a target="_blank" href="{% url "survey" %}?download_url=../catalogue/csw_to_extra_format/{{resource.uuid}}/{{resource.title}}.txt&next={% url "document_detail" resource.id %}"> Text format </a></li>
-						<li><a target="_blank" href="../catalogue/csw_to_extra_format/{{resource.uuid}}/{{resource.title}}.html"> HTML format </a></li>
+						<li><a target="_blank" href="{% url "survey" %}?download_url=../catalogue/csw_to_extra_format/{{resource.uuid}}/{{resource.title}}.html&next={% url "document_detail" resource.id %}"> HTML format </a></li>
 					</ul>
 				</div>
 			  <h5 class="modal-title" id="myModalLabel">
@@ -188,7 +188,7 @@
 			  </h5>
               <ul style="list-style: outside none none;padding: 0;">
                 {% for link in metadata %}
-                <li><a href="{{ link.url }}">{{ link.name }}</a></li>
+                <li><a href="{% url "survey" %}?download_url={{ link.url | urlencode }}&next={% url "document_detail" resource.id %}">{{ link.name }}</a></li>
                 {% endfor %}
               </ul>
             </div>
