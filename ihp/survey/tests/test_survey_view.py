@@ -3,16 +3,20 @@ This file demonstrates writing tests using the unittest module. These will pass
 when you run "manage.py test".
 """
 
+import io
 import urllib.parse
 from http.cookies import SimpleCookie
 
 import pytest
 from django import forms
 from django.contrib.auth import get_user_model
+from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase
 from django.urls import reverse
 
+from geonode.documents.models import Document
 from ihp.survey.models import Survey, SurveyConfiguration
+from ihp.survey.templatetags.get_survey_route import get_survey_route
 
 
 @pytest.mark.django_db
@@ -21,8 +25,22 @@ class TestSurveyView(TestCase):
         """
         Setup tests to for user survey route forms
         """
+        self.imgfile = io.BytesIO(
+            b'GIF87a\x01\x00\x01\x00\x80\x01\x00\x00\x00\x00ccc,\x00'
+            b'\x00\x00\x00\x01\x00\x01\x00\x00\x02\x02D\x01\x00;')
+        gif_file = SimpleUploadedFile(
+            'test_img_file.gif',
+            self.imgfile.read(),
+            'image/gif')
+        user = get_user_model().objects.create(username='Pogba')
+        download_resource = Document.objects.create(
+            doc_file=gif_file,
+            owner=user,
+            title='theimg')
+
         # get survey route
-        self.survey_route = reverse("survey")
+        self.survey_route = get_survey_route(download_resource)
+
         self.survey_config = SurveyConfiguration.load()
         self.survey_config.survey_enabled = True
         self.survey_config.cookie_expiration_time = 25
