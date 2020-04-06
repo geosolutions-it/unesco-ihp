@@ -48,6 +48,26 @@ class Survey(models.Model):
     create_at = models.DateTimeField(auto_now_add=True)
 
     @property
+    def user_profile(self):
+        """
+        Return a link to the user's profile
+        """
+        if self.user:
+            escaped_username = escape(self.user.username)
+            user_profile_link = reverse(
+                'profile_detail', args=[escaped_username])
+            return mark_safe('<a target="_blank" href="{}">{}</a>'.format(user_profile_link, escaped_username))
+        return '-'
+
+    @property
+    def user_email(self):
+        """
+        Return a link to the survey user's email
+        """
+        escaped_user_email = escape(self.email)
+        return mark_safe('<a target="_blank" href="mailto:{}">{}</a>'.format(escaped_user_email, escaped_user_email))
+
+    @property
     def resource_downloaded(self):
         """
         Return resource link as html in django admin
