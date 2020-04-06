@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-md-8">
             <form id="survey_form" method="post"
-                action="{% url 'survey' %}?download_url={{ download_url | urlencode }}&next={{ next_route | urlencode }}"
+                action="?next={{ next_route | urlencode }}&download_url={{download_url | urlencode}}"
                 autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data" {% endif %}>
                 <fieldset>
                     {% csrf_token %}
