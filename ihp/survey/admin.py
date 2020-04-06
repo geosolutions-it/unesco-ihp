@@ -5,10 +5,9 @@ from ihp.survey.models import Survey, SurveyConfiguration
 @admin.register(Survey)
 class SurveyAdmin(admin.ModelAdmin):
     ordering = (u'-create_at',)
-    fields = ['reason_for_data_download', 'country', 'email',
-              'organization', 'name', 'user', 'resource_downloaded']
-    readonly_fields = ['reason_for_data_download', 'country',
-                       'email', 'organization', 'name', 'user', 'resource_downloaded']
+    exclude = [u'object_id', u'content_type']
+    readonly_fields = [u'reason_for_data_download', u'country',
+                       u'email', u'organization', u'name', u'user', u'resource_downloaded', u'create_at']
 
 
 @admin.register(SurveyConfiguration)
