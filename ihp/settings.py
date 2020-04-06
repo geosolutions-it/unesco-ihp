@@ -248,13 +248,8 @@ MONITORING_DATA_TTL = timedelta(days=int(os.getenv("MONITORING_DATA_TTL", 365)))
 # use with caution - for dev purpose only
 MONITORING_DISABLE_CSRF = ast.literal_eval(os.environ.get('MONITORING_DISABLE_CSRF', 'False'))
 
-#This is to force avatar look for default local image first then query its server
-# structure if image hast to be: static/avatar/img/default.jpg
-AVATAR_PROVIDERS = (
-    'avatar.providers.PrimaryAvatarProvider',
-    'avatar.providers.DefaultAvatarProvider',
-    'avatar.providers.GravatarAvatarProvider'
-)
+# For GRAVATAR provider this hast to be complete URL
+AVATAR_GRAVATAR_DEFAULT = f'{SITEURL}static/avatar/img/default.jpg'
 
 if MONITORING_ENABLED:
     if 'geonode.monitoring' not in INSTALLED_APPS:
