@@ -4,7 +4,12 @@ from ihp.survey.models import Survey, SurveyConfiguration
 
 @admin.register(Survey)
 class SurveyAdmin(admin.ModelAdmin):
-    ordering = ('-create_at',)
+    ordering = (u'-create_at',)
+    fields = ['reason_for_data_download', 'country', 'email',
+              'organization', 'name', 'user', 'resource_downloaded']
+    readonly_fields = ['reason_for_data_download', 'country',
+                       'email', 'organization', 'name', 'user', 'resource_downloaded']
+
 
 @admin.register(SurveyConfiguration)
 class SurveyConfigurationAdmin(admin.ModelAdmin):
