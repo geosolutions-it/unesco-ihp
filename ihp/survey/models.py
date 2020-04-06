@@ -6,6 +6,7 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
 from django.urls import reverse
+from django.utils.html import escape
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 
@@ -61,7 +62,7 @@ class Survey(models.Model):
                                 object_params(self.downloaded_resource)[0]])
 
         return mark_safe('<a target="_blank" href="{}">{}</a>'.format(
-            resource_link, self.downloaded_resource))
+            escape(resource_link), escape(self.downloaded_resource)))
 
     def __str__(self):
         return u'Survey from {} ({})'.format(self.name, self.create_at.date())
