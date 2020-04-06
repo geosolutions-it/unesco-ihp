@@ -33,13 +33,13 @@ class TestSurveyView(TestCase):
             self.imgfile.read(),
             'image/gif')
         user = get_user_model().objects.create(username='Pogba')
-        download_resource = Document.objects.create(
+        self.download_resource = Document.objects.create(
             doc_file=gif_file,
             owner=user,
             title='theimg')
 
         # get survey route
-        self.survey_route = get_survey_route(download_resource)
+        self.survey_route = get_survey_route(self.download_resource)
 
         self.survey_config = SurveyConfiguration.load()
         self.survey_config.survey_enabled = True
@@ -179,3 +179,28 @@ class TestSurveyView(TestCase):
                 self.survey_route, urllib.parse.quote("http://example.com"), "/")
         )
         self.assertEqual(response.status_code, 302)
+
+    def test_404_returned_for_invalid_survey_route(self):
+        """
+        Test that an invalid survey route returns 404 error
+        """
+        self.survey_config.survey_enabled = False
+        self.survey_config.save()
+        response = self.client.get(
+            u"survey/unknown/route/{}/?download_url={}&next={}".format(
+                self.download_resource.pk, urllib.parse.quote("http://example.com"), "/")
+        )
+        self.assertEqual(response.status_code, 404)
+
+    def test_404_returned_for_unknown_resource_id(self):
+        """
+        Test that a non existing resource returns a 404 error
+        """
+        self.survey_config.survey_enabled = False
+        self.survey_config.save()
+        response = self.client.get(
+            u"{}?download_url={}&next={}".format(
+                self.survey_route.replace(str(self.download_resource.pk), '-1'),
+                    urllib.parse.quote("http://example.com"), "/")
+        )
+        self.assertEqual(response.status_code, 404)
