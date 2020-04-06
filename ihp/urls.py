@@ -62,7 +62,7 @@ urlpatterns = [
                     contact_us_content_view,
                     name='contact-us'),
                 url(r'^photologue/', include('photologue.urls', namespace='photologue')),
-                url(r'^survey/',
+                url(r'^survey/(?P<app_label>\w+)/(?P<model>\w+)/(?P<resource_id>\d+)/$',
                     SurveyView.as_view(),
                     name='survey'),
               ] + geonode.urls.urlpatterns
