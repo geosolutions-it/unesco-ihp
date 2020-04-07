@@ -8,6 +8,7 @@
 {% load base_tags %}
 {% load guardian_tags %}
 {% load client_lib_tags %}
+{% load get_survey_route %}
 
 {% block title %}{{ resource.title|default:resource.alternate }} — {{ block.super }}{% endblock %}
 
@@ -315,7 +316,7 @@
                         <li class="active">
                             <ul>
                               {% for link in links %}
-                              <li><a href="{{ link.url }}" target="_blank">{% trans link.name %}</a></li>
+                              <li><a href="{{ resource | get_survey_route }}?download_url={{ link.url | urlencode }}&next={% url "layer_detail" resource.layer.service_typename %}" target="_blank">{% trans link.name %}</a></li>
                               {% endfor %}
                             </ul>
                         </li>
@@ -421,7 +422,7 @@
                           <h4>{% trans "Pick your download format:" %}</h4>
                           <ul>
                             {% for link in links_download %}
-                            <li><a href="{{ link.url }}" target="_blank" id="{{ link.name | slugify }}" class="urls">{% trans link.name %}</a></li>
+                            <li><a href="{{ resource | get_survey_route }}?download_url={{ link.url | urlencode }}&next={% url "layer_detail" resource.layer.service_typename %}" target="_blank" id="{{ link.name | slugify }}" class="urls">{% trans link.name %}</a></li>
                             {% endfor %}
                           </ul>
                       </li>
@@ -555,8 +556,8 @@
 				Full metadata
 				 </h5>
                  <ul>
- 					<li><a target="_blank" href="../catalogue/csw_to_extra_format/{{resource.uuid}}/{{resource.title}}.txt"> Text format </a></li>
- 					<li><a target="_blank" href="../catalogue/csw_to_extra_format/{{resource.uuid}}/{{resource.title}}.html"> HTML format </a></li>
+ 					<li><a target="_blank" href="{{ resource | get_survey_route }}?download_url=../../../../catalogue/csw_to_extra_format/{{resource.uuid}}/{{resource.title}}.txt&next={% url "layer_detail" resource.layer.service_typename %}"> Text format </a></li>
+ 					<li><a target="_blank" href="{{ resource | get_survey_route }}?download_url=../../../../catalogue/csw_to_extra_format/{{resource.uuid}}/{{resource.title}}.html&next={% url "layer_detail" resource.layer.service_typename %}"> HTML format </a></li>
  				</ul>
 			</div>
 		    <div style="margin-bottom:20px">
@@ -565,14 +566,14 @@
 			</h5>
             <ul>
               {% for link in metadata %}
-                <li><a href="{{ link.url }}" target="_blank">{{ link.name }}</a></li>
+                <li><a href="{{ resource | get_survey_route }}?download_url={{ link.url | urlencode }}&next={% url "layer_detail" resource.layer.service_typename %}" target="_blank">{{ link.name }}</a></li>
               {% endfor %}
             <ul>
             </div>
             {% if resource.storeType == 'dataStore' %}
             <h5 class="modal-title" id="myModalLabel">Attribute Information</h5>
             <ul>
-              <li><a href="{{ resource.get_absolute_url }}/feature_catalogue" target="_blank">ISO Feature Catalogue</a></li>
+              <li><a href="{{ resource | get_survey_route }}?download_url={{ resource.get_absolute_url }}/feature_catalogue&next={% url "layer_detail" resource.layer.service_typename %}" target="_blank">ISO Feature Catalogue</a></li>
             <ul>
             {% endif %}
           </div>
