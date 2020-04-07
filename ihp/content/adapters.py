@@ -25,6 +25,7 @@ from allauth.account.utils import user_username
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 
 from geonode.people.adapters import LocalAccountAdapter
+from geonode.groups.models import GroupProfile
 
 logger = logging.getLogger(__name__)
 
@@ -111,6 +112,21 @@ class UnescoLocalAccountAdapter(LocalAccountAdapter):
         user = super(UnescoLocalAccountAdapter, self).save_user(request, sociallogin, form=form)
         if form:
             recommendation = form.cleaned_data["recommendation"]
+            organization = form.cleaned_data["organization"]
+            position = form.cleaned_data["position"]
+            country = form.cleaned_data["country"]
+            request_to_join_group = form.cleaned_data["request_to_join_group"]
+
             user_field(user, 'recommendation', recommendation or None)
+            user_field(user, 'organization', organization or None)
+            user_field(user, 'position', position or None)
+            user_field(user, 'country', country or None)
+
+            groups = GroupProfile.objects.filter(pk__in=[
+                # sanitize user input before saving
+                request for request in request_to_join_group if request.isdigit()
+            ], access="public")
+
+            user.request_to_join_group.add(*groups)
             user.save()
         return user

@@ -64,7 +64,7 @@ loaders = TEMPLATES[0]['OPTIONS'].get('loaders') or ['django.template.loaders.fi
 TEMPLATES[0]['OPTIONS']['loaders'] = loaders
 TEMPLATES[0].pop('APP_DIRS', None)
 
-CLIENT_RESULTS_LIMIT = 5
+CLIENT_RESULTS_LIMIT = 25
 API_LIMIT_PER_PAGE = 1000
 FREETEXT_KEYWORDS_READONLY = True
 RESOURCE_PUBLISHING = True
@@ -91,6 +91,9 @@ LICENSES = {
 
 AUTH_USER_MODEL = os.getenv('AUTH_USER_MODEL', 'ihp_people.IHPProfile')
 AUTH_USER_AUTOCOMPLETE = os.getenv('AUTH_USER_AUTOCOMPLETE', 'IHPProfileProfileAutocomplete')
+
+# allow registered users to sign in using their username or email
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 
 # prevent signing up by default
 ACCOUNT_OPEN_SIGNUP = True
@@ -245,13 +248,8 @@ MONITORING_DATA_TTL = timedelta(days=int(os.getenv("MONITORING_DATA_TTL", 365)))
 # use with caution - for dev purpose only
 MONITORING_DISABLE_CSRF = ast.literal_eval(os.environ.get('MONITORING_DISABLE_CSRF', 'False'))
 
-#This is to force avatar look for default local image first then query its server
-# structure if image hast to be: static/avatar/img/default.jpg
-AVATAR_PROVIDERS = (
-    'avatar.providers.PrimaryAvatarProvider',
-    'avatar.providers.DefaultAvatarProvider',
-    'avatar.providers.GravatarAvatarProvider'
-)
+# For GRAVATAR provider this hast to be complete URL
+AVATAR_GRAVATAR_DEFAULT = f'{SITEURL}static/avatar/img/default.jpg'
 
 if MONITORING_ENABLED:
     if 'geonode.monitoring' not in INSTALLED_APPS:
