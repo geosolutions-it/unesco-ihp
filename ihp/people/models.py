@@ -27,7 +27,7 @@ from django.db import models
 from django.core.mail import send_mail
 from django.db.models import signals
 
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.contrib.sites.models import Site
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import AbstractUser, UserManager
@@ -90,6 +90,8 @@ class IHPProfile(GeoNodeProfile):
         blank=True,
         null=True,
         help_text=_('Name of the person who recommended you IHP-WINS'))
+
+    request_to_join_group = models.ManyToManyField('groups.GroupProfile', blank=True)
 
     def __init__(self, *args, **kwargs):
         super(IHPProfile, self).__init__(*args, **kwargs)

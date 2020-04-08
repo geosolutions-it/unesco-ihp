@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import django.core.files.storage
 from django.db import migrations, models
+import django.db.models.deletion
+
 import mptt.fields
 
 
@@ -26,7 +29,8 @@ class Migration(migrations.Migration):
                 ('rght', models.PositiveIntegerField(editable=False, db_index=True)),
                 ('tree_id', models.PositiveIntegerField(editable=False, db_index=True)),
                 ('level', models.PositiveIntegerField(editable=False, db_index=True)),
-                ('parent', mptt.fields.TreeForeignKey(related_name='children', blank=True, to='content.DocumentationPage', null=True)),
+                ('parent', mptt.fields.TreeForeignKey(related_name='children', blank=True,
+                                                      to='content.DocumentationPage', null=True, on_delete=django.db.models.deletion.CASCADE)),
             ],
             options={
                 'ordering': ('name',),

@@ -118,7 +118,7 @@ msgstr "Maps"
 
 #: ihp/templates/base.html:66
 msgid "Documents"
-msgstr "Documents"
+msgstr "Library"
 
 #: ihp/templates/base.html:71
 msgid "People"
@@ -1406,8 +1406,8 @@ msgstr ""
 #~ msgid "Change Document Permissions"
 #~ msgstr "Change Document Permissions"
 
-#~ msgid "Explore Documents"
-#~ msgstr "Explore Documents"
+msgid "Explore Documents"
+msgstr "Explore Library"
 
 #~ msgid "Upload Documents"
 #~ msgstr "Upload Documents"

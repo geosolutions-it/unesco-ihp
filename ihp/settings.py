@@ -21,13 +21,9 @@
 # Django settings for the GeoNode project.
 import os
 import ast
-from urlparse import urlparse, urlunparse
-# Load more settings from a file called local_settings.py if it exists
-try:
-    from ihp.local_settings import *
-#    from geonode.local_settings import *
-except ImportError:
-    from geonode.settings import *
+import urllib
+from urllib.parse import urlparse, urlunparse, urljoin
+from ihp.local_settings import *
 
 DEBUG = ast.literal_eval(os.getenv('DEBUG', 'True'))
 
@@ -47,8 +43,7 @@ WSGI_APPLICATION = "{}.wsgi.application".format(PROJECT_NAME)
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = os.getenv('LANGUAGE_CODE', "en")
 
-if PROJECT_NAME not in INSTALLED_APPS:
-    INSTALLED_APPS += ('photologue', 'sortedm2m', 'ihp', 'ihp.content', 'ihp.people')
+INSTALLED_APPS += ('photologue', 'sortedm2m', 'ihp', 'ihp.content', 'ihp.people', 'ihp.survey')
 
 # Location of url mappings
 ROOT_URLCONF = os.getenv('ROOT_URLCONF', '{}.urls'.format(PROJECT_NAME))
@@ -96,6 +91,9 @@ LICENSES = {
 
 AUTH_USER_MODEL = os.getenv('AUTH_USER_MODEL', 'ihp_people.IHPProfile')
 AUTH_USER_AUTOCOMPLETE = os.getenv('AUTH_USER_AUTOCOMPLETE', 'IHPProfileProfileAutocomplete')
+
+# allow registered users to sign in using their username or email
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 
 # prevent signing up by default
 ACCOUNT_OPEN_SIGNUP = True
@@ -206,7 +204,6 @@ if UNOCONV_ENABLE:
 
 # Security stuff
 API_LOCKDOWN = False
-MIDDLEWARE_CLASSES += ('django.middleware.security.SecurityMiddleware',)
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
 CSRF_COOKIE_HTTPONLY = False
@@ -251,11 +248,14 @@ MONITORING_DATA_TTL = timedelta(days=int(os.getenv("MONITORING_DATA_TTL", 365)))
 # use with caution - for dev purpose only
 MONITORING_DISABLE_CSRF = ast.literal_eval(os.environ.get('MONITORING_DISABLE_CSRF', 'False'))
 
+# For GRAVATAR provider this hast to be complete URL
+AVATAR_GRAVATAR_DEFAULT = f'{SITEURL}static/avatar/img/default.jpg'
+
 if MONITORING_ENABLED:
     if 'geonode.monitoring' not in INSTALLED_APPS:
         INSTALLED_APPS += ('geonode.monitoring',)
-    if 'geonode.monitoring.middleware.MonitoringMiddleware' not in MIDDLEWARE_CLASSES:
-        MIDDLEWARE_CLASSES += \
+    if 'geonode.monitoring.middleware.MonitoringMiddleware' not in MIDDLEWARE:
+        MIDDLEWARE += \
             ('geonode.monitoring.middleware.MonitoringMiddleware',)
 
     # skip certain paths to not to mud stats too much

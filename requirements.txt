@@ -1,4 +1,3 @@
--e git+https://github.com/GeoNode/geonode.git@2.10.x#egg=geonode
-
+-e git+https://github.com/GeoNode/geonode.git#egg=GeoNode
 pycountry==19.8.18
 django-photologue==3.10

@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import django.core.files.storage
 from django.db import migrations, models
+import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
@@ -34,6 +36,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='faqquestion',
             name='topic',
-            field=models.ForeignKey(to='content.FaqTopic'),
+            field=models.ForeignKey(
+                to='content.FaqTopic', on_delete=django.db.models.deletion.CASCADE),
         ),
     ]
