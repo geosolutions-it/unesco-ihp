@@ -38,6 +38,10 @@
 
     <link rel="shortcut icon" href="{% static 'geonode/img/favicon.ico' %}" />
 
+    <link rel="shortcut icon" href="{% static 'geonode/img/favicon.ico' %}" />
+    <link href="{% static "lib/css/ol.css" %}" rel="stylesheet" />
+    <script src="{% static "lib/js/ol.js" %}"></script>
+
     {% block head %}
 
       {% if DEBUG_STATIC %}
@@ -601,6 +605,36 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="confirmMsgBoxModalOK" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <!-- How to use it: 
+        $("#confirmMsgBoxModalOK").find('.modal-title').text('{% trans "Title" %}');
+        $("#confirmMsgBoxModalOK").find('.modal-body').text('{% trans "Message. Do you want to proceed?" %}');
+        $("#confirmMsgBoxModalOK_control_field").val('your_control_value');
+        $("#confirmMsgBoxModalOK").modal("show");
+        $('#confirmMsgBoxModalOK').find('.modal-footer #confirm').on('click', function() {
+          if ($("#control_field").val() == 'your_control_value') {
+            CONFIRMED
+          }
+        });
+      -->
+      <div class="modal-dialog">
+        <input type="hidden" class="form-control" id="confirmMsgBoxModalOK_control_field" />
+        <div class="modal-content panel-success">
+          <div class="modal-header panel-heading">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">{% trans "Confirm" %}</h4>
+          </div>
+          <div class="modal-body">
+            <p>{% trans "Some text in the modal" %}.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Cancel" %}</button>
+            <button type="button" class="btn btn-danger confirm" id="confirm">{% trans "OK" %}</button>
           </div>
         </div>
       </div>
