@@ -83,6 +83,8 @@ class IHPProfile(GeoNodeProfile):
     approved = models.BooleanField(
         _('Is the user approved?'),
         default=False,
+        blank=True,
+        null=True,
         help_text=_('approve user'))
     recommendation = models.CharField(
         max_length=50,
