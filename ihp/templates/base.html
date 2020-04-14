@@ -289,16 +289,17 @@
             {% endblock tabs %}
           </ul>
           {% trans "Search" as search_text %}
+
           <form class="navbar-form" id="search" action="{% url "search" %}" >
             <div class="col-md-3">
-              <div class="input-group">
+              <div class="autocomplete-input input-group">
                 {% if HAYSTACK_SEARCH %}
-                <input id="search_input" type="text" placeholder="{{ search_text }}" class="form-control" name="q">
+                <input autocomplete="off" id="search_input" type="text" placeholder="{{ search_text }}" class="form-control" name="q">
                 <input type="hidden" name="abstract__icontains" id="search_abstract_input" placeholder="Search" >
                 <input type="hidden" name="purpose__icontains" id="search_purpose_input" placeholder="Search" >
                 <input type="hidden" name="f_method" id="filtering_type" value="or" >
                 {% else %}
-                <input id="search_input" type="text" placeholder="{{ search_text }}" class="form-control" name="title__icontains">
+                <input autocomplete="off" id="search_input" type="text" placeholder="{{ search_text }}" class="form-control" name="title__icontains">
                 <input type="hidden" name="abstract__icontains" id="search_abstract_input" placeholder="Search" >
                 <input type="hidden" name="purpose__icontains" id="search_purpose_input" placeholder="Search" >
                 <input type="hidden" name="f_method" id="filtering_type" value="or" >

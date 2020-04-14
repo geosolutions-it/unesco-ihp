@@ -327,7 +327,7 @@ nav.filter h4 {
 }
 
 #navbar .navbar-form {
-    overflow: hidden;
+    /*overflow: hidden;*/
     padding: 0;
     float: right;
     width: 175px;
@@ -1133,3 +1133,37 @@ padding:0;
     content: "\e200"}
 .glyphicon-chevron-right:before {
     content: "\224"}}
+
+/** Autocomplete styling **/
+.autocomplete-input #text_search_input,
+.autocomplete-input #region_search_input {
+  width: 100%;
+}
+.autocomplete-input .ac-results {
+  position: absolute;
+  border: 1px solid #eeeeee;
+  border-top: none;
+  border-radius: 5px;
+  outline-width: 0;
+  text-indent: 5px;
+  margin-top: 35px;
+  z-index: 10000;
+}
+.autocomplete-input .ac-results .result-wrapper {
+  border-bottom: 1px solid #eeeeee;
+  padding: 3px;
+  background-color: white;
+}
+.autocomplete-input .ac-results .result-wrapper:hover {
+  background-color: #eeeeee;
+  opacity: 1;
+}
+.autocomplete-input .ac-results .result-wrapper:last-child {
+  border-bottom: none;
+}
+.autocomplete-input .ac-results .result-wrapper .ac-result {
+  border: none;
+  text-decoration: none;
+  color: black;
+  padding: 0px;
+}
