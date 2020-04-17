@@ -36,6 +36,7 @@ class IHPProfileAdmin(ProfileAdmin):
         (_('Permissions'), {'fields': ('approved', 'is_active', 'is_staff', 'is_superuser',
                                        'groups')}),
         (_('Important dates'), {'fields': ('last_login', 'date_joined')}),
+        (_('Group(s) you want to join'), {'fields': ('request_to_join_group',)}),
         (_('Extended profile'), {'fields': ('organization', 'profile',
                                             'position', 'voice', 'fax',
                                             'delivery', 'city', 'area',
