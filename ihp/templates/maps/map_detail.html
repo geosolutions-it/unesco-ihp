@@ -134,6 +134,14 @@
                <button class="btn btn-primary btn-md btn-block" >{% trans "Metadata Detail" %}</button>
            </a>
         </li>
+        {% display_edit_request_button resource request.user perms_list as display_request_button %}
+          {% if display_request_button %}
+            <li class="list-group-item">
+                <a href="{% url "owner_rights_request" resource.id %}">
+                    <button class="btn btn-primary btn-md btn-block">{% trans "Request change" %}</button>
+                </a>
+            </li>
+          {% endif %}
 
         <div class="modal fade" id="download-map" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
