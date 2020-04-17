@@ -224,11 +224,6 @@ social_account_added.connect(
     dispatch_uid=str(uuid4()),
     weak=False
 )
-user_signed_up.connect(
-    notify_admins_new_signup,
-    dispatch_uid=str(uuid4()),
-    weak=False
-)
 signals.pre_save.connect(
     profile_pre_save,
     sender=IHPProfile
