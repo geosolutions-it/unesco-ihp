@@ -1,0 +1,16 @@
+{% extends "metadata_base.html" %}
+{% load i18n %}
+{% load bootstrap_tags %}
+{% load base_tags %}
+{% load guardian_tags %}
+{% load floppyforms %}
+
+{% block head %}
+    <style>
+    div >
+    .input-group .date > .mandatory-warning {
+        display: none;
+    }
+    </style>
+    {{ block.super }}
+{% endblock %}
