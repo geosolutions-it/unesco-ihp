@@ -400,7 +400,7 @@ DEFAULT_MS2_BACKGROUNDS = [
         "group": "background",
         "visibility": False,
         "url": "http://en.unesco.org/tiles/{z}/{x}/{y}.png",
-        "thumbURL": "%sstatic/img/uensco.png" % SITEURL,
+        "thumbURL": "%sstatic/img/unesco.png" % SITEURL,
         "attribution": "&copy; UNESCO",
     },
     {
