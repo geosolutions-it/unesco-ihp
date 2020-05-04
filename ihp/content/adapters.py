@@ -124,7 +124,6 @@ class UnescoLocalAccountAdapter(LocalAccountAdapter):
             user_field(user, 'organization', organization or None)
             user_field(user, 'position', position or None)
             user_field(user, 'country', country or None)
-
-            user.request_to_join_group.add(*recommendation)
+            user.request_to_join_group.add(*request_to_join_group)
             user.save()
         return user
