@@ -10,6 +10,7 @@ from taggit.forms import TagField
 
 from geonode.groups.models import GroupProfile
 from geonode.base.enumerations import COUNTRIES
+from django.db.models import Q
 
 
 class UnescoLocalAccountSignupForm(account_forms.SignupForm):
@@ -22,6 +23,21 @@ class UnescoLocalAccountSignupForm(account_forms.SignupForm):
         recommendation = self.cleaned_data["recommendation"]
         recommendation = get_adapter().clean_recommendation(recommendation)
         return self.cleaned_data["recommendation"]
+
+    def clean_request_to_join_group(self):
+        request_to_join_group = self.cleaned_data["request_to_join_group"]
+        self.fields["request_to_join_group"].initial = ['hahah']
+
+        groups = GroupProfile.objects.filter(
+            Q(access=GroupProfile.GROUP_CHOICES[0][0]) | Q(access=GroupProfile.GROUP_CHOICES[1][0]),
+            pk__in=[
+                # sanitize user input before saving
+                request for request in request_to_join_group if request.isdigit()
+            ])
+
+        request_to_join_group = get_adapter().clean_request_to_join_group(request_to_join_group)
+        self.cleaned_data["request_to_join_group"] = groups
+        return self.cleaned_data["request_to_join_group"]
 
 
 class UnescoSocialAccountSignupForm(socialaccount_forms.SignupForm):

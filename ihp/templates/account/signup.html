@@ -3,6 +3,7 @@
 {% load i18n %}
 {% load bootstrap_tags %}
 {% load account socialaccount %}
+{% load modify_field_text %}
 
 {% block head_title %}{% trans "Sign up" %}{% endblock %}
 {% block title %}{% trans "Sign up" %}{% endblock %}
@@ -21,6 +22,10 @@
                 <hr>
             {% endif %}
             <p>{% trans "Create a new local account" %}</p>
+            {% if form.errors %}
+              <!-- call the commented line below to run the "add_field_name" without returning rendering it's value -->
+              <!-- {{ form | modify_field_title }} -->
+            {%  endif %}
             <form id="signup_form" method="post" action="{% url "account_signup" %}" autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
                 <fieldset>
                     {% csrf_token %}
@@ -68,6 +73,13 @@
         }
       });
     });
+    {% if form.errors %}
+    $(document).ready(function(){
+      {% for item in form.cleaned_data.request_to_join_group %}
+      $('#id_request_to_join_group').append('<option value="{{item.pk}}" selected="">{{item.title}}</option>');
+      {% endfor %}
+    })
+    {% endif %}
 
     $('#id_request_to_join_group').select2(
     {
