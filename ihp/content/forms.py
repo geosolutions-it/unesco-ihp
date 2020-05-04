@@ -26,7 +26,6 @@ class UnescoLocalAccountSignupForm(account_forms.SignupForm):
 
     def clean_request_to_join_group(self):
         request_to_join_group = self.cleaned_data["request_to_join_group"]
-        self.fields["request_to_join_group"].initial = ['hahah']
 
         groups = GroupProfile.objects.filter(
             Q(access=GroupProfile.GROUP_CHOICES[0][0]) | Q(access=GroupProfile.GROUP_CHOICES[1][0]),
@@ -35,8 +34,8 @@ class UnescoLocalAccountSignupForm(account_forms.SignupForm):
                 request for request in request_to_join_group if request.isdigit()
             ])
 
-        request_to_join_group = get_adapter().clean_request_to_join_group(request_to_join_group)
-        self.cleaned_data["request_to_join_group"] = groups
+        request_to_join_group = get_adapter().clean_request_to_join_group(groups)
+        self.cleaned_data["request_to_join_group"] = request_to_join_group
         return self.cleaned_data["request_to_join_group"]
 
 

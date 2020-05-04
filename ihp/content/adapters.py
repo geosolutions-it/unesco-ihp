@@ -62,13 +62,7 @@ class UnescoLocalAccountAdapter(LocalAccountAdapter):
         return recommendation
 
     def clean_request_to_join_group(self, request_to_join_group):
-        groups = GroupProfile.objects.filter(
-            Q(access=GroupProfile.GROUP_CHOICES[0][0]) | Q(access=GroupProfile.GROUP_CHOICES[1][0]),
-            pk__in=[
-                # sanitize user input before saving
-                request for request in request_to_join_group if request.isdigit()
-            ])
-        return groups
+        return request_to_join_group
 
     def populate_username(self, request, user):
         # validate the already generated username with django validation
