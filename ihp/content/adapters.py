@@ -17,7 +17,6 @@ from django.http import HttpResponseRedirect
 from django.utils.module_loading import import_string
 from django.contrib.auth import get_user_model
 from django.utils.translation import ugettext_lazy as _
-from django.db.models import Q
 
 from allauth.account.adapter import DefaultAccountAdapter
 from allauth.account.utils import user_field
@@ -26,7 +25,6 @@ from allauth.account.utils import user_username
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 
 from geonode.people.adapters import LocalAccountAdapter
-from geonode.groups.models import GroupProfile
 
 logger = logging.getLogger(__name__)
 
