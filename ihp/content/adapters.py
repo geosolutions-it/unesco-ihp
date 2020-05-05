@@ -17,7 +17,6 @@ from django.http import HttpResponseRedirect
 from django.utils.module_loading import import_string
 from django.contrib.auth import get_user_model
 from django.utils.translation import ugettext_lazy as _
-from django.db.models import Q
 
 from allauth.account.adapter import DefaultAccountAdapter
 from allauth.account.utils import user_field
@@ -26,7 +25,6 @@ from allauth.account.utils import user_username
 from allauth.socialaccount.adapter import DefaultSocialAccountAdapter
 
 from geonode.people.adapters import LocalAccountAdapter
-from geonode.groups.models import GroupProfile
 
 logger = logging.getLogger(__name__)
 
@@ -60,6 +58,9 @@ class UnescoLocalAccountAdapter(LocalAccountAdapter):
 
     def clean_recommendation(self, recommendation):
         return recommendation
+
+    def clean_request_to_join_group(self, request_to_join_group):
+        return request_to_join_group
 
     def populate_username(self, request, user):
         # validate the already generated username with django validation
@@ -117,19 +118,10 @@ class UnescoLocalAccountAdapter(LocalAccountAdapter):
             position = form.cleaned_data["position"]
             country = form.cleaned_data["country"]
             request_to_join_group = form.cleaned_data["request_to_join_group"]
-
             user_field(user, 'recommendation', recommendation or None)
             user_field(user, 'organization', organization or None)
             user_field(user, 'position', position or None)
             user_field(user, 'country', country or None)
-
-            groups = GroupProfile.objects.filter(
-                Q(access=GroupProfile.GROUP_CHOICES[0][0]) | Q(access=GroupProfile.GROUP_CHOICES[1][0]),
-                pk__in=[
-                    # sanitize user input before saving
-                    request for request in request_to_join_group if request.isdigit()
-                ])
-
-            user.request_to_join_group.add(*groups)
+            user.request_to_join_group.add(*request_to_join_group)
             user.save()
         return user
