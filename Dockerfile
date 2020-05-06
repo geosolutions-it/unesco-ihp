@@ -40,7 +40,7 @@ RUN chmod +x /usr/src/ihp/tasks.py \
     && chmod +x /usr/src/ihp/entrypoint.sh
 
 # Upgrade pip
-RUN pip install pip --upgrade
+RUN pip install pip==20.1
 
 # To understand the next section (the need for requirements.txt and setup.py)
 # Please read: https://packaging.python.org/requirements/
