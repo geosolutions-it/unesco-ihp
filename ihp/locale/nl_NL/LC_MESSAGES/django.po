@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GeoNode\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-11 11:44+0200\n"
+"POT-Creation-Date: 2020-05-14 16:55+0200\n"
 "PO-Revision-Date: 2016-08-23 13:57+0000\n"
 "Last-Translator: Julien Collaer <julien.collaer@opengeode.be>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/geonode/geonode/"
@@ -35,224 +35,386 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ihp/content/forms.py:8
+#: ihp/__init__.py:47
+msgid "a DOI will be added by Admin before publication."
+msgstr ""
+
+#: ihp/__init__.py:49 ihp/templates/base/_resourcebase_info_panel.html:98
+#: ihp/templates/metadata_detail.html:116
+msgid "DOI"
+msgstr ""
+
+#: ihp/content/adapters.py:111
+msgid "This username already exists."
+msgstr ""
+
+#: ihp/content/forms.py:52
 #, fuzzy
 #| msgid "style name"
 msgid "First name"
 msgstr "naam voor stijl"
 
-#: ihp/content/forms.py:10
+#: ihp/content/forms.py:53
 #, fuzzy
 #| msgid "style name"
 msgid "Last name"
 msgstr "naam voor stijl"
 
-#: ihp/content/forms.py:14
-msgid "I agree to the IHP-WINS Terms of use"
+#: ihp/content/forms.py:60
+msgid "Who recommended you IHP-WINS?"
 msgstr ""
 
-#: ihp/templates/about_us_content_template.html:11
-#: ihp/templates/about_us_content_template.html:102
-#: ihp/templates/contact_us_content_template.html:11
-#: ihp/templates/contact_us_content_template.html:93
-#: ihp/templates/faq_page_template.html:11
-#: ihp/templates/faq_page_template.html:89 ihp/templates/mybase.html:22
+#: ihp/content/forms.py:61
+msgid "Name of the person"
+msgstr ""
+
+#: ihp/content/forms.py:63 ihp/content/forms.py:64
+#: ihp/templates/metadata_detail.html:139
+#: ihp/templates/metadata_detail.html:281
+#: ihp/templates/metadata_detail.html:357
+msgid "Organization"
+msgstr "Organisatie"
+
+#: ihp/content/forms.py:65 ihp/content/forms.py:66
+#: ihp/templates/metadata_detail.html:136
+#: ihp/templates/metadata_detail.html:278
+#: ihp/templates/metadata_detail.html:354
+msgid "Position"
+msgstr ""
+
+#: ihp/content/forms.py:67 ihp/survey/models.py:34
+msgid "Country"
+msgstr ""
+
+#: ihp/content/forms.py:71 ihp/people/admin.py:39
+#, fuzzy
+#| msgid "Are you sure you want to log out?"
+msgid "Group(s) you want to join"
+msgstr "Ben je zeker dat je wil afmelden ?"
+
+#: ihp/content/forms.py:76
+msgid "IHP-WINS Terms of use"
+msgstr ""
+
+#: ihp/content/forms.py:77
+msgid "I have read and agree with the "
+msgstr ""
+
+#: ihp/people/__init__.py:27
+msgid "User following you"
+msgstr "Gebruiker volgt je"
+
+#: ihp/people/__init__.py:27
+msgid "Another user has started following you"
+msgstr "Een andere gebruiker volgt jou"
+
+#: ihp/people/__init__.py:28
+msgid "User requested access"
+msgstr "Gebruiker vraagt toegang"
+
+#: ihp/people/__init__.py:29
+msgid "A new user has requested access to the site"
+msgstr "Een nieuwe gebruiker vraagt toegang tot de site"
+
+#: ihp/people/__init__.py:30
+msgid "Account activated"
+msgstr "Account geactiveerd"
+
+#: ihp/people/__init__.py:31
+msgid "This account is now active and can log in the site"
+msgstr "Deze account is nu actief en kan inloggen op de site"
+
+#: ihp/people/admin.py:34
+msgid "Personal info"
+msgstr "Profiel"
+
+#: ihp/people/admin.py:36 ihp/templates/documents/document_detail.html:229
+#: ihp/templates/layers/layer_detail.html:711
+#: ihp/templates/maps/map_detail.html:258
+msgid "Permissions"
+msgstr "Rechten"
+
+#: ihp/people/admin.py:38
+msgid "Important dates"
+msgstr "Belangrijke data"
+
+#: ihp/people/admin.py:40
+msgid "Extended profile"
+msgstr "Uitgebreid profiel"
+
+#: ihp/people/models.py:84
+msgid "Is the user approved?"
+msgstr ""
+
+#: ihp/people/models.py:88
+msgid "approve user"
+msgstr ""
+
+#: ihp/people/models.py:94
+msgid "Name of the person who recommended you IHP-WINS"
+msgstr ""
+
+#: ihp/survey/forms.py:34
+msgid "Write a brief description of how you plan to use the download."
+msgstr ""
+
+#: ihp/survey/models.py:25 ihp/templates/metadata_detail.html:130
+#: ihp/templates/metadata_detail.html:272
+#: ihp/templates/metadata_detail.html:348
+msgid "Name"
+msgstr "Naam"
+
+#: ihp/survey/models.py:31 ihp/templates/invitations/forms/_invite.html:14
+msgid "Email"
+msgstr "Email"
+
+#: ihp/survey/models.py:40
+#, fuzzy
+#| msgid "Request Download"
+msgid "Reason for data download"
+msgstr "Verzoek om te downloaden"
+
+#: ihp/templates/about_us_content_template.html:10
+#: ihp/templates/about_us_content_template.html:104
+#: ihp/templates/contact_us_content_template.html:92
+#: ihp/templates/faq_page_template.html:154 ihp/templates/mybase.html:22
+#: ihp/templates/terms_of_use_template.html:92
 #, fuzzy
 #| msgid "About"
 msgid "About Us"
 msgstr "Over"
 
-#: ihp/templates/about_us_content_template.html:85
+#: ihp/templates/about_us_content_template.html:84
 msgid "Partners"
 msgstr ""
 
-#: ihp/templates/about_us_content_template.html:87
+#: ihp/templates/about_us_content_template.html:86
 msgid ""
 "IHP’s Water Information Network System has partnered with various "
 "organizations that share their data."
 msgstr ""
 
-#: ihp/templates/about_us_content_template.html:103
-#: ihp/templates/contact_us_content_template.html:94
-#: ihp/templates/faq_page_template.html:90
+#: ihp/templates/about_us_content_template.html:89
+msgid ""
+"Development, installation and configuration professional services have been "
+"provided by"
+msgstr ""
+
+#: ihp/templates/about_us_content_template.html:105
+#: ihp/templates/contact_us_content_template.html:93
+#: ihp/templates/faq_page_template.html:155
+#: ihp/templates/terms_of_use_template.html:93
 msgid "F.A.Q."
 msgstr ""
 
-#: ihp/templates/about_us_content_template.html:104
-#: ihp/templates/contact_us_content_template.html:95
-#: ihp/templates/faq_page_template.html:91
+#: ihp/templates/about_us_content_template.html:106
+#: ihp/templates/contact_us_content_template.html:10
+#: ihp/templates/contact_us_content_template.html:94
+#: ihp/templates/faq_page_template.html:156
+#: ihp/templates/terms_of_use_template.html:94
 #, fuzzy
 #| msgid "Contact:"
 msgid "Contact Us"
 msgstr "Contact:"
 
-#: ihp/templates/about_us_content_template.html:105
-#: ihp/templates/account/signup.html:23
-#: ihp/templates/contact_us_content_template.html:96
-#: ihp/templates/faq_page_template.html:92 ihp/templates/mybase.html:23
+#: ihp/templates/about_us_content_template.html:107
+#: ihp/templates/contact_us_content_template.html:95
+#: ihp/templates/faq_page_template.html:157 ihp/templates/mybase.html:23
+#: ihp/templates/terms_of_use_template.html:10
+#: ihp/templates/terms_of_use_template.html:95
 msgid "Terms of use"
 msgstr ""
 
-#: ihp/templates/account/signup.html:7 ihp/templates/account/signup.html:11
-#: ihp/templates/account/signup.html:25
+#: ihp/templates/account/signup.html:8 ihp/templates/account/signup.html:9
+#: ihp/templates/account/signup.html:13 ihp/templates/account/signup.html:37
 msgid "Sign up"
 msgstr ""
 
-#: ihp/templates/account/signup.html:23
-msgid ""
-"Before start using this service you must carefully read and agree to the"
+#: ihp/templates/account/signup.html:19
+msgid "Sign up with one of your existing third party accounts"
 msgstr ""
 
-#: ihp/templates/account/signup.html:30
-msgid "Sorry, registrations are not open at this time."
-msgstr ""
+#: ihp/templates/account/signup.html:24
+#, fuzzy
+#| msgid "Create a New Group"
+msgid "Create a new local account"
+msgstr "Maak een nieuwe groep"
 
-#: ihp/templates/base.html:60
+#: ihp/templates/base.html:241
+#, fuzzy
+#| msgid "GeoNode Help"
+msgid "GeoNode Search"
+msgstr "GeoNode Help"
+
+#: ihp/templates/base.html:269
 msgid "Layers"
 msgstr "Lagen"
 
-#: ihp/templates/base.html:63
+#: ihp/templates/base.html:272
 msgid "Maps"
 msgstr "Kaarten"
 
-#: ihp/templates/base.html:66
-msgid "Documents"
-msgstr "Documenten"
+#: ihp/templates/base.html:275
+msgid "Library"
+msgstr ""
 
-#: ihp/templates/base.html:71
+#: ihp/templates/base.html:280
 msgid "People"
 msgstr "Mensen"
 
-#: ihp/templates/base.html:74
+#: ihp/templates/base.html:283
 msgid "Groups"
 msgstr "Groepen"
 
-#: ihp/templates/base.html:78
+#: ihp/templates/base.html:287
 #, fuzzy
 #| msgid "series"
 msgid "TimeSeries"
 msgstr "reeks"
 
-#: ihp/templates/base.html:82
+#: ihp/templates/base.html:291 ihp/templates/layers/layer_detail.html:483
 msgid "Search"
 msgstr "Zoek"
 
-#: ihp/templates/base.html:99
+#: ihp/templates/base.html:315
 msgid "Register"
 msgstr "Registreer"
 
-#: ihp/templates/base.html:124 ihp/templates/base.html.py:198
-#: ihp/templates/base.html:216
+#: ihp/templates/base.html:340 ihp/templates/base.html:421
+#: ihp/templates/base.html:445
 msgid "Sign in"
 msgstr "Meld aan"
 
-#: ihp/templates/base.html:165 ihp/templates/mybase.html:50
+#: ihp/templates/base.html:388 ihp/templates/mybase.html:50
 msgid "Powered by"
 msgstr ""
 
-#: ihp/templates/base.html:165
+#: ihp/templates/base.html:388
 msgid "GeoNode"
 msgstr "GeoNode"
 
-#: ihp/templates/base.html:165
+#: ihp/templates/base.html:388
 msgid "version"
 msgstr "versie"
 
-#: ihp/templates/base.html:166
+#: ihp/templates/base.html:389
 msgid "Developers"
 msgstr "Ontwikkelaars"
 
-#: ihp/templates/base.html:167
+#: ihp/templates/base.html:390
 msgid "About"
 msgstr "Over"
 
-#: ihp/templates/base.html:170
-#: ihp/templates/base/_resourcebase_info_panel.html:150
-#: ihp/templates/metadata_detail.html:230 ihp/templates/mybase.html:32
+#: ihp/templates/base.html:393
+#: ihp/templates/base/_resourcebase_info_panel.html:153
+#: ihp/templates/metadata_detail.html:240 ihp/templates/mybase.html:32
 msgid "Language"
 msgstr "Taal"
 
-#: ihp/templates/base.html:204 ihp/templates/base.html.py:205
+#: ihp/templates/base.html:433 ihp/templates/base.html:434
 msgid "Username"
 msgstr "Gebruikersnaam"
 
-#: ihp/templates/base.html:208 ihp/templates/base.html.py:209
+#: ihp/templates/base.html:437 ihp/templates/base.html:438
 msgid "Password"
 msgstr "Wachtwoord"
 
-#: ihp/templates/base.html:212
+#: ihp/templates/base.html:441
 msgid "Remember Me"
 msgstr "Onthoud mij"
 
-#: ihp/templates/base.html:228
+#: ihp/templates/base.html:457
 msgid "Menu"
 msgstr "Menu"
 
-#: ihp/templates/base.html:232
+#: ihp/templates/base.html:461
 msgid "Upload Layers"
 msgstr "Laad lagen op"
 
-#: ihp/templates/base.html:234
+#: ihp/templates/base.html:463
 msgid "Profile"
 msgstr "Profiel"
 
-#: ihp/templates/base.html:235
+#: ihp/templates/base.html:464
 msgid "Recent Activity"
 msgstr "Recente activiteit"
 
-#: ihp/templates/base.html:236
+#: ihp/templates/base.html:465
 msgid "Inbox"
 msgstr "Inbox"
 
-#: ihp/templates/base.html:238
+#: ihp/templates/base.html:467
 msgid "Notifications"
 msgstr ""
 
-#: ihp/templates/base.html:241
+#: ihp/templates/base.html:470
 msgid "Announcements"
 msgstr ""
 
-#: ihp/templates/base.html:244
+#: ihp/templates/base.html:472 ihp/templates/invitations/forms/_invite.html:7
+#, fuzzy
+#| msgid "Invite people"
+msgid "Invite Users"
+msgstr "Nodig mensen uit"
+
+#: ihp/templates/base.html:474
 msgid "Remote Services"
 msgstr ""
 
-#: ihp/templates/base.html:245
-msgid "Invite User"
-msgstr ""
-
-#: ihp/templates/base.html:247
+#: ihp/templates/base.html:476
 msgid "GeoServer"
 msgstr "GeoServer"
 
-#: ihp/templates/base.html:250
+#: ihp/templates/base.html:480
+msgid "Monitoring"
+msgstr ""
+
+#: ihp/templates/base.html:483
 msgid "Admin"
 msgstr "Beheerder"
 
-#: ihp/templates/base.html:255
+#: ihp/templates/base.html:488
 msgid "Help"
 msgstr "Help"
 
-#: ihp/templates/base.html:261
+#: ihp/templates/base.html:494
 msgid "Log out"
 msgstr "Meld af"
 
-#: ihp/templates/base.html:298
-msgid "Type your search here ..."
-msgstr "Geef hier je zoekodpracht in..."
-
+#: ihp/templates/base.html:616
 #: ihp/templates/base/_resourcebase_info_panel.html:6
 #: ihp/templates/metadata_detail.html:43
 msgid "Title"
 msgstr "Titel"
 
+#: ihp/templates/base.html:617
+msgid "Message. Do you want to proceed?"
+msgstr ""
+
+#: ihp/templates/base.html:631
+msgid "Confirm"
+msgstr "Bevestig"
+
+#: ihp/templates/base.html:634
+msgid "Some text in the modal"
+msgstr ""
+
+#: ihp/templates/base.html:637
+msgid "Cancel"
+msgstr "Annuleer"
+
+#: ihp/templates/base.html:638 ihp/templates/layers/layouts/panels.html:523
+msgid "OK"
+msgstr ""
+
 #: ihp/templates/base/_resourcebase_info_panel.html:11
-#: ihp/templates/base/_resourcebase_info_panel.html:104
+#: ihp/templates/base/_resourcebase_info_panel.html:107
 msgid "SRID"
 msgstr "SRID"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:16
-#: ihp/templates/base/_resourcebase_info_panel.html:109
-#: ihp/templates/metadata_detail.html:57 ihp/templates/metadata_detail.html:193
+#: ihp/templates/base/_resourcebase_info_panel.html:112
+#: ihp/templates/metadata_detail.html:57 ihp/templates/metadata_detail.html:203
 msgid "License"
 msgstr "Licentie"
 
@@ -263,25 +425,29 @@ msgstr "Abstract"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:34
 #: ihp/templates/metadata_detail.html:71
-#: ihp/templates/search/_general_filters.html:66
 msgid "Date"
 msgstr "Datum"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:45
-#: ihp/templates/layers/layer_detail.html:511
+#: ihp/templates/layers/layer_detail.html:722
 #: ihp/templates/metadata_detail.html:76
 msgid "Type"
 msgstr "Type"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:50
-#: ihp/templates/metadata_detail.html:81 ihp/templates/metadata_detail.html:142
-#: ihp/templates/metadata_detail.html:284
-#: ihp/templates/metadata_detail.html:360
-#: ihp/templates/search/_h_keywords_filter.html:3
+#: ihp/templates/metadata_detail.html:81 ihp/templates/metadata_detail.html:152
+#: ihp/templates/metadata_detail.html:294
+#: ihp/templates/metadata_detail.html:370
 msgid "Keywords"
 msgstr "Trefwoorden"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:62
+#: ihp/templates/documents/document_metadata_advanced.html:58
+#: ihp/templates/documents/layouts/doc_panels.html:111
+#: ihp/templates/layers/layer_metadata_advanced.html:79
+#: ihp/templates/layers/layouts/panels.html:329
+#: ihp/templates/maps/layouts/map_panels.html:114
+#: ihp/templates/maps/map_metadata_advanced.html:58
 #: ihp/templates/metadata_detail.html:88
 msgid "Category"
 msgstr "Categorie"
@@ -292,61 +458,305 @@ msgid "Regions"
 msgstr "Streken"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:84
-#: ihp/templates/metadata_detail.html:112
-msgid "Owner"
-msgstr "Eigenaar"
+#: ihp/templates/metadata_detail.html:122
+msgid "Responsible"
+msgstr ""
 
 #: ihp/templates/base/_resourcebase_info_panel.html:89
+#: ihp/templates/documents/document_metadata.html:42
+#: ihp/templates/documents/document_metadata.html:66
+#: ihp/templates/documents/document_metadata_advanced.html:33
+#: ihp/templates/documents/document_metadata_advanced.html:82
+#: ihp/templates/layers/layer_metadata.html:53
+#: ihp/templates/layers/layer_metadata.html:84
+#: ihp/templates/layers/layer_metadata_advanced.html:44
+#: ihp/templates/layers/layer_metadata_advanced.html:124
+#: ihp/templates/maps/map_metadata.html:68
+#: ihp/templates/maps/map_metadata_advanced.html:82
 msgid "Point of Contact"
 msgstr "Contacteer"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:94
+#: ihp/templates/documents/layouts/doc_panels.html:130
+#: ihp/templates/layers/layouts/panels.html:349
+#: ihp/templates/maps/layouts/map_panels.html:133
+#: ihp/templates/metadata_detail.html:112
 #, fuzzy
 #| msgid "Groups"
 msgid "Group"
 msgstr "Groepen"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:121
-#: ihp/templates/metadata_detail.html:206
+#: ihp/templates/base/_resourcebase_info_panel.html:124
+#: ihp/templates/metadata_detail.html:216
 msgid "Maintenance Frequency"
 msgstr "Onderhoudsfrequentie"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:129
-#: ihp/templates/metadata_detail.html:211
+#: ihp/templates/base/_resourcebase_info_panel.html:132
+#: ihp/templates/metadata_detail.html:221
 msgid "Restrictions"
 msgstr "Beperkingen"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:137
-#: ihp/templates/metadata_detail.html:220
+#: ihp/templates/base/_resourcebase_info_panel.html:140
+#: ihp/templates/metadata_detail.html:230
 msgid "Edition"
 msgstr "Editie"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:145
-#: ihp/templates/metadata_detail.html:225
+#: ihp/templates/base/_resourcebase_info_panel.html:148
+#: ihp/templates/metadata_detail.html:235
 msgid "Purpose"
 msgstr "Doel"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:155
-#: ihp/templates/metadata_detail.html:235
+#: ihp/templates/base/_resourcebase_info_panel.html:158
+#: ihp/templates/metadata_detail.html:245
 msgid "Temporal Extent"
 msgstr ""
 
-#: ihp/templates/base/_resourcebase_info_panel.html:160
-#: ihp/templates/metadata_detail.html:240
+#: ihp/templates/base/_resourcebase_info_panel.html:163
+#: ihp/templates/metadata_detail.html:250
 msgid "Data Quality"
 msgstr "Data kwaliteit"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:165
-#: ihp/templates/metadata_detail.html:245
+#: ihp/templates/base/_resourcebase_info_panel.html:168
+#: ihp/templates/metadata_detail.html:255
 msgid "Supplemental Information"
 msgstr "Bijkomende informatie"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:170
-#: ihp/templates/metadata_detail.html:250
+#: ihp/templates/base/_resourcebase_info_panel.html:173
+#: ihp/templates/metadata_detail.html:260
 msgid "Spatial Representation Type"
 msgstr ""
 
-#: ihp/templates/faq_page_template.html:69
+#: ihp/templates/doc_page_template.html:10 ihp/templates/mybase.html:24
+#, fuzzy
+#| msgid "Getting Started"
+msgid "Get Started"
+msgstr "Beginnen"
+
+#: ihp/templates/documents/document_detail.html:44
+msgid "External Resource"
+msgstr "Externe bron"
+
+#: ihp/templates/documents/document_detail.html:73
+msgid "Rate this document"
+msgstr "Rate het document"
+
+#: ihp/templates/documents/document_detail.html:77
+#: ihp/templates/layers/layer_detail.html:267
+#: ihp/templates/maps/map_detail.html:107
+msgid "Average Rating"
+msgstr "Gemiddelde waardering"
+
+#: ihp/templates/documents/document_detail.html:97
+#: ihp/templates/layers/layer_detail.html:451
+#: ihp/templates/maps/map_detail.html:134
+msgid "Metadata Detail"
+msgstr "Metadata detail"
+
+#: ihp/templates/documents/document_detail.html:105
+#: ihp/templates/documents/document_detail.html:107
+#: ihp/templates/documents/document_detail.html:109
+msgid "Download Document"
+msgstr "Download Document"
+
+#: ihp/templates/documents/document_detail.html:113
+#: ihp/templates/layers/layer_detail.html:291
+msgid "Request Download"
+msgstr "Verzoek om te downloaden"
+
+#: ihp/templates/documents/document_detail.html:121
+#: ihp/templates/layers/layer_detail.html:458
+#: ihp/templates/maps/map_detail.html:141
+#, fuzzy
+#| msgid "Request Download"
+msgid "Request change"
+msgstr "Verzoek om te downloaden"
+
+#: ihp/templates/documents/document_detail.html:127
+#: ihp/templates/documents/document_detail.html:136
+msgid "Edit Document"
+msgstr "Bewerk document"
+
+#: ihp/templates/documents/document_detail.html:144
+#: ihp/templates/documents/document_metadata.html:17
+#: ihp/templates/layers/layer_detail.html:478
+#: ihp/templates/layers/layer_metadata.html:19
+#: ihp/templates/maps/map_detail.html:184
+#: ihp/templates/maps/map_metadata.html:20
+#: ihp/templates/metadata_detail.html:32
+msgid "Metadata"
+msgstr "Metadata"
+
+#: ihp/templates/documents/document_detail.html:145
+#: ihp/templates/layers/layer_detail.html:479
+#: ihp/templates/maps/map_detail.html:185
+msgid "Wizard"
+msgstr ""
+
+#: ihp/templates/documents/document_detail.html:146
+#: ihp/templates/layers/layer_detail.html:480
+#: ihp/templates/maps/map_detail.html:186
+msgid "Advanced Edit"
+msgstr ""
+
+#: ihp/templates/documents/document_detail.html:152
+#: ihp/templates/layers/layer_detail.html:516
+#: ihp/templates/layers/layouts/panels.html:273
+#: ihp/templates/maps/layouts/map_panels.html:59
+#: ihp/templates/maps/map_detail.html:192
+msgid "Thumbnail"
+msgstr "Thumbnail"
+
+#: ihp/templates/documents/document_detail.html:153
+#: ihp/templates/layers/layer_detail.html:499
+#: ihp/templates/maps/map_detail.html:194
+#, fuzzy
+#| msgid "Upload Layers"
+msgid "Upload"
+msgstr "Laad lagen op"
+
+#: ihp/templates/documents/document_detail.html:159
+msgid "Document"
+msgstr "Document"
+
+#: ihp/templates/documents/document_detail.html:161
+#: ihp/templates/layers/layer_detail.html:525
+msgid "Replace"
+msgstr "Vervang"
+
+#: ihp/templates/documents/document_detail.html:164
+#: ihp/templates/layers/layer_detail.html:531
+#: ihp/templates/maps/map_detail.html:202
+msgid "Remove"
+msgstr "Verwijder"
+
+#: ihp/templates/documents/document_detail.html:171
+#: ihp/templates/documents/document_detail.html:207
+#: ihp/templates/layers/layer_detail.html:435
+#: ihp/templates/layers/layer_detail.html:538
+#: ihp/templates/layers/layer_detail.html:588
+#: ihp/templates/maps/map_detail.html:163
+#: ihp/templates/maps/map_detail.html:208
+#: ihp/templates/maps/map_detail.html:314
+#: ihp/templates/maps/map_detail.html:334
+msgid "Close"
+msgstr "Sluit"
+
+#: ihp/templates/documents/document_detail.html:178
+#: ihp/templates/documents/document_detail.html:185
+#: ihp/templates/layers/layer_detail.html:550
+#: ihp/templates/layers/layer_detail.html:558
+msgid "Download Metadata"
+msgstr "Download Metadata"
+
+#: ihp/templates/documents/document_detail.html:214
+#, fuzzy
+#| msgid "Resource using this document"
+msgid "Resources using this document"
+msgstr "Bron die dit document gebruikt"
+
+#: ihp/templates/documents/document_detail.html:216
+msgid "List of resources using this document:"
+msgstr "Lijst van bronnen die dit document gebruiken:"
+
+#: ihp/templates/documents/document_detail.html:222
+msgid "This document is not related to any maps or layers"
+msgstr "Dit document is aan geen enkele kaart of laag gekoppeld"
+
+#: ihp/templates/documents/document_detail.html:230
+msgid "Click the button below to change the permissions of this document."
+msgstr ""
+"Klik op de onderstaande knop om de rechten van dit document te wijzigen"
+
+#: ihp/templates/documents/document_detail.html:231
+msgid "Change Document Permissions"
+msgstr "Wijzig de rechten op het document"
+
+#: ihp/templates/documents/document_list.html:5
+#: ihp/templates/documents/document_list.html:14
+#, fuzzy
+#| msgid "Explore Layers"
+msgid "Explore Library"
+msgstr "Verken Lagen"
+
+#: ihp/templates/documents/document_list.html:12
+msgid "Upload Documents"
+msgstr "Documenten uploaden"
+
+#: ihp/templates/documents/document_metadata.html:17
+#, python-format
+msgid "for %(document_title)s"
+msgstr ""
+
+#: ihp/templates/documents/document_metadata.html:35
+#: ihp/templates/documents/document_metadata_advanced.html:26
+#: ihp/templates/layers/layer_metadata.html:46
+#: ihp/templates/layers/layer_metadata_advanced.html:37
+#: ihp/templates/maps/map_metadata.html:44
+#: ihp/templates/maps/map_metadata_advanced.html:34
+msgid "Error updating metadata.  Please check the following fields: "
+msgstr ""
+
+#: ihp/templates/documents/document_metadata.html:38
+#: ihp/templates/documents/document_metadata_advanced.html:29
+#: ihp/templates/layers/layer_metadata.html:49
+#: ihp/templates/layers/layer_metadata_advanced.html:40
+#: ihp/templates/metadata_detail.html:341
+msgid "Metadata Author"
+msgstr "Metadata auteur"
+
+#: ihp/templates/documents/document_metadata.html:71
+#: ihp/templates/documents/document_metadata_advanced.html:87
+#: ihp/templates/layers/layer_metadata.html:89
+#: ihp/templates/layers/layer_metadata_advanced.html:129
+#: ihp/templates/maps/map_metadata.html:73
+#: ihp/templates/maps/map_metadata_advanced.html:87
+#, fuzzy
+#| msgid "Metadata Author"
+msgid "Metadata Provider"
+msgstr "Metadata auteur"
+
+#: ihp/templates/documents/document_metadata.html:77
+#: ihp/templates/layers/layer_metadata.html:97
+#: ihp/templates/maps/map_metadata.html:79
+msgid "<< Back"
+msgstr ""
+
+#: ihp/templates/documents/document_metadata.html:78
+#: ihp/templates/documents/document_metadata_advanced.html:48
+#: ihp/templates/documents/document_metadata_advanced.html:92
+#: ihp/templates/layers/layer_metadata.html:98
+#: ihp/templates/layers/layer_metadata_advanced.html:69
+#: ihp/templates/layers/layer_metadata_advanced.html:137
+#: ihp/templates/maps/map_metadata.html:80
+#: ihp/templates/maps/map_metadata_advanced.html:49
+#: ihp/templates/maps/map_metadata_advanced.html:93
+msgid "Update"
+msgstr "Update"
+
+#: ihp/templates/documents/document_metadata.html:79
+#: ihp/templates/layers/layer_metadata.html:99
+#: ihp/templates/maps/map_metadata.html:81
+msgid "Next >>"
+msgstr ""
+
+#: ihp/templates/documents/document_metadata_advanced.html:16
+msgid "Explore Documents"
+msgstr "Verken Documenten"
+
+#: ihp/templates/documents/document_metadata_advanced.html:17
+#: ihp/templates/layers/layer_metadata_advanced.html:17
+#: ihp/templates/maps/map_metadata_advanced.html:17
+msgid "Edit Metadata"
+msgstr "Bewerk Metadata"
+
+#: ihp/templates/documents/document_metadata_advanced.html:22
+#, fuzzy
+#| msgid "Edit Members for"
+msgid "Editing details for"
+msgstr "Bewerk leden voor"
+
+#: ihp/templates/faq_page_template.html:10
+#: ihp/templates/faq_page_template.html:98
 msgid "Frequently Asked Questions"
 msgstr ""
 
@@ -354,59 +764,60 @@ msgstr ""
 msgid "Welcome!"
 msgstr "Welkom !"
 
-#: ihp/templates/index.html:33
+#: ihp/templates/index.html:34
 #, fuzzy
 #| msgid "Welcome"
 msgid "Welcome to "
 msgstr "Welkom"
 
-#: ihp/templates/index.html:121
+#: ihp/templates/index.html:122
 msgid "Welcome"
 msgstr "Welkom"
 
-#: ihp/templates/index.html:122
+#: ihp/templates/index.html:123
 msgid ""
 "GeoNode is an open source platform for sharing geospatial data and maps."
 msgstr ""
 "GeoNode is een open-source platform voor het delen van geografische data en "
 "kaarten."
 
-#: ihp/templates/index.html:123
+#: ihp/templates/index.html:124
 msgid ""
 "If you have any questions about the software or service, join our <a href="
 "\"http://lists.osgeo.org/cgi-bin/mailman/listinfo/geonode-users\">mailing "
 "list</a>."
 msgstr ""
 
-#: ihp/templates/index.html:124
+#: ihp/templates/index.html:125
 msgid "Need help?"
 msgstr "Hulp nodig ?"
 
-#: ihp/templates/index.html:124
+#: ihp/templates/index.html:125
 msgid "Getting Started"
 msgstr "Beginnen"
 
-#: ihp/templates/index.html:128
+#: ihp/templates/index.html:129
 msgid "Welcome to the Water Information Network System"
 msgstr ""
 
-#: ihp/templates/index.html:129
+#: ihp/templates/index.html:130
 msgid "by the International Hydrological Programme of UNESCO"
 msgstr ""
 
-#: ihp/templates/index.html:143 ihp/templates/index.html.py:153
-#: ihp/templates/index.html:163 ihp/templates/metadata_detail.html:103
+#: ihp/templates/index.html:144 ihp/templates/index.html:154
+#: ihp/templates/index.html:164 ihp/templates/metadata_detail.html:103
 #: ihp/templates/metadata_detail.html:106
+#: ihp/templates/metadata_detail.html:109
 msgid "No"
 msgstr "Nee"
 
-#: ihp/templates/index.html:143 ihp/templates/layers/layer_detail.html:365
+#: ihp/templates/index.html:144 ihp/templates/layers/layer_detail.html:523
 msgid "Layer"
 msgid_plural "Layers"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ihp/templates/index.html:144
+#: ihp/templates/index.html:145
 msgid ""
 "Click to search for geospatial data published by other users, organizations "
 "and public sources. Download data in standard formats."
@@ -415,42 +826,43 @@ msgstr ""
 "gebruikers, organisaties en publieke bronnen. Download data in standaard "
 "formaten."
 
-#: ihp/templates/index.html:146
+#: ihp/templates/index.html:147
 msgid "Add layers"
 msgstr "Voeg lagen toe"
 
-#: ihp/templates/index.html:148
+#: ihp/templates/index.html:149
 msgid "Explore layers"
 msgstr "Verken lagen"
 
-#: ihp/templates/index.html:153 ihp/templates/maps/map_view.html:6
+#: ihp/templates/index.html:154 ihp/templates/maps/map_detail.html:200
+#: ihp/templates/maps/map_view.html:7
 msgid "Map"
 msgid_plural "Maps"
 msgstr[0] "Kaart"
 msgstr[1] "Kaarten"
 
-#: ihp/templates/index.html:154
+#: ihp/templates/index.html:155
 msgid ""
 "Data is available for browsing, aggregating and styling to generate maps "
 "which can be saved, downloaded, shared publicly or restricted to specify "
 "users only."
 msgstr ""
 
-#: ihp/templates/index.html:156
+#: ihp/templates/index.html:157
 msgid "Create maps"
 msgstr "Maak kaarten aan"
 
-#: ihp/templates/index.html:158
+#: ihp/templates/index.html:159
 msgid "Explore maps"
 msgstr "Verken Kaarten"
 
-#: ihp/templates/index.html:163
+#: ihp/templates/index.html:164
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Gebruiker"
 msgstr[1] "Gebruikers"
 
-#: ihp/templates/index.html:164
+#: ihp/templates/index.html:165
 #, fuzzy
 #| msgid ""
 #| "GeoNode allows registered users to easily upload geospatial data in "
@@ -462,225 +874,278 @@ msgstr ""
 "GeoNode laat toe om geospatial data in verschillende formaten waaronder "
 "shapefile en GeoTIFF gemakkelijk te uploaden."
 
-#: ihp/templates/index.html:165
+#: ihp/templates/index.html:166
 msgid "See users"
 msgstr "Bekijk gebruikers"
 
-#: ihp/templates/layers/layer_detail.html:65
+#: ihp/templates/invitations/forms/_invite.html:13
+msgid "Max. 200 email addresses"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:63
+#, fuzzy
+#| msgid "Services"
+msgid "Service is"
+msgstr "Services"
+
+#: ihp/templates/layers/layer_detail.html:63
+msgid "online"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:63
+msgid "offline"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:87
+msgid "Layer WMS GetCapabilities document"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:97
 msgid "Filter Granules"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:68
+#: ihp/templates/layers/layer_detail.html:100
 msgid "Active Filter:"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:74
+#: ihp/templates/layers/layer_detail.html:106
 msgid "Granule ID"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:75
+#: ihp/templates/layers/layer_detail.html:107
 msgid "Bounding Box"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:76
+#: ihp/templates/layers/layer_detail.html:108
 msgid "Time"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:77
+#: ihp/templates/layers/layer_detail.html:109
 msgid "Elevation"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:78
+#: ihp/templates/layers/layer_detail.html:110
 msgid "Actions"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:140
+#: ihp/templates/layers/layer_detail.html:172
 msgid "Dimension"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:141
+#: ihp/templates/layers/layer_detail.html:173
 msgid "Enabled"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:142
+#: ihp/templates/layers/layer_detail.html:174
 msgid "Regex"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:147
+#: ihp/templates/layers/layer_detail.html:179
 msgid "TIME"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:148
-#: ihp/templates/layers/layer_detail.html:153
+#: ihp/templates/layers/layer_detail.html:180
+#: ihp/templates/layers/layer_detail.html:185
 msgid "True"
 msgstr "Waar"
 
-#: ihp/templates/layers/layer_detail.html:148
-#: ihp/templates/layers/layer_detail.html:153
+#: ihp/templates/layers/layer_detail.html:180
+#: ihp/templates/layers/layer_detail.html:185
 msgid "False"
 msgstr "Niet waar"
 
-#: ihp/templates/layers/layer_detail.html:152
+#: ihp/templates/layers/layer_detail.html:184
 msgid "ELEVATION"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:163
+#: ihp/templates/layers/layer_detail.html:195
 msgid "Attribute Name"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:164
+#: ihp/templates/layers/layer_detail.html:196
+#: ihp/templates/layers/layer_metadata_advanced.html:107
+#: ihp/templates/layers/layouts/panels.html:545
 msgid "Label"
 msgstr "Label"
 
-#: ihp/templates/layers/layer_detail.html:165
+#: ihp/templates/layers/layer_detail.html:197
+#: ihp/templates/layers/layer_metadata_advanced.html:108
+#: ihp/templates/layers/layouts/panels.html:546
 msgid "Description"
 msgstr "Beschrijving"
 
-#: ihp/templates/layers/layer_detail.html:167
+#: ihp/templates/layers/layer_detail.html:199
 msgid "Range"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:168
+#: ihp/templates/layers/layer_detail.html:200
 msgid "Average"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:169
+#: ihp/templates/layers/layer_detail.html:201
 msgid "Median"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:170
+#: ihp/templates/layers/layer_detail.html:202
 msgid "Standard Deviation"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:231
+#: ihp/templates/layers/layer_detail.html:263
 msgid "Rate this layer"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:235
-msgid "Average Rating"
-msgstr "Gemiddelde waardering"
+#: ihp/templates/layers/layer_detail.html:283
+msgid "Analyze with"
+msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:252
-#: ihp/templates/layers/layer_detail.html:265
+#: ihp/templates/layers/layer_detail.html:288
+#: ihp/templates/layers/layer_detail.html:301
 msgid "Download Layer"
 msgstr "Download laag"
 
-#: ihp/templates/layers/layer_detail.html:255
-msgid "Request Download"
-msgstr "Verzoek om te downloaden"
+#: ihp/templates/layers/layer_detail.html:335
+#, fuzzy
+#| msgid "Are you sure you want to log out?"
+msgid "Do you want to filter it?"
+msgstr "Ben je zeker dat je wil afmelden ?"
 
-#: ihp/templates/layers/layer_detail.html:304
-#: ihp/templates/layers/layer_detail.html:377
-#: ihp/templates/layers/layer_detail.html:423
-msgid "Close"
-msgstr "Sluit"
+#: ihp/templates/layers/layer_detail.html:338
+msgid "Loading..."
+msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:316
-msgid "Metadata Detail"
-msgstr "Metadata detail"
+#: ihp/templates/layers/layer_detail.html:342
+#, fuzzy
+#| msgid "Select an attribute"
+msgid "Filter by attributes"
+msgstr "Selecteer een attribuutwaarde"
 
-#: ihp/templates/layers/layer_detail.html:322
-#: ihp/templates/layers/layer_detail.html:329
+#: ihp/templates/layers/layer_detail.html:349
+msgid "Match"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:364
+#, fuzzy
+#| msgid "The following users:"
+msgid "of the following:"
+msgstr "De volgende gebruikers:"
+
+#: ihp/templates/layers/layer_detail.html:371
+#: ihp/templates/layers/layer_metadata_advanced.html:106
+#: ihp/templates/layers/layouts/panels.html:544
+msgid "Attribute"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:388
+msgid "Operator"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:422
+msgid "Pick your download format:"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:464
+#: ihp/templates/layers/layer_detail.html:471
 msgid "Edit Layer"
 msgstr "Editeer laag"
 
-#: ihp/templates/layers/layer_detail.html:336
-#: ihp/templates/metadata_detail.html:32
-msgid "Metadata"
-msgstr "Metadata"
-
-#: ihp/templates/layers/layer_detail.html:337
-msgid "Wizard"
-msgstr ""
-
-#: ihp/templates/layers/layer_detail.html:338
-msgid "Advanced Edit"
-msgstr ""
-
-#: ihp/templates/layers/layer_detail.html:339
+#: ihp/templates/layers/layer_detail.html:481
 #, fuzzy
 #| msgid "Download Metadata"
 msgid "Upload Metadata"
 msgstr "Download Metadata"
 
-#: ihp/templates/layers/layer_detail.html:346
-#: ihp/templates/layers/layer_detail.html:477
+#: ihp/templates/layers/layer_detail.html:484
+msgid "Gazetteer"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:492
+#: ihp/templates/layers/layer_detail.html:508
+#: ihp/templates/layers/layer_detail.html:663
 msgid "Styles"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:348
+#: ihp/templates/layers/layer_detail.html:494
+#: ihp/templates/layers/layer_detail.html:496
+#: ihp/templates/layers/layer_detail.html:509
+#: ihp/templates/layers/layouts/panels.html:219
+#: ihp/templates/layers/layouts/panels.html:288
+#: ihp/templates/maps/layouts/map_panels.html:74
+#: ihp/templates/maps/map_detail.html:201
 msgid "Edit"
 msgstr "Bewerk"
 
-#: ihp/templates/layers/layer_detail.html:350
-#, fuzzy
-#| msgid "Upload Layers"
-msgid "Upload"
-msgstr "Laad lagen op"
-
-#: ihp/templates/layers/layer_detail.html:351
+#: ihp/templates/layers/layer_detail.html:500
 msgid "Manage"
 msgstr "Beheer"
 
-#: ihp/templates/layers/layer_detail.html:358
-msgid "Thumbnail"
-msgstr "Thumbnail"
-
-#: ihp/templates/layers/layer_detail.html:359
+#: ihp/templates/layers/layer_detail.html:517
+#: ihp/templates/maps/map_detail.html:193
 msgid "Set"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:367
-msgid "Replace"
-msgstr "Vervang"
+#: ihp/templates/layers/layer_detail.html:528
+msgid "Edit data"
+msgstr "Bewerk data"
 
-#: ihp/templates/layers/layer_detail.html:370
-msgid "Remove"
-msgstr "Verwijder"
+#: ihp/templates/layers/layer_detail.html:546
+#, fuzzy
+#| msgid "Edit Layer"
+msgid "View Layer"
+msgstr "Editeer laag"
 
-#: ihp/templates/layers/layer_detail.html:385
-#: ihp/templates/layers/layer_detail.html:393
-msgid "Download Metadata"
-msgstr "Download Metadata"
-
-#: ihp/templates/layers/layer_detail.html:431
+#: ihp/templates/layers/layer_detail.html:596
 msgid "Legend"
 msgstr "Legende"
 
-#: ihp/templates/layers/layer_detail.html:445
+#: ihp/templates/layers/layer_detail.html:616
 msgid "Maps using this layer"
 msgstr "Kaarten die deze layer gebruiken"
 
-#: ihp/templates/layers/layer_detail.html:447
+#: ihp/templates/layers/layer_detail.html:618
 msgid "List of maps using this layer:"
 msgstr "Lijst van kaarten die deze layer gebruiken:"
 
-#: ihp/templates/layers/layer_detail.html:453
+#: ihp/templates/layers/layer_detail.html:624
 msgid "This layer is not currently used in any maps."
 msgstr "Deze laag wordt op dit ogenblik niet gebruikt in een kaart"
 
-#: ihp/templates/layers/layer_detail.html:458
+#: ihp/templates/layers/layer_detail.html:629
 msgid "Create a map using this layer"
 msgstr "Maak een kaart op basis van deze laag"
 
-#: ihp/templates/layers/layer_detail.html:459
+#: ihp/templates/layers/layer_detail.html:630
 msgid "Click the button below to generate a new map based on this layer."
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:460
-#: ihp/templates/search/_search_content.html:16
+#: ihp/templates/layers/layer_detail.html:631
 msgid "Create a Map"
 msgstr "Maak een Kaart"
 
-#: ihp/templates/layers/layer_detail.html:465
+#: ihp/templates/layers/layer_detail.html:635
+msgid "Add the layer to an existing map"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:643
+#, fuzzy
+#| msgid "Click the button below to change the permissions of this layer."
+msgid "Click the button below to add the layer to the selected map."
+msgstr "Klik hieronder om de rechten op de layer te wijzigen."
+
+#: ihp/templates/layers/layer_detail.html:645
+#, fuzzy
+#| msgid "Add to Favorites"
+msgid "Add to Map"
+msgstr "Voeg toe aan favorieten"
+
+#: ihp/templates/layers/layer_detail.html:652
 msgid "Documents related to this layer"
 msgstr "Documenten gekoppeld aan deze laag"
 
-#: ihp/templates/layers/layer_detail.html:466
+#: ihp/templates/layers/layer_detail.html:653
 msgid "List of documents related to this layer:"
 msgstr "Lijst van documenten gekoppeld aan deze layer:"
 
-#: ihp/templates/layers/layer_detail.html:478
+#: ihp/templates/layers/layer_detail.html:664
 msgid ""
 "The following styles are associated with this layer. Choose a style to view "
 "it in the preview map."
@@ -688,45 +1153,360 @@ msgstr ""
 "De volgende stijlen zijn gekoppeld aan deze layer. Kies een stijl om deze te "
 "bekijken in de voorvertoning van de kaart."
 
-#: ihp/templates/layers/layer_detail.html:491
+#: ihp/templates/layers/layer_detail.html:678
+#: ihp/templates/layers/layer_detail.html:692
 msgid "No styles associated with this layer"
 msgstr "Geen stijlen gekoppeld aan deze laag"
 
-#: ihp/templates/layers/layer_detail.html:500
-msgid "Permissions"
-msgstr "Rechten"
+#: ihp/templates/layers/layer_detail.html:701
+#, fuzzy
+#| msgid "Create a map using this layer"
+msgid "Clear the Server Cache of this layer"
+msgstr "Maak een kaart op basis van deze laag"
 
-#: ihp/templates/layers/layer_detail.html:501
+#: ihp/templates/layers/layer_detail.html:702
+#, fuzzy
+#| msgid "Click the button below to change the permissions of this layer."
+msgid "Click the button below to wipe the tile-cache of this layer."
+msgstr "Klik hieronder om de rechten op de layer te wijzigen."
+
+#: ihp/templates/layers/layer_detail.html:703
+msgid "Empty Tiled-Layer Cache"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:712
 msgid "Click the button below to change the permissions of this layer."
 msgstr "Klik hieronder om de rechten op de layer te wijzigen."
 
-#: ihp/templates/layers/layer_detail.html:502
+#: ihp/templates/layers/layer_detail.html:713
 msgid "Change Layer Permissions"
 msgstr "Wijzig de rechten van de laag"
 
-#: ihp/templates/layers/layer_detail.html:509
+#: ihp/templates/layers/layer_detail.html:720
 msgid "External service layer"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:510
+#: ihp/templates/layers/layer_detail.html:721
 msgid "Source"
 msgstr "Bron"
 
-#: ihp/templates/maps/map_edit.html:6
+#: ihp/templates/layers/layer_edit.html:57
+#: ihp/templates/layers/layer_map.html:57
+#: ihp/templates/layers/layer_style_edit.html:57
+#, fuzzy
+#| msgid "Layers"
+msgid "layers"
+msgstr "Lagen"
+
+#: ihp/templates/layers/layer_metadata.html:19
+#, python-format
+msgid "for %(layer_title)s"
+msgstr ""
+
+#: ihp/templates/layers/layer_metadata.html:37
+#: ihp/templates/layers/layer_metadata_advanced.html:28
+msgid ""
+"Note: this layer's orginal metadata was populated and preserved by importing "
+"a metadata XML file.\n"
+"          This metadata cannot be edited."
+msgstr ""
+
+#: ihp/templates/layers/layer_metadata.html:40
+#: ihp/templates/layers/layer_metadata_advanced.html:31
+msgid ""
+"Note: this layer's orginal metadata was populated by importing a metadata "
+"XML file.\n"
+"          GeoNode's metadata import supports a subset of ISO, FGDC, and "
+"Dublin Core metadata elements.\n"
+"          Some of your original metadata may have been lost."
+msgstr ""
+
+#: ihp/templates/layers/layer_metadata.html:62
+#: ihp/templates/layers/layer_metadata_advanced.html:53
+#: ihp/templates/layers/layer_metadata_advanced.html:102
+msgid "Attributes"
+msgstr ""
+
+#: ihp/templates/layers/layer_metadata.html:96
+#: ihp/templates/layers/layer_metadata_advanced.html:68
+#: ihp/templates/layers/layer_metadata_advanced.html:136
+#: ihp/templates/metadata_detail.html:28
+msgid "Return to Layer"
+msgstr "Keer terug naar laag"
+
+#: ihp/templates/layers/layer_metadata_advanced.html:16
+msgid "Explore Layers"
+msgstr "Verken Lagen"
+
+#: ihp/templates/layers/layer_metadata_advanced.html:22
+#, fuzzy, python-format
+#| msgid ""
+#| "\n"
+#| "        Editing details for %(map_title)s\n"
+#| "      "
+msgid ""
+"\n"
+"        Editing details for %(layer_title)s\n"
+"      "
+msgstr ""
+"\n"
+"Bewerk %(map_title)s"
+
+#: ihp/templates/layers/layer_metadata_advanced.html:109
+#: ihp/templates/layers/layouts/panels.html:547
+msgid "Display Order"
+msgstr ""
+
+#: ihp/templates/layers/layouts/panels.html:214
+msgid "Done!"
+msgstr ""
+
+#: ihp/templates/layers/layouts/panels.html:222
+msgid "Preview"
+msgstr "Bekijk preview"
+
+#: ihp/templates/layers/layouts/panels.html:225
+#, fuzzy
+#| msgid "Ratings"
+msgid "Settings"
+msgstr "Waarderingen"
+
+#: ihp/templates/layers/layouts/panels.html:234
+#: ihp/templates/layers/layouts/panels.html:237
+msgid "Mandatory"
+msgstr ""
+
+#: ihp/templates/layers/layouts/panels.html:240
+msgid "Optional"
+msgstr ""
+
+#: ihp/templates/layers/layouts/panels.html:245
+#, fuzzy
+#| msgid "Edit Metadata"
+msgid "Basic Metadata"
+msgstr "Bewerk Metadata"
+
+#: ihp/templates/layers/layouts/panels.html:248
+msgid "Location and Licenses"
+msgstr ""
+
+#: ihp/templates/layers/layouts/panels.html:251
+#, fuzzy
+#| msgid "Download Metadata"
+msgid "Optional Metadata"
+msgstr "Download Metadata"
+
+#: ihp/templates/layers/layouts/panels.html:254
+msgid "Dataset Attributes"
+msgstr ""
+
+#: ihp/templates/layers/layouts/panels.html:282
+#: ihp/templates/maps/layouts/map_panels.html:68
+msgid "Save"
+msgstr "Bewaar"
+
+#: ihp/templates/layers/layouts/panels.html:331
+#: ihp/templates/layers/layouts/panels.html:351
+msgid "Choose one of the following..."
+msgstr ""
+
+#: ihp/templates/layers/layouts/panels.html:445
+#, fuzzy
+#| msgid "Download Metadata"
+msgid "Other, Optional, Metadata"
+msgstr "Download Metadata"
+
+#: ihp/templates/layers/layouts/panels.html:487
+msgid "Responsible Parties"
+msgstr ""
+
+#: ihp/templates/layers/layouts/panels.html:495
+#, fuzzy
+#| msgid "Change Layer Permissions"
+msgid "Owner and Permissions"
+msgstr "Wijzig de rechten van de laag"
+
+#: ihp/templates/layers/layouts/panels.html:517
+#, fuzzy
+#| msgid "Message Inbox"
+msgid "Message box"
+msgstr "Inbox"
+
+#: ihp/templates/layers/layouts/panels.html:584
+#, fuzzy
+#| msgid "Published"
+msgid "Publishing"
+msgstr "Gepubliceerd"
+
+#: ihp/templates/layers/layouts/panels.html:613
+#, fuzzy
+#| msgid "Notice settings"
+msgid "Other Settings"
+msgstr "Notice settings"
+
+#: ihp/templates/maps/map_detail.html:26
+msgid "maps"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:84
+msgid "Map layers WMS GetCapabilities document"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:103
+#, fuzzy
+#| msgid "Rate this document"
+msgid "Rate this Map"
+msgstr "Rate het document"
+
+#: ihp/templates/maps/map_detail.html:128
+#: ihp/templates/maps/map_detail.html:151
+#, fuzzy
+#| msgid "Download"
+msgid "Download Map"
+msgstr "Download"
+
+#: ihp/templates/maps/map_detail.html:170
+#: ihp/templates/maps/map_detail.html:177 ihp/templates/maps/map_edit.html:7
 msgid "Edit Map"
 msgstr ""
 
-#: ihp/templates/maps/map_new.html:6
+#: ihp/templates/maps/map_detail.html:216
+#: ihp/templates/maps/map_detail.html:218
+#, fuzzy
+#| msgid "View"
+msgid "View Map"
+msgstr "View"
+
+#: ihp/templates/maps/map_detail.html:229
+msgid "Map Layers"
+msgstr "Kaartlagen"
+
+#: ihp/templates/maps/map_detail.html:230
+msgid "This map uses the following layers:"
+msgstr "Deze kaart gebruikt volgende layers:"
+
+#: ihp/templates/maps/map_detail.html:246
+msgid "Documents related to this map"
+msgstr "Documenten gekoppeld aan deze kaart"
+
+#: ihp/templates/maps/map_detail.html:247
+msgid "List of documents related to this map:"
+msgstr "Lijst van de documenten gekoppeld aan deze kaart"
+
+#: ihp/templates/maps/map_detail.html:259
+msgid "Specify which users can view or modify this map"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:260
+msgid "Change Permissions of this Map"
+msgstr "Wijzig de rechten van deze kaart"
+
+#: ihp/templates/maps/map_detail.html:266
+msgid "Copy this map"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:267
+msgid "Duplicate this map and modify it for your own purposes"
+msgstr ""
+"Maak een kopie van deze kaart om die naar je eigen voorkeur te bewerken"
+
+#: ihp/templates/maps/map_detail.html:268
+#, fuzzy
+#| msgid "Create a Map"
+msgid "Create a New Map"
+msgstr "Maak een Kaart"
+
+#: ihp/templates/maps/map_detail.html:272
+msgid "Embed this map"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:273
+#, fuzzy
+#| msgid "Duplicate this map and modify it for your own purposes"
+msgid "Embed this map to your own sites"
+msgstr ""
+"Maak een kopie van deze kaart om die naar je eigen voorkeur te bewerken"
+
+#: ihp/templates/maps/map_detail.html:277
+#, fuzzy
+#| msgid "Remove Map"
+msgid "Embed Map"
+msgstr "Verwijder kaart"
+
+#: ihp/templates/maps/map_detail.html:280
+msgid "Embed Iframe Link"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:282
+msgid "Embed Widget Link"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:284
+#, fuzzy
+#| msgid "Download Layer"
+msgid "Download Leaflet page"
+msgstr "Download laag"
+
+#: ihp/templates/maps/map_detail.html:304
+msgid "Embed Iframe"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:307
+msgid ""
+"To embed this map, add the following code snippet and customize its "
+"properties (scrolling, width, height) based on your needs to your site"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:326
+msgid "Embed Widget"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:329
+msgid "To embed this map, copy the following code snippet into your own page"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:333
+msgid "Copy to Clipboard"
+msgstr ""
+
+#: ihp/templates/maps/map_metadata.html:20
+#, python-format
+msgid "for %(map_title)s"
+msgstr ""
+
+#: ihp/templates/maps/map_metadata.html:38
+#: ihp/templates/maps/map_metadata_advanced.html:28
+msgid ""
+"Note: this map's orginal metadata was populated by importing a metadata XML "
+"file.\n"
+"        GeoNode's metadata import supports a subset of ISO, FGDC, and Dublin "
+"Core metadata elements.\n"
+"        Some of your original metadata may have been lost."
+msgstr ""
+
+#: ihp/templates/maps/map_metadata_advanced.html:16
+#, fuzzy
+#| msgid "Explore maps"
+msgid "Explore Maps"
+msgstr "Verken Kaarten"
+
+#: ihp/templates/maps/map_metadata_advanced.html:22
+#, python-format
+msgid ""
+"\n"
+"        Editing details for %(map_title)s\n"
+"      "
+msgstr ""
+"\n"
+"Bewerk %(map_title)s"
+
+#: ihp/templates/maps/map_new.html:7
 msgid "New Map"
 msgstr ""
 
 #: ihp/templates/metadata_detail.html:26
 msgid "Return to Document"
 msgstr "Keer terug naar document"
-
-#: ihp/templates/metadata_detail.html:28
-msgid "Return to Layer"
-msgstr "Keer terug naar laag"
 
 #: ihp/templates/metadata_detail.html:30
 #, fuzzy
@@ -739,174 +1519,267 @@ msgid "Identification"
 msgstr "Identificatie"
 
 #: ihp/templates/metadata_detail.html:102
-msgid "Published"
-msgstr "Gepubliceerd"
+msgid "Approved"
+msgstr ""
 
 #: ihp/templates/metadata_detail.html:103
 #: ihp/templates/metadata_detail.html:106
+#: ihp/templates/metadata_detail.html:109
 msgid "Yes"
 msgstr "Ja"
 
 #: ihp/templates/metadata_detail.html:105
+#: ihp/templates/photologue/photo_detail.html:9
+msgid "Published"
+msgstr "Gepubliceerd"
+
+#: ihp/templates/metadata_detail.html:108
 msgid "Featured"
 msgstr "Aanbevolen"
 
-#: ihp/templates/metadata_detail.html:120
-#: ihp/templates/metadata_detail.html:262
-#: ihp/templates/metadata_detail.html:338
-msgid "Name"
-msgstr "Naam"
-
-#: ihp/templates/metadata_detail.html:123
-#: ihp/templates/metadata_detail.html:265
-#: ihp/templates/metadata_detail.html:341
+#: ihp/templates/metadata_detail.html:133
+#: ihp/templates/metadata_detail.html:275
+#: ihp/templates/metadata_detail.html:351
 msgid "email"
 msgstr "e-mail"
 
-#: ihp/templates/metadata_detail.html:126
-#: ihp/templates/metadata_detail.html:268
-#: ihp/templates/metadata_detail.html:344
-msgid "Position"
-msgstr ""
-
-#: ihp/templates/metadata_detail.html:129
-#: ihp/templates/metadata_detail.html:271
-#: ihp/templates/metadata_detail.html:347
-msgid "Organization"
-msgstr "Organisatie"
-
-#: ihp/templates/metadata_detail.html:132
-#: ihp/templates/metadata_detail.html:274
-#: ihp/templates/metadata_detail.html:350
+#: ihp/templates/metadata_detail.html:142
+#: ihp/templates/metadata_detail.html:284
+#: ihp/templates/metadata_detail.html:360
 msgid "Location"
 msgstr "Locatie"
 
-#: ihp/templates/metadata_detail.html:135
-#: ihp/templates/metadata_detail.html:277
-#: ihp/templates/metadata_detail.html:353
+#: ihp/templates/metadata_detail.html:145
+#: ihp/templates/metadata_detail.html:287
+#: ihp/templates/metadata_detail.html:363
 msgid "Voice"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:138
-#: ihp/templates/metadata_detail.html:280
-#: ihp/templates/metadata_detail.html:356
+#: ihp/templates/metadata_detail.html:148
+#: ihp/templates/metadata_detail.html:290
+#: ihp/templates/metadata_detail.html:366
 msgid "Fax"
 msgstr "Fax"
 
-#: ihp/templates/metadata_detail.html:153
+#: ihp/templates/metadata_detail.html:163
 #, fuzzy
 #| msgid "Information of Layer"
 msgid "Information"
 msgstr "Informatie over de laag"
 
-#: ihp/templates/metadata_detail.html:158
+#: ihp/templates/metadata_detail.html:168
 msgid "Identification Image"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:167
+#: ihp/templates/metadata_detail.html:177
 msgid "Spatial Resolution"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:170
-msgid "Projetion System"
+#: ihp/templates/metadata_detail.html:180
+#, fuzzy
+#| msgid "Projetion System"
+msgid "Projection System"
 msgstr "Ruimtelijk referentie systeem"
 
-#: ihp/templates/metadata_detail.html:173
+#: ihp/templates/metadata_detail.html:183
 msgid "Extension x0"
 msgstr "Extensie x0"
 
-#: ihp/templates/metadata_detail.html:176
+#: ihp/templates/metadata_detail.html:186
 msgid "Extension x1"
 msgstr "Extensie x1"
 
-#: ihp/templates/metadata_detail.html:179
+#: ihp/templates/metadata_detail.html:189
 msgid "Extension y0"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:182
+#: ihp/templates/metadata_detail.html:192
 msgid "Extension y1"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:187
+#: ihp/templates/metadata_detail.html:197
 msgid "Features"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:257
+#: ihp/templates/metadata_detail.html:267
 msgid "Contact Points"
 msgstr "Contactpunten"
 
-#: ihp/templates/metadata_detail.html:298
+#: ihp/templates/metadata_detail.html:308
 msgid "References"
 msgstr "Referenties"
 
-#: ihp/templates/metadata_detail.html:303
+#: ihp/templates/metadata_detail.html:313
 msgid "Link Online"
 msgstr "Online link"
 
-#: ihp/templates/metadata_detail.html:306
+#: ihp/templates/metadata_detail.html:316
 msgid "Metadata Page"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:310
+#: ihp/templates/metadata_detail.html:320
 msgid "Online Link"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:331
-msgid "Metadata Author"
-msgstr "Metadata auteur"
-
-#: ihp/templates/mybase.html:24
+#: ihp/templates/photologue/photo_detail.html:21
 #, fuzzy
-#| msgid "Getting Started"
-msgid "Get Started"
-msgstr "Beginnen"
+#| msgid "This Service contains the following layers"
+msgid "This photo is found in the following galleries"
+msgstr "Deze service bevat volgende lagen"
 
-#: ihp/templates/search/_extent_filter.html:3
-msgid "Extent"
+#: ihp/templates/pinax/notifications/account_active/account_active_subject.txt:1
+msgid "Welcome to IHP-WINS/Bienvenue sur IHP-WINS"
 msgstr ""
 
-#: ihp/templates/search/_general_filters.html:4
-msgid "Categories"
+#: ihp/templates/pinax/notifications/account_active/full.txt:3
+msgid "Your account has been approved and is now active."
+msgstr "Je account is goedgekeurd en is nu actief."
+
+#: ihp/templates/pinax/notifications/account_active/full.txt:5
+msgid "You can use the login form at"
+msgstr "Je kan het volgende login-formulier gebruiken "
+
+#: ihp/templates/pinax/notifications/account_active/short.txt:3
+msgid "Your account is now active"
+msgstr "Je account is nu actief"
+
+#: ihp/templates/pinax/notifications/document_comment/full.txt:2
+#: ihp/templates/pinax/notifications/layer_comment/full.txt:2
+#: ihp/templates/pinax/notifications/map_comment/full.txt:2
+msgid "Dear contributor"
 msgstr ""
 
-#: ihp/templates/search/_general_filters.html:51
-msgid "Owners"
+#: ihp/templates/pinax/notifications/document_comment/full.txt:3
+#: ihp/templates/pinax/notifications/layer_comment/full.txt:3
+#: ihp/templates/pinax/notifications/map_comment/full.txt:3
+#, fuzzy
+#| msgid "See users"
+msgid "The user"
+msgstr "Bekijk gebruikers"
+
+#: ihp/templates/pinax/notifications/document_comment/full.txt:3
+msgid "has posted a new comment on the document"
 msgstr ""
 
-#: ihp/templates/search/_general_filters.html:68
-msgid "Date begins after:"
+#: ihp/templates/pinax/notifications/document_comment/full.txt:4
+#, fuzzy
+#| msgid "You can visit the document's detail page here"
+msgid "You can visit the documents's page here:"
+msgstr "Je kan hier de pagina met details van het document bekijken"
+
+#: ihp/templates/pinax/notifications/document_comment/full.txt:5
+#: ihp/templates/pinax/notifications/email_body.txt:11
+#: ihp/templates/pinax/notifications/layer_comment/full.txt:5
+msgid "The IHP-WINS Team"
 msgstr ""
 
-#: ihp/templates/search/_general_filters.html:69
-#: ihp/templates/search/_general_filters.html:73
-msgid "yyyy-mm-dd"
-msgstr "yyyy-mm-dd"
-
-#: ihp/templates/search/_general_filters.html:72
-msgid "Date ends before:"
+#: ihp/templates/pinax/notifications/document_comment/short.txt:3
+msgid "IHP-WINS: A new comment has been posted on a document"
 msgstr ""
 
-#: ihp/templates/search/_search_content.html:11
-msgid "Set permissions"
-msgstr "Bewerk rechten"
+#: ihp/templates/pinax/notifications/email_body.txt:3
+#, fuzzy
+#| msgid "You have the following incomplete uploads"
+msgid "You have received the following notice from"
+msgstr "Je hebt de volgende onvolledige uploads: "
 
-#: ihp/templates/search/_search_content.html:23
-msgid "Filters"
-msgstr "Filters"
-
-#: ihp/templates/search/_search_content.html:24
-msgid "Clear"
+#: ihp/templates/pinax/notifications/email_body.txt:8
+msgid "If you want to change how you receive notifications, please go to "
 msgstr ""
 
-#: ihp/templates/search/_search_content.html:34
+#: ihp/templates/pinax/notifications/email_subject.txt:1
+#, fuzzy, python-format
+#| msgid "Messages"
+msgid "%(message)s"
+msgstr "Berichten"
+
+#: ihp/templates/pinax/notifications/layer_comment/full.txt:3
+msgid "has posted a new comment on the layer"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/layer_comment/full.txt:4
+#, fuzzy
+#| msgid "You can visit the layer's detail page here"
+msgid "You can visit the layer's page here:"
+msgstr "Je kan hier de pagina met details van de layer bekijken"
+
+#: ihp/templates/pinax/notifications/layer_comment/short.txt:3
+msgid "IHP-WINS: A new comment has been posted on a layer"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/map_comment/full.txt:3
+msgid "has posted a new comment on the map"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/map_comment/full.txt:4
+#, fuzzy
+#| msgid "You can visit the map's detail page here"
+msgid "You can visit the map's page here:"
+msgstr "Je kan hier de pagina met details van de kaart bekijken"
+
+#: ihp/templates/pinax/notifications/map_comment/short.txt:3
+msgid "IHP-WINS: A new comment has been posted on a map"
+msgstr ""
+
+#: ihp/templates/socialaccount/signup.html:6
+#, fuzzy
+#| msgid "Sign in"
+msgid "Signup"
+msgstr "Meld aan"
+
+#: ihp/templates/socialaccount/signup.html:9
+#: ihp/templates/socialaccount/signup.html:21
+#, fuzzy
+#| msgid "Sign in"
+msgid "Sign Up"
+msgstr "Meld aan"
+
+#: ihp/templates/socialaccount/signup.html:11
 #, python-format
-msgid "%(facet_type | title)s"
-msgid_plural "%(facet_type | title)s"
-msgstr[0] ""
-msgstr[1] ""
+msgid ""
+"You are about to use your %(provider_name)s account to login to\n"
+"%(site_name)s. As a final step, please complete the following form:"
+msgstr ""
 
-#: ihp/templates/search/_search_content.html:34
-msgid "found"
+#: ihp/templates/survey/survey.html:6 ihp/templates/survey/survey.html:7
+msgid "Survey"
+msgstr ""
+
+#: ihp/templates/survey/survey.html:12
+#, fuzzy
+#| msgid "Download"
+msgid "Download Survey"
+msgstr "Download"
+
+#: ihp/templates/survey/survey.html:23
+#, fuzzy
+#| msgid "Request Download"
+msgid "Proceed to download"
+msgstr "Verzoek om te downloaden"
+
+#: ihp/templates/survey/survey.html:28
+msgid "Downloading"
+msgstr "Downloaden"
+
+#: ihp/templates/survey/survey.html:29
+msgid "Thank you for completing our survey!"
+msgstr ""
+
+#: ihp/templates/survey/survey.html:30
+msgid ""
+"If the download doesn't start automatically in a few seconds, please click "
+msgstr ""
+
+#: ihp/templates/survey/survey.html:31
+msgid "here"
+msgstr ""
+
+#: ihp/templates/survey/survey.html:31
+msgid "to access the download URL directly"
+msgstr ""
+
+#: ihp/templates/survey/survey.html:32
+msgid "Go back to the resource page."
 msgstr ""
 
 #: ihp/templates/time_series.html:6
@@ -918,6 +1791,24 @@ msgstr "reeks"
 #: ihp/templates/time_series.html:12
 msgid "Coming soon..."
 msgstr ""
+
+#~ msgid "Documents"
+#~ msgstr "Documenten"
+
+#~ msgid "Type your search here ..."
+#~ msgstr "Geef hier je zoekodpracht in..."
+
+#~ msgid "Owner"
+#~ msgstr "Eigenaar"
+
+#~ msgid "yyyy-mm-dd"
+#~ msgstr "yyyy-mm-dd"
+
+#~ msgid "Set permissions"
+#~ msgstr "Bewerk rechten"
+
+#~ msgid "Filters"
+#~ msgstr "Filters"
 
 #~ msgid "computer program or routine"
 #~ msgstr "computerprogramma of routine"
@@ -1147,9 +2038,6 @@ msgstr ""
 #~ msgid "Delete from Favorites"
 #~ msgstr "Verwijder uit favorieten"
 
-#~ msgid "Add to Favorites"
-#~ msgstr "Voeg toe aan favorieten"
-
 #~ msgid "Favorites for"
 #~ msgstr "Favorieten van"
 
@@ -1218,51 +2106,8 @@ msgstr ""
 #~ msgid "URL"
 #~ msgstr "URL"
 
-#~ msgid "External Resource"
-#~ msgstr "Externe bron"
-
-#~ msgid "Rate this document"
-#~ msgstr "Rate het document"
-
-#~ msgid "Download Document"
-#~ msgstr "Download Document"
-
-#~ msgid "Edit Document"
-#~ msgstr "Bewerk document"
-
-#~ msgid "Document"
-#~ msgstr "Document"
-
-#~ msgid "Resource using this document"
-#~ msgstr "Bron die dit document gebruikt"
-
-#~ msgid "List of resources using this document:"
-#~ msgstr "Lijst van bronnen die dit document gebruiken:"
-
 #~ msgid "This document is related to a "
 #~ msgstr "Dit document is gekoppeld aan een"
-
-#~ msgid "This document is not related to any maps or layers"
-#~ msgstr "Dit document is aan geen enkele kaart of laag gekoppeld"
-
-#~ msgid "Click the button below to change the permissions of this document."
-#~ msgstr ""
-#~ "Klik op de onderstaande knop om de rechten van dit document te wijzigen"
-
-#~ msgid "Change Document Permissions"
-#~ msgstr "Wijzig de rechten op het document"
-
-#~ msgid "Explore Documents"
-#~ msgstr "Verken Documenten"
-
-#~ msgid "Upload Documents"
-#~ msgstr "Documenten uploaden"
-
-#~ msgid "Edit Metadata"
-#~ msgstr "Bewerk Metadata"
-
-#~ msgid "Update"
-#~ msgstr "Update"
 
 #~ msgid "Deleting"
 #~ msgstr "Verwijderen"
@@ -1380,9 +2225,6 @@ msgstr ""
 #~ msgid "Logo"
 #~ msgstr "Logo"
 
-#~ msgid "Email"
-#~ msgstr "Email"
-
 #~ msgid "Access"
 #~ msgstr "Toegang"
 
@@ -1446,20 +2288,11 @@ msgstr ""
 #~ msgid "Join Group"
 #~ msgstr "Word lid "
 
-#~ msgid "Create a New Group"
-#~ msgstr "Maak een nieuwe groep"
-
-#~ msgid "Edit Members for"
-#~ msgstr "Bewerk leden voor"
-
 #~ msgid "Role"
 #~ msgstr "Rol"
 
 #~ msgid "Add members"
 #~ msgstr "Voeg leden toe"
-
-#~ msgid "Invite people"
-#~ msgstr "Nodig mensen uit"
 
 #~ msgid ""
 #~ "\n"
@@ -1526,12 +2359,6 @@ msgstr ""
 #~ msgid "Assign a new point of contact to the layers below:"
 #~ msgstr "Voeg een contactpunt toe voor onderstaande lagen:"
 
-#~ msgid "Edit data"
-#~ msgstr "Bewerk data"
-
-#~ msgid "Explore Layers"
-#~ msgstr "Verken Lagen"
-
 #~ msgid "No maps are using this layer"
 #~ msgstr "Geen enkele kaart gebruikt deze layer"
 
@@ -1544,17 +2371,11 @@ msgstr ""
 #~ msgid "Replace Layer: "
 #~ msgstr "Vervang laag:"
 
-#~ msgid "You have the following incomplete uploads"
-#~ msgstr "Je hebt de volgende onvolledige uploads: "
-
 #~ msgid "Resume"
 #~ msgstr "CV"
 
 #~ msgid "Are you sure you want to delete this upload?"
 #~ msgstr "Ben je zeker dat je deze upload wilt verwijderen ?"
-
-#~ msgid "Cancel"
-#~ msgstr "Annuleer"
 
 #~ msgid "Delete, and don't ask me again."
 #~ msgstr "Verwijder en vraag niet opnieuw"
@@ -1576,9 +2397,6 @@ msgstr ""
 
 #~ msgid "Available styles"
 #~ msgstr "Beschikbare styles"
-
-#~ msgid "Select an attribute"
-#~ msgstr "Selecteer een attribuutwaarde"
 
 #~ msgid ""
 #~ "Your upload is either complete or you haven't resumed an earlier one."
@@ -1632,33 +2450,11 @@ msgstr ""
 #~ msgid "Download Data Layers"
 #~ msgstr "Download data-lagen"
 
-#~ msgid "Map Layers"
-#~ msgstr "Kaartlagen"
-
-#~ msgid "This map uses the following layers:"
-#~ msgstr "Deze kaart gebruikt volgende layers:"
-
-#~ msgid "Documents related to this map"
-#~ msgstr "Documenten gekoppeld aan deze kaart"
-
-#~ msgid "List of documents related to this map:"
-#~ msgstr "Lijst van de documenten gekoppeld aan deze kaart"
-
-#~ msgid "Change Permissions of this Map"
-#~ msgstr "Wijzig de rechten van deze kaart"
-
-#~ msgid "Duplicate this map and modify it for your own purposes"
-#~ msgstr ""
-#~ "Maak een kopie van deze kaart om die naar je eigen voorkeur te bewerken"
-
 #~ msgid "Publish local map layers as WMS layer group"
 #~ msgstr "Publiceer lokale kaartlagen als WMS-groep"
 
 #~ msgid "Publish Map WMS"
 #~ msgstr "Publiceer WMS kaart"
-
-#~ msgid "Download"
-#~ msgstr "Download"
 
 #~ msgid ""
 #~ "\n"
@@ -1700,9 +2496,6 @@ msgstr ""
 #~ "Tot slot zullen deze layers niet gedownload worden omdat ze niet op deze "
 #~ "GeoNode gehost zijn:"
 
-#~ msgid "Downloading"
-#~ msgstr "Downloaden"
-
 #~ msgid "Retry"
 #~ msgstr "Probeer opnieuw"
 
@@ -1714,17 +2507,6 @@ msgstr ""
 
 #~ msgid "Download Failed"
 #~ msgstr "Downloaden mislukt"
-
-#~ msgid ""
-#~ "\n"
-#~ "        Editing details for %(map_title)s\n"
-#~ "      "
-#~ msgstr ""
-#~ "\n"
-#~ "Bewerk %(map_title)s"
-
-#~ msgid "Remove Map"
-#~ msgstr "Verwijder kaart"
 
 #~ msgid "You are not permitted to delete this map."
 #~ msgstr "Je hebt geen toelating om deze kaart te verwijderen"
@@ -1747,15 +2529,6 @@ msgstr ""
 #~ msgid "An unknown error has occured."
 #~ msgstr "Een onbekende fout is opgetreden."
 
-#~ msgid "Personal info"
-#~ msgstr "Profiel"
-
-#~ msgid "Important dates"
-#~ msgstr "Belangrijke data"
-
-#~ msgid "Extended profile"
-#~ msgstr "Uitgebreid profiel"
-
 #~ msgid "Password changed successfully."
 #~ msgstr "Wachtwoord succesvol gewijzigd."
 
@@ -1771,24 +2544,6 @@ msgstr ""
 
 #~ msgid "Email Address"
 #~ msgstr "E-mail adres"
-
-#~ msgid "User following you"
-#~ msgstr "Gebruiker volgt je"
-
-#~ msgid "Another user has started following you"
-#~ msgstr "Een andere gebruiker volgt jou"
-
-#~ msgid "User requested access"
-#~ msgstr "Gebruiker vraagt toegang"
-
-#~ msgid "A new user has requested access to the site"
-#~ msgstr "Een nieuwe gebruiker vraagt toegang tot de site"
-
-#~ msgid "Account activated"
-#~ msgstr "Account geactiveerd"
-
-#~ msgid "This account is now active and can log in the site"
-#~ msgstr "Deze account is nu actief en kan inloggen op de site"
 
 #~ msgid "Organization Name"
 #~ msgstr "Organisatie"
@@ -1889,20 +2644,11 @@ msgstr ""
 #~ msgid "Keywords:"
 #~ msgstr "Keywords:"
 
-#~ msgid "Services"
-#~ msgstr "Services"
-
-#~ msgid "This Service contains the following layers"
-#~ msgstr "Deze service bevat volgende lagen"
-
 #~ msgid "Remove Service"
 #~ msgstr "Verwijder Service"
 
 #~ msgid "Edit Service"
 #~ msgstr "Bewerk Service"
-
-#~ msgid "Save"
-#~ msgstr "Bewaar"
 
 #~ msgid "Service:"
 #~ msgstr "Service:"
@@ -1965,9 +2711,6 @@ msgstr ""
 #~ msgid "Share"
 #~ msgstr "Deel"
 
-#~ msgid "Ratings"
-#~ msgstr "Waarderingen"
-
 #~ msgid "GeoGig"
 #~ msgstr "GeoGig"
 
@@ -1994,9 +2737,6 @@ msgstr ""
 
 #~ msgid "Anyone"
 #~ msgstr "Iedereen"
-
-#~ msgid "The following users:"
-#~ msgstr "De volgende gebruikers:"
 
 #~ msgid "The following groups:"
 #~ msgstr "De volgende groepen:"
@@ -2070,9 +2810,6 @@ msgstr ""
 
 #~ msgid "Forgot your password?"
 #~ msgstr "Wachtwoord vergeten ?"
-
-#~ msgid "Are you sure you want to log out?"
-#~ msgstr "Ben je zeker dat je wil afmelden ?"
 
 #~ msgid "Password change"
 #~ msgstr "Wachtwoord wijzigen"
@@ -2166,9 +2903,6 @@ msgstr ""
 #~ msgid "User Guide"
 #~ msgstr "Handleiding"
 
-#~ msgid "GeoNode Help"
-#~ msgstr "GeoNode Help"
-
 #~ msgid ""
 #~ "This page provides helpful information about how to use the GeoNode. You "
 #~ "can use the sidebar links to navigate to what you want to know."
@@ -2179,29 +2913,11 @@ msgstr ""
 #~ msgid "Sections"
 #~ msgstr "Secties"
 
-#~ msgid "Your account has been approved and is now active."
-#~ msgstr "Je account is goedgekeurd en is nu actief."
-
-#~ msgid "You can use the login form at"
-#~ msgstr "Je kan het volgende login-formulier gebruiken "
-
-#~ msgid "Your account is now active"
-#~ msgstr "Je account is nu actief"
-
 #~ msgid ""
 #~ "You can enable access by setting the user as active on the admin section"
 #~ msgstr ""
 #~ "Je kan de toegang goedkeuren door de gebruiker actief te zetten in de "
 #~ "beheerderssectie. "
-
-#~ msgid "You can visit the document's detail page here"
-#~ msgstr "Je kan hier de pagina met details van het document bekijken"
-
-#~ msgid "You can visit the layer's detail page here"
-#~ msgstr "Je kan hier de pagina met details van de layer bekijken"
-
-#~ msgid "You can visit the map's detail page here"
-#~ msgstr "Je kan hier de pagina met details van de kaart bekijken"
 
 #~ msgid "Change"
 #~ msgstr "Wijzig"
@@ -2211,9 +2927,6 @@ msgstr ""
 
 #~ msgid "Block"
 #~ msgstr "Blokkeer"
-
-#~ msgid "Confirm"
-#~ msgstr "Bevestig"
 
 #~ msgid "You are "
 #~ msgstr "Jij bent"
@@ -2247,17 +2960,8 @@ msgstr ""
 #~ msgid "Subject"
 #~ msgstr "Onderwerp"
 
-#~ msgid "Preview"
-#~ msgstr "Bekijk preview"
-
 #~ msgid "Delete?"
 #~ msgstr "Delete?"
-
-#~ msgid "Message Inbox"
-#~ msgstr "Inbox"
-
-#~ msgid "Messages"
-#~ msgstr "Berichten"
 
 #~ msgid "Create Message"
 #~ msgstr "Stuur een bericht"
@@ -2389,9 +3093,6 @@ msgstr ""
 #~ msgid "You do not have permission to view this layer"
 #~ msgstr "You do not have permission to view this layer"
 
-#~ msgid "View"
-#~ msgstr "View"
-
 #~ msgid "You do not have permission to view this map"
 #~ msgstr "You do not have permission to view this map"
 
@@ -2400,9 +3101,6 @@ msgstr ""
 
 #~ msgid "Notices"
 #~ msgstr "Notices"
-
-#~ msgid "Notice settings"
-#~ msgstr "Notice settings"
 
 #~ msgid "Observed objects"
 #~ msgstr "Observed objects"

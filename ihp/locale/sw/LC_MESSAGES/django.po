@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GeoNode\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-11 11:44+0200\n"
+"POT-Creation-Date: 2020-05-14 16:55+0200\n"
 "PO-Revision-Date: 2016-08-23 13:57+0000\n"
 "Last-Translator: Julien Collaer <julien.collaer@opengeode.be>\n"
 "Language-Team: Swahili (http://www.transifex.com/geonode/geonode/language/"
@@ -37,224 +37,396 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ihp/content/forms.py:8
+#: ihp/__init__.py:47
+msgid "a DOI will be added by Admin before publication."
+msgstr ""
+
+#: ihp/__init__.py:49 ihp/templates/base/_resourcebase_info_panel.html:98
+#: ihp/templates/metadata_detail.html:116
+msgid "DOI"
+msgstr ""
+
+#: ihp/content/adapters.py:111
+msgid "This username already exists."
+msgstr ""
+
+#: ihp/content/forms.py:52
 #, fuzzy
 #| msgid "style name"
 msgid "First name"
 msgstr "jina la mtindo"
 
-#: ihp/content/forms.py:10
+#: ihp/content/forms.py:53
 #, fuzzy
 #| msgid "style name"
 msgid "Last name"
 msgstr "jina la mtindo"
 
-#: ihp/content/forms.py:14
-msgid "I agree to the IHP-WINS Terms of use"
+#: ihp/content/forms.py:60
+msgid "Who recommended you IHP-WINS?"
 msgstr ""
 
-#: ihp/templates/about_us_content_template.html:11
-#: ihp/templates/about_us_content_template.html:102
-#: ihp/templates/contact_us_content_template.html:11
-#: ihp/templates/contact_us_content_template.html:93
-#: ihp/templates/faq_page_template.html:11
-#: ihp/templates/faq_page_template.html:89 ihp/templates/mybase.html:22
+#: ihp/content/forms.py:61
+msgid "Name of the person"
+msgstr ""
+
+#: ihp/content/forms.py:63 ihp/content/forms.py:64
+#: ihp/templates/metadata_detail.html:139
+#: ihp/templates/metadata_detail.html:281
+#: ihp/templates/metadata_detail.html:357
+msgid "Organization"
+msgstr ""
+
+#: ihp/content/forms.py:65 ihp/content/forms.py:66
+#: ihp/templates/metadata_detail.html:136
+#: ihp/templates/metadata_detail.html:278
+#: ihp/templates/metadata_detail.html:354
+msgid "Position"
+msgstr ""
+
+#: ihp/content/forms.py:67 ihp/survey/models.py:34
+#, fuzzy
+#| msgid "count"
+msgid "Country"
+msgstr "hesabu"
+
+#: ihp/content/forms.py:71 ihp/people/admin.py:39
+#, fuzzy
+#| msgid "Are you sure you want to remove"
+msgid "Group(s) you want to join"
+msgstr "Je, una uhakika unataka kuondoa"
+
+#: ihp/content/forms.py:76
+msgid "IHP-WINS Terms of use"
+msgstr ""
+
+#: ihp/content/forms.py:77
+msgid "I have read and agree with the "
+msgstr ""
+
+#: ihp/people/__init__.py:27
+msgid "User following you"
+msgstr "matumiaji anayekufuatilia"
+
+#: ihp/people/__init__.py:27
+#, fuzzy
+#| msgid "This user is not following anyone"
+msgid "Another user has started following you"
+msgstr "User Hii si kufuatia mtu yeyote"
+
+#: ihp/people/__init__.py:28
+msgid "User requested access"
+msgstr ""
+
+#: ihp/people/__init__.py:29
+msgid "A new user has requested access to the site"
+msgstr ""
+
+#: ihp/people/__init__.py:30
+#, fuzzy
+#| msgid "Recent activity"
+msgid "Account activated"
+msgstr "Matukio ya hivi karibuni"
+
+#: ihp/people/__init__.py:31
+msgid "This account is now active and can log in the site"
+msgstr ""
+
+#: ihp/people/admin.py:34
+msgid "Personal info"
+msgstr "Maelezo binafsi"
+
+#: ihp/people/admin.py:36 ihp/templates/documents/document_detail.html:229
+#: ihp/templates/layers/layer_detail.html:711
+#: ihp/templates/maps/map_detail.html:258
+msgid "Permissions"
+msgstr "Vibali"
+
+#: ihp/people/admin.py:38
+msgid "Important dates"
+msgstr "Tarehe muhimu"
+
+#: ihp/people/admin.py:40
+#, fuzzy
+#| msgid "Edit profile"
+msgid "Extended profile"
+msgstr "Hariri wasifu"
+
+#: ihp/people/models.py:84
+msgid "Is the user approved?"
+msgstr ""
+
+#: ihp/people/models.py:88
+msgid "approve user"
+msgstr ""
+
+#: ihp/people/models.py:94
+msgid "Name of the person who recommended you IHP-WINS"
+msgstr ""
+
+#: ihp/survey/forms.py:34
+msgid "Write a brief description of how you plan to use the download."
+msgstr ""
+
+#: ihp/survey/models.py:25 ihp/templates/metadata_detail.html:130
+#: ihp/templates/metadata_detail.html:272
+#: ihp/templates/metadata_detail.html:348
+msgid "Name"
+msgstr "Jina"
+
+#: ihp/survey/models.py:31 ihp/templates/invitations/forms/_invite.html:14
+#, fuzzy
+#| msgid "email"
+msgid "Email"
+msgstr "barua pepe"
+
+#: ihp/survey/models.py:40
+msgid "Reason for data download"
+msgstr ""
+
+#: ihp/templates/about_us_content_template.html:10
+#: ihp/templates/about_us_content_template.html:104
+#: ihp/templates/contact_us_content_template.html:92
+#: ihp/templates/faq_page_template.html:154 ihp/templates/mybase.html:22
+#: ihp/templates/terms_of_use_template.html:92
 #, fuzzy
 #| msgid "About"
 msgid "About Us"
 msgstr "Kuhusu"
 
-#: ihp/templates/about_us_content_template.html:85
+#: ihp/templates/about_us_content_template.html:84
 msgid "Partners"
 msgstr ""
 
-#: ihp/templates/about_us_content_template.html:87
+#: ihp/templates/about_us_content_template.html:86
 msgid ""
 "IHP’s Water Information Network System has partnered with various "
 "organizations that share their data."
 msgstr ""
 
-#: ihp/templates/about_us_content_template.html:103
-#: ihp/templates/contact_us_content_template.html:94
-#: ihp/templates/faq_page_template.html:90
+#: ihp/templates/about_us_content_template.html:89
+msgid ""
+"Development, installation and configuration professional services have been "
+"provided by"
+msgstr ""
+
+#: ihp/templates/about_us_content_template.html:105
+#: ihp/templates/contact_us_content_template.html:93
+#: ihp/templates/faq_page_template.html:155
+#: ihp/templates/terms_of_use_template.html:93
 msgid "F.A.Q."
 msgstr ""
 
-#: ihp/templates/about_us_content_template.html:104
-#: ihp/templates/contact_us_content_template.html:95
-#: ihp/templates/faq_page_template.html:91
+#: ihp/templates/about_us_content_template.html:106
+#: ihp/templates/contact_us_content_template.html:10
+#: ihp/templates/contact_us_content_template.html:94
+#: ihp/templates/faq_page_template.html:156
+#: ihp/templates/terms_of_use_template.html:94
 #, fuzzy
 #| msgid "Contact:"
 msgid "Contact Us"
 msgstr "Mawasiliano:"
 
-#: ihp/templates/about_us_content_template.html:105
-#: ihp/templates/account/signup.html:23
-#: ihp/templates/contact_us_content_template.html:96
-#: ihp/templates/faq_page_template.html:92 ihp/templates/mybase.html:23
+#: ihp/templates/about_us_content_template.html:107
+#: ihp/templates/contact_us_content_template.html:95
+#: ihp/templates/faq_page_template.html:157 ihp/templates/mybase.html:23
+#: ihp/templates/terms_of_use_template.html:10
+#: ihp/templates/terms_of_use_template.html:95
 msgid "Terms of use"
 msgstr ""
 
-#: ihp/templates/account/signup.html:7 ihp/templates/account/signup.html:11
-#: ihp/templates/account/signup.html:25
+#: ihp/templates/account/signup.html:8 ihp/templates/account/signup.html:9
+#: ihp/templates/account/signup.html:13 ihp/templates/account/signup.html:37
 msgid "Sign up"
 msgstr "Kujiunga"
 
-#: ihp/templates/account/signup.html:23
-msgid ""
-"Before start using this service you must carefully read and agree to the"
+#: ihp/templates/account/signup.html:19
+msgid "Sign up with one of your existing third party accounts"
 msgstr ""
 
-#: ihp/templates/account/signup.html:30
-msgid "Sorry, registrations are not open at this time."
-msgstr "Samahani, usajili umesitishwa kwa wakati huu."
+#: ihp/templates/account/signup.html:24
+#, fuzzy
+#| msgid "Create a new map"
+msgid "Create a new local account"
+msgstr "Tengeneza ramani mpya"
 
-#: ihp/templates/base.html:60
+#: ihp/templates/base.html:241
+#, fuzzy
+#| msgid "GeoNode Help"
+msgid "GeoNode Search"
+msgstr "Msaada kuhusu Geonode"
+
+#: ihp/templates/base.html:269
 msgid "Layers"
 msgstr "Matabaka"
 
-#: ihp/templates/base.html:63
+#: ihp/templates/base.html:272
 msgid "Maps"
 msgstr "Ramani"
 
-#: ihp/templates/base.html:66
-msgid "Documents"
-msgstr "Hati"
+#: ihp/templates/base.html:275
+msgid "Library"
+msgstr ""
 
-#: ihp/templates/base.html:71
+#: ihp/templates/base.html:280
 msgid "People"
 msgstr "Watu"
 
-#: ihp/templates/base.html:74
+#: ihp/templates/base.html:283
 msgid "Groups"
 msgstr "Makundi"
 
-#: ihp/templates/base.html:78
+#: ihp/templates/base.html:287
 #, fuzzy
 #| msgid "series"
 msgid "TimeSeries"
 msgstr "mfululizo"
 
-#: ihp/templates/base.html:82
+#: ihp/templates/base.html:291 ihp/templates/layers/layer_detail.html:483
 msgid "Search"
 msgstr "Tafuta"
 
-#: ihp/templates/base.html:99
+#: ihp/templates/base.html:315
 msgid "Register"
 msgstr "Jisajili"
 
-#: ihp/templates/base.html:124 ihp/templates/base.html.py:198
-#: ihp/templates/base.html:216
+#: ihp/templates/base.html:340 ihp/templates/base.html:421
+#: ihp/templates/base.html:445
 msgid "Sign in"
 msgstr "Ingia"
 
-#: ihp/templates/base.html:165 ihp/templates/mybase.html:50
+#: ihp/templates/base.html:388 ihp/templates/mybase.html:50
 msgid "Powered by"
 msgstr "Imewezeshwa na"
 
-#: ihp/templates/base.html:165
+#: ihp/templates/base.html:388
 msgid "GeoNode"
 msgstr "GeoNode"
 
-#: ihp/templates/base.html:165
+#: ihp/templates/base.html:388
 msgid "version"
 msgstr "toleo"
 
-#: ihp/templates/base.html:166
+#: ihp/templates/base.html:389
 msgid "Developers"
 msgstr "Waandaaji"
 
-#: ihp/templates/base.html:167
+#: ihp/templates/base.html:390
 msgid "About"
 msgstr "Kuhusu"
 
-#: ihp/templates/base.html:170
-#: ihp/templates/base/_resourcebase_info_panel.html:150
-#: ihp/templates/metadata_detail.html:230 ihp/templates/mybase.html:32
+#: ihp/templates/base.html:393
+#: ihp/templates/base/_resourcebase_info_panel.html:153
+#: ihp/templates/metadata_detail.html:240 ihp/templates/mybase.html:32
 msgid "Language"
 msgstr "Lugha"
 
-#: ihp/templates/base.html:204 ihp/templates/base.html.py:205
+#: ihp/templates/base.html:433 ihp/templates/base.html:434
 msgid "Username"
 msgstr "Jina la mtumiaji"
 
-#: ihp/templates/base.html:208 ihp/templates/base.html.py:209
+#: ihp/templates/base.html:437 ihp/templates/base.html:438
 msgid "Password"
 msgstr "Nenosiri"
 
-#: ihp/templates/base.html:212
+#: ihp/templates/base.html:441
 msgid "Remember Me"
 msgstr "Nikumbuke"
 
-#: ihp/templates/base.html:228
+#: ihp/templates/base.html:457
 msgid "Menu"
 msgstr ""
 
-#: ihp/templates/base.html:232
+#: ihp/templates/base.html:461
 msgid "Upload Layers"
 msgstr "Pakia Matabaka"
 
-#: ihp/templates/base.html:234
+#: ihp/templates/base.html:463
 msgid "Profile"
 msgstr "Wasifu"
 
-#: ihp/templates/base.html:235
+#: ihp/templates/base.html:464
 msgid "Recent Activity"
 msgstr "Matukio ya hivi karibuni"
 
-#: ihp/templates/base.html:236
+#: ihp/templates/base.html:465
 msgid "Inbox"
 msgstr "Kikasha"
 
-#: ihp/templates/base.html:238
+#: ihp/templates/base.html:467
 msgid "Notifications"
 msgstr ""
 
-#: ihp/templates/base.html:241
+#: ihp/templates/base.html:470
 msgid "Announcements"
 msgstr "Matangazo"
 
-#: ihp/templates/base.html:244
+#: ihp/templates/base.html:472 ihp/templates/invitations/forms/_invite.html:7
+#, fuzzy
+#| msgid "Invite User"
+msgid "Invite Users"
+msgstr "Alika Mtu"
+
+#: ihp/templates/base.html:474
 msgid "Remote Services"
 msgstr "Huduma ukiwa mbali"
 
-#: ihp/templates/base.html:245
-msgid "Invite User"
-msgstr "Alika Mtu"
-
-#: ihp/templates/base.html:247
+#: ihp/templates/base.html:476
 msgid "GeoServer"
 msgstr "GeoServer"
 
-#: ihp/templates/base.html:250
+#: ihp/templates/base.html:480
+msgid "Monitoring"
+msgstr ""
+
+#: ihp/templates/base.html:483
 msgid "Admin"
 msgstr "Utawala"
 
-#: ihp/templates/base.html:255
+#: ihp/templates/base.html:488
 msgid "Help"
 msgstr "Msaada"
 
-#: ihp/templates/base.html:261
+#: ihp/templates/base.html:494
 msgid "Log out"
 msgstr "Ondoka"
 
-#: ihp/templates/base.html:298
-msgid "Type your search here ..."
-msgstr "Andika utafutacho hapa ..."
-
+#: ihp/templates/base.html:616
 #: ihp/templates/base/_resourcebase_info_panel.html:6
 #: ihp/templates/metadata_detail.html:43
 msgid "Title"
 msgstr "Kichwa"
 
+#: ihp/templates/base.html:617
+#, fuzzy
+#| msgid "Are you sure you want to remove"
+msgid "Message. Do you want to proceed?"
+msgstr "Je, una uhakika unataka kuondoa"
+
+#: ihp/templates/base.html:631
+msgid "Confirm"
+msgstr "Thibitisha"
+
+#: ihp/templates/base.html:634
+msgid "Some text in the modal"
+msgstr ""
+
+#: ihp/templates/base.html:637
+msgid "Cancel"
+msgstr "Sitisha"
+
+#: ihp/templates/base.html:638 ihp/templates/layers/layouts/panels.html:523
+msgid "OK"
+msgstr ""
+
 #: ihp/templates/base/_resourcebase_info_panel.html:11
-#: ihp/templates/base/_resourcebase_info_panel.html:104
+#: ihp/templates/base/_resourcebase_info_panel.html:107
 msgid "SRID"
 msgstr ""
 
 #: ihp/templates/base/_resourcebase_info_panel.html:16
-#: ihp/templates/base/_resourcebase_info_panel.html:109
-#: ihp/templates/metadata_detail.html:57 ihp/templates/metadata_detail.html:193
+#: ihp/templates/base/_resourcebase_info_panel.html:112
+#: ihp/templates/metadata_detail.html:57 ihp/templates/metadata_detail.html:203
 msgid "License"
 msgstr "Leseni"
 
@@ -265,25 +437,29 @@ msgstr "Muhtasari"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:34
 #: ihp/templates/metadata_detail.html:71
-#: ihp/templates/search/_general_filters.html:66
 msgid "Date"
 msgstr "Tarehe"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:45
-#: ihp/templates/layers/layer_detail.html:511
+#: ihp/templates/layers/layer_detail.html:722
 #: ihp/templates/metadata_detail.html:76
 msgid "Type"
 msgstr "Aina"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:50
-#: ihp/templates/metadata_detail.html:81 ihp/templates/metadata_detail.html:142
-#: ihp/templates/metadata_detail.html:284
-#: ihp/templates/metadata_detail.html:360
-#: ihp/templates/search/_h_keywords_filter.html:3
+#: ihp/templates/metadata_detail.html:81 ihp/templates/metadata_detail.html:152
+#: ihp/templates/metadata_detail.html:294
+#: ihp/templates/metadata_detail.html:370
 msgid "Keywords"
 msgstr "Maneno muhimu"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:62
+#: ihp/templates/documents/document_metadata_advanced.html:58
+#: ihp/templates/documents/layouts/doc_panels.html:111
+#: ihp/templates/layers/layer_metadata_advanced.html:79
+#: ihp/templates/layers/layouts/panels.html:329
+#: ihp/templates/maps/layouts/map_panels.html:114
+#: ihp/templates/maps/map_metadata_advanced.html:58
 #: ihp/templates/metadata_detail.html:88
 msgid "Category"
 msgstr "Kundi"
@@ -294,61 +470,303 @@ msgid "Regions"
 msgstr "Maeneo"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:84
-#: ihp/templates/metadata_detail.html:112
-msgid "Owner"
-msgstr "Mmiliki"
+#: ihp/templates/metadata_detail.html:122
+msgid "Responsible"
+msgstr ""
 
 #: ihp/templates/base/_resourcebase_info_panel.html:89
+#: ihp/templates/documents/document_metadata.html:42
+#: ihp/templates/documents/document_metadata.html:66
+#: ihp/templates/documents/document_metadata_advanced.html:33
+#: ihp/templates/documents/document_metadata_advanced.html:82
+#: ihp/templates/layers/layer_metadata.html:53
+#: ihp/templates/layers/layer_metadata.html:84
+#: ihp/templates/layers/layer_metadata_advanced.html:44
+#: ihp/templates/layers/layer_metadata_advanced.html:124
+#: ihp/templates/maps/map_metadata.html:68
+#: ihp/templates/maps/map_metadata_advanced.html:82
 msgid "Point of Contact"
 msgstr "Mawasiliano"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:94
+#: ihp/templates/documents/layouts/doc_panels.html:130
+#: ihp/templates/layers/layouts/panels.html:349
+#: ihp/templates/maps/layouts/map_panels.html:133
+#: ihp/templates/metadata_detail.html:112
 #, fuzzy
 #| msgid "Groups"
 msgid "Group"
 msgstr "Makundi"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:121
-#: ihp/templates/metadata_detail.html:206
+#: ihp/templates/base/_resourcebase_info_panel.html:124
+#: ihp/templates/metadata_detail.html:216
 msgid "Maintenance Frequency"
 msgstr "Wastani wa Vipindi vya Matengenezo"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:129
-#: ihp/templates/metadata_detail.html:211
+#: ihp/templates/base/_resourcebase_info_panel.html:132
+#: ihp/templates/metadata_detail.html:221
 msgid "Restrictions"
 msgstr "Vikwazo"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:137
-#: ihp/templates/metadata_detail.html:220
+#: ihp/templates/base/_resourcebase_info_panel.html:140
+#: ihp/templates/metadata_detail.html:230
 msgid "Edition"
 msgstr "Toleo"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:145
-#: ihp/templates/metadata_detail.html:225
+#: ihp/templates/base/_resourcebase_info_panel.html:148
+#: ihp/templates/metadata_detail.html:235
 msgid "Purpose"
 msgstr "Kusudi"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:155
-#: ihp/templates/metadata_detail.html:235
+#: ihp/templates/base/_resourcebase_info_panel.html:158
+#: ihp/templates/metadata_detail.html:245
 msgid "Temporal Extent"
 msgstr "Temporal Extent"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:160
-#: ihp/templates/metadata_detail.html:240
+#: ihp/templates/base/_resourcebase_info_panel.html:163
+#: ihp/templates/metadata_detail.html:250
 msgid "Data Quality"
 msgstr "Ubora wa Data"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:165
-#: ihp/templates/metadata_detail.html:245
+#: ihp/templates/base/_resourcebase_info_panel.html:168
+#: ihp/templates/metadata_detail.html:255
 msgid "Supplemental Information"
 msgstr "Habari Supplemental"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:170
-#: ihp/templates/metadata_detail.html:250
+#: ihp/templates/base/_resourcebase_info_panel.html:173
+#: ihp/templates/metadata_detail.html:260
 msgid "Spatial Representation Type"
 msgstr "Aina ya Uwakilishaji  wa Kijiografia"
 
-#: ihp/templates/faq_page_template.html:69
+#: ihp/templates/doc_page_template.html:10 ihp/templates/mybase.html:24
+#, fuzzy
+#| msgid "Getting Started"
+msgid "Get Started"
+msgstr "Anza"
+
+#: ihp/templates/documents/document_detail.html:44
+msgid "External Resource"
+msgstr "Rasilimali kutoka nje"
+
+#: ihp/templates/documents/document_detail.html:73
+msgid "Rate this document"
+msgstr "Thaminisha waraka huu"
+
+#: ihp/templates/documents/document_detail.html:77
+#: ihp/templates/layers/layer_detail.html:267
+#: ihp/templates/maps/map_detail.html:107
+msgid "Average Rating"
+msgstr "Wastani wa uthaminishaji"
+
+#: ihp/templates/documents/document_detail.html:97
+#: ihp/templates/layers/layer_detail.html:451
+#: ihp/templates/maps/map_detail.html:134
+msgid "Metadata Detail"
+msgstr ""
+
+#: ihp/templates/documents/document_detail.html:105
+#: ihp/templates/documents/document_detail.html:107
+#: ihp/templates/documents/document_detail.html:109
+msgid "Download Document"
+msgstr "Pakua Hati"
+
+#: ihp/templates/documents/document_detail.html:113
+#: ihp/templates/layers/layer_detail.html:291
+msgid "Request Download"
+msgstr ""
+
+#: ihp/templates/documents/document_detail.html:121
+#: ihp/templates/layers/layer_detail.html:458
+#: ihp/templates/maps/map_detail.html:141
+msgid "Request change"
+msgstr ""
+
+#: ihp/templates/documents/document_detail.html:127
+#: ihp/templates/documents/document_detail.html:136
+msgid "Edit Document"
+msgstr "Hariri Hati"
+
+#: ihp/templates/documents/document_detail.html:144
+#: ihp/templates/documents/document_metadata.html:17
+#: ihp/templates/layers/layer_detail.html:478
+#: ihp/templates/layers/layer_metadata.html:19
+#: ihp/templates/maps/map_detail.html:184
+#: ihp/templates/maps/map_metadata.html:20
+#: ihp/templates/metadata_detail.html:32
+msgid "Metadata"
+msgstr ""
+
+#: ihp/templates/documents/document_detail.html:145
+#: ihp/templates/layers/layer_detail.html:479
+#: ihp/templates/maps/map_detail.html:185
+msgid "Wizard"
+msgstr ""
+
+#: ihp/templates/documents/document_detail.html:146
+#: ihp/templates/layers/layer_detail.html:480
+#: ihp/templates/maps/map_detail.html:186
+msgid "Advanced Edit"
+msgstr ""
+
+#: ihp/templates/documents/document_detail.html:152
+#: ihp/templates/layers/layer_detail.html:516
+#: ihp/templates/layers/layouts/panels.html:273
+#: ihp/templates/maps/layouts/map_panels.html:59
+#: ihp/templates/maps/map_detail.html:192
+msgid "Thumbnail"
+msgstr "Thumbnail"
+
+#: ihp/templates/documents/document_detail.html:153
+#: ihp/templates/layers/layer_detail.html:499
+#: ihp/templates/maps/map_detail.html:194
+#, fuzzy
+#| msgid "uploaded"
+msgid "Upload"
+msgstr "kupakiwa"
+
+#: ihp/templates/documents/document_detail.html:159
+msgid "Document"
+msgstr "Waraka"
+
+#: ihp/templates/documents/document_detail.html:161
+#: ihp/templates/layers/layer_detail.html:525
+msgid "Replace"
+msgstr ""
+
+#: ihp/templates/documents/document_detail.html:164
+#: ihp/templates/layers/layer_detail.html:531
+#: ihp/templates/maps/map_detail.html:202
+msgid "Remove"
+msgstr "Ondoa"
+
+#: ihp/templates/documents/document_detail.html:171
+#: ihp/templates/documents/document_detail.html:207
+#: ihp/templates/layers/layer_detail.html:435
+#: ihp/templates/layers/layer_detail.html:538
+#: ihp/templates/layers/layer_detail.html:588
+#: ihp/templates/maps/map_detail.html:163
+#: ihp/templates/maps/map_detail.html:208
+#: ihp/templates/maps/map_detail.html:314
+#: ihp/templates/maps/map_detail.html:334
+msgid "Close"
+msgstr "Funga"
+
+#: ihp/templates/documents/document_detail.html:178
+#: ihp/templates/documents/document_detail.html:185
+#: ihp/templates/layers/layer_detail.html:550
+#: ihp/templates/layers/layer_detail.html:558
+msgid "Download Metadata"
+msgstr "Pakua Metadata"
+
+#: ihp/templates/documents/document_detail.html:214
+#, fuzzy
+#| msgid "Resource using this document"
+msgid "Resources using this document"
+msgstr "Rasilimali zinazotumia hati hii"
+
+#: ihp/templates/documents/document_detail.html:216
+msgid "List of resources using this document:"
+msgstr "Orodha ya rasilimali zinazotumia hati hii"
+
+#: ihp/templates/documents/document_detail.html:222
+msgid "This document is not related to any maps or layers"
+msgstr "Hati hii haihusiani na ramani au tabaka lolote"
+
+#: ihp/templates/documents/document_detail.html:230
+msgid "Click the button below to change the permissions of this document."
+msgstr "Bonyeza kitufe hapo chini kubadilisha vibali vya hati hii."
+
+#: ihp/templates/documents/document_detail.html:231
+msgid "Change Document Permissions"
+msgstr "Badilisha Vibali vya Hati"
+
+#: ihp/templates/documents/document_list.html:5
+#: ihp/templates/documents/document_list.html:14
+#, fuzzy
+#| msgid "Explore Layers"
+msgid "Explore Library"
+msgstr "Peruzi matabaka"
+
+#: ihp/templates/documents/document_list.html:12
+msgid "Upload Documents"
+msgstr "Pakia Hati"
+
+#: ihp/templates/documents/document_metadata.html:17
+#, python-format
+msgid "for %(document_title)s"
+msgstr ""
+
+#: ihp/templates/documents/document_metadata.html:35
+#: ihp/templates/documents/document_metadata_advanced.html:26
+#: ihp/templates/layers/layer_metadata.html:46
+#: ihp/templates/layers/layer_metadata_advanced.html:37
+#: ihp/templates/maps/map_metadata.html:44
+#: ihp/templates/maps/map_metadata_advanced.html:34
+msgid "Error updating metadata.  Please check the following fields: "
+msgstr ""
+"Hitilafu imetokea katika kusasisha metadata. Tafadhali angalia uga zifuatazo:"
+
+#: ihp/templates/documents/document_metadata.html:38
+#: ihp/templates/documents/document_metadata_advanced.html:29
+#: ihp/templates/layers/layer_metadata.html:49
+#: ihp/templates/layers/layer_metadata_advanced.html:40
+#: ihp/templates/metadata_detail.html:341
+msgid "Metadata Author"
+msgstr "Mwandishi wa Metadata"
+
+#: ihp/templates/documents/document_metadata.html:71
+#: ihp/templates/documents/document_metadata_advanced.html:87
+#: ihp/templates/layers/layer_metadata.html:89
+#: ihp/templates/layers/layer_metadata_advanced.html:129
+#: ihp/templates/maps/map_metadata.html:73
+#: ihp/templates/maps/map_metadata_advanced.html:87
+msgid "Metadata Provider"
+msgstr "Mtoa metadata"
+
+#: ihp/templates/documents/document_metadata.html:77
+#: ihp/templates/layers/layer_metadata.html:97
+#: ihp/templates/maps/map_metadata.html:79
+msgid "<< Back"
+msgstr ""
+
+#: ihp/templates/documents/document_metadata.html:78
+#: ihp/templates/documents/document_metadata_advanced.html:48
+#: ihp/templates/documents/document_metadata_advanced.html:92
+#: ihp/templates/layers/layer_metadata.html:98
+#: ihp/templates/layers/layer_metadata_advanced.html:69
+#: ihp/templates/layers/layer_metadata_advanced.html:137
+#: ihp/templates/maps/map_metadata.html:80
+#: ihp/templates/maps/map_metadata_advanced.html:49
+#: ihp/templates/maps/map_metadata_advanced.html:93
+msgid "Update"
+msgstr "Kusasisha"
+
+#: ihp/templates/documents/document_metadata.html:79
+#: ihp/templates/layers/layer_metadata.html:99
+#: ihp/templates/maps/map_metadata.html:81
+#, fuzzy
+#| msgid "Next"
+msgid "Next >>"
+msgstr "Kifuatacho"
+
+#: ihp/templates/documents/document_metadata_advanced.html:16
+msgid "Explore Documents"
+msgstr "Peruzi Hati"
+
+#: ihp/templates/documents/document_metadata_advanced.html:17
+#: ihp/templates/layers/layer_metadata_advanced.html:17
+#: ihp/templates/maps/map_metadata_advanced.html:17
+msgid "Edit Metadata"
+msgstr "Hariri Metadata"
+
+#: ihp/templates/documents/document_metadata_advanced.html:22
+#, fuzzy
+#| msgid "Editing details for "
+msgid "Editing details for"
+msgstr "Hariri maelezo ya"
+
+#: ihp/templates/faq_page_template.html:10
+#: ihp/templates/faq_page_template.html:98
 msgid "Frequently Asked Questions"
 msgstr ""
 
@@ -356,59 +774,60 @@ msgstr ""
 msgid "Welcome!"
 msgstr "Karibu!"
 
-#: ihp/templates/index.html:33
+#: ihp/templates/index.html:34
 #, fuzzy
 #| msgid "Welcome"
 msgid "Welcome to "
 msgstr "Karibu"
 
-#: ihp/templates/index.html:121
+#: ihp/templates/index.html:122
 msgid "Welcome"
 msgstr "Karibu"
 
-#: ihp/templates/index.html:122
+#: ihp/templates/index.html:123
 msgid ""
 "GeoNode is an open source platform for sharing geospatial data and maps."
 msgstr ""
 "GeoNode ni mfumo kutokana chanzo huru kwa ajili ya kubadilishanatakwimu za "
 "kijiografia na ramani."
 
-#: ihp/templates/index.html:123
+#: ihp/templates/index.html:124
 msgid ""
 "If you have any questions about the software or service, join our <a href="
 "\"http://lists.osgeo.org/cgi-bin/mailman/listinfo/geonode-users\">mailing "
 "list</a>."
 msgstr ""
 
-#: ihp/templates/index.html:124
+#: ihp/templates/index.html:125
 msgid "Need help?"
 msgstr "Unahitaji msaada?"
 
-#: ihp/templates/index.html:124
+#: ihp/templates/index.html:125
 msgid "Getting Started"
 msgstr "Anza"
 
-#: ihp/templates/index.html:128
+#: ihp/templates/index.html:129
 msgid "Welcome to the Water Information Network System"
 msgstr ""
 
-#: ihp/templates/index.html:129
+#: ihp/templates/index.html:130
 msgid "by the International Hydrological Programme of UNESCO"
 msgstr ""
 
-#: ihp/templates/index.html:143 ihp/templates/index.html.py:153
-#: ihp/templates/index.html:163 ihp/templates/metadata_detail.html:103
+#: ihp/templates/index.html:144 ihp/templates/index.html:154
+#: ihp/templates/index.html:164 ihp/templates/metadata_detail.html:103
 #: ihp/templates/metadata_detail.html:106
+#: ihp/templates/metadata_detail.html:109
 msgid "No"
 msgstr "Hapana"
 
-#: ihp/templates/index.html:143 ihp/templates/layers/layer_detail.html:365
+#: ihp/templates/index.html:144 ihp/templates/layers/layer_detail.html:523
 msgid "Layer"
 msgid_plural "Layers"
 msgstr[0] "Safu"
 msgstr[1] "Tabaka"
 
-#: ihp/templates/index.html:144
+#: ihp/templates/index.html:145
 msgid ""
 "Click to search for geospatial data published by other users, organizations "
 "and public sources. Download data in standard formats."
@@ -417,21 +836,22 @@ msgstr ""
 "mashirika na vyanzo vya umma. Pakua takwimu katika mfumo wenye viwango "
 "vinavyokubalika."
 
-#: ihp/templates/index.html:146
+#: ihp/templates/index.html:147
 msgid "Add layers"
 msgstr ""
 
-#: ihp/templates/index.html:148
+#: ihp/templates/index.html:149
 msgid "Explore layers"
 msgstr ""
 
-#: ihp/templates/index.html:153 ihp/templates/maps/map_view.html:6
+#: ihp/templates/index.html:154 ihp/templates/maps/map_detail.html:200
+#: ihp/templates/maps/map_view.html:7
 msgid "Map"
 msgid_plural "Maps"
 msgstr[0] "Ramani"
 msgstr[1] "Ramani"
 
-#: ihp/templates/index.html:154
+#: ihp/templates/index.html:155
 #, fuzzy
 #| msgid ""
 #| "Data is available for browsing, aggregating and styling to generate maps "
@@ -445,21 +865,21 @@ msgstr ""
 "muonekano kwa ajili ya kutengeneza ramani ambayo inaweza kuwa ya umma au kwa "
 "watumiaji walioidhinishwa tu."
 
-#: ihp/templates/index.html:156
+#: ihp/templates/index.html:157
 msgid "Create maps"
 msgstr "Tengeneza ramani"
 
-#: ihp/templates/index.html:158
+#: ihp/templates/index.html:159
 msgid "Explore maps"
 msgstr ""
 
-#: ihp/templates/index.html:163
+#: ihp/templates/index.html:164
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Mtumiaji"
 msgstr[1] "Watumiaji"
 
-#: ihp/templates/index.html:164
+#: ihp/templates/index.html:165
 #, fuzzy
 #| msgid ""
 #| "GeoNode allows registered users to easily upload geospatial data in "
@@ -472,226 +892,281 @@ msgstr ""
 "kijiografia zilizokatika mifumo mbali mbali ikiwa ni pamoja na shapefile na "
 "GeoTiff."
 
-#: ihp/templates/index.html:165
+#: ihp/templates/index.html:166
 msgid "See users"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:65
+#: ihp/templates/invitations/forms/_invite.html:13
+msgid "Max. 200 email addresses"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:63
+#, fuzzy
+#| msgid "Services"
+msgid "Service is"
+msgstr "Huduma"
+
+#: ihp/templates/layers/layer_detail.html:63
+msgid "online"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:63
+msgid "offline"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:87
+msgid "Layer WMS GetCapabilities document"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:97
 msgid "Filter Granules"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:68
+#: ihp/templates/layers/layer_detail.html:100
 msgid "Active Filter:"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:74
+#: ihp/templates/layers/layer_detail.html:106
 msgid "Granule ID"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:75
+#: ihp/templates/layers/layer_detail.html:107
 msgid "Bounding Box"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:76
+#: ihp/templates/layers/layer_detail.html:108
 msgid "Time"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:77
+#: ihp/templates/layers/layer_detail.html:109
 msgid "Elevation"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:78
+#: ihp/templates/layers/layer_detail.html:110
 msgid "Actions"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:140
+#: ihp/templates/layers/layer_detail.html:172
 msgid "Dimension"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:141
+#: ihp/templates/layers/layer_detail.html:173
 msgid "Enabled"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:142
+#: ihp/templates/layers/layer_detail.html:174
 msgid "Regex"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:147
+#: ihp/templates/layers/layer_detail.html:179
 msgid "TIME"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:148
-#: ihp/templates/layers/layer_detail.html:153
+#: ihp/templates/layers/layer_detail.html:180
+#: ihp/templates/layers/layer_detail.html:185
 msgid "True"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:148
-#: ihp/templates/layers/layer_detail.html:153
+#: ihp/templates/layers/layer_detail.html:180
+#: ihp/templates/layers/layer_detail.html:185
 msgid "False"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:152
+#: ihp/templates/layers/layer_detail.html:184
 msgid "ELEVATION"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:163
+#: ihp/templates/layers/layer_detail.html:195
 msgid "Attribute Name"
 msgstr "Jina la Sifa"
 
-#: ihp/templates/layers/layer_detail.html:164
+#: ihp/templates/layers/layer_detail.html:196
+#: ihp/templates/layers/layer_metadata_advanced.html:107
+#: ihp/templates/layers/layouts/panels.html:545
 msgid "Label"
 msgstr "Lebo"
 
-#: ihp/templates/layers/layer_detail.html:165
+#: ihp/templates/layers/layer_detail.html:197
+#: ihp/templates/layers/layer_metadata_advanced.html:108
+#: ihp/templates/layers/layouts/panels.html:546
 msgid "Description"
 msgstr "Maelezo"
 
-#: ihp/templates/layers/layer_detail.html:167
+#: ihp/templates/layers/layer_detail.html:199
 msgid "Range"
 msgstr "Range"
 
-#: ihp/templates/layers/layer_detail.html:168
+#: ihp/templates/layers/layer_detail.html:200
 msgid "Average"
 msgstr "Wastani"
 
-#: ihp/templates/layers/layer_detail.html:169
+#: ihp/templates/layers/layer_detail.html:201
 msgid "Median"
 msgstr "Kiwango cha katikati"
 
-#: ihp/templates/layers/layer_detail.html:170
+#: ihp/templates/layers/layer_detail.html:202
 msgid "Standard Deviation"
 msgstr "Standard Deviation"
 
-#: ihp/templates/layers/layer_detail.html:231
+#: ihp/templates/layers/layer_detail.html:263
 msgid "Rate this layer"
 msgstr "Kiwango safu hii"
 
-#: ihp/templates/layers/layer_detail.html:235
-msgid "Average Rating"
-msgstr "Wastani wa uthaminishaji"
+#: ihp/templates/layers/layer_detail.html:283
+msgid "Analyze with"
+msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:252
-#: ihp/templates/layers/layer_detail.html:265
+#: ihp/templates/layers/layer_detail.html:288
+#: ihp/templates/layers/layer_detail.html:301
 msgid "Download Layer"
 msgstr "Pakua Tabaka"
 
-#: ihp/templates/layers/layer_detail.html:255
-msgid "Request Download"
+#: ihp/templates/layers/layer_detail.html:335
+#, fuzzy
+#| msgid "Are you sure you want to log out?"
+msgid "Do you want to filter it?"
+msgstr "Je, una hakika unataka kutoka?"
+
+#: ihp/templates/layers/layer_detail.html:338
+msgid "Loading..."
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:304
-#: ihp/templates/layers/layer_detail.html:377
-#: ihp/templates/layers/layer_detail.html:423
-msgid "Close"
-msgstr "Funga"
+#: ihp/templates/layers/layer_detail.html:342
+#, fuzzy
+#| msgid "Select an attribute"
+msgid "Filter by attributes"
+msgstr "Kuchagua sifa"
 
-#: ihp/templates/layers/layer_detail.html:316
-msgid "Metadata Detail"
+#: ihp/templates/layers/layer_detail.html:349
+msgid "Match"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:322
-#: ihp/templates/layers/layer_detail.html:329
+#: ihp/templates/layers/layer_detail.html:364
+#, fuzzy
+#| msgid "The following users:"
+msgid "of the following:"
+msgstr "Watumiaji wafuatao:"
+
+#: ihp/templates/layers/layer_detail.html:371
+#: ihp/templates/layers/layer_metadata_advanced.html:106
+#: ihp/templates/layers/layouts/panels.html:544
+msgid "Attribute"
+msgstr "Sifa"
+
+#: ihp/templates/layers/layer_detail.html:388
+msgid "Operator"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:422
+msgid "Pick your download format:"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:464
+#: ihp/templates/layers/layer_detail.html:471
 msgid "Edit Layer"
 msgstr "Hariri Tabaka"
 
-#: ihp/templates/layers/layer_detail.html:336
-#: ihp/templates/metadata_detail.html:32
-msgid "Metadata"
-msgstr ""
-
-#: ihp/templates/layers/layer_detail.html:337
-msgid "Wizard"
-msgstr ""
-
-#: ihp/templates/layers/layer_detail.html:338
-msgid "Advanced Edit"
-msgstr ""
-
-#: ihp/templates/layers/layer_detail.html:339
+#: ihp/templates/layers/layer_detail.html:481
 #, fuzzy
 #| msgid "Download Metadata"
 msgid "Upload Metadata"
 msgstr "Pakua Metadata"
 
-#: ihp/templates/layers/layer_detail.html:346
-#: ihp/templates/layers/layer_detail.html:477
+#: ihp/templates/layers/layer_detail.html:484
+msgid "Gazetteer"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:492
+#: ihp/templates/layers/layer_detail.html:508
+#: ihp/templates/layers/layer_detail.html:663
 msgid "Styles"
 msgstr "Mitindo"
 
-#: ihp/templates/layers/layer_detail.html:348
+#: ihp/templates/layers/layer_detail.html:494
+#: ihp/templates/layers/layer_detail.html:496
+#: ihp/templates/layers/layer_detail.html:509
+#: ihp/templates/layers/layouts/panels.html:219
+#: ihp/templates/layers/layouts/panels.html:288
+#: ihp/templates/maps/layouts/map_panels.html:74
+#: ihp/templates/maps/map_detail.html:201
 msgid "Edit"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:350
-#, fuzzy
-#| msgid "uploaded"
-msgid "Upload"
-msgstr "kupakiwa"
-
-#: ihp/templates/layers/layer_detail.html:351
+#: ihp/templates/layers/layer_detail.html:500
 msgid "Manage"
 msgstr "Kuratibu"
 
-#: ihp/templates/layers/layer_detail.html:358
-msgid "Thumbnail"
-msgstr "Thumbnail"
-
-#: ihp/templates/layers/layer_detail.html:359
+#: ihp/templates/layers/layer_detail.html:517
+#: ihp/templates/maps/map_detail.html:193
 msgid "Set"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:367
-msgid "Replace"
-msgstr ""
+#: ihp/templates/layers/layer_detail.html:528
+#, fuzzy
+#| msgid "Edit Metadata"
+msgid "Edit data"
+msgstr "Hariri Metadata"
 
-#: ihp/templates/layers/layer_detail.html:370
-msgid "Remove"
-msgstr "Ondoa"
+#: ihp/templates/layers/layer_detail.html:546
+#, fuzzy
+#| msgid "Edit Layer"
+msgid "View Layer"
+msgstr "Hariri Tabaka"
 
-#: ihp/templates/layers/layer_detail.html:385
-#: ihp/templates/layers/layer_detail.html:393
-msgid "Download Metadata"
-msgstr "Pakua Metadata"
-
-#: ihp/templates/layers/layer_detail.html:431
+#: ihp/templates/layers/layer_detail.html:596
 msgid "Legend"
 msgstr "Ufunguo"
 
-#: ihp/templates/layers/layer_detail.html:445
+#: ihp/templates/layers/layer_detail.html:616
 msgid "Maps using this layer"
 msgstr "Ramani zinazotumia tabaka hili"
 
-#: ihp/templates/layers/layer_detail.html:447
+#: ihp/templates/layers/layer_detail.html:618
 msgid "List of maps using this layer:"
 msgstr "Orodha ya ramani zinzotumia tabaka hili"
 
-#: ihp/templates/layers/layer_detail.html:453
+#: ihp/templates/layers/layer_detail.html:624
 msgid "This layer is not currently used in any maps."
 msgstr "Tabaka hili kwa sasa halitumiwi na ramani yoyote"
 
-#: ihp/templates/layers/layer_detail.html:458
+#: ihp/templates/layers/layer_detail.html:629
 msgid "Create a map using this layer"
 msgstr "Tengeza ramani kwa kutumia tabaka hili"
 
-#: ihp/templates/layers/layer_detail.html:459
+#: ihp/templates/layers/layer_detail.html:630
 msgid "Click the button below to generate a new map based on this layer."
 msgstr ""
 "Bonyeza kitufe hapo chini kutengenza ramani mpya kutokana na tabaka hili."
 
-#: ihp/templates/layers/layer_detail.html:460
-#: ihp/templates/search/_search_content.html:16
+#: ihp/templates/layers/layer_detail.html:631
 msgid "Create a Map"
 msgstr "Tengeneza Ramani"
 
-#: ihp/templates/layers/layer_detail.html:465
+#: ihp/templates/layers/layer_detail.html:635
+msgid "Add the layer to an existing map"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:643
+#, fuzzy
+#| msgid "Click the button below to change the permissions of this layer."
+msgid "Click the button below to add the layer to the selected map."
+msgstr "Bonyeza kitufe hapo chini ili kubadili vibali vya safu hii."
+
+#: ihp/templates/layers/layer_detail.html:645
+#, fuzzy
+#| msgid "Edit Map"
+msgid "Add to Map"
+msgstr "Hariri Ramani"
+
+#: ihp/templates/layers/layer_detail.html:652
 msgid "Documents related to this layer"
 msgstr "Hati zinazohusiana na tabaka hili"
 
-#: ihp/templates/layers/layer_detail.html:466
+#: ihp/templates/layers/layer_detail.html:653
 msgid "List of documents related to this layer:"
 msgstr "Orodha ya hati kuhusiana na safu hii:"
 
-#: ihp/templates/layers/layer_detail.html:478
+#: ihp/templates/layers/layer_detail.html:664
 msgid ""
 "The following styles are associated with this layer. Choose a style to view "
 "it in the preview map."
@@ -699,35 +1174,365 @@ msgstr ""
 "Mitindo ifuatayo inahusishwa na tabaka hili. Chagua mtindo ukitaka kuutazama "
 "kwenye ramani"
 
-#: ihp/templates/layers/layer_detail.html:491
+#: ihp/templates/layers/layer_detail.html:678
+#: ihp/templates/layers/layer_detail.html:692
 msgid "No styles associated with this layer"
 msgstr "Hakuna mitindo iliyosishwa na safu hii"
 
-#: ihp/templates/layers/layer_detail.html:500
-msgid "Permissions"
-msgstr "Vibali"
+#: ihp/templates/layers/layer_detail.html:701
+#, fuzzy
+#| msgid "Create a map using this layer"
+msgid "Clear the Server Cache of this layer"
+msgstr "Tengeza ramani kwa kutumia tabaka hili"
 
-#: ihp/templates/layers/layer_detail.html:501
+#: ihp/templates/layers/layer_detail.html:702
+#, fuzzy
+#| msgid "Click the button below to change the permissions of this layer."
+msgid "Click the button below to wipe the tile-cache of this layer."
+msgstr "Bonyeza kitufe hapo chini ili kubadili vibali vya safu hii."
+
+#: ihp/templates/layers/layer_detail.html:703
+msgid "Empty Tiled-Layer Cache"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:712
 msgid "Click the button below to change the permissions of this layer."
 msgstr "Bonyeza kitufe hapo chini ili kubadili vibali vya safu hii."
 
-#: ihp/templates/layers/layer_detail.html:502
+#: ihp/templates/layers/layer_detail.html:713
 msgid "Change Layer Permissions"
 msgstr "Badilisha Vibali vya Tabaka"
 
-#: ihp/templates/layers/layer_detail.html:509
+#: ihp/templates/layers/layer_detail.html:720
 msgid "External service layer"
 msgstr "Tabaka kutoka huduma ya nje"
 
-#: ihp/templates/layers/layer_detail.html:510
+#: ihp/templates/layers/layer_detail.html:721
 msgid "Source"
 msgstr "Chanzo"
 
-#: ihp/templates/maps/map_edit.html:6
+#: ihp/templates/layers/layer_edit.html:57
+#: ihp/templates/layers/layer_map.html:57
+#: ihp/templates/layers/layer_style_edit.html:57
+#, fuzzy
+#| msgid "Layers"
+msgid "layers"
+msgstr "Matabaka"
+
+#: ihp/templates/layers/layer_metadata.html:19
+#, python-format
+msgid "for %(layer_title)s"
+msgstr ""
+
+#: ihp/templates/layers/layer_metadata.html:37
+#: ihp/templates/layers/layer_metadata_advanced.html:28
+msgid ""
+"Note: this layer's orginal metadata was populated and preserved by importing "
+"a metadata XML file.\n"
+"          This metadata cannot be edited."
+msgstr ""
+
+#: ihp/templates/layers/layer_metadata.html:40
+#: ihp/templates/layers/layer_metadata_advanced.html:31
+#, fuzzy
+#| msgid ""
+#| "Note: this map's orginal metadata was populated by importing a metadata "
+#| "XML file.\n"
+#| "        GeoNode's metadata import supports a subset of ISO, FGDC, and "
+#| "Dublin Core metadata elements.\n"
+#| "        Some of your original metadata may have been lost."
+msgid ""
+"Note: this layer's orginal metadata was populated by importing a metadata "
+"XML file.\n"
+"          GeoNode's metadata import supports a subset of ISO, FGDC, and "
+"Dublin Core metadata elements.\n"
+"          Some of your original metadata may have been lost."
+msgstr ""
+"Kumbuka: metadata halisi za ramani hii zilipatikana kwa kuleta fail la XML "
+"la metadata.\n"
+"geonode inawezesha uletaji wa sehemu ya metadata za  ISO, FGDC, na Dublin "
+"Core.\n"
+"Baadhi ya metadata halisi zinaweza kuwa zimepotea"
+
+#: ihp/templates/layers/layer_metadata.html:62
+#: ihp/templates/layers/layer_metadata_advanced.html:53
+#: ihp/templates/layers/layer_metadata_advanced.html:102
+msgid "Attributes"
+msgstr "Sifa"
+
+#: ihp/templates/layers/layer_metadata.html:96
+#: ihp/templates/layers/layer_metadata_advanced.html:68
+#: ihp/templates/layers/layer_metadata_advanced.html:136
+#: ihp/templates/metadata_detail.html:28
+msgid "Return to Layer"
+msgstr ""
+
+#: ihp/templates/layers/layer_metadata_advanced.html:16
+msgid "Explore Layers"
+msgstr "Peruzi matabaka"
+
+#: ihp/templates/layers/layer_metadata_advanced.html:22
+#, python-format
+msgid ""
+"\n"
+"        Editing details for %(layer_title)s\n"
+"      "
+msgstr ""
+"\n"
+"Hariri maelezo ya %(layer_title)s"
+
+#: ihp/templates/layers/layer_metadata_advanced.html:109
+#: ihp/templates/layers/layouts/panels.html:547
+msgid "Display Order"
+msgstr "Mpangilio wa muonekano"
+
+#: ihp/templates/layers/layouts/panels.html:214
+msgid "Done!"
+msgstr ""
+
+#: ihp/templates/layers/layouts/panels.html:222
+msgid "Preview"
+msgstr "Hakiki"
+
+#: ihp/templates/layers/layouts/panels.html:225
+#, fuzzy
+#| msgid "Ratings"
+msgid "Settings"
+msgstr "Ratings"
+
+#: ihp/templates/layers/layouts/panels.html:234
+#: ihp/templates/layers/layouts/panels.html:237
+msgid "Mandatory"
+msgstr ""
+
+#: ihp/templates/layers/layouts/panels.html:240
+#, fuzzy
+#| msgid "Time Options"
+msgid "Optional"
+msgstr "Chaguzi za wakati"
+
+#: ihp/templates/layers/layouts/panels.html:245
+#, fuzzy
+#| msgid "Edit Metadata"
+msgid "Basic Metadata"
+msgstr "Hariri Metadata"
+
+#: ihp/templates/layers/layouts/panels.html:248
+msgid "Location and Licenses"
+msgstr ""
+
+#: ihp/templates/layers/layouts/panels.html:251
+#, fuzzy
+#| msgid "Download Metadata"
+msgid "Optional Metadata"
+msgstr "Pakua Metadata"
+
+#: ihp/templates/layers/layouts/panels.html:254
+#, fuzzy
+#| msgid "Attributes"
+msgid "Dataset Attributes"
+msgstr "Sifa"
+
+#: ihp/templates/layers/layouts/panels.html:282
+#: ihp/templates/maps/layouts/map_panels.html:68
+msgid "Save"
+msgstr "Hifadhi"
+
+#: ihp/templates/layers/layouts/panels.html:331
+#: ihp/templates/layers/layouts/panels.html:351
+#, fuzzy
+#| msgid "This action affects the following maps:"
+msgid "Choose one of the following..."
+msgstr "Hatua hii ina athari kwa ramani zifuatazo:"
+
+#: ihp/templates/layers/layouts/panels.html:445
+#, fuzzy
+#| msgid "Download Metadata"
+msgid "Other, Optional, Metadata"
+msgstr "Pakua Metadata"
+
+#: ihp/templates/layers/layouts/panels.html:487
+msgid "Responsible Parties"
+msgstr ""
+
+#: ihp/templates/layers/layouts/panels.html:495
+#, fuzzy
+#| msgid "Change Layer Permissions"
+msgid "Owner and Permissions"
+msgstr "Badilisha Vibali vya Tabaka"
+
+#: ihp/templates/layers/layouts/panels.html:517
+#, fuzzy
+#| msgid "Message Inbox"
+msgid "Message box"
+msgstr "Kikasha cha ujumbe"
+
+#: ihp/templates/layers/layouts/panels.html:584
+#, fuzzy
+#| msgid "Public"
+msgid "Publishing"
+msgstr "Umma "
+
+#: ihp/templates/layers/layouts/panels.html:613
+#, fuzzy
+#| msgid "Notice settings"
+msgid "Other Settings"
+msgstr "Notice settings"
+
+#: ihp/templates/maps/map_detail.html:26
+msgid "maps"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:84
+msgid "Map layers WMS GetCapabilities document"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:103
+msgid "Rate this Map"
+msgstr "Thaminisha Ramani hii"
+
+#: ihp/templates/maps/map_detail.html:128
+#: ihp/templates/maps/map_detail.html:151
+msgid "Download Map"
+msgstr "Download Ramani"
+
+#: ihp/templates/maps/map_detail.html:170
+#: ihp/templates/maps/map_detail.html:177 ihp/templates/maps/map_edit.html:7
 msgid "Edit Map"
 msgstr "Hariri Ramani"
 
-#: ihp/templates/maps/map_new.html:6
+#: ihp/templates/maps/map_detail.html:216
+#: ihp/templates/maps/map_detail.html:218
+#, fuzzy
+#| msgid "View Map"
+msgid "View Map"
+msgstr "Mtazamo Ramani"
+
+#: ihp/templates/maps/map_detail.html:229
+msgid "Map Layers"
+msgstr "Ramani tabaka"
+
+#: ihp/templates/maps/map_detail.html:230
+msgid "This map uses the following layers:"
+msgstr "Ramani hii inatumia tabaka yafuatayo:"
+
+#: ihp/templates/maps/map_detail.html:246
+msgid "Documents related to this map"
+msgstr "Nyaraka kuhusiana na ramani hii"
+
+#: ihp/templates/maps/map_detail.html:247
+msgid "List of documents related to this map:"
+msgstr "Orodha ya nyaraka kuhusiana na ramani hii:"
+
+#: ihp/templates/maps/map_detail.html:259
+msgid "Specify which users can view or modify this map"
+msgstr "Bayana ambayo watumiaji unaweza kuona au kurekebisha ramani hii"
+
+#: ihp/templates/maps/map_detail.html:260
+msgid "Change Permissions of this Map"
+msgstr "Change Permissions ya Ramani hii"
+
+#: ihp/templates/maps/map_detail.html:266
+msgid "Copy this map"
+msgstr "Nakili ramani hii"
+
+#: ihp/templates/maps/map_detail.html:267
+msgid "Duplicate this map and modify it for your own purposes"
+msgstr "Duplicate ramani hii na kurekebisha kwa madhumuni yako mwenyewe"
+
+#: ihp/templates/maps/map_detail.html:268
+msgid "Create a New Map"
+msgstr "Tengeneza ramani mpya"
+
+#: ihp/templates/maps/map_detail.html:272
+#, fuzzy
+#| msgid "Copy this map"
+msgid "Embed this map"
+msgstr "Nakili ramani hii"
+
+#: ihp/templates/maps/map_detail.html:273
+#, fuzzy
+#| msgid "Duplicate this map and modify it for your own purposes"
+msgid "Embed this map to your own sites"
+msgstr "Duplicate ramani hii na kurekebisha kwa madhumuni yako mwenyewe"
+
+#: ihp/templates/maps/map_detail.html:277
+#, fuzzy
+#| msgid "Edit Map"
+msgid "Embed Map"
+msgstr "Hariri Ramani"
+
+#: ihp/templates/maps/map_detail.html:280
+msgid "Embed Iframe Link"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:282
+msgid "Embed Widget Link"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:284
+#, fuzzy
+#| msgid "Download Layer"
+msgid "Download Leaflet page"
+msgstr "Pakua Tabaka"
+
+#: ihp/templates/maps/map_detail.html:304
+msgid "Embed Iframe"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:307
+msgid ""
+"To embed this map, add the following code snippet and customize its "
+"properties (scrolling, width, height) based on your needs to your site"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:326
+msgid "Embed Widget"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:329
+msgid "To embed this map, copy the following code snippet into your own page"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:333
+msgid "Copy to Clipboard"
+msgstr ""
+
+#: ihp/templates/maps/map_metadata.html:20
+#, python-format
+msgid "for %(map_title)s"
+msgstr ""
+
+#: ihp/templates/maps/map_metadata.html:38
+#: ihp/templates/maps/map_metadata_advanced.html:28
+msgid ""
+"Note: this map's orginal metadata was populated by importing a metadata XML "
+"file.\n"
+"        GeoNode's metadata import supports a subset of ISO, FGDC, and Dublin "
+"Core metadata elements.\n"
+"        Some of your original metadata may have been lost."
+msgstr ""
+"Kumbuka: metadata halisi za ramani hii zilipatikana kwa kuleta fail la XML "
+"la metadata.\n"
+"geonode inawezesha uletaji wa sehemu ya metadata za  ISO, FGDC, na Dublin "
+"Core.\n"
+"Baadhi ya metadata halisi zinaweza kuwa zimepotea"
+
+#: ihp/templates/maps/map_metadata_advanced.html:16
+msgid "Explore Maps"
+msgstr "Peruzi Ramani"
+
+#: ihp/templates/maps/map_metadata_advanced.html:22
+#, python-format
+msgid ""
+"\n"
+"        Editing details for %(map_title)s\n"
+"      "
+msgstr ""
+"\n"
+"Hariri maelezao ya %(map_title)s"
+
+#: ihp/templates/maps/map_new.html:7
 #, fuzzy
 #| msgid "View Map"
 msgid "New Map"
@@ -735,10 +1540,6 @@ msgstr "Mtazamo Ramani"
 
 #: ihp/templates/metadata_detail.html:26
 msgid "Return to Document"
-msgstr ""
-
-#: ihp/templates/metadata_detail.html:28
-msgid "Return to Layer"
 msgstr ""
 
 #: ihp/templates/metadata_detail.html:30
@@ -752,175 +1553,264 @@ msgid "Identification"
 msgstr ""
 
 #: ihp/templates/metadata_detail.html:102
-msgid "Published"
-msgstr ""
+#, fuzzy
+#| msgid "Not provided"
+msgid "Approved"
+msgstr "Haijaainishwa"
 
 #: ihp/templates/metadata_detail.html:103
 #: ihp/templates/metadata_detail.html:106
+#: ihp/templates/metadata_detail.html:109
 msgid "Yes"
 msgstr ""
 
 #: ihp/templates/metadata_detail.html:105
+#: ihp/templates/photologue/photo_detail.html:9
+msgid "Published"
+msgstr ""
+
+#: ihp/templates/metadata_detail.html:108
 msgid "Featured"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:120
-#: ihp/templates/metadata_detail.html:262
-#: ihp/templates/metadata_detail.html:338
-msgid "Name"
-msgstr "Jina"
-
-#: ihp/templates/metadata_detail.html:123
-#: ihp/templates/metadata_detail.html:265
-#: ihp/templates/metadata_detail.html:341
+#: ihp/templates/metadata_detail.html:133
+#: ihp/templates/metadata_detail.html:275
+#: ihp/templates/metadata_detail.html:351
 msgid "email"
 msgstr "barua pepe"
 
-#: ihp/templates/metadata_detail.html:126
-#: ihp/templates/metadata_detail.html:268
-#: ihp/templates/metadata_detail.html:344
-msgid "Position"
-msgstr ""
-
-#: ihp/templates/metadata_detail.html:129
-#: ihp/templates/metadata_detail.html:271
-#: ihp/templates/metadata_detail.html:347
-msgid "Organization"
-msgstr ""
-
-#: ihp/templates/metadata_detail.html:132
-#: ihp/templates/metadata_detail.html:274
-#: ihp/templates/metadata_detail.html:350
+#: ihp/templates/metadata_detail.html:142
+#: ihp/templates/metadata_detail.html:284
+#: ihp/templates/metadata_detail.html:360
 msgid "Location"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:135
-#: ihp/templates/metadata_detail.html:277
-#: ihp/templates/metadata_detail.html:353
+#: ihp/templates/metadata_detail.html:145
+#: ihp/templates/metadata_detail.html:287
+#: ihp/templates/metadata_detail.html:363
 msgid "Voice"
 msgstr "Sauti"
 
-#: ihp/templates/metadata_detail.html:138
-#: ihp/templates/metadata_detail.html:280
-#: ihp/templates/metadata_detail.html:356
+#: ihp/templates/metadata_detail.html:148
+#: ihp/templates/metadata_detail.html:290
+#: ihp/templates/metadata_detail.html:366
 msgid "Fax"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:153
+#: ihp/templates/metadata_detail.html:163
 #, fuzzy
 #| msgid "format"
 msgid "Information"
 msgstr "muundo"
 
-#: ihp/templates/metadata_detail.html:158
+#: ihp/templates/metadata_detail.html:168
 msgid "Identification Image"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:167
+#: ihp/templates/metadata_detail.html:177
 msgid "Spatial Resolution"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:170
-msgid "Projetion System"
-msgstr ""
+#: ihp/templates/metadata_detail.html:180
+#, fuzzy
+#| msgid "projection"
+msgid "Projection System"
+msgstr "makadirio"
 
-#: ihp/templates/metadata_detail.html:173
+#: ihp/templates/metadata_detail.html:183
 msgid "Extension x0"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:176
+#: ihp/templates/metadata_detail.html:186
 msgid "Extension x1"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:179
+#: ihp/templates/metadata_detail.html:189
 msgid "Extension y0"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:182
+#: ihp/templates/metadata_detail.html:192
 msgid "Extension y1"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:187
+#: ihp/templates/metadata_detail.html:197
 msgid "Features"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:257
+#: ihp/templates/metadata_detail.html:267
 msgid "Contact Points"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:298
+#: ihp/templates/metadata_detail.html:308
 msgid "References"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:303
+#: ihp/templates/metadata_detail.html:313
 msgid "Link Online"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:306
+#: ihp/templates/metadata_detail.html:316
 msgid "Metadata Page"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:310
+#: ihp/templates/metadata_detail.html:320
 msgid "Online Link"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:331
-msgid "Metadata Author"
-msgstr "Mwandishi wa Metadata"
-
-#: ihp/templates/mybase.html:24
+#: ihp/templates/photologue/photo_detail.html:21
 #, fuzzy
-#| msgid "Getting Started"
-msgid "Get Started"
-msgstr "Anza"
+#| msgid "This CSW server contains the following services"
+msgid "This photo is found in the following galleries"
+msgstr "Seva hii ya CSW ina huduma zifuatazo"
 
-#: ihp/templates/search/_extent_filter.html:3
-msgid "Extent"
-msgstr "Kiwango"
-
-#: ihp/templates/search/_general_filters.html:4
-msgid "Categories"
-msgstr "Makundi"
-
-#: ihp/templates/search/_general_filters.html:51
-msgid "Owners"
+#: ihp/templates/pinax/notifications/account_active/account_active_subject.txt:1
+msgid "Welcome to IHP-WINS/Bienvenue sur IHP-WINS"
 msgstr ""
 
-#: ihp/templates/search/_general_filters.html:68
-msgid "Date begins after:"
-msgstr "Tarehe ya kuanza baada ya:"
-
-#: ihp/templates/search/_general_filters.html:69
-#: ihp/templates/search/_general_filters.html:73
-msgid "yyyy-mm-dd"
-msgstr "yyyy-mm-dd"
-
-#: ihp/templates/search/_general_filters.html:72
-msgid "Date ends before:"
-msgstr "Tarehe ya mwisho kabla ya:"
-
-#: ihp/templates/search/_search_content.html:11
-msgid "Set permissions"
-msgstr "Idhinisha ruhusa"
-
-#: ihp/templates/search/_search_content.html:23
-msgid "Filters"
+#: ihp/templates/pinax/notifications/account_active/full.txt:3
+msgid "Your account has been approved and is now active."
 msgstr ""
 
-#: ihp/templates/search/_search_content.html:24
-msgid "Clear"
-msgstr "Safisha"
+#: ihp/templates/pinax/notifications/account_active/full.txt:5
+msgid "You can use the login form at"
+msgstr ""
 
-#: ihp/templates/search/_search_content.html:34
+#: ihp/templates/pinax/notifications/account_active/short.txt:3
+msgid "Your account is now active"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/document_comment/full.txt:2
+#: ihp/templates/pinax/notifications/layer_comment/full.txt:2
+#: ihp/templates/pinax/notifications/map_comment/full.txt:2
+msgid "Dear contributor"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/document_comment/full.txt:3
+#: ihp/templates/pinax/notifications/layer_comment/full.txt:3
+#: ihp/templates/pinax/notifications/map_comment/full.txt:3
+#, fuzzy
+#| msgid "Choose users..."
+msgid "The user"
+msgstr "Chagua watumiaji ..."
+
+#: ihp/templates/pinax/notifications/document_comment/full.txt:3
+msgid "has posted a new comment on the document"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/document_comment/full.txt:4
+msgid "You can visit the documents's page here:"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/document_comment/full.txt:5
+#: ihp/templates/pinax/notifications/email_body.txt:11
+#: ihp/templates/pinax/notifications/layer_comment/full.txt:5
+msgid "The IHP-WINS Team"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/document_comment/short.txt:3
+msgid "IHP-WINS: A new comment has been posted on a document"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/email_body.txt:3
+#, fuzzy
+#| msgid "You have the following incomplete uploads"
+msgid "You have received the following notice from"
+msgstr "Kuna upakiaji ufuatao ambaosi kamili"
+
+#: ihp/templates/pinax/notifications/email_body.txt:8
+msgid "If you want to change how you receive notifications, please go to "
+msgstr ""
+
+#: ihp/templates/pinax/notifications/email_subject.txt:1
+#, fuzzy, python-format
+#| msgid "Messages"
+msgid "%(message)s"
+msgstr "Ujumbe"
+
+#: ihp/templates/pinax/notifications/layer_comment/full.txt:3
+msgid "has posted a new comment on the layer"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/layer_comment/full.txt:4
+msgid "You can visit the layer's page here:"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/layer_comment/short.txt:3
+msgid "IHP-WINS: A new comment has been posted on a layer"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/map_comment/full.txt:3
+msgid "has posted a new comment on the map"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/map_comment/full.txt:4
+msgid "You can visit the map's page here:"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/map_comment/short.txt:3
+msgid "IHP-WINS: A new comment has been posted on a map"
+msgstr ""
+
+#: ihp/templates/socialaccount/signup.html:6
+#, fuzzy
+#| msgid "Sign up"
+msgid "Signup"
+msgstr "Kujiunga"
+
+#: ihp/templates/socialaccount/signup.html:9
+#: ihp/templates/socialaccount/signup.html:21
+#, fuzzy
+#| msgid "Sign up"
+msgid "Sign Up"
+msgstr "Kujiunga"
+
+#: ihp/templates/socialaccount/signup.html:11
 #, python-format
-msgid "%(facet_type | title)s"
-msgid_plural "%(facet_type | title)s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ihp/templates/search/_search_content.html:34
-msgid "found"
+msgid ""
+"You are about to use your %(provider_name)s account to login to\n"
+"%(site_name)s. As a final step, please complete the following form:"
 msgstr ""
+
+#: ihp/templates/survey/survey.html:6 ihp/templates/survey/survey.html:7
+msgid "Survey"
+msgstr ""
+
+#: ihp/templates/survey/survey.html:12
+#, fuzzy
+#| msgid "Download"
+msgid "Download Survey"
+msgstr "Pakua"
+
+#: ihp/templates/survey/survey.html:23
+msgid "Proceed to download"
+msgstr ""
+
+#: ihp/templates/survey/survey.html:28
+msgid "Downloading"
+msgstr "Kupakua"
+
+#: ihp/templates/survey/survey.html:29
+msgid "Thank you for completing our survey!"
+msgstr ""
+
+#: ihp/templates/survey/survey.html:30
+msgid ""
+"If the download doesn't start automatically in a few seconds, please click "
+msgstr ""
+
+#: ihp/templates/survey/survey.html:31
+msgid "here"
+msgstr ""
+
+#: ihp/templates/survey/survey.html:31
+msgid "to access the download URL directly"
+msgstr ""
+
+#: ihp/templates/survey/survey.html:32
+#, fuzzy
+#| msgid "party who authored the resource"
+msgid "Go back to the resource page."
+msgstr "upande wa uwandishi wa rasilimali"
 
 #: ihp/templates/time_series.html:6
 #, fuzzy
@@ -931,6 +1821,39 @@ msgstr "mfululizo"
 #: ihp/templates/time_series.html:12
 msgid "Coming soon..."
 msgstr ""
+
+#~ msgid "Sorry, registrations are not open at this time."
+#~ msgstr "Samahani, usajili umesitishwa kwa wakati huu."
+
+#~ msgid "Documents"
+#~ msgstr "Hati"
+
+#~ msgid "Type your search here ..."
+#~ msgstr "Andika utafutacho hapa ..."
+
+#~ msgid "Owner"
+#~ msgstr "Mmiliki"
+
+#~ msgid "Extent"
+#~ msgstr "Kiwango"
+
+#~ msgid "Categories"
+#~ msgstr "Makundi"
+
+#~ msgid "Date begins after:"
+#~ msgstr "Tarehe ya kuanza baada ya:"
+
+#~ msgid "yyyy-mm-dd"
+#~ msgstr "yyyy-mm-dd"
+
+#~ msgid "Date ends before:"
+#~ msgstr "Tarehe ya mwisho kabla ya:"
+
+#~ msgid "Set permissions"
+#~ msgstr "Idhinisha ruhusa"
+
+#~ msgid "Clear"
+#~ msgstr "Safisha"
 
 #~ msgid "computer program or routine"
 #~ msgstr "Programu ya kompyuta au mchakato"
@@ -1233,58 +2156,8 @@ msgstr ""
 #~ msgid "URL"
 #~ msgstr "URL"
 
-#~ msgid "External Resource"
-#~ msgstr "Rasilimali kutoka nje"
-
-#~ msgid "Rate this document"
-#~ msgstr "Thaminisha waraka huu"
-
-#~ msgid "Download Document"
-#~ msgstr "Pakua Hati"
-
-#~ msgid "Edit Document"
-#~ msgstr "Hariri Hati"
-
-#~ msgid "Document"
-#~ msgstr "Waraka"
-
-#~ msgid "Resource using this document"
-#~ msgstr "Rasilimali zinazotumia hati hii"
-
-#~ msgid "List of resources using this document:"
-#~ msgstr "Orodha ya rasilimali zinazotumia hati hii"
-
 #~ msgid "This document is related to a "
 #~ msgstr "Hati hii  inahusiana na"
-
-#~ msgid "This document is not related to any maps or layers"
-#~ msgstr "Hati hii haihusiani na ramani au tabaka lolote"
-
-#~ msgid "Click the button below to change the permissions of this document."
-#~ msgstr "Bonyeza kitufe hapo chini kubadilisha vibali vya hati hii."
-
-#~ msgid "Change Document Permissions"
-#~ msgstr "Badilisha Vibali vya Hati"
-
-#~ msgid "Explore Documents"
-#~ msgstr "Peruzi Hati"
-
-#~ msgid "Upload Documents"
-#~ msgstr "Pakia Hati"
-
-#~ msgid "Edit Metadata"
-#~ msgstr "Hariri Metadata"
-
-#~ msgid "Error updating metadata.  Please check the following fields: "
-#~ msgstr ""
-#~ "Hitilafu imetokea katika kusasisha metadata. Tafadhali angalia uga "
-#~ "zifuatazo:"
-
-#~ msgid "Update"
-#~ msgstr "Kusasisha"
-
-#~ msgid "Metadata Provider"
-#~ msgstr "Mtoa metadata"
 
 #~ msgid "Deleting"
 #~ msgstr "Kufuta"
@@ -1384,9 +2257,6 @@ msgstr ""
 
 #~ msgid "A group already exists with that name."
 #~ msgstr "tayari kuna kundi lenye jina hilo."
-
-#~ msgid "Public"
-#~ msgstr "Umma "
 
 #~ msgid "Public (invite-only)"
 #~ msgstr "Umma (waalikwa tu)"
@@ -1577,9 +2447,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Inabainisha mpangilio ambao sifa inatakiwa kuonyeshwa katika matokeo"
 
-#~ msgid "count"
-#~ msgstr "hesabu"
-
 #~ msgid "count value for this field"
 #~ msgstr "hesabu ya thamani kwa uga huu"
 
@@ -1640,31 +2507,8 @@ msgstr ""
 #~ msgid "Submit"
 #~ msgstr "Wasilisha"
 
-#~ msgid "Explore Layers"
-#~ msgstr "Peruzi matabaka"
-
-#~ msgid "This action affects the following maps:"
-#~ msgstr "Hatua hii ina athari kwa ramani zifuatazo:"
-
 #~ msgid "No maps are using this layer"
 #~ msgstr "Hakuna ramani zinazotumia tabaka hili"
-
-#~ msgid ""
-#~ "\n"
-#~ "        Editing details for %(layer_title)s\n"
-#~ "      "
-#~ msgstr ""
-#~ "\n"
-#~ "Hariri maelezo ya %(layer_title)s"
-
-#~ msgid "Attributes"
-#~ msgstr "Sifa"
-
-#~ msgid "Attribute"
-#~ msgstr "Sifa"
-
-#~ msgid "Display Order"
-#~ msgstr "Mpangilio wa muonekano"
 
 #~ msgid "Replace Layer"
 #~ msgstr "Badilisha Tabaka"
@@ -1674,9 +2518,6 @@ msgstr ""
 
 #~ msgid "Incomplete Uploads"
 #~ msgstr "Upakiaji usio kamili"
-
-#~ msgid "You have the following incomplete uploads"
-#~ msgstr "Kuna upakiaji ufuatao ambaosi kamili"
 
 #~ msgid "last updated on"
 #~ msgstr "mara ya mwisho kusasishwa ni"
@@ -1689,9 +2530,6 @@ msgstr ""
 
 #~ msgid "Are you sure you want to delete this upload?"
 #~ msgstr "Je, una uhakika unataka kufuta upakiaji huu?"
-
-#~ msgid "Cancel"
-#~ msgstr "Sitisha"
 
 #~ msgid "Delete, and don't ask me again."
 #~ msgstr "Futa, na usiniulize tena."
@@ -1766,9 +2604,6 @@ msgstr ""
 #~ "moja ya kufanya hivyo ni do kutembelea: <a href=\"http://prj2epsg.org/"
 #~ "search\" target=\"_\">prj2epsg</a> na kuingia yafuatayo:"
 
-#~ msgid "Next"
-#~ msgstr "Kifuatacho"
-
 #~ msgid ""
 #~ "\n"
 #~ "        There is a problem recognizing the projection of this data. "
@@ -1799,9 +2634,6 @@ msgstr ""
 #~ "longitudo, tafadhali kuthibitisha kama ni sifa sahihi zimechaguliwa hapo "
 #~ "chini."
 
-#~ msgid "Select an attribute"
-#~ msgstr "Kuchagua sifa"
-
 #~ msgid ""
 #~ "We did not detect columns that could be used for the latitude and "
 #~ "longitude.\n"
@@ -1822,12 +2654,6 @@ msgstr ""
 
 #~ msgid "Upload Layer Step 2"
 #~ msgstr "Pakia Tabaka Hatua ya 2"
-
-#~ msgid "Editing details for "
-#~ msgstr "Hariri maelezo ya"
-
-#~ msgid "Time Options"
-#~ msgstr "Chaguzi za wakati"
 
 #~ msgid "Choose time attribute"
 #~ msgstr "Kuchagua wakati sifa"
@@ -2016,9 +2842,6 @@ msgstr ""
 #~ msgid "zoom"
 #~ msgstr "zoom"
 
-#~ msgid "projection"
-#~ msgstr "makadirio"
-
 #~ msgid "center X"
 #~ msgstr "kituo cha X"
 
@@ -2067,50 +2890,14 @@ msgstr ""
 #~ msgid "JSON Configuration"
 #~ msgstr "Mpangilio wa JSON"
 
-#~ msgid "Explore Maps"
-#~ msgstr "Peruzi Ramani"
-
-#~ msgid "Create a New Map"
-#~ msgstr "Tengeneza ramani mpya"
-
 #~ msgid "GeoExplorer"
 #~ msgstr "GeoExplorer"
-
-#~ msgid "Rate this Map"
-#~ msgstr "Thaminisha Ramani hii"
-
-#~ msgid "Download Map"
-#~ msgstr "Download Ramani"
 
 #~ msgid "Download Data Layers"
 #~ msgstr "Download Takwimu Tabaka"
 
 #~ msgid "Download Web Map Context"
 #~ msgstr "Pakua maudhui ya ramani ya wavuti"
-
-#~ msgid "Map Layers"
-#~ msgstr "Ramani tabaka"
-
-#~ msgid "This map uses the following layers:"
-#~ msgstr "Ramani hii inatumia tabaka yafuatayo:"
-
-#~ msgid "Documents related to this map"
-#~ msgstr "Nyaraka kuhusiana na ramani hii"
-
-#~ msgid "List of documents related to this map:"
-#~ msgstr "Orodha ya nyaraka kuhusiana na ramani hii:"
-
-#~ msgid "Specify which users can view or modify this map"
-#~ msgstr "Bayana ambayo watumiaji unaweza kuona au kurekebisha ramani hii"
-
-#~ msgid "Change Permissions of this Map"
-#~ msgstr "Change Permissions ya Ramani hii"
-
-#~ msgid "Copy this map"
-#~ msgstr "Nakili ramani hii"
-
-#~ msgid "Duplicate this map and modify it for your own purposes"
-#~ msgstr "Duplicate ramani hii na kurekebisha kwa madhumuni yako mwenyewe"
 
 #~ msgid "Map WMS"
 #~ msgstr "Ramani WMS"
@@ -2129,9 +2916,6 @@ msgstr ""
 
 #~ msgid "Publish Map WMS"
 #~ msgstr "Sambaza WMS ya Ramani"
-
-#~ msgid "Download"
-#~ msgstr "Pakua"
 
 #~ msgid ""
 #~ "\n"
@@ -2175,9 +2959,6 @@ msgstr ""
 #~ "Hatimaye, Ramani ina matabaka haya ambayo hayawezi kupakuliwa kwa sababu "
 #~ "hayapo moja kwa moja kutoka GeoNode hii:"
 
-#~ msgid "Downloading"
-#~ msgstr "Kupakua"
-
 #~ msgid "Retry"
 #~ msgstr "Jaribu tena"
 
@@ -2189,27 +2970,6 @@ msgstr ""
 
 #~ msgid "Download Failed"
 #~ msgstr "Upakuzi umeshindikana"
-
-#~ msgid ""
-#~ "\n"
-#~ "        Editing details for %(map_title)s\n"
-#~ "      "
-#~ msgstr ""
-#~ "\n"
-#~ "Hariri maelezao ya %(map_title)s"
-
-#~ msgid ""
-#~ "Note: this map's orginal metadata was populated by importing a metadata "
-#~ "XML file.\n"
-#~ "        GeoNode's metadata import supports a subset of ISO, FGDC, and "
-#~ "Dublin Core metadata elements.\n"
-#~ "        Some of your original metadata may have been lost."
-#~ msgstr ""
-#~ "Kumbuka: metadata halisi za ramani hii zilipatikana kwa kuleta fail la "
-#~ "XML la metadata.\n"
-#~ "geonode inawezesha uletaji wa sehemu ya metadata za  ISO, FGDC, na Dublin "
-#~ "Core.\n"
-#~ "Baadhi ya metadata halisi zinaweza kuwa zimepotea"
 
 #~ msgid "You are not permitted to delete this map."
 #~ msgstr "You hawaruhusiwi kufuta ramani hii."
@@ -2232,20 +2992,11 @@ msgstr ""
 #~ msgid "An unknown error has occured."
 #~ msgstr "hitilafu isiyojulikana imetokea."
 
-#~ msgid "Personal info"
-#~ msgstr "Maelezo binafsi"
-
-#~ msgid "Important dates"
-#~ msgstr "Tarehe muhimu"
-
 #~ msgid "Password changed successfully."
 #~ msgstr "Nenosiri limebadilishwa kwa mafanikio."
 
 #~ msgid "Change password: %s"
 #~ msgstr "Badilisha nenosiri: %s"
-
-#~ msgid "party who authored the resource"
-#~ msgstr "upande wa uwandishi wa rasilimali"
 
 #~ msgid ""
 #~ "party who has processed the data in a manner such that the resource has "
@@ -2291,9 +3042,6 @@ msgstr ""
 
 #~ msgid "Email Address"
 #~ msgstr "Anuani ya barua pepe"
-
-#~ msgid "User following you"
-#~ msgstr "matumiaji anayekufuatilia"
 
 #~ msgid "Organization Name"
 #~ msgstr "Jina shirika"
@@ -2376,20 +3124,11 @@ msgstr ""
 #~ msgid "Profile of "
 #~ msgstr "Wasifu wa "
 
-#~ msgid "Not provided"
-#~ msgstr "Haijaainishwa"
-
-#~ msgid "Edit profile"
-#~ msgstr "Hariri wasifu"
-
 #~ msgid "Change password"
 #~ msgstr "Change password"
 
 #~ msgid "Upload new layers"
 #~ msgstr "pakia matabaka mapya"
-
-#~ msgid "Create a new map"
-#~ msgstr "Tengeneza ramani mpya"
 
 #~ msgid "My Activities"
 #~ msgstr "Matukio yangu"
@@ -2493,12 +3232,6 @@ msgstr ""
 #~ msgid "Keywords:"
 #~ msgstr "Maneno msingi:"
 
-#~ msgid "Services"
-#~ msgstr "Huduma"
-
-#~ msgid "This CSW server contains the following services"
-#~ msgstr "Seva hii ya CSW ina huduma zifuatazo"
-
 #~ msgid "This Service contains the following layers"
 #~ msgstr "Huduma hii ina matabaka yafuatayo"
 
@@ -2507,9 +3240,6 @@ msgstr ""
 
 #~ msgid "Remove Service"
 #~ msgstr "Ondoa Huduma"
-
-#~ msgid "Save"
-#~ msgstr "Hifadhi"
 
 #~ msgid "Service:"
 #~ msgstr "Huduma:"
@@ -2525,9 +3255,6 @@ msgstr ""
 
 #~ msgid "The following layers will be imported"
 #~ msgstr "Matabaka yafuatayo yataingizwa"
-
-#~ msgid "Are you sure you want to remove"
-#~ msgstr "Je, una uhakika unataka kuondoa"
 
 #~ msgid ""
 #~ "\n"
@@ -2582,9 +3309,6 @@ msgstr ""
 #~ msgid "ago"
 #~ msgstr "iliyopita"
 
-#~ msgid "Recent activity"
-#~ msgstr "Matukio ya hivi karibuni"
-
 #~ msgid "to"
 #~ msgstr "kwa"
 
@@ -2628,9 +3352,6 @@ msgstr ""
 #~ msgid "Share"
 #~ msgstr "Shirikisha"
 
-#~ msgid "Ratings"
-#~ msgstr "Ratings"
-
 #~ msgid "Set permissions on selected resources"
 #~ msgstr "Ruhusa ya kuweka juu ya rasilimali aliliteua"
 
@@ -2651,9 +3372,6 @@ msgstr ""
 
 #~ msgid "Anyone"
 #~ msgstr "Mtu yeyote"
-
-#~ msgid "The following users:"
-#~ msgstr "Watumiaji wafuatao:"
 
 #~ msgid "The following groups:"
 #~ msgstr "Makundi yafuatayo:"
@@ -2679,9 +3397,6 @@ msgstr ""
 
 #~ msgid "Set permissions for this resource"
 #~ msgstr "Seti ruhusa kwa rasilimali hii"
-
-#~ msgid "Choose users..."
-#~ msgstr "Chagua watumiaji ..."
 
 #~ msgid "Choose groups..."
 #~ msgstr "Chagua makundi ..."
@@ -2736,9 +3451,6 @@ msgstr ""
 
 #~ msgid "Forgot your password?"
 #~ msgstr "Umesahau nenosiri lako?"
-
-#~ msgid "Are you sure you want to log out?"
-#~ msgstr "Je, una hakika unataka kutoka?"
 
 #~ msgid "Password reset"
 #~ msgstr "Kuseti upyan enosiri"
@@ -2843,9 +3555,6 @@ msgstr ""
 #~ msgid "User Guide"
 #~ msgstr "Muongozo kwa mtumiaji"
 
-#~ msgid "GeoNode Help"
-#~ msgstr "Msaada kuhusu Geonode"
-
 #~ msgid ""
 #~ "This page provides helpful information about how to use the GeoNode. You "
 #~ "can use the sidebar links to navigate to what you want to know."
@@ -2898,9 +3607,6 @@ msgstr ""
 #~ msgid "Following"
 #~ msgstr "Unaowafuatia"
 
-#~ msgid "This user is not following anyone"
-#~ msgstr "User Hii si kufuatia mtu yeyote"
-
 #~ msgid "Followers"
 #~ msgstr "Wafuasi"
 
@@ -2927,9 +3633,6 @@ msgstr ""
 
 #~ msgid "No longer"
 #~ msgstr "Si tena"
-
-#~ msgid "Confirm"
-#~ msgstr "Thibitisha"
 
 #~ msgid "You're not %(status_slug)s anyone!"
 #~ msgstr "Wewe si %(status_slug)s mtu yeyote!"
@@ -2981,20 +3684,11 @@ msgstr ""
 #~ msgid "Last Sender"
 #~ msgstr "Mtumaji wa Mwisho"
 
-#~ msgid "Preview"
-#~ msgstr "Hakiki"
-
 #~ msgid "Delete?"
 #~ msgstr "Futa?"
 
 #~ msgid "me"
 #~ msgstr "mimi"
-
-#~ msgid "Message Inbox"
-#~ msgstr "Kikasha cha ujumbe"
-
-#~ msgid "Messages"
-#~ msgstr "Ujumbe"
 
 #~ msgid "Create Message"
 #~ msgstr "Andika Ujumbe"
@@ -3137,9 +3831,6 @@ msgstr ""
 
 #~ msgid "Notices"
 #~ msgstr "Notices"
-
-#~ msgid "Notice settings"
-#~ msgstr "Notice settings"
 
 #~ msgid "Observed objects"
 #~ msgstr "Observed objects"
