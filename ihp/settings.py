@@ -174,7 +174,8 @@ NOTIFICATION_ENABLED = True
 # PINAX_NOTIFICATIONS_LANGUAGE_MODEL = "allauth.account.Account"
 
 # notifications backends
-_EMAIL_BACKEND = "pinax.notifications.backends.email.EmailBackend"
+# _EMAIL_BACKEND = "pinax.notifications.backends.email.EmailBackend"
+_EMAIL_BACKEND = "geonode.notifications_backend.EmailBackend"
 PINAX_NOTIFICATIONS_BACKENDS = [
     ("email", _EMAIL_BACKEND),
 ]
