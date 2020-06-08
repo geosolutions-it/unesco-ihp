@@ -1,0 +1,46 @@
+{% extends "geonode_base.html" %}
+
+{% load i18n %}
+{% load bootstrap_tags %}
+
+{% block head_title %}{% trans "Survey" %}{% endblock %}
+{% block title %}{% trans "Survey" %}{% endblock %}
+
+{% block middle %}
+<div class="container">
+    <div class="page-header">
+        <h2>{% trans "Download Survey" %}</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <form id="survey_form" method="post"
+                action="?next={{ next_route | urlencode }}&download_url={{download_url | urlencode}}"
+                autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data" {% endif %}>
+                <fieldset>
+                    {% csrf_token %}
+                    <div class="form-actions">
+                        {{ form | as_bootstrap }}
+                        <button type="submit" class="btn btn-primary">{% trans "Proceed to download" %}</button>
+                    </div>
+                </fieldset>
+            </form>
+            <div id="success_message" style="display: none">
+                <h1>{% trans "Downloading" %}...</h1>
+                <h4>{% trans "Thank you for completing our survey!" %}</h4>
+                <p>{% trans "If the download doesn't start automatically in a few seconds, please click " %}<a
+                        href="{{ download_url }}">{% trans "here" %}</a> {% trans "to access the download URL directly" %}.</p>
+                <a href={{ next_route }}>{% trans "Go back to the resource page." %}</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/lib/js/assets.min.js?v=3.0.dev1585640804"></script>
+<script>
+    $('#survey_form').on('submit', function () {
+        $("#survey_form").submit();
+        $('#survey_form').hide();
+        $('#success_message').css("display", "block");
+        return false;
+    }) 
+</script>
+{% endblock %}

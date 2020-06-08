@@ -8,28 +8,31 @@
 
 {% block head %}
 
+{% block style %}
 <style>
+    body {
+        padding-top: 0px !important;
+    }
+
+    #ms-container {
+        position: absolute;
+        top: 113px !important;
+        bottom: 0px;
+        width: 100%;
+        z-index: 1029;
+        background-color: white;
+    }
+
     #paneltbar {
         margin-top: 78px !important;
     }
 
-    #watermark{
-        display: block;
-        background: url(../../static/img/unesco_ihp_en_transparent.png) center center no-repeat;
-        background-size: 182px;
-        width: 182px;
-        height: 110px;
-        position: absolute;
-        top: 180px;
-        right: 20px;
-        bottom: 0;
-        z-index: 1000;
-    }
     .watermark-link {
         bottom: 0px;
         position: absolute;
     }
 </style>
+{% endblock %}
 
 <div id="watermark"><!-- a href="http://en.unesco.org/themes/water-security/hydrology", class="watermark-link">UNESCO-IHP-Wins</a --></div>
 

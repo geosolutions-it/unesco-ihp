@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GeoNode\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-11 11:44+0200\n"
+"POT-Creation-Date: 2020-05-14 16:55+0200\n"
 "PO-Revision-Date: 2016-08-23 13:57+0000\n"
 "Last-Translator: Julien Collaer <julien.collaer@opengeode.be>\n"
 "Language-Team: Bulgarian (Bulgaria) (http://www.transifex.com/geonode/"
@@ -35,226 +35,394 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ihp/content/forms.py:8
+#: ihp/__init__.py:47
+msgid "a DOI will be added by Admin before publication."
+msgstr ""
+
+#: ihp/__init__.py:49 ihp/templates/base/_resourcebase_info_panel.html:98
+#: ihp/templates/metadata_detail.html:116
+msgid "DOI"
+msgstr ""
+
+#: ihp/content/adapters.py:111
+msgid "This username already exists."
+msgstr ""
+
+#: ihp/content/forms.py:52
 #, fuzzy
 #| msgid "style name"
 msgid "First name"
 msgstr "стил на име"
 
-#: ihp/content/forms.py:10
+#: ihp/content/forms.py:53
 #, fuzzy
 #| msgid "style name"
 msgid "Last name"
 msgstr "стил на име"
 
-#: ihp/content/forms.py:14
-msgid "I agree to the IHP-WINS Terms of use"
+#: ihp/content/forms.py:60
+msgid "Who recommended you IHP-WINS?"
 msgstr ""
 
-#: ihp/templates/about_us_content_template.html:11
-#: ihp/templates/about_us_content_template.html:102
-#: ihp/templates/contact_us_content_template.html:11
-#: ihp/templates/contact_us_content_template.html:93
-#: ihp/templates/faq_page_template.html:11
-#: ihp/templates/faq_page_template.html:89 ihp/templates/mybase.html:22
+#: ihp/content/forms.py:61
+msgid "Name of the person"
+msgstr ""
+
+#: ihp/content/forms.py:63 ihp/content/forms.py:64
+#: ihp/templates/metadata_detail.html:139
+#: ihp/templates/metadata_detail.html:281
+#: ihp/templates/metadata_detail.html:357
+msgid "Organization"
+msgstr "Организация"
+
+#: ihp/content/forms.py:65 ihp/content/forms.py:66
+#: ihp/templates/metadata_detail.html:136
+#: ihp/templates/metadata_detail.html:278
+#: ihp/templates/metadata_detail.html:354
+msgid "Position"
+msgstr "Позиция"
+
+#: ihp/content/forms.py:67 ihp/survey/models.py:34
+#, fuzzy
+#| msgid "count"
+msgid "Country"
+msgstr "брой "
+
+#: ihp/content/forms.py:71 ihp/people/admin.py:39
+#, fuzzy
+#| msgid "Are you sure you want to remove"
+msgid "Group(s) you want to join"
+msgstr "Сигурни ли сте, че искате премахване "
+
+#: ihp/content/forms.py:76
+#, fuzzy
+#| msgid "The user"
+msgid "IHP-WINS Terms of use"
+msgstr "Потребителят"
+
+#: ihp/content/forms.py:77
+msgid "I have read and agree with the "
+msgstr ""
+
+#: ihp/people/__init__.py:27
+msgid "User following you"
+msgstr "Потребител, който те следва"
+
+#: ihp/people/__init__.py:27
+msgid "Another user has started following you"
+msgstr "Друг потребител започна да те следва"
+
+#: ihp/people/__init__.py:28
+msgid "User requested access"
+msgstr "Поискан достъп от потребител"
+
+#: ihp/people/__init__.py:29
+msgid "A new user has requested access to the site"
+msgstr "Нов потребител е поискал достъп до страницата "
+
+#: ihp/people/__init__.py:30
+msgid "Account activated"
+msgstr "Акаунтът е активиран "
+
+#: ihp/people/__init__.py:31
+msgid "This account is now active and can log in the site"
+msgstr "Този акаунт е вече активен и можеш да се регистрираш на сайта"
+
+#: ihp/people/admin.py:34
+msgid "Personal info"
+msgstr "Лична информация"
+
+#: ihp/people/admin.py:36 ihp/templates/documents/document_detail.html:229
+#: ihp/templates/layers/layer_detail.html:711
+#: ihp/templates/maps/map_detail.html:258
+msgid "Permissions"
+msgstr "Настройки за сигурност"
+
+#: ihp/people/admin.py:38
+msgid "Important dates"
+msgstr "Важни дати "
+
+#: ihp/people/admin.py:40
+msgid "Extended profile"
+msgstr "Разширен профил "
+
+#: ihp/people/models.py:84
+msgid "Is the user approved?"
+msgstr ""
+
+#: ihp/people/models.py:88
+msgid "approve user"
+msgstr ""
+
+#: ihp/people/models.py:94
+msgid "Name of the person who recommended you IHP-WINS"
+msgstr ""
+
+#: ihp/survey/forms.py:34
+msgid "Write a brief description of how you plan to use the download."
+msgstr ""
+
+#: ihp/survey/models.py:25 ihp/templates/metadata_detail.html:130
+#: ihp/templates/metadata_detail.html:272
+#: ihp/templates/metadata_detail.html:348
+msgid "Name"
+msgstr "Име"
+
+#: ihp/survey/models.py:31 ihp/templates/invitations/forms/_invite.html:14
+msgid "Email"
+msgstr "Ел.поща"
+
+#: ihp/survey/models.py:40
+#, fuzzy
+#| msgid "Request Download"
+msgid "Reason for data download"
+msgstr "Заявка за изтегляне"
+
+#: ihp/templates/about_us_content_template.html:10
+#: ihp/templates/about_us_content_template.html:104
+#: ihp/templates/contact_us_content_template.html:92
+#: ihp/templates/faq_page_template.html:154 ihp/templates/mybase.html:22
+#: ihp/templates/terms_of_use_template.html:92
 #, fuzzy
 #| msgid "About"
 msgid "About Us"
 msgstr "Относно"
 
-#: ihp/templates/about_us_content_template.html:85
+#: ihp/templates/about_us_content_template.html:84
 msgid "Partners"
 msgstr ""
 
-#: ihp/templates/about_us_content_template.html:87
+#: ihp/templates/about_us_content_template.html:86
 msgid ""
 "IHP’s Water Information Network System has partnered with various "
 "organizations that share their data."
 msgstr ""
 
-#: ihp/templates/about_us_content_template.html:103
-#: ihp/templates/contact_us_content_template.html:94
-#: ihp/templates/faq_page_template.html:90
+#: ihp/templates/about_us_content_template.html:89
+msgid ""
+"Development, installation and configuration professional services have been "
+"provided by"
+msgstr ""
+
+#: ihp/templates/about_us_content_template.html:105
+#: ihp/templates/contact_us_content_template.html:93
+#: ihp/templates/faq_page_template.html:155
+#: ihp/templates/terms_of_use_template.html:93
 msgid "F.A.Q."
 msgstr ""
 
-#: ihp/templates/about_us_content_template.html:104
-#: ihp/templates/contact_us_content_template.html:95
-#: ihp/templates/faq_page_template.html:91
+#: ihp/templates/about_us_content_template.html:106
+#: ihp/templates/contact_us_content_template.html:10
+#: ihp/templates/contact_us_content_template.html:94
+#: ihp/templates/faq_page_template.html:156
+#: ihp/templates/terms_of_use_template.html:94
 #, fuzzy
 #| msgid "Contact:"
 msgid "Contact Us"
 msgstr "Контакт: "
 
-#: ihp/templates/about_us_content_template.html:105
-#: ihp/templates/account/signup.html:23
-#: ihp/templates/contact_us_content_template.html:96
-#: ihp/templates/faq_page_template.html:92 ihp/templates/mybase.html:23
+#: ihp/templates/about_us_content_template.html:107
+#: ihp/templates/contact_us_content_template.html:95
+#: ihp/templates/faq_page_template.html:157 ihp/templates/mybase.html:23
+#: ihp/templates/terms_of_use_template.html:10
+#: ihp/templates/terms_of_use_template.html:95
 #, fuzzy
 #| msgid "The user"
 msgid "Terms of use"
 msgstr "Потребителят"
 
-#: ihp/templates/account/signup.html:7 ihp/templates/account/signup.html:11
-#: ihp/templates/account/signup.html:25
+#: ihp/templates/account/signup.html:8 ihp/templates/account/signup.html:9
+#: ihp/templates/account/signup.html:13 ihp/templates/account/signup.html:37
 msgid "Sign up"
 msgstr "Регистрирай се"
 
-#: ihp/templates/account/signup.html:23
-msgid ""
-"Before start using this service you must carefully read and agree to the"
+#: ihp/templates/account/signup.html:19
+msgid "Sign up with one of your existing third party accounts"
 msgstr ""
 
-#: ihp/templates/account/signup.html:30
-msgid "Sorry, registrations are not open at this time."
-msgstr "Съжалявам, в този момент регистрациите на са възможни."
+#: ihp/templates/account/signup.html:24
+#, fuzzy
+#| msgid "Create a new map"
+msgid "Create a new local account"
+msgstr "Създаване на нова карта "
 
-#: ihp/templates/base.html:60
+#: ihp/templates/base.html:241
+#, fuzzy
+#| msgid "GeoNode Help"
+msgid "GeoNode Search"
+msgstr "GeoNode помощ "
+
+#: ihp/templates/base.html:269
 msgid "Layers"
 msgstr "Слоеве"
 
-#: ihp/templates/base.html:63
+#: ihp/templates/base.html:272
 msgid "Maps"
 msgstr "Карти"
 
-#: ihp/templates/base.html:66
-msgid "Documents"
-msgstr "Документи"
+#: ihp/templates/base.html:275
+msgid "Library"
+msgstr ""
 
-#: ihp/templates/base.html:71
+#: ihp/templates/base.html:280
 msgid "People"
 msgstr "Потребители"
 
-#: ihp/templates/base.html:74
+#: ihp/templates/base.html:283
 msgid "Groups"
 msgstr "Групи "
 
-#: ihp/templates/base.html:78
+#: ihp/templates/base.html:287
 #, fuzzy
 #| msgid "series"
 msgid "TimeSeries"
 msgstr "серии"
 
-#: ihp/templates/base.html:82
+#: ihp/templates/base.html:291 ihp/templates/layers/layer_detail.html:483
 msgid "Search"
 msgstr "Търсене"
 
-#: ihp/templates/base.html:99
+#: ihp/templates/base.html:315
 msgid "Register"
 msgstr "Регистър "
 
-#: ihp/templates/base.html:124 ihp/templates/base.html.py:198
-#: ihp/templates/base.html:216
+#: ihp/templates/base.html:340 ihp/templates/base.html:421
+#: ihp/templates/base.html:445
 msgid "Sign in"
 msgstr "Регистрирай се"
 
-#: ihp/templates/base.html:165 ihp/templates/mybase.html:50
+#: ihp/templates/base.html:388 ihp/templates/mybase.html:50
 msgid "Powered by"
 msgstr "Поддържано от "
 
-#: ihp/templates/base.html:165
+#: ihp/templates/base.html:388
 msgid "GeoNode"
 msgstr "GeoNode "
 
-#: ihp/templates/base.html:165
+#: ihp/templates/base.html:388
 msgid "version"
 msgstr "версия "
 
-#: ihp/templates/base.html:166
+#: ihp/templates/base.html:389
 msgid "Developers"
 msgstr "Разработчици"
 
-#: ihp/templates/base.html:167
+#: ihp/templates/base.html:390
 msgid "About"
 msgstr "Относно"
 
-#: ihp/templates/base.html:170
-#: ihp/templates/base/_resourcebase_info_panel.html:150
-#: ihp/templates/metadata_detail.html:230 ihp/templates/mybase.html:32
+#: ihp/templates/base.html:393
+#: ihp/templates/base/_resourcebase_info_panel.html:153
+#: ihp/templates/metadata_detail.html:240 ihp/templates/mybase.html:32
 msgid "Language"
 msgstr "Език"
 
-#: ihp/templates/base.html:204 ihp/templates/base.html.py:205
+#: ihp/templates/base.html:433 ihp/templates/base.html:434
 msgid "Username"
 msgstr "Потребителско име "
 
-#: ihp/templates/base.html:208 ihp/templates/base.html.py:209
+#: ihp/templates/base.html:437 ihp/templates/base.html:438
 msgid "Password"
 msgstr "Парола "
 
-#: ihp/templates/base.html:212
+#: ihp/templates/base.html:441
 msgid "Remember Me"
 msgstr "Запомни ме"
 
-#: ihp/templates/base.html:228
+#: ihp/templates/base.html:457
 msgid "Menu"
 msgstr "Меню "
 
-#: ihp/templates/base.html:232
+#: ihp/templates/base.html:461
 msgid "Upload Layers"
 msgstr "Зареждане на слоеве"
 
-#: ihp/templates/base.html:234
+#: ihp/templates/base.html:463
 msgid "Profile"
 msgstr "Профил "
 
-#: ihp/templates/base.html:235
+#: ihp/templates/base.html:464
 msgid "Recent Activity"
 msgstr "Актуални действия"
 
-#: ihp/templates/base.html:236
+#: ihp/templates/base.html:465
 msgid "Inbox"
 msgstr "Пощенска кутия"
 
-#: ihp/templates/base.html:238
+#: ihp/templates/base.html:467
 msgid "Notifications"
 msgstr "Известия "
 
-#: ihp/templates/base.html:241
+#: ihp/templates/base.html:470
 msgid "Announcements"
 msgstr "Обявления"
 
-#: ihp/templates/base.html:244
+#: ihp/templates/base.html:472 ihp/templates/invitations/forms/_invite.html:7
+#, fuzzy
+#| msgid "Invite User"
+msgid "Invite Users"
+msgstr "Покани потребител "
+
+#: ihp/templates/base.html:474
 msgid "Remote Services"
 msgstr "Услуги с отдалечен достъп"
 
-#: ihp/templates/base.html:245
-msgid "Invite User"
-msgstr "Покани потребител "
-
-#: ihp/templates/base.html:247
+#: ihp/templates/base.html:476
 msgid "GeoServer"
 msgstr "GeoServer "
 
-#: ihp/templates/base.html:250
+#: ihp/templates/base.html:480
+msgid "Monitoring"
+msgstr ""
+
+#: ihp/templates/base.html:483
 msgid "Admin"
 msgstr "Администратор "
 
-#: ihp/templates/base.html:255
+#: ihp/templates/base.html:488
 msgid "Help"
 msgstr "Помощ "
 
-#: ihp/templates/base.html:261
+#: ihp/templates/base.html:494
 msgid "Log out"
 msgstr "Изход "
 
-#: ihp/templates/base.html:298
-msgid "Type your search here ..."
-msgstr "Напишете текст за търсене тук ... "
-
+#: ihp/templates/base.html:616
 #: ihp/templates/base/_resourcebase_info_panel.html:6
 #: ihp/templates/metadata_detail.html:43
 msgid "Title"
 msgstr "Заглавие"
 
+#: ihp/templates/base.html:617
+#, fuzzy
+#| msgid "Are you sure you want to remove"
+msgid "Message. Do you want to proceed?"
+msgstr "Сигурни ли сте, че искате премахване "
+
+#: ihp/templates/base.html:631
+msgid "Confirm"
+msgstr "Потвърди"
+
+#: ihp/templates/base.html:634
+msgid "Some text in the modal"
+msgstr ""
+
+#: ihp/templates/base.html:637
+msgid "Cancel"
+msgstr "Отмени"
+
+#: ihp/templates/base.html:638 ihp/templates/layers/layouts/panels.html:523
+msgid "OK"
+msgstr ""
+
 #: ihp/templates/base/_resourcebase_info_panel.html:11
-#: ihp/templates/base/_resourcebase_info_panel.html:104
+#: ihp/templates/base/_resourcebase_info_panel.html:107
 msgid "SRID"
 msgstr "SRID"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:16
-#: ihp/templates/base/_resourcebase_info_panel.html:109
-#: ihp/templates/metadata_detail.html:57 ihp/templates/metadata_detail.html:193
+#: ihp/templates/base/_resourcebase_info_panel.html:112
+#: ihp/templates/metadata_detail.html:57 ihp/templates/metadata_detail.html:203
 msgid "License"
 msgstr "Лиценз"
 
@@ -265,25 +433,29 @@ msgstr "Резюме"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:34
 #: ihp/templates/metadata_detail.html:71
-#: ihp/templates/search/_general_filters.html:66
 msgid "Date"
 msgstr "Дата"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:45
-#: ihp/templates/layers/layer_detail.html:511
+#: ihp/templates/layers/layer_detail.html:722
 #: ihp/templates/metadata_detail.html:76
 msgid "Type"
 msgstr "Вид"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:50
-#: ihp/templates/metadata_detail.html:81 ihp/templates/metadata_detail.html:142
-#: ihp/templates/metadata_detail.html:284
-#: ihp/templates/metadata_detail.html:360
-#: ihp/templates/search/_h_keywords_filter.html:3
+#: ihp/templates/metadata_detail.html:81 ihp/templates/metadata_detail.html:152
+#: ihp/templates/metadata_detail.html:294
+#: ihp/templates/metadata_detail.html:370
 msgid "Keywords"
 msgstr "Ключови думи"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:62
+#: ihp/templates/documents/document_metadata_advanced.html:58
+#: ihp/templates/documents/layouts/doc_panels.html:111
+#: ihp/templates/layers/layer_metadata_advanced.html:79
+#: ihp/templates/layers/layouts/panels.html:329
+#: ihp/templates/maps/layouts/map_panels.html:114
+#: ihp/templates/maps/map_metadata_advanced.html:58
 #: ihp/templates/metadata_detail.html:88
 msgid "Category"
 msgstr "Категория"
@@ -294,61 +466,302 @@ msgid "Regions"
 msgstr "Региони"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:84
-#: ihp/templates/metadata_detail.html:112
-msgid "Owner"
-msgstr "Собственик"
+#: ihp/templates/metadata_detail.html:122
+msgid "Responsible"
+msgstr ""
 
 #: ihp/templates/base/_resourcebase_info_panel.html:89
+#: ihp/templates/documents/document_metadata.html:42
+#: ihp/templates/documents/document_metadata.html:66
+#: ihp/templates/documents/document_metadata_advanced.html:33
+#: ihp/templates/documents/document_metadata_advanced.html:82
+#: ihp/templates/layers/layer_metadata.html:53
+#: ihp/templates/layers/layer_metadata.html:84
+#: ihp/templates/layers/layer_metadata_advanced.html:44
+#: ihp/templates/layers/layer_metadata_advanced.html:124
+#: ihp/templates/maps/map_metadata.html:68
+#: ihp/templates/maps/map_metadata_advanced.html:82
 msgid "Point of Contact"
 msgstr "Точка за контакт"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:94
+#: ihp/templates/documents/layouts/doc_panels.html:130
+#: ihp/templates/layers/layouts/panels.html:349
+#: ihp/templates/maps/layouts/map_panels.html:133
+#: ihp/templates/metadata_detail.html:112
 #, fuzzy
 #| msgid "Groups"
 msgid "Group"
 msgstr "Групи "
 
-#: ihp/templates/base/_resourcebase_info_panel.html:121
-#: ihp/templates/metadata_detail.html:206
+#: ihp/templates/base/_resourcebase_info_panel.html:124
+#: ihp/templates/metadata_detail.html:216
 msgid "Maintenance Frequency"
 msgstr "Честота на поддръжка"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:129
-#: ihp/templates/metadata_detail.html:211
+#: ihp/templates/base/_resourcebase_info_panel.html:132
+#: ihp/templates/metadata_detail.html:221
 msgid "Restrictions"
 msgstr "Ограничения"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:137
-#: ihp/templates/metadata_detail.html:220
+#: ihp/templates/base/_resourcebase_info_panel.html:140
+#: ihp/templates/metadata_detail.html:230
 msgid "Edition"
 msgstr "Издание"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:145
-#: ihp/templates/metadata_detail.html:225
+#: ihp/templates/base/_resourcebase_info_panel.html:148
+#: ihp/templates/metadata_detail.html:235
 msgid "Purpose"
 msgstr "Предназначение"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:155
-#: ihp/templates/metadata_detail.html:235
+#: ihp/templates/base/_resourcebase_info_panel.html:158
+#: ihp/templates/metadata_detail.html:245
 msgid "Temporal Extent"
 msgstr "Времеви обхват"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:160
-#: ihp/templates/metadata_detail.html:240
+#: ihp/templates/base/_resourcebase_info_panel.html:163
+#: ihp/templates/metadata_detail.html:250
 msgid "Data Quality"
 msgstr "Качество на Данните"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:165
-#: ihp/templates/metadata_detail.html:245
+#: ihp/templates/base/_resourcebase_info_panel.html:168
+#: ihp/templates/metadata_detail.html:255
 msgid "Supplemental Information"
 msgstr "Допълнителна Информация"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:170
-#: ihp/templates/metadata_detail.html:250
+#: ihp/templates/base/_resourcebase_info_panel.html:173
+#: ihp/templates/metadata_detail.html:260
 msgid "Spatial Representation Type"
 msgstr "Вид Пространствено Представяне"
 
-#: ihp/templates/faq_page_template.html:69
+#: ihp/templates/doc_page_template.html:10 ihp/templates/mybase.html:24
+#, fuzzy
+#| msgid "Getting Started"
+msgid "Get Started"
+msgstr "Въведение"
+
+#: ihp/templates/documents/document_detail.html:44
+msgid "External Resource"
+msgstr "Външен ресурс"
+
+#: ihp/templates/documents/document_detail.html:73
+msgid "Rate this document"
+msgstr "Оцени този документ"
+
+#: ihp/templates/documents/document_detail.html:77
+#: ihp/templates/layers/layer_detail.html:267
+#: ihp/templates/maps/map_detail.html:107
+msgid "Average Rating"
+msgstr "Средна оценка"
+
+#: ihp/templates/documents/document_detail.html:97
+#: ihp/templates/layers/layer_detail.html:451
+#: ihp/templates/maps/map_detail.html:134
+msgid "Metadata Detail"
+msgstr ""
+
+#: ihp/templates/documents/document_detail.html:105
+#: ihp/templates/documents/document_detail.html:107
+#: ihp/templates/documents/document_detail.html:109
+msgid "Download Document"
+msgstr "Свали документ"
+
+#: ihp/templates/documents/document_detail.html:113
+#: ihp/templates/layers/layer_detail.html:291
+msgid "Request Download"
+msgstr "Заявка за изтегляне"
+
+#: ihp/templates/documents/document_detail.html:121
+#: ihp/templates/layers/layer_detail.html:458
+#: ihp/templates/maps/map_detail.html:141
+#, fuzzy
+#| msgid "Request Download"
+msgid "Request change"
+msgstr "Заявка за изтегляне"
+
+#: ihp/templates/documents/document_detail.html:127
+#: ihp/templates/documents/document_detail.html:136
+msgid "Edit Document"
+msgstr "Редактирай документ"
+
+#: ihp/templates/documents/document_detail.html:144
+#: ihp/templates/documents/document_metadata.html:17
+#: ihp/templates/layers/layer_detail.html:478
+#: ihp/templates/layers/layer_metadata.html:19
+#: ihp/templates/maps/map_detail.html:184
+#: ihp/templates/maps/map_metadata.html:20
+#: ihp/templates/metadata_detail.html:32
+msgid "Metadata"
+msgstr "Метаданни"
+
+#: ihp/templates/documents/document_detail.html:145
+#: ihp/templates/layers/layer_detail.html:479
+#: ihp/templates/maps/map_detail.html:185
+msgid "Wizard"
+msgstr ""
+
+#: ihp/templates/documents/document_detail.html:146
+#: ihp/templates/layers/layer_detail.html:480
+#: ihp/templates/maps/map_detail.html:186
+msgid "Advanced Edit"
+msgstr ""
+
+#: ihp/templates/documents/document_detail.html:152
+#: ihp/templates/layers/layer_detail.html:516
+#: ihp/templates/layers/layouts/panels.html:273
+#: ihp/templates/maps/layouts/map_panels.html:59
+#: ihp/templates/maps/map_detail.html:192
+msgid "Thumbnail"
+msgstr "Thumbnail"
+
+#: ihp/templates/documents/document_detail.html:153
+#: ihp/templates/layers/layer_detail.html:499
+#: ihp/templates/maps/map_detail.html:194
+#, fuzzy
+#| msgid "uploaded"
+msgid "Upload"
+msgstr "зареден"
+
+#: ihp/templates/documents/document_detail.html:159
+msgid "Document"
+msgstr "Документ"
+
+#: ihp/templates/documents/document_detail.html:161
+#: ihp/templates/layers/layer_detail.html:525
+msgid "Replace"
+msgstr "Замяна"
+
+#: ihp/templates/documents/document_detail.html:164
+#: ihp/templates/layers/layer_detail.html:531
+#: ihp/templates/maps/map_detail.html:202
+msgid "Remove"
+msgstr "Премахване"
+
+#: ihp/templates/documents/document_detail.html:171
+#: ihp/templates/documents/document_detail.html:207
+#: ihp/templates/layers/layer_detail.html:435
+#: ihp/templates/layers/layer_detail.html:538
+#: ihp/templates/layers/layer_detail.html:588
+#: ihp/templates/maps/map_detail.html:163
+#: ihp/templates/maps/map_detail.html:208
+#: ihp/templates/maps/map_detail.html:314
+#: ihp/templates/maps/map_detail.html:334
+msgid "Close"
+msgstr "Затваряне"
+
+#: ihp/templates/documents/document_detail.html:178
+#: ihp/templates/documents/document_detail.html:185
+#: ihp/templates/layers/layer_detail.html:550
+#: ihp/templates/layers/layer_detail.html:558
+msgid "Download Metadata"
+msgstr "Сваляне на метаданни"
+
+#: ihp/templates/documents/document_detail.html:214
+#, fuzzy
+#| msgid "Resource using this document"
+msgid "Resources using this document"
+msgstr "Ресурс, използващ този документ"
+
+#: ihp/templates/documents/document_detail.html:216
+msgid "List of resources using this document:"
+msgstr "Списък с ресурси използващи този документ:"
+
+#: ihp/templates/documents/document_detail.html:222
+msgid "This document is not related to any maps or layers"
+msgstr "Този документ не е свързан с карти или слоеве"
+
+#: ihp/templates/documents/document_detail.html:230
+msgid "Click the button below to change the permissions of this document."
+msgstr " Натиснете бутона долу, за да промените разрешенията на този документ."
+
+#: ihp/templates/documents/document_detail.html:231
+msgid "Change Document Permissions"
+msgstr "Променя на достъпа за документа"
+
+#: ihp/templates/documents/document_list.html:5
+#: ihp/templates/documents/document_list.html:14
+#, fuzzy
+#| msgid "Explore Layers"
+msgid "Explore Library"
+msgstr "Преглед на слоеве"
+
+#: ihp/templates/documents/document_list.html:12
+msgid "Upload Documents"
+msgstr "Зареждане на документи"
+
+#: ihp/templates/documents/document_metadata.html:17
+#, python-format
+msgid "for %(document_title)s"
+msgstr ""
+
+#: ihp/templates/documents/document_metadata.html:35
+#: ihp/templates/documents/document_metadata_advanced.html:26
+#: ihp/templates/layers/layer_metadata.html:46
+#: ihp/templates/layers/layer_metadata_advanced.html:37
+#: ihp/templates/maps/map_metadata.html:44
+#: ihp/templates/maps/map_metadata_advanced.html:34
+msgid "Error updating metadata.  Please check the following fields: "
+msgstr "Грешка при качване на метаданни. Моля проверете следните полета:"
+
+#: ihp/templates/documents/document_metadata.html:38
+#: ihp/templates/documents/document_metadata_advanced.html:29
+#: ihp/templates/layers/layer_metadata.html:49
+#: ihp/templates/layers/layer_metadata_advanced.html:40
+#: ihp/templates/metadata_detail.html:341
+msgid "Metadata Author"
+msgstr "Автор на метаданни"
+
+#: ihp/templates/documents/document_metadata.html:71
+#: ihp/templates/documents/document_metadata_advanced.html:87
+#: ihp/templates/layers/layer_metadata.html:89
+#: ihp/templates/layers/layer_metadata_advanced.html:129
+#: ihp/templates/maps/map_metadata.html:73
+#: ihp/templates/maps/map_metadata_advanced.html:87
+msgid "Metadata Provider"
+msgstr "Доставчик на метаданни"
+
+#: ihp/templates/documents/document_metadata.html:77
+#: ihp/templates/layers/layer_metadata.html:97
+#: ihp/templates/maps/map_metadata.html:79
+msgid "<< Back"
+msgstr ""
+
+#: ihp/templates/documents/document_metadata.html:78
+#: ihp/templates/documents/document_metadata_advanced.html:48
+#: ihp/templates/documents/document_metadata_advanced.html:92
+#: ihp/templates/layers/layer_metadata.html:98
+#: ihp/templates/layers/layer_metadata_advanced.html:69
+#: ihp/templates/layers/layer_metadata_advanced.html:137
+#: ihp/templates/maps/map_metadata.html:80
+#: ihp/templates/maps/map_metadata_advanced.html:49
+#: ihp/templates/maps/map_metadata_advanced.html:93
+msgid "Update"
+msgstr "Обновяване"
+
+#: ihp/templates/documents/document_metadata.html:79
+#: ihp/templates/layers/layer_metadata.html:99
+#: ihp/templates/maps/map_metadata.html:81
+#, fuzzy
+#| msgid "Next"
+msgid "Next >>"
+msgstr "Следващ"
+
+#: ihp/templates/documents/document_metadata_advanced.html:16
+msgid "Explore Documents"
+msgstr "Преглед на документи"
+
+#: ihp/templates/documents/document_metadata_advanced.html:17
+#: ihp/templates/layers/layer_metadata_advanced.html:17
+#: ihp/templates/maps/map_metadata_advanced.html:17
+msgid "Edit Metadata"
+msgstr "Редакция на метаданни"
+
+#: ihp/templates/documents/document_metadata_advanced.html:22
+msgid "Editing details for"
+msgstr "Редакционни детайли за"
+
+#: ihp/templates/faq_page_template.html:10
+#: ihp/templates/faq_page_template.html:98
 msgid "Frequently Asked Questions"
 msgstr ""
 
@@ -356,24 +769,24 @@ msgstr ""
 msgid "Welcome!"
 msgstr "Добре дошли"
 
-#: ihp/templates/index.html:33
+#: ihp/templates/index.html:34
 #, fuzzy
 #| msgid "Welcome"
 msgid "Welcome to "
 msgstr "Добре дошли"
 
-#: ihp/templates/index.html:121
+#: ihp/templates/index.html:122
 msgid "Welcome"
 msgstr "Добре дошли"
 
-#: ihp/templates/index.html:122
+#: ihp/templates/index.html:123
 msgid ""
 "GeoNode is an open source platform for sharing geospatial data and maps."
 msgstr ""
 "GeoNode е платформа с отворен код за споделяне на гео-пространствени данни и "
 "карти."
 
-#: ihp/templates/index.html:123
+#: ihp/templates/index.html:124
 msgid ""
 "If you have any questions about the software or service, join our <a href="
 "\"http://lists.osgeo.org/cgi-bin/mailman/listinfo/geonode-users\">mailing "
@@ -383,35 +796,36 @@ msgstr ""
 "списъка <a href=\"http://lists.osgeo.org/cgi-bin/mailman/listinfo/geonode-"
 "users\"> с адреси: </a>."
 
-#: ihp/templates/index.html:124
+#: ihp/templates/index.html:125
 msgid "Need help?"
 msgstr "Нуждаете се от помощ?"
 
-#: ihp/templates/index.html:124
+#: ihp/templates/index.html:125
 msgid "Getting Started"
 msgstr "Въведение"
 
-#: ihp/templates/index.html:128
+#: ihp/templates/index.html:129
 msgid "Welcome to the Water Information Network System"
 msgstr ""
 
-#: ihp/templates/index.html:129
+#: ihp/templates/index.html:130
 msgid "by the International Hydrological Programme of UNESCO"
 msgstr ""
 
-#: ihp/templates/index.html:143 ihp/templates/index.html.py:153
-#: ihp/templates/index.html:163 ihp/templates/metadata_detail.html:103
+#: ihp/templates/index.html:144 ihp/templates/index.html:154
+#: ihp/templates/index.html:164 ihp/templates/metadata_detail.html:103
 #: ihp/templates/metadata_detail.html:106
+#: ihp/templates/metadata_detail.html:109
 msgid "No"
 msgstr "Не"
 
-#: ihp/templates/index.html:143 ihp/templates/layers/layer_detail.html:365
+#: ihp/templates/index.html:144 ihp/templates/layers/layer_detail.html:523
 msgid "Layer"
 msgid_plural "Layers"
 msgstr[0] "Слоеве "
 msgstr[1] "Слоеве"
 
-#: ihp/templates/index.html:144
+#: ihp/templates/index.html:145
 msgid ""
 "Click to search for geospatial data published by other users, organizations "
 "and public sources. Download data in standard formats."
@@ -419,21 +833,22 @@ msgstr ""
 "Натиснете за търсене на геопространствени данни, публикувани от други "
 "потребители и организации. Свалете данни в стандартни формати."
 
-#: ihp/templates/index.html:146
+#: ihp/templates/index.html:147
 msgid "Add layers"
 msgstr "Добави слоеве"
 
-#: ihp/templates/index.html:148
+#: ihp/templates/index.html:149
 msgid "Explore layers"
 msgstr "Преглед слоеве"
 
-#: ihp/templates/index.html:153 ihp/templates/maps/map_view.html:6
+#: ihp/templates/index.html:154 ihp/templates/maps/map_detail.html:200
+#: ihp/templates/maps/map_view.html:7
 msgid "Map"
 msgid_plural "Maps"
 msgstr[0] "Карти"
 msgstr[1] "Карти "
 
-#: ihp/templates/index.html:154
+#: ihp/templates/index.html:155
 #, fuzzy
 #| msgid ""
 #| "Data is available for browsing, aggregating and styling to generate maps "
@@ -447,21 +862,21 @@ msgstr ""
 "карти, които могат да бъдат споделяни публично или ограничени само до "
 "определени потребители."
 
-#: ihp/templates/index.html:156
+#: ihp/templates/index.html:157
 msgid "Create maps"
 msgstr "Създаване карти"
 
-#: ihp/templates/index.html:158
+#: ihp/templates/index.html:159
 msgid "Explore maps"
 msgstr "Преглед карти"
 
-#: ihp/templates/index.html:163
+#: ihp/templates/index.html:164
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Потребители"
 msgstr[1] "Потребители "
 
-#: ihp/templates/index.html:164
+#: ihp/templates/index.html:165
 #, fuzzy
 #| msgid ""
 #| "GeoNode allows registered users to easily upload geospatial data in "
@@ -473,225 +888,282 @@ msgstr ""
 "GeoNode допуска регистрирани потребители лесно да качват гео-пространствени "
 "данни в няколко формата, вкл. шейпфайл или Geo Tiff."
 
-#: ihp/templates/index.html:165
+#: ihp/templates/index.html:166
 msgid "See users"
 msgstr "Виж потребители"
 
-#: ihp/templates/layers/layer_detail.html:65
+#: ihp/templates/invitations/forms/_invite.html:13
+#, fuzzy
+#| msgid "Confirm your email address"
+msgid "Max. 200 email addresses"
+msgstr "Потвърждаване на ел.поща"
+
+#: ihp/templates/layers/layer_detail.html:63
+#, fuzzy
+#| msgid "Services"
+msgid "Service is"
+msgstr "Услуги "
+
+#: ihp/templates/layers/layer_detail.html:63
+msgid "online"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:63
+msgid "offline"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:87
+msgid "Layer WMS GetCapabilities document"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:97
 msgid "Filter Granules"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:68
+#: ihp/templates/layers/layer_detail.html:100
 msgid "Active Filter:"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:74
+#: ihp/templates/layers/layer_detail.html:106
 msgid "Granule ID"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:75
+#: ihp/templates/layers/layer_detail.html:107
 msgid "Bounding Box"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:76
+#: ihp/templates/layers/layer_detail.html:108
 msgid "Time"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:77
+#: ihp/templates/layers/layer_detail.html:109
 msgid "Elevation"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:78
+#: ihp/templates/layers/layer_detail.html:110
 msgid "Actions"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:140
+#: ihp/templates/layers/layer_detail.html:172
 msgid "Dimension"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:141
+#: ihp/templates/layers/layer_detail.html:173
 msgid "Enabled"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:142
+#: ihp/templates/layers/layer_detail.html:174
 msgid "Regex"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:147
+#: ihp/templates/layers/layer_detail.html:179
 msgid "TIME"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:148
-#: ihp/templates/layers/layer_detail.html:153
+#: ihp/templates/layers/layer_detail.html:180
+#: ihp/templates/layers/layer_detail.html:185
 msgid "True"
 msgstr "Верен"
 
-#: ihp/templates/layers/layer_detail.html:148
-#: ihp/templates/layers/layer_detail.html:153
+#: ihp/templates/layers/layer_detail.html:180
+#: ihp/templates/layers/layer_detail.html:185
 msgid "False"
 msgstr "Грешен"
 
-#: ihp/templates/layers/layer_detail.html:152
+#: ihp/templates/layers/layer_detail.html:184
 msgid "ELEVATION"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:163
+#: ihp/templates/layers/layer_detail.html:195
 msgid "Attribute Name"
 msgstr "Име на атрибут "
 
-#: ihp/templates/layers/layer_detail.html:164
+#: ihp/templates/layers/layer_detail.html:196
+#: ihp/templates/layers/layer_metadata_advanced.html:107
+#: ihp/templates/layers/layouts/panels.html:545
 msgid "Label"
 msgstr "Надпис "
 
-#: ihp/templates/layers/layer_detail.html:165
+#: ihp/templates/layers/layer_detail.html:197
+#: ihp/templates/layers/layer_metadata_advanced.html:108
+#: ihp/templates/layers/layouts/panels.html:546
 msgid "Description"
 msgstr "Описание"
 
-#: ihp/templates/layers/layer_detail.html:167
+#: ihp/templates/layers/layer_detail.html:199
 msgid "Range"
 msgstr "Обхват "
 
-#: ihp/templates/layers/layer_detail.html:168
+#: ihp/templates/layers/layer_detail.html:200
 msgid "Average"
 msgstr "Средно "
 
-#: ihp/templates/layers/layer_detail.html:169
+#: ihp/templates/layers/layer_detail.html:201
 msgid "Median"
 msgstr "Междинно"
 
-#: ihp/templates/layers/layer_detail.html:170
+#: ihp/templates/layers/layer_detail.html:202
 msgid "Standard Deviation"
 msgstr "Стандартно отклонение"
 
-#: ihp/templates/layers/layer_detail.html:231
+#: ihp/templates/layers/layer_detail.html:263
 msgid "Rate this layer"
 msgstr "Оцени този слой"
 
-#: ihp/templates/layers/layer_detail.html:235
-msgid "Average Rating"
-msgstr "Средна оценка"
+#: ihp/templates/layers/layer_detail.html:283
+msgid "Analyze with"
+msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:252
-#: ihp/templates/layers/layer_detail.html:265
+#: ihp/templates/layers/layer_detail.html:288
+#: ihp/templates/layers/layer_detail.html:301
 msgid "Download Layer"
 msgstr "Свален слой "
 
-#: ihp/templates/layers/layer_detail.html:255
-msgid "Request Download"
-msgstr "Заявка за изтегляне"
+#: ihp/templates/layers/layer_detail.html:335
+#, fuzzy
+#| msgid "Are you sure you want to log out?"
+msgid "Do you want to filter it?"
+msgstr "Сигурни ли сте, че искате да излезете? "
 
-#: ihp/templates/layers/layer_detail.html:304
-#: ihp/templates/layers/layer_detail.html:377
-#: ihp/templates/layers/layer_detail.html:423
-msgid "Close"
-msgstr "Затваряне"
-
-#: ihp/templates/layers/layer_detail.html:316
-msgid "Metadata Detail"
+#: ihp/templates/layers/layer_detail.html:338
+msgid "Loading..."
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:322
-#: ihp/templates/layers/layer_detail.html:329
+#: ihp/templates/layers/layer_detail.html:342
+#, fuzzy
+#| msgid "Select an attribute"
+msgid "Filter by attributes"
+msgstr "Изберете атрибут"
+
+#: ihp/templates/layers/layer_detail.html:349
+msgid "Match"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:364
+#, fuzzy
+#| msgid "the following map"
+msgid "of the following:"
+msgstr "следната карта"
+
+#: ihp/templates/layers/layer_detail.html:371
+#: ihp/templates/layers/layer_metadata_advanced.html:106
+#: ihp/templates/layers/layouts/panels.html:544
+msgid "Attribute"
+msgstr "Атрибут "
+
+#: ihp/templates/layers/layer_detail.html:388
+msgid "Operator"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:422
+msgid "Pick your download format:"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:464
+#: ihp/templates/layers/layer_detail.html:471
 msgid "Edit Layer"
 msgstr "Редактиране на слой "
 
-#: ihp/templates/layers/layer_detail.html:336
-#: ihp/templates/metadata_detail.html:32
-msgid "Metadata"
-msgstr "Метаданни"
-
-#: ihp/templates/layers/layer_detail.html:337
-msgid "Wizard"
-msgstr ""
-
-#: ihp/templates/layers/layer_detail.html:338
-msgid "Advanced Edit"
-msgstr ""
-
-#: ihp/templates/layers/layer_detail.html:339
+#: ihp/templates/layers/layer_detail.html:481
 #, fuzzy
 #| msgid "Download Metadata"
 msgid "Upload Metadata"
 msgstr "Сваляне на метаданни"
 
-#: ihp/templates/layers/layer_detail.html:346
-#: ihp/templates/layers/layer_detail.html:477
+#: ihp/templates/layers/layer_detail.html:484
+msgid "Gazetteer"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:492
+#: ihp/templates/layers/layer_detail.html:508
+#: ihp/templates/layers/layer_detail.html:663
 msgid "Styles"
 msgstr "Стилове "
 
-#: ihp/templates/layers/layer_detail.html:348
+#: ihp/templates/layers/layer_detail.html:494
+#: ihp/templates/layers/layer_detail.html:496
+#: ihp/templates/layers/layer_detail.html:509
+#: ihp/templates/layers/layouts/panels.html:219
+#: ihp/templates/layers/layouts/panels.html:288
+#: ihp/templates/maps/layouts/map_panels.html:74
+#: ihp/templates/maps/map_detail.html:201
 msgid "Edit"
 msgstr "Редакция"
 
-#: ihp/templates/layers/layer_detail.html:350
-#, fuzzy
-#| msgid "uploaded"
-msgid "Upload"
-msgstr "зареден"
-
-#: ihp/templates/layers/layer_detail.html:351
+#: ihp/templates/layers/layer_detail.html:500
 msgid "Manage"
 msgstr "Управлявай"
 
-#: ihp/templates/layers/layer_detail.html:358
-msgid "Thumbnail"
-msgstr "Thumbnail"
-
-#: ihp/templates/layers/layer_detail.html:359
+#: ihp/templates/layers/layer_detail.html:517
+#: ihp/templates/maps/map_detail.html:193
 msgid "Set"
 msgstr "Поредица"
 
-#: ihp/templates/layers/layer_detail.html:367
-msgid "Replace"
-msgstr "Замяна"
+#: ihp/templates/layers/layer_detail.html:528
+msgid "Edit data"
+msgstr "Редактиране на данни "
 
-#: ihp/templates/layers/layer_detail.html:370
-msgid "Remove"
-msgstr "Премахване"
+#: ihp/templates/layers/layer_detail.html:546
+#, fuzzy
+#| msgid "Edit Layer"
+msgid "View Layer"
+msgstr "Редактиране на слой "
 
-#: ihp/templates/layers/layer_detail.html:385
-#: ihp/templates/layers/layer_detail.html:393
-msgid "Download Metadata"
-msgstr "Сваляне на метаданни"
-
-#: ihp/templates/layers/layer_detail.html:431
+#: ihp/templates/layers/layer_detail.html:596
 msgid "Legend"
 msgstr "Легенда"
 
-#: ihp/templates/layers/layer_detail.html:445
+#: ihp/templates/layers/layer_detail.html:616
 msgid "Maps using this layer"
 msgstr "Карти използващи слой"
 
-#: ihp/templates/layers/layer_detail.html:447
+#: ihp/templates/layers/layer_detail.html:618
 msgid "List of maps using this layer:"
 msgstr "Списък с карти с този слой: "
 
-#: ihp/templates/layers/layer_detail.html:453
+#: ihp/templates/layers/layer_detail.html:624
 msgid "This layer is not currently used in any maps."
 msgstr "В момента този слой не се използва в карти. "
 
-#: ihp/templates/layers/layer_detail.html:458
+#: ihp/templates/layers/layer_detail.html:629
 msgid "Create a map using this layer"
 msgstr "Създаване на карта чрез посочения слой"
 
-#: ihp/templates/layers/layer_detail.html:459
+#: ihp/templates/layers/layer_detail.html:630
 msgid "Click the button below to generate a new map based on this layer."
 msgstr "Натиснете бутона отдолу, за да направите нова карта с този слой. "
 
-#: ihp/templates/layers/layer_detail.html:460
-#: ihp/templates/search/_search_content.html:16
+#: ihp/templates/layers/layer_detail.html:631
 msgid "Create a Map"
 msgstr "Създаване на карта"
 
-#: ihp/templates/layers/layer_detail.html:465
+#: ihp/templates/layers/layer_detail.html:635
+msgid "Add the layer to an existing map"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:643
+#, fuzzy
+#| msgid "Click the button below to change the permissions of this layer."
+msgid "Click the button below to add the layer to the selected map."
+msgstr ""
+"Натиснете бутона отдолу, за да промените разрешенията за достъп до този "
+"слой. "
+
+#: ihp/templates/layers/layer_detail.html:645
+#, fuzzy
+#| msgid "Edit Map"
+msgid "Add to Map"
+msgstr "Редакция на карта"
+
+#: ihp/templates/layers/layer_detail.html:652
 msgid "Documents related to this layer"
 msgstr "Документи, свързани към този слой"
 
-#: ihp/templates/layers/layer_detail.html:466
+#: ihp/templates/layers/layer_detail.html:653
 msgid "List of documents related to this layer:"
 msgstr "Списък на документи, свързани към този слой:"
 
-#: ihp/templates/layers/layer_detail.html:478
+#: ihp/templates/layers/layer_detail.html:664
 msgid ""
 "The following styles are associated with this layer. Choose a style to view "
 "it in the preview map."
@@ -699,37 +1171,375 @@ msgstr ""
 "Следните стилове са свързани с този слой. Изберете стил, за го видите в "
 "изгледа на картата. "
 
-#: ihp/templates/layers/layer_detail.html:491
+#: ihp/templates/layers/layer_detail.html:678
+#: ihp/templates/layers/layer_detail.html:692
 msgid "No styles associated with this layer"
 msgstr "Няма стилове, свързани с този слой. "
 
-#: ihp/templates/layers/layer_detail.html:500
-msgid "Permissions"
-msgstr "Настройки за сигурност"
+#: ihp/templates/layers/layer_detail.html:701
+#, fuzzy
+#| msgid "Create a map using this layer"
+msgid "Clear the Server Cache of this layer"
+msgstr "Създаване на карта чрез посочения слой"
 
-#: ihp/templates/layers/layer_detail.html:501
+#: ihp/templates/layers/layer_detail.html:702
+#, fuzzy
+#| msgid "Click the button below to change the permissions of this layer."
+msgid "Click the button below to wipe the tile-cache of this layer."
+msgstr ""
+"Натиснете бутона отдолу, за да промените разрешенията за достъп до този "
+"слой. "
+
+#: ihp/templates/layers/layer_detail.html:703
+msgid "Empty Tiled-Layer Cache"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:712
 msgid "Click the button below to change the permissions of this layer."
 msgstr ""
 "Натиснете бутона отдолу, за да промените разрешенията за достъп до този "
 "слой. "
 
-#: ihp/templates/layers/layer_detail.html:502
+#: ihp/templates/layers/layer_detail.html:713
 msgid "Change Layer Permissions"
 msgstr "Промяна в настройките за достъп до слой. "
 
-#: ihp/templates/layers/layer_detail.html:509
+#: ihp/templates/layers/layer_detail.html:720
 msgid "External service layer"
 msgstr "Външна услуга за слой "
 
-#: ihp/templates/layers/layer_detail.html:510
+#: ihp/templates/layers/layer_detail.html:721
 msgid "Source"
 msgstr "Източник  "
 
-#: ihp/templates/maps/map_edit.html:6
+#: ihp/templates/layers/layer_edit.html:57
+#: ihp/templates/layers/layer_map.html:57
+#: ihp/templates/layers/layer_style_edit.html:57
+#, fuzzy
+#| msgid "Layers"
+msgid "layers"
+msgstr "Слоеве"
+
+#: ihp/templates/layers/layer_metadata.html:19
+#, python-format
+msgid "for %(layer_title)s"
+msgstr ""
+
+#: ihp/templates/layers/layer_metadata.html:37
+#: ihp/templates/layers/layer_metadata_advanced.html:28
+#, fuzzy
+#| msgid ""
+#| "Note: this layer's orginal metadata was populated by importing a metadata "
+#| "XML file.\n"
+#| "          GeoNode's metadata import supports a subset of ISO, FGDC, and "
+#| "Dublin Core metadata elements.\n"
+#| "          Some of your original metadata may have been lost."
+msgid ""
+"Note: this layer's orginal metadata was populated and preserved by importing "
+"a metadata XML file.\n"
+"          This metadata cannot be edited."
+msgstr ""
+"Забележка: оригиналните метаданни на слоя бяха допълнени чрез въвеждане на "
+"метаданни от XML файл.\n"
+"Въвеждането на метаданни в GeoNode поддържа метаданни елементи от ISO, FGDC "
+"и Dublin Core.\n"
+"Някои от оригиналните ви метаданни може да са изгубени. "
+
+#: ihp/templates/layers/layer_metadata.html:40
+#: ihp/templates/layers/layer_metadata_advanced.html:31
+msgid ""
+"Note: this layer's orginal metadata was populated by importing a metadata "
+"XML file.\n"
+"          GeoNode's metadata import supports a subset of ISO, FGDC, and "
+"Dublin Core metadata elements.\n"
+"          Some of your original metadata may have been lost."
+msgstr ""
+"Забележка: оригиналните метаданни на слоя бяха допълнени чрез въвеждане на "
+"метаданни от XML файл.\n"
+"Въвеждането на метаданни в GeoNode поддържа метаданни елементи от ISO, FGDC "
+"и Dublin Core.\n"
+"Някои от оригиналните ви метаданни може да са изгубени. "
+
+#: ihp/templates/layers/layer_metadata.html:62
+#: ihp/templates/layers/layer_metadata_advanced.html:53
+#: ihp/templates/layers/layer_metadata_advanced.html:102
+msgid "Attributes"
+msgstr "Атрибути "
+
+#: ihp/templates/layers/layer_metadata.html:96
+#: ihp/templates/layers/layer_metadata_advanced.html:68
+#: ihp/templates/layers/layer_metadata_advanced.html:136
+#: ihp/templates/metadata_detail.html:28
+msgid "Return to Layer"
+msgstr ""
+
+#: ihp/templates/layers/layer_metadata_advanced.html:16
+msgid "Explore Layers"
+msgstr "Преглед на слоеве"
+
+#: ihp/templates/layers/layer_metadata_advanced.html:22
+#, python-format
+msgid ""
+"\n"
+"        Editing details for %(layer_title)s\n"
+"      "
+msgstr ""
+"\n"
+"Подробности за редактиране на %(layer_title)s "
+
+#: ihp/templates/layers/layer_metadata_advanced.html:109
+#: ihp/templates/layers/layouts/panels.html:547
+msgid "Display Order"
+msgstr "Ред на показване "
+
+#: ihp/templates/layers/layouts/panels.html:214
+msgid "Done!"
+msgstr ""
+
+#: ihp/templates/layers/layouts/panels.html:222
+msgid "Preview"
+msgstr "Преглед"
+
+#: ihp/templates/layers/layouts/panels.html:225
+#, fuzzy
+#| msgid "Ratings"
+msgid "Settings"
+msgstr "Оценки "
+
+#: ihp/templates/layers/layouts/panels.html:234
+#: ihp/templates/layers/layouts/panels.html:237
+msgid "Mandatory"
+msgstr ""
+
+#: ihp/templates/layers/layouts/panels.html:240
+#, fuzzy
+#| msgid "Time Options"
+msgid "Optional"
+msgstr "Времеви опции"
+
+#: ihp/templates/layers/layouts/panels.html:245
+#, fuzzy
+#| msgid "Edit Metadata"
+msgid "Basic Metadata"
+msgstr "Редакция на метаданни"
+
+#: ihp/templates/layers/layouts/panels.html:248
+msgid "Location and Licenses"
+msgstr ""
+
+#: ihp/templates/layers/layouts/panels.html:251
+#, fuzzy
+#| msgid "Download Metadata"
+msgid "Optional Metadata"
+msgstr "Сваляне на метаданни"
+
+#: ihp/templates/layers/layouts/panels.html:254
+#, fuzzy
+#| msgid "Attributes"
+msgid "Dataset Attributes"
+msgstr "Атрибути "
+
+#: ihp/templates/layers/layouts/panels.html:282
+#: ihp/templates/maps/layouts/map_panels.html:68
+msgid "Save"
+msgstr "Запеметяване"
+
+#: ihp/templates/layers/layouts/panels.html:331
+#: ihp/templates/layers/layouts/panels.html:351
+#, fuzzy
+#| msgid "This action affects the following maps:"
+msgid "Choose one of the following..."
+msgstr "Действието засяга следните карти: "
+
+#: ihp/templates/layers/layouts/panels.html:445
+#, fuzzy
+#| msgid "Download Metadata"
+msgid "Other, Optional, Metadata"
+msgstr "Сваляне на метаданни"
+
+#: ihp/templates/layers/layouts/panels.html:487
+msgid "Responsible Parties"
+msgstr ""
+
+#: ihp/templates/layers/layouts/panels.html:495
+#, fuzzy
+#| msgid "Change Layer Permissions"
+msgid "Owner and Permissions"
+msgstr "Промяна в настройките за достъп до слой. "
+
+#: ihp/templates/layers/layouts/panels.html:517
+#, fuzzy
+#| msgid "Message Inbox"
+msgid "Message box"
+msgstr "Съобщения"
+
+#: ihp/templates/layers/layouts/panels.html:584
+#, fuzzy
+#| msgid "Is Published"
+msgid "Publishing"
+msgstr "Е публикуван"
+
+#: ihp/templates/layers/layouts/panels.html:613
+#, fuzzy
+#| msgid "Notice settings"
+msgid "Other Settings"
+msgstr "Notice settings"
+
+#: ihp/templates/maps/map_detail.html:26
+msgid "maps"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:84
+msgid "Map layers WMS GetCapabilities document"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:103
+msgid "Rate this Map"
+msgstr "Оцени тази карта"
+
+#: ihp/templates/maps/map_detail.html:128
+#: ihp/templates/maps/map_detail.html:151
+msgid "Download Map"
+msgstr "Сваляне на карта"
+
+#: ihp/templates/maps/map_detail.html:170
+#: ihp/templates/maps/map_detail.html:177 ihp/templates/maps/map_edit.html:7
 msgid "Edit Map"
 msgstr "Редакция на карта"
 
-#: ihp/templates/maps/map_new.html:6
+#: ihp/templates/maps/map_detail.html:216
+#: ihp/templates/maps/map_detail.html:218
+#, fuzzy
+#| msgid "View Map"
+msgid "View Map"
+msgstr "Преглед на карта"
+
+#: ihp/templates/maps/map_detail.html:229
+msgid "Map Layers"
+msgstr "Картни слоеве"
+
+#: ihp/templates/maps/map_detail.html:230
+msgid "This map uses the following layers:"
+msgstr "Тази карта използва следните слоеве:"
+
+#: ihp/templates/maps/map_detail.html:246
+msgid "Documents related to this map"
+msgstr "Документи, свръзани към тази карта"
+
+#: ihp/templates/maps/map_detail.html:247
+msgid "List of documents related to this map:"
+msgstr "Списък на документи, свързани към тази карта:"
+
+#: ihp/templates/maps/map_detail.html:259
+msgid "Specify which users can view or modify this map"
+msgstr ""
+"Специфицирай кои потребители могат да разглеждат или променят тази карта"
+
+#: ihp/templates/maps/map_detail.html:260
+msgid "Change Permissions of this Map"
+msgstr "Промени разрешенията за тази карта"
+
+#: ihp/templates/maps/map_detail.html:266
+msgid "Copy this map"
+msgstr "Копиране на карта"
+
+#: ihp/templates/maps/map_detail.html:267
+msgid "Duplicate this map and modify it for your own purposes"
+msgstr "Направи копие на тази карта или я промени за своите цели"
+
+#: ihp/templates/maps/map_detail.html:268
+msgid "Create a New Map"
+msgstr "Създаване на нова карта"
+
+#: ihp/templates/maps/map_detail.html:272
+#, fuzzy
+#| msgid "Copy this map"
+msgid "Embed this map"
+msgstr "Копиране на карта"
+
+#: ihp/templates/maps/map_detail.html:273
+#, fuzzy
+#| msgid "Duplicate this map and modify it for your own purposes"
+msgid "Embed this map to your own sites"
+msgstr "Направи копие на тази карта или я промени за своите цели"
+
+#: ihp/templates/maps/map_detail.html:277
+#, fuzzy
+#| msgid "Edit Map"
+msgid "Embed Map"
+msgstr "Редакция на карта"
+
+#: ihp/templates/maps/map_detail.html:280
+msgid "Embed Iframe Link"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:282
+msgid "Embed Widget Link"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:284
+#, fuzzy
+#| msgid "Download Layer"
+msgid "Download Leaflet page"
+msgstr "Свален слой "
+
+#: ihp/templates/maps/map_detail.html:304
+msgid "Embed Iframe"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:307
+msgid ""
+"To embed this map, add the following code snippet and customize its "
+"properties (scrolling, width, height) based on your needs to your site"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:326
+msgid "Embed Widget"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:329
+msgid "To embed this map, copy the following code snippet into your own page"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:333
+msgid "Copy to Clipboard"
+msgstr ""
+
+#: ihp/templates/maps/map_metadata.html:20
+#, python-format
+msgid "for %(map_title)s"
+msgstr ""
+
+#: ihp/templates/maps/map_metadata.html:38
+#: ihp/templates/maps/map_metadata_advanced.html:28
+msgid ""
+"Note: this map's orginal metadata was populated by importing a metadata XML "
+"file.\n"
+"        GeoNode's metadata import supports a subset of ISO, FGDC, and Dublin "
+"Core metadata elements.\n"
+"        Some of your original metadata may have been lost."
+msgstr ""
+"Забележка: оригиналните метаданни на тази карта бяха обогатени с метаданни "
+"XML файл. \n"
+"Въвеждането на метаданни в GeoNode поддържа подсет елементи от ISO, FGDC, и "
+"Dublin Core метаданни.\n"
+"Някои от вашите оригинални метаданни може да са загубени."
+
+#: ihp/templates/maps/map_metadata_advanced.html:16
+msgid "Explore Maps"
+msgstr "Преглед на карти"
+
+#: ihp/templates/maps/map_metadata_advanced.html:22
+#, python-format
+msgid ""
+"\n"
+"        Editing details for %(map_title)s\n"
+"      "
+msgstr ""
+"\n"
+"Подробности за редактиране за %(map_title)s"
+
+#: ihp/templates/maps/map_new.html:7
 #, fuzzy
 #| msgid "View Map"
 msgid "New Map"
@@ -737,10 +1547,6 @@ msgstr "Преглед на карта"
 
 #: ihp/templates/metadata_detail.html:26
 msgid "Return to Document"
-msgstr ""
-
-#: ihp/templates/metadata_detail.html:28
-msgid "Return to Layer"
 msgstr ""
 
 #: ihp/templates/metadata_detail.html:30
@@ -754,175 +1560,280 @@ msgid "Identification"
 msgstr ""
 
 #: ihp/templates/metadata_detail.html:102
-msgid "Published"
-msgstr ""
+#, fuzzy
+#| msgid "Not provided"
+msgid "Approved"
+msgstr "Не е предоставен "
 
 #: ihp/templates/metadata_detail.html:103
 #: ihp/templates/metadata_detail.html:106
+#: ihp/templates/metadata_detail.html:109
 msgid "Yes"
 msgstr ""
 
 #: ihp/templates/metadata_detail.html:105
+#: ihp/templates/photologue/photo_detail.html:9
+msgid "Published"
+msgstr ""
+
+#: ihp/templates/metadata_detail.html:108
 msgid "Featured"
 msgstr "Показани"
 
-#: ihp/templates/metadata_detail.html:120
-#: ihp/templates/metadata_detail.html:262
-#: ihp/templates/metadata_detail.html:338
-msgid "Name"
-msgstr "Име"
-
-#: ihp/templates/metadata_detail.html:123
-#: ihp/templates/metadata_detail.html:265
-#: ihp/templates/metadata_detail.html:341
+#: ihp/templates/metadata_detail.html:133
+#: ihp/templates/metadata_detail.html:275
+#: ihp/templates/metadata_detail.html:351
 msgid "email"
 msgstr "email"
 
-#: ihp/templates/metadata_detail.html:126
-#: ihp/templates/metadata_detail.html:268
-#: ihp/templates/metadata_detail.html:344
-msgid "Position"
-msgstr "Позиция"
-
-#: ihp/templates/metadata_detail.html:129
-#: ihp/templates/metadata_detail.html:271
-#: ihp/templates/metadata_detail.html:347
-msgid "Organization"
-msgstr "Организация"
-
-#: ihp/templates/metadata_detail.html:132
-#: ihp/templates/metadata_detail.html:274
-#: ihp/templates/metadata_detail.html:350
+#: ihp/templates/metadata_detail.html:142
+#: ihp/templates/metadata_detail.html:284
+#: ihp/templates/metadata_detail.html:360
 msgid "Location"
 msgstr "Локация"
 
-#: ihp/templates/metadata_detail.html:135
-#: ihp/templates/metadata_detail.html:277
-#: ihp/templates/metadata_detail.html:353
+#: ihp/templates/metadata_detail.html:145
+#: ihp/templates/metadata_detail.html:287
+#: ihp/templates/metadata_detail.html:363
 msgid "Voice"
 msgstr "Глас"
 
-#: ihp/templates/metadata_detail.html:138
-#: ihp/templates/metadata_detail.html:280
-#: ihp/templates/metadata_detail.html:356
+#: ihp/templates/metadata_detail.html:148
+#: ihp/templates/metadata_detail.html:290
+#: ihp/templates/metadata_detail.html:366
 msgid "Fax"
 msgstr "Факс "
 
-#: ihp/templates/metadata_detail.html:153
+#: ihp/templates/metadata_detail.html:163
 #, fuzzy
 #| msgid "format"
 msgid "Information"
 msgstr "формат"
 
-#: ihp/templates/metadata_detail.html:158
+#: ihp/templates/metadata_detail.html:168
 msgid "Identification Image"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:167
+#: ihp/templates/metadata_detail.html:177
 msgid "Spatial Resolution"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:170
-msgid "Projetion System"
-msgstr ""
+#: ihp/templates/metadata_detail.html:180
+#, fuzzy
+#| msgid "projection"
+msgid "Projection System"
+msgstr "проекция"
 
-#: ihp/templates/metadata_detail.html:173
+#: ihp/templates/metadata_detail.html:183
 msgid "Extension x0"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:176
+#: ihp/templates/metadata_detail.html:186
 msgid "Extension x1"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:179
+#: ihp/templates/metadata_detail.html:189
 msgid "Extension y0"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:182
+#: ihp/templates/metadata_detail.html:192
 msgid "Extension y1"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:187
+#: ihp/templates/metadata_detail.html:197
 msgid "Features"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:257
+#: ihp/templates/metadata_detail.html:267
 msgid "Contact Points"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:298
+#: ihp/templates/metadata_detail.html:308
 msgid "References"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:303
+#: ihp/templates/metadata_detail.html:313
 msgid "Link Online"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:306
+#: ihp/templates/metadata_detail.html:316
 msgid "Metadata Page"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:310
+#: ihp/templates/metadata_detail.html:320
 msgid "Online Link"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:331
-msgid "Metadata Author"
-msgstr "Автор на метаданни"
-
-#: ihp/templates/mybase.html:24
+#: ihp/templates/photologue/photo_detail.html:21
 #, fuzzy
-#| msgid "Getting Started"
-msgid "Get Started"
-msgstr "Въведение"
+#| msgid "This CSW server contains the following services"
+msgid "This photo is found in the following galleries"
+msgstr "Този CSW сървър съдържа следните услуги "
 
-#: ihp/templates/search/_extent_filter.html:3
-msgid "Extent"
-msgstr "Обхват"
-
-#: ihp/templates/search/_general_filters.html:4
-msgid "Categories"
-msgstr "Категории"
-
-#: ihp/templates/search/_general_filters.html:51
-msgid "Owners"
-msgstr "Притежатели"
-
-#: ihp/templates/search/_general_filters.html:68
-msgid "Date begins after:"
-msgstr "Денят започва след:"
-
-#: ihp/templates/search/_general_filters.html:69
-#: ihp/templates/search/_general_filters.html:73
-msgid "yyyy-mm-dd"
-msgstr "гггг-мм-дд"
-
-#: ihp/templates/search/_general_filters.html:72
-msgid "Date ends before:"
-msgstr "Денят приключва преди:"
-
-#: ihp/templates/search/_search_content.html:11
-msgid "Set permissions"
-msgstr "Задай разрешения за достъп"
-
-#: ihp/templates/search/_search_content.html:23
-msgid "Filters"
+#: ihp/templates/pinax/notifications/account_active/account_active_subject.txt:1
+msgid "Welcome to IHP-WINS/Bienvenue sur IHP-WINS"
 msgstr ""
 
-#: ihp/templates/search/_search_content.html:24
-msgid "Clear"
-msgstr "Изчистване"
+#: ihp/templates/pinax/notifications/account_active/full.txt:3
+msgid "Your account has been approved and is now active."
+msgstr "Профилът ви беше одобрен и е вече активен."
 
-#: ihp/templates/search/_search_content.html:34
+#: ihp/templates/pinax/notifications/account_active/full.txt:5
+msgid "You can use the login form at"
+msgstr "Можете да използвате формата за влизане в профила"
+
+#: ihp/templates/pinax/notifications/account_active/short.txt:3
+msgid "Your account is now active"
+msgstr "Профилът ви вече е активен"
+
+#: ihp/templates/pinax/notifications/document_comment/full.txt:2
+#: ihp/templates/pinax/notifications/layer_comment/full.txt:2
+#: ihp/templates/pinax/notifications/map_comment/full.txt:2
+msgid "Dear contributor"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/document_comment/full.txt:3
+#: ihp/templates/pinax/notifications/layer_comment/full.txt:3
+#: ihp/templates/pinax/notifications/map_comment/full.txt:3
+#, fuzzy
+#| msgid "by the user"
+msgid "The user"
+msgstr "от потребителя"
+
+#: ihp/templates/pinax/notifications/document_comment/full.txt:3
+#, fuzzy
+#| msgid "A comment has been posted for the document"
+msgid "has posted a new comment on the document"
+msgstr "Бе направен коментар за документа"
+
+#: ihp/templates/pinax/notifications/document_comment/full.txt:4
+#, fuzzy
+#| msgid "You can visit the document's detail page here"
+msgid "You can visit the documents's page here:"
+msgstr "Можете да посетите страницата с информация за документа от тук"
+
+#: ihp/templates/pinax/notifications/document_comment/full.txt:5
+#: ihp/templates/pinax/notifications/email_body.txt:11
+#: ihp/templates/pinax/notifications/layer_comment/full.txt:5
+msgid "The IHP-WINS Team"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/document_comment/short.txt:3
+#, fuzzy
+#| msgid "A comment has been posted for a document"
+msgid "IHP-WINS: A new comment has been posted on a document"
+msgstr "За документа бе направен коментар"
+
+#: ihp/templates/pinax/notifications/email_body.txt:3
+#, fuzzy
+#| msgid "You have the following incomplete uploads"
+msgid "You have received the following notice from"
+msgstr "Имате следните непълни качвания "
+
+#: ihp/templates/pinax/notifications/email_body.txt:8
+msgid "If you want to change how you receive notifications, please go to "
+msgstr ""
+
+#: ihp/templates/pinax/notifications/email_subject.txt:1
+#, fuzzy, python-format
+#| msgid "Messages"
+msgid "%(message)s"
+msgstr "Съобщение"
+
+#: ihp/templates/pinax/notifications/layer_comment/full.txt:3
+msgid "has posted a new comment on the layer"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/layer_comment/full.txt:4
+#, fuzzy
+#| msgid "You can visit the layer's detail page here"
+msgid "You can visit the layer's page here:"
+msgstr "Можете да посетите страницата с информация за слоя от тук"
+
+#: ihp/templates/pinax/notifications/layer_comment/short.txt:3
+#, fuzzy
+#| msgid "A comment has been posted for a layer"
+msgid "IHP-WINS: A new comment has been posted on a layer"
+msgstr "Направен е коментар за слой"
+
+#: ihp/templates/pinax/notifications/map_comment/full.txt:3
+msgid "has posted a new comment on the map"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/map_comment/full.txt:4
+#, fuzzy
+#| msgid "You can visit the map's detail page here"
+msgid "You can visit the map's page here:"
+msgstr "От тук можете да посетите страницата с информация за картата"
+
+#: ihp/templates/pinax/notifications/map_comment/short.txt:3
+#, fuzzy
+#| msgid "A comment has been posted for a map"
+msgid "IHP-WINS: A new comment has been posted on a map"
+msgstr "Направен е коментар за карта"
+
+#: ihp/templates/socialaccount/signup.html:6
+#, fuzzy
+#| msgid "Sign up"
+msgid "Signup"
+msgstr "Регистрирай се"
+
+#: ihp/templates/socialaccount/signup.html:9
+#: ihp/templates/socialaccount/signup.html:21
+#, fuzzy
+#| msgid "Sign up"
+msgid "Sign Up"
+msgstr "Регистрирай се"
+
+#: ihp/templates/socialaccount/signup.html:11
 #, python-format
-msgid "%(facet_type | title)s"
-msgid_plural "%(facet_type | title)s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ihp/templates/search/_search_content.html:34
-msgid "found"
+msgid ""
+"You are about to use your %(provider_name)s account to login to\n"
+"%(site_name)s. As a final step, please complete the following form:"
 msgstr ""
+
+#: ihp/templates/survey/survey.html:6 ihp/templates/survey/survey.html:7
+msgid "Survey"
+msgstr ""
+
+#: ihp/templates/survey/survey.html:12
+#, fuzzy
+#| msgid "Download"
+msgid "Download Survey"
+msgstr "Сваляне"
+
+#: ihp/templates/survey/survey.html:23
+#, fuzzy
+#| msgid "Request Download"
+msgid "Proceed to download"
+msgstr "Заявка за изтегляне"
+
+#: ihp/templates/survey/survey.html:28
+msgid "Downloading"
+msgstr "Сваляне "
+
+#: ihp/templates/survey/survey.html:29
+msgid "Thank you for completing our survey!"
+msgstr ""
+
+#: ihp/templates/survey/survey.html:30
+msgid ""
+"If the download doesn't start automatically in a few seconds, please click "
+msgstr ""
+
+#: ihp/templates/survey/survey.html:31
+msgid "here"
+msgstr ""
+
+#: ihp/templates/survey/survey.html:31
+msgid "to access the download URL directly"
+msgstr ""
+
+#: ihp/templates/survey/survey.html:32
+#, fuzzy
+#| msgid "party who authored the resource"
+msgid "Go back to the resource page."
+msgstr "страна, която е автор на ресурса"
 
 #: ihp/templates/time_series.html:6
 #, fuzzy
@@ -933,6 +1844,42 @@ msgstr "серии"
 #: ihp/templates/time_series.html:12
 msgid "Coming soon..."
 msgstr ""
+
+#~ msgid "Sorry, registrations are not open at this time."
+#~ msgstr "Съжалявам, в този момент регистрациите на са възможни."
+
+#~ msgid "Documents"
+#~ msgstr "Документи"
+
+#~ msgid "Type your search here ..."
+#~ msgstr "Напишете текст за търсене тук ... "
+
+#~ msgid "Owner"
+#~ msgstr "Собственик"
+
+#~ msgid "Extent"
+#~ msgstr "Обхват"
+
+#~ msgid "Categories"
+#~ msgstr "Категории"
+
+#~ msgid "Owners"
+#~ msgstr "Притежатели"
+
+#~ msgid "Date begins after:"
+#~ msgstr "Денят започва след:"
+
+#~ msgid "yyyy-mm-dd"
+#~ msgstr "гггг-мм-дд"
+
+#~ msgid "Date ends before:"
+#~ msgstr "Денят приключва преди:"
+
+#~ msgid "Set permissions"
+#~ msgstr "Задай разрешения за достъп"
+
+#~ msgid "Clear"
+#~ msgstr "Изчистване"
 
 #~ msgid "computer program or routine"
 #~ msgstr "компютърна програма или практика"
@@ -1185,9 +2132,6 @@ msgstr ""
 #~ msgid "Should this resource be advertised in home page?"
 #~ msgstr "Трябва ли този ресурса да бъде обявен на началната страница?"
 
-#~ msgid "Is Published"
-#~ msgstr "Е публикуван"
-
 #~ msgid "Should this resource be published and searchable?"
 #~ msgstr "Трябва ли този ресурс да бъде публикуван и възможен за търсене?"
 
@@ -1316,60 +2260,8 @@ msgstr ""
 #~ msgid "URL"
 #~ msgstr "URL"
 
-#~ msgid "External Resource"
-#~ msgstr "Външен ресурс"
-
-#~ msgid "Rate this document"
-#~ msgstr "Оцени този документ"
-
-#~ msgid "Download Document"
-#~ msgstr "Свали документ"
-
-#~ msgid "Edit Document"
-#~ msgstr "Редактирай документ"
-
-#~ msgid "Document"
-#~ msgstr "Документ"
-
-#~ msgid "Resource using this document"
-#~ msgstr "Ресурс, използващ този документ"
-
-#~ msgid "List of resources using this document:"
-#~ msgstr "Списък с ресурси използващи този документ:"
-
 #~ msgid "This document is related to a "
 #~ msgstr "Този документ е свързан с"
-
-#~ msgid "This document is not related to any maps or layers"
-#~ msgstr "Този документ не е свързан с карти или слоеве"
-
-#~ msgid "Click the button below to change the permissions of this document."
-#~ msgstr ""
-#~ " Натиснете бутона долу, за да промените разрешенията на този документ."
-
-#~ msgid "Change Document Permissions"
-#~ msgstr "Променя на достъпа за документа"
-
-#~ msgid "Explore Documents"
-#~ msgstr "Преглед на документи"
-
-#~ msgid "Upload Documents"
-#~ msgstr "Зареждане на документи"
-
-#~ msgid "Edit Metadata"
-#~ msgstr "Редакция на метаданни"
-
-#~ msgid "Editing details for"
-#~ msgstr "Редакционни детайли за"
-
-#~ msgid "Error updating metadata.  Please check the following fields: "
-#~ msgstr "Грешка при качване на метаданни. Моля проверете следните полета:"
-
-#~ msgid "Update"
-#~ msgstr "Обновяване"
-
-#~ msgid "Metadata Provider"
-#~ msgstr "Доставчик на метаданни"
 
 #~ msgid "Deleting"
 #~ msgstr "Изтриване"
@@ -1528,9 +2420,6 @@ msgstr ""
 
 #~ msgid "Logo"
 #~ msgstr "Лого"
-
-#~ msgid "Email"
-#~ msgstr "Ел.поща"
 
 #~ msgid "Access"
 #~ msgstr "Достъп"
@@ -1721,9 +2610,6 @@ msgstr ""
 #~ "results"
 #~ msgstr "указва реда, в който атрибута трябва да се показва в резултати"
 
-#~ msgid "count"
-#~ msgstr "брой "
-
 #~ msgid "count value for this field"
 #~ msgstr "брой стойности в това поле "
 
@@ -1784,47 +2670,8 @@ msgstr ""
 #~ msgid "Submit"
 #~ msgstr "Предай"
 
-#~ msgid "Edit data"
-#~ msgstr "Редактиране на данни "
-
-#~ msgid "Explore Layers"
-#~ msgstr "Преглед на слоеве"
-
-#~ msgid "This action affects the following maps:"
-#~ msgstr "Действието засяга следните карти: "
-
 #~ msgid "No maps are using this layer"
 #~ msgstr "Няма карти, които използват този слой "
-
-#~ msgid ""
-#~ "\n"
-#~ "        Editing details for %(layer_title)s\n"
-#~ "      "
-#~ msgstr ""
-#~ "\n"
-#~ "Подробности за редактиране на %(layer_title)s "
-
-#~ msgid ""
-#~ "Note: this layer's orginal metadata was populated by importing a metadata "
-#~ "XML file.\n"
-#~ "          GeoNode's metadata import supports a subset of ISO, FGDC, and "
-#~ "Dublin Core metadata elements.\n"
-#~ "          Some of your original metadata may have been lost."
-#~ msgstr ""
-#~ "Забележка: оригиналните метаданни на слоя бяха допълнени чрез въвеждане "
-#~ "на метаданни от XML файл.\n"
-#~ "Въвеждането на метаданни в GeoNode поддържа метаданни елементи от ISO, "
-#~ "FGDC и Dublin Core.\n"
-#~ "Някои от оригиналните ви метаданни може да са изгубени. "
-
-#~ msgid "Attributes"
-#~ msgstr "Атрибути "
-
-#~ msgid "Attribute"
-#~ msgstr "Атрибут "
-
-#~ msgid "Display Order"
-#~ msgstr "Ред на показване "
 
 #~ msgid "Remove Layers"
 #~ msgstr "Премахване на слоеве "
@@ -1848,9 +2695,6 @@ msgstr ""
 #~ msgid "Incomplete Uploads"
 #~ msgstr "Незавършено зареждане"
 
-#~ msgid "You have the following incomplete uploads"
-#~ msgstr "Имате следните непълни качвания "
-
 #~ msgid "last updated on"
 #~ msgstr "последно обновяване на "
 
@@ -1862,9 +2706,6 @@ msgstr ""
 
 #~ msgid "Are you sure you want to delete this upload?"
 #~ msgstr "Сигурни ли сте, че искате да изтриете качения файл? "
-
-#~ msgid "Cancel"
-#~ msgstr "Отмени"
 
 #~ msgid "Delete, and don't ask me again."
 #~ msgstr "Изтрий и не ме питай повече. "
@@ -1939,9 +2780,6 @@ msgstr ""
 #~ "<a href=\"http://prj2epsg.org/search\" target=\"_\">prj2epsg</a>\n"
 #~ "и въведете следното:"
 
-#~ msgid "Next"
-#~ msgstr "Следващ"
-
 #~ msgid ""
 #~ "\n"
 #~ "        There is a problem recognizing the projection of this data. "
@@ -1973,9 +2811,6 @@ msgstr ""
 #~ "правилните\n"
 #~ "атрибути избрани по-долу. "
 
-#~ msgid "Select an attribute"
-#~ msgstr "Изберете атрибут"
-
 #~ msgid ""
 #~ "We did not detect columns that could be used for the latitude and "
 #~ "longitude.\n"
@@ -2001,9 +2836,6 @@ msgstr ""
 
 #~ msgid "Editing details for "
 #~ msgstr "Подробности за редактиране за"
-
-#~ msgid "Time Options"
-#~ msgstr "Времеви опции"
 
 #~ msgid "Choose time attribute"
 #~ msgstr "Избери времеви атрибут"
@@ -2222,9 +3054,6 @@ msgstr ""
 #~ msgid "zoom"
 #~ msgstr "приближение"
 
-#~ msgid "projection"
-#~ msgstr "проекция"
-
 #~ msgid "center X"
 #~ msgstr "център X"
 
@@ -2273,51 +3102,14 @@ msgstr ""
 #~ msgid "JSON Configuration"
 #~ msgstr "JSON Конфигурация"
 
-#~ msgid "Explore Maps"
-#~ msgstr "Преглед на карти"
-
-#~ msgid "Create a New Map"
-#~ msgstr "Създаване на нова карта"
-
 #~ msgid "GeoExplorer"
 #~ msgstr "GeoEplorer"
-
-#~ msgid "Rate this Map"
-#~ msgstr "Оцени тази карта"
-
-#~ msgid "Download Map"
-#~ msgstr "Сваляне на карта"
 
 #~ msgid "Download Data Layers"
 #~ msgstr "Свали слоевете данни"
 
 #~ msgid "Download Web Map Context"
 #~ msgstr "Свали контекста на уеб картата"
-
-#~ msgid "Map Layers"
-#~ msgstr "Картни слоеве"
-
-#~ msgid "This map uses the following layers:"
-#~ msgstr "Тази карта използва следните слоеве:"
-
-#~ msgid "Documents related to this map"
-#~ msgstr "Документи, свръзани към тази карта"
-
-#~ msgid "List of documents related to this map:"
-#~ msgstr "Списък на документи, свързани към тази карта:"
-
-#~ msgid "Specify which users can view or modify this map"
-#~ msgstr ""
-#~ "Специфицирай кои потребители могат да разглеждат или променят тази карта"
-
-#~ msgid "Change Permissions of this Map"
-#~ msgstr "Промени разрешенията за тази карта"
-
-#~ msgid "Copy this map"
-#~ msgstr "Копиране на карта"
-
-#~ msgid "Duplicate this map and modify it for your own purposes"
-#~ msgstr "Направи копие на тази карта или я промени за своите цели"
 
 #~ msgid "Map WMS"
 #~ msgstr "Карта WMS"
@@ -2336,9 +3128,6 @@ msgstr ""
 
 #~ msgid "Publish Map WMS"
 #~ msgstr "Публикувай карта WMS"
-
-#~ msgid "Download"
-#~ msgstr "Сваляне"
 
 #~ msgid ""
 #~ "\n"
@@ -2383,9 +3172,6 @@ msgstr ""
 #~ "Окончателно, картата съдържа тези слоеве, които няма да бъдат свалени,\n"
 #~ "защото не са налични директно от този GeoNode:"
 
-#~ msgid "Downloading"
-#~ msgstr "Сваляне "
-
 #~ msgid "Retry"
 #~ msgstr "Повторен опит "
 
@@ -2397,27 +3183,6 @@ msgstr ""
 
 #~ msgid "Download Failed"
 #~ msgstr "Свалянето е неуспешно "
-
-#~ msgid ""
-#~ "\n"
-#~ "        Editing details for %(map_title)s\n"
-#~ "      "
-#~ msgstr ""
-#~ "\n"
-#~ "Подробности за редактиране за %(map_title)s"
-
-#~ msgid ""
-#~ "Note: this map's orginal metadata was populated by importing a metadata "
-#~ "XML file.\n"
-#~ "        GeoNode's metadata import supports a subset of ISO, FGDC, and "
-#~ "Dublin Core metadata elements.\n"
-#~ "        Some of your original metadata may have been lost."
-#~ msgstr ""
-#~ "Забележка: оригиналните метаданни на тази карта бяха обогатени с "
-#~ "метаданни XML файл. \n"
-#~ "Въвеждането на метаданни в GeoNode поддържа подсет елементи от ISO, FGDC, "
-#~ "и Dublin Core метаданни.\n"
-#~ "Някои от вашите оригинални метаданни може да са загубени."
 
 #~ msgid "Remove Map"
 #~ msgstr "Премахване на карта "
@@ -2453,23 +3218,11 @@ msgstr ""
 #~ msgid "An unknown error has occured."
 #~ msgstr "Неизвестна грешка."
 
-#~ msgid "Personal info"
-#~ msgstr "Лична информация"
-
-#~ msgid "Important dates"
-#~ msgstr "Важни дати "
-
-#~ msgid "Extended profile"
-#~ msgstr "Разширен профил "
-
 #~ msgid "Password changed successfully."
 #~ msgstr "Паролата е променена успешно "
 
 #~ msgid "Change password: %s"
 #~ msgstr "Променена парола: %s "
-
-#~ msgid "party who authored the resource"
-#~ msgstr "страна, която е автор на ресурса"
 
 #~ msgid ""
 #~ "party who has processed the data in a manner such that the resource has "
@@ -2517,24 +3270,6 @@ msgstr ""
 
 #~ msgid "Email Address"
 #~ msgstr "Електронна поща"
-
-#~ msgid "User following you"
-#~ msgstr "Потребител, който те следва"
-
-#~ msgid "Another user has started following you"
-#~ msgstr "Друг потребител започна да те следва"
-
-#~ msgid "User requested access"
-#~ msgstr "Поискан достъп от потребител"
-
-#~ msgid "A new user has requested access to the site"
-#~ msgstr "Нов потребител е поискал достъп до страницата "
-
-#~ msgid "Account activated"
-#~ msgstr "Акаунтът е активиран "
-
-#~ msgid "This account is now active and can log in the site"
-#~ msgstr "Този акаунт е вече активен и можеш да се регистрираш на сайта"
 
 #~ msgid "Organization Name"
 #~ msgstr "Име на организацията "
@@ -2630,9 +3365,6 @@ msgstr ""
 #~ msgid "Not provided."
 #~ msgstr "Не е предоставено."
 
-#~ msgid "Not provided"
-#~ msgstr "Не е предоставен "
-
 #~ msgid "Message User"
 #~ msgstr "Съобщение към потребител"
 
@@ -2644,9 +3376,6 @@ msgstr ""
 
 #~ msgid "Upload new layers"
 #~ msgstr "Зареждане на нови слоеве"
-
-#~ msgid "Create a new map"
-#~ msgstr "Създаване на нова карта "
 
 #~ msgid "My Activities"
 #~ msgstr "Моите дейности"
@@ -2756,12 +3485,6 @@ msgstr ""
 #~ msgid "Keywords:"
 #~ msgstr "Ключови думи:"
 
-#~ msgid "Services"
-#~ msgstr "Услуги "
-
-#~ msgid "This CSW server contains the following services"
-#~ msgstr "Този CSW сървър съдържа следните услуги "
-
 #~ msgid "This Service contains the following layers"
 #~ msgstr "Услугата съдържа следните слоеве "
 
@@ -2773,9 +3496,6 @@ msgstr ""
 
 #~ msgid "Edit Service"
 #~ msgstr "Редактирай услуга "
-
-#~ msgid "Save"
-#~ msgstr "Запеметяване"
 
 #~ msgid "Service:"
 #~ msgstr "Услуга: "
@@ -2797,9 +3517,6 @@ msgstr ""
 
 #~ msgid "Remove Remote Service"
 #~ msgstr "Премахни услугата за отдалечен достъп"
-
-#~ msgid "Are you sure you want to remove"
-#~ msgstr "Сигурни ли сте, че искате премахване "
 
 #~ msgid ""
 #~ "\n"
@@ -2914,9 +3631,6 @@ msgstr ""
 
 #~ msgid "Share"
 #~ msgstr "Споделяне "
-
-#~ msgid "Ratings"
-#~ msgstr "Оценки "
 
 #~ msgid "GeoGig"
 #~ msgstr "GeoGig "
@@ -3034,9 +3748,6 @@ msgstr ""
 #~ msgid "[%(site_name)s] Password reset"
 #~ msgstr "[%(site_name)s] Паролата е променена"
 
-#~ msgid "Confirm your email address"
-#~ msgstr "Потвърждаване на ел.поща"
-
 #~ msgid ""
 #~ "We have sent you an email to <b>%(email)s</b> for verification. Follow "
 #~ "the link provided to finalize the signup process."
@@ -3055,9 +3766,6 @@ msgstr ""
 
 #~ msgid "Forgot your password?"
 #~ msgstr "Забравена парола? "
-
-#~ msgid "Are you sure you want to log out?"
-#~ msgstr "Сигурни ли сте, че искате да излезете? "
 
 #~ msgid "Password change"
 #~ msgstr "Промяна на парола "
@@ -3213,9 +3921,6 @@ msgstr ""
 
 #~ msgid "User Guide"
 #~ msgstr "Ръководство на потребителя "
-
-#~ msgid "GeoNode Help"
-#~ msgstr "GeoNode помощ "
 
 #~ msgid ""
 #~ "This page provides helpful information about how to use the GeoNode. You "
@@ -3423,15 +4128,6 @@ msgstr ""
 #~ msgid "Remixing a Map"
 #~ msgstr "Миксиране на карта"
 
-#~ msgid "Your account has been approved and is now active."
-#~ msgstr "Профилът ви беше одобрен и е вече активен."
-
-#~ msgid "You can use the login form at"
-#~ msgstr "Можете да използвате формата за влизане в профила"
-
-#~ msgid "Your account is now active"
-#~ msgstr "Профилът ви вече е активен"
-
 #~ msgid "has requested access to the site."
 #~ msgstr "е поискал достъп до страницата"
 
@@ -3443,18 +4139,6 @@ msgstr ""
 
 #~ msgid "A user has requested access to the site"
 #~ msgstr "Потребител е заявил молба за достъп до страницата"
-
-#~ msgid "A comment has been posted for the document"
-#~ msgstr "Бе направен коментар за документа"
-
-#~ msgid "by the user"
-#~ msgstr "от потребителя"
-
-#~ msgid "You can visit the document's detail page here"
-#~ msgstr "Можете да посетите страницата с информация за документа от тук"
-
-#~ msgid "A comment has been posted for a document"
-#~ msgstr "За документа бе направен коментар"
 
 #~ msgid "uploaded the following document"
 #~ msgstr "обновяване на следния документ"
@@ -3477,9 +4161,6 @@ msgstr ""
 #~ msgid "the following document"
 #~ msgstr "следния документ"
 
-#~ msgid "You can visit the layer's detail page here"
-#~ msgstr "Можете да посетите страницата с информация за слоя от тук"
-
 #~ msgid "A document has been rated"
 #~ msgstr "Документ беше оценен"
 
@@ -3491,9 +4172,6 @@ msgstr ""
 
 #~ msgid "A comment has been posted for the layer"
 #~ msgstr "Направен е коментар за слоят"
-
-#~ msgid "A comment has been posted for a layer"
-#~ msgstr "Направен е коментар за слой"
 
 #~ msgid "uploaded the following layer"
 #~ msgstr "качен е следния слой"
@@ -3522,12 +4200,6 @@ msgstr ""
 #~ msgid "A comment has been posted for the map"
 #~ msgstr "Направен е коментар за картата"
 
-#~ msgid "You can visit the map's detail page here"
-#~ msgstr "От тук можете да посетите страницата с информация за картата"
-
-#~ msgid "A comment has been posted for a map"
-#~ msgstr "Направен е коментар за карта"
-
 #~ msgid "created the following map"
 #~ msgstr "създадена е следната карта"
 
@@ -3539,9 +4211,6 @@ msgstr ""
 
 #~ msgid "A map has been deleted"
 #~ msgstr "Карта беше изтрита"
-
-#~ msgid "the following map"
-#~ msgstr "следната карта"
 
 #~ msgid "A map has been rated"
 #~ msgstr "Карта беше оценена"
@@ -3622,9 +4291,6 @@ msgstr ""
 #~ msgid "No longer"
 #~ msgstr "Вече не"
 
-#~ msgid "Confirm"
-#~ msgstr "Потвърди"
-
 #~ msgid "You're not %(status_slug)s anyone!"
 #~ msgstr "Вие не сте %(status_slug)s от никого!"
 
@@ -3678,20 +4344,11 @@ msgstr ""
 #~ msgid "Last Sender"
 #~ msgstr "Последен изпращач"
 
-#~ msgid "Preview"
-#~ msgstr "Преглед"
-
 #~ msgid "Delete?"
 #~ msgstr "Изтриване?"
 
 #~ msgid "me"
 #~ msgstr "аз"
-
-#~ msgid "Message Inbox"
-#~ msgstr "Съобщения"
-
-#~ msgid "Messages"
-#~ msgstr "Съобщение"
 
 #~ msgid "Create Message"
 #~ msgstr "Създай съобщение"
@@ -3834,9 +4491,6 @@ msgstr ""
 
 #~ msgid "Notices"
 #~ msgstr "Notices"
-
-#~ msgid "Notice settings"
-#~ msgstr "Notice settings"
 
 #~ msgid "Observed objects"
 #~ msgstr "Observed objects"

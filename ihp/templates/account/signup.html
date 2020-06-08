@@ -1,9 +1,9 @@
 {% extends "account/base.html" %}
 
-{% load url from future %}
 {% load i18n %}
 {% load bootstrap_tags %}
 {% load account socialaccount %}
+{% load modify_field_text %}
 
 {% block head_title %}{% trans "Sign up" %}{% endblock %}
 {% block title %}{% trans "Sign up" %}{% endblock %}
@@ -22,6 +22,10 @@
                 <hr>
             {% endif %}
             <p>{% trans "Create a new local account" %}</p>
+            {% if form.errors %}
+              <!-- call the commented line below to run the "add_field_name" without returning rendering it's value -->
+              <!-- {{ form | modify_field_title }} -->
+            {%  endif %}
             <form id="signup_form" method="post" action="{% url "account_signup" %}" autocapitalize="off" {% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
                 <fieldset>
                     {% csrf_token %}
@@ -68,6 +72,52 @@
           last_name_input[0].setCustomValidity("");
         }
       });
+    });
+    {% if form.errors %}
+    $(document).ready(function(){
+      {% for item in form.cleaned_data.request_to_join_group %}
+      $('#id_request_to_join_group').append('<option value="{{item.pk}}" selected="">{{item.title}}</option>');
+      {% endfor %}
+    })
+    {% endif %}
+
+    $('#id_request_to_join_group').select2(
+    {
+        placeholder: "Search public Group(s)",
+        minimumInputLength: 1,
+        multiple: true,
+        allowClear: true,
+        ajax: {
+            url: "/api/group_profile/",
+            dataType: 'json',
+            quietMillis: 100,
+            data: function (params) {
+                return {
+                  title__icontains: params.term,
+                };
+            },
+            processResults: function (data){  
+              if (data.objects.length){
+                return {
+                  results: data.objects.map(d => {
+                      return ({ id: d.id, text: d.title })
+                  }),
+                  pagination: {
+                    // more: !!data.paging.next
+                    more: false
+                  }
+                };
+              }
+              else {
+                return {
+                  results: [],
+                  pagination: {
+                    more: false
+                  }
+                };
+              }
+            },
+        },
     });
   </script>
 {% endblock %}

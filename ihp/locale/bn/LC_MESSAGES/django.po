@@ -31,7 +31,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GeoNode\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-11 11:44+0200\n"
+"POT-Creation-Date: 2020-05-14 16:55+0200\n"
 "PO-Revision-Date: 2016-08-23 13:57+0000\n"
 "Last-Translator: Julien Collaer <julien.collaer@opengeode.be>\n"
 "Language-Team: Bengali (http://www.transifex.com/geonode/geonode/language/"
@@ -42,224 +42,390 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ihp/content/forms.py:8
+#: ihp/__init__.py:47
+msgid "a DOI will be added by Admin before publication."
+msgstr ""
+
+#: ihp/__init__.py:49 ihp/templates/base/_resourcebase_info_panel.html:98
+#: ihp/templates/metadata_detail.html:116
+msgid "DOI"
+msgstr ""
+
+#: ihp/content/adapters.py:111
+msgid "This username already exists."
+msgstr ""
+
+#: ihp/content/forms.py:52
 #, fuzzy
 #| msgid "style name"
 msgid "First name"
 msgstr "শৈলী নাম"
 
-#: ihp/content/forms.py:10
+#: ihp/content/forms.py:53
 #, fuzzy
 #| msgid "style name"
 msgid "Last name"
 msgstr "শৈলী নাম"
 
-#: ihp/content/forms.py:14
-msgid "I agree to the IHP-WINS Terms of use"
+#: ihp/content/forms.py:60
+msgid "Who recommended you IHP-WINS?"
 msgstr ""
 
-#: ihp/templates/about_us_content_template.html:11
-#: ihp/templates/about_us_content_template.html:102
-#: ihp/templates/contact_us_content_template.html:11
-#: ihp/templates/contact_us_content_template.html:93
-#: ihp/templates/faq_page_template.html:11
-#: ihp/templates/faq_page_template.html:89 ihp/templates/mybase.html:22
+#: ihp/content/forms.py:61
+msgid "Name of the person"
+msgstr ""
+
+#: ihp/content/forms.py:63 ihp/content/forms.py:64
+#: ihp/templates/metadata_detail.html:139
+#: ihp/templates/metadata_detail.html:281
+#: ihp/templates/metadata_detail.html:357
+msgid "Organization"
+msgstr "প্রতিষ্ঠান"
+
+#: ihp/content/forms.py:65 ihp/content/forms.py:66
+#: ihp/templates/metadata_detail.html:136
+#: ihp/templates/metadata_detail.html:278
+#: ihp/templates/metadata_detail.html:354
+msgid "Position"
+msgstr "অবস্থান"
+
+#: ihp/content/forms.py:67 ihp/survey/models.py:34
+#, fuzzy
+#| msgid "count"
+msgid "Country"
+msgstr "গণনা"
+
+#: ihp/content/forms.py:71 ihp/people/admin.py:39
+#, fuzzy
+#| msgid "Are you sure you want to remove"
+msgid "Group(s) you want to join"
+msgstr "আপনি নিশ্চিত ভাবে সরাতে চান কি"
+
+#: ihp/content/forms.py:76
+msgid "IHP-WINS Terms of use"
+msgstr ""
+
+#: ihp/content/forms.py:77
+msgid "I have read and agree with the "
+msgstr ""
+
+#: ihp/people/__init__.py:27
+msgid "User following you"
+msgstr "ব্যবহারকারী আপনি নিম্নলিখিত"
+
+#: ihp/people/__init__.py:27
+msgid "Another user has started following you"
+msgstr "অন্য ব্যবহারকারী তোমাকে অনুসরণ শুর করেছে।"
+
+#: ihp/people/__init__.py:28
+msgid "User requested access"
+msgstr "ব্যবহারকারী প্রবেশের অনুরোধ করেছেন"
+
+#: ihp/people/__init__.py:29
+msgid "A new user has requested access to the site"
+msgstr "একজন নতুন ব্যবহারকারী প্রবেশের জন্য অনুরোধ করেছেন"
+
+#: ihp/people/__init__.py:30
+msgid "Account activated"
+msgstr "একাউন্ট চালু হয়েছে"
+
+#: ihp/people/__init__.py:31
+msgid "This account is now active and can log in the site"
+msgstr "এই একাউন্টটি বর্তমানে সচল এবং সাইটে প্রবেশ করা যাবে"
+
+#: ihp/people/admin.py:34
+msgid "Personal info"
+msgstr "ব্যক্তিগত তথ্য"
+
+#: ihp/people/admin.py:36 ihp/templates/documents/document_detail.html:229
+#: ihp/templates/layers/layer_detail.html:711
+#: ihp/templates/maps/map_detail.html:258
+msgid "Permissions"
+msgstr "অনুমতি"
+
+#: ihp/people/admin.py:38
+msgid "Important dates"
+msgstr "গুরুত্বপূর্ণ তারিখগুলি"
+
+#: ihp/people/admin.py:40
+msgid "Extended profile"
+msgstr "বর্ধিত বৃত্তান্ত"
+
+#: ihp/people/models.py:84
+msgid "Is the user approved?"
+msgstr ""
+
+#: ihp/people/models.py:88
+msgid "approve user"
+msgstr ""
+
+#: ihp/people/models.py:94
+msgid "Name of the person who recommended you IHP-WINS"
+msgstr ""
+
+#: ihp/survey/forms.py:34
+msgid "Write a brief description of how you plan to use the download."
+msgstr ""
+
+#: ihp/survey/models.py:25 ihp/templates/metadata_detail.html:130
+#: ihp/templates/metadata_detail.html:272
+#: ihp/templates/metadata_detail.html:348
+msgid "Name"
+msgstr "নাম"
+
+#: ihp/survey/models.py:31 ihp/templates/invitations/forms/_invite.html:14
+msgid "Email"
+msgstr "ইমেইল"
+
+#: ihp/survey/models.py:40
+#, fuzzy
+#| msgid "Request Download"
+msgid "Reason for data download"
+msgstr "ডাউনলোডের অনুরোধ"
+
+#: ihp/templates/about_us_content_template.html:10
+#: ihp/templates/about_us_content_template.html:104
+#: ihp/templates/contact_us_content_template.html:92
+#: ihp/templates/faq_page_template.html:154 ihp/templates/mybase.html:22
+#: ihp/templates/terms_of_use_template.html:92
 #, fuzzy
 #| msgid "About"
 msgid "About Us"
 msgstr "প্রায়"
 
-#: ihp/templates/about_us_content_template.html:85
+#: ihp/templates/about_us_content_template.html:84
 msgid "Partners"
 msgstr ""
 
-#: ihp/templates/about_us_content_template.html:87
+#: ihp/templates/about_us_content_template.html:86
 msgid ""
 "IHP’s Water Information Network System has partnered with various "
 "organizations that share their data."
 msgstr ""
 
-#: ihp/templates/about_us_content_template.html:103
-#: ihp/templates/contact_us_content_template.html:94
-#: ihp/templates/faq_page_template.html:90
+#: ihp/templates/about_us_content_template.html:89
+msgid ""
+"Development, installation and configuration professional services have been "
+"provided by"
+msgstr ""
+
+#: ihp/templates/about_us_content_template.html:105
+#: ihp/templates/contact_us_content_template.html:93
+#: ihp/templates/faq_page_template.html:155
+#: ihp/templates/terms_of_use_template.html:93
 msgid "F.A.Q."
 msgstr ""
 
-#: ihp/templates/about_us_content_template.html:104
-#: ihp/templates/contact_us_content_template.html:95
-#: ihp/templates/faq_page_template.html:91
+#: ihp/templates/about_us_content_template.html:106
+#: ihp/templates/contact_us_content_template.html:10
+#: ihp/templates/contact_us_content_template.html:94
+#: ihp/templates/faq_page_template.html:156
+#: ihp/templates/terms_of_use_template.html:94
 #, fuzzy
 #| msgid "Contact:"
 msgid "Contact Us"
 msgstr "যোগাযোগ:"
 
-#: ihp/templates/about_us_content_template.html:105
-#: ihp/templates/account/signup.html:23
-#: ihp/templates/contact_us_content_template.html:96
-#: ihp/templates/faq_page_template.html:92 ihp/templates/mybase.html:23
+#: ihp/templates/about_us_content_template.html:107
+#: ihp/templates/contact_us_content_template.html:95
+#: ihp/templates/faq_page_template.html:157 ihp/templates/mybase.html:23
+#: ihp/templates/terms_of_use_template.html:10
+#: ihp/templates/terms_of_use_template.html:95
 msgid "Terms of use"
 msgstr ""
 
-#: ihp/templates/account/signup.html:7 ihp/templates/account/signup.html:11
-#: ihp/templates/account/signup.html:25
+#: ihp/templates/account/signup.html:8 ihp/templates/account/signup.html:9
+#: ihp/templates/account/signup.html:13 ihp/templates/account/signup.html:37
 msgid "Sign up"
 msgstr "সাইন আপ করুন"
 
-#: ihp/templates/account/signup.html:23
-msgid ""
-"Before start using this service you must carefully read and agree to the"
+#: ihp/templates/account/signup.html:19
+msgid "Sign up with one of your existing third party accounts"
 msgstr ""
 
-#: ihp/templates/account/signup.html:30
-msgid "Sorry, registrations are not open at this time."
-msgstr "দুঃখিত, নিবন্ধীকরণের এই সময়ে খোলা হয় না."
+#: ihp/templates/account/signup.html:24
+#, fuzzy
+#| msgid "Create a new map"
+msgid "Create a new local account"
+msgstr "একটি নতুন মানচিত্র তৈরি করুন"
 
-#: ihp/templates/base.html:60
+#: ihp/templates/base.html:241
+#, fuzzy
+#| msgid "GeoNode Help"
+msgid "GeoNode Search"
+msgstr "GeoNode সহায়তা"
+
+#: ihp/templates/base.html:269
 msgid "Layers"
 msgstr "স্তরসমূহ"
 
-#: ihp/templates/base.html:63
+#: ihp/templates/base.html:272
 msgid "Maps"
 msgstr "মানচিত্র"
 
-#: ihp/templates/base.html:66
-msgid "Documents"
-msgstr "কাগজপত্র"
+#: ihp/templates/base.html:275
+msgid "Library"
+msgstr ""
 
-#: ihp/templates/base.html:71
+#: ihp/templates/base.html:280
 msgid "People"
 msgstr "সম্প্রদায়"
 
-#: ihp/templates/base.html:74
+#: ihp/templates/base.html:283
 msgid "Groups"
 msgstr "গ্রুপ"
 
-#: ihp/templates/base.html:78
+#: ihp/templates/base.html:287
 #, fuzzy
 #| msgid "series"
 msgid "TimeSeries"
 msgstr "সিরিজ"
 
-#: ihp/templates/base.html:82
+#: ihp/templates/base.html:291 ihp/templates/layers/layer_detail.html:483
 msgid "Search"
 msgstr "অনুসন্ধান"
 
-#: ihp/templates/base.html:99
+#: ihp/templates/base.html:315
 msgid "Register"
 msgstr "নিবন্ধন"
 
-#: ihp/templates/base.html:124 ihp/templates/base.html.py:198
-#: ihp/templates/base.html:216
+#: ihp/templates/base.html:340 ihp/templates/base.html:421
+#: ihp/templates/base.html:445
 msgid "Sign in"
 msgstr "সাইন ইন"
 
-#: ihp/templates/base.html:165 ihp/templates/mybase.html:50
+#: ihp/templates/base.html:388 ihp/templates/mybase.html:50
 msgid "Powered by"
 msgstr "দ্বারা প্রস্তুত Blogger"
 
-#: ihp/templates/base.html:165
+#: ihp/templates/base.html:388
 msgid "GeoNode"
 msgstr "GeoNode"
 
-#: ihp/templates/base.html:165
+#: ihp/templates/base.html:388
 msgid "version"
 msgstr "সংস্করণ"
 
-#: ihp/templates/base.html:166
+#: ihp/templates/base.html:389
 msgid "Developers"
 msgstr "ডেভালোপার"
 
-#: ihp/templates/base.html:167
+#: ihp/templates/base.html:390
 msgid "About"
 msgstr "প্রায়"
 
-#: ihp/templates/base.html:170
-#: ihp/templates/base/_resourcebase_info_panel.html:150
-#: ihp/templates/metadata_detail.html:230 ihp/templates/mybase.html:32
+#: ihp/templates/base.html:393
+#: ihp/templates/base/_resourcebase_info_panel.html:153
+#: ihp/templates/metadata_detail.html:240 ihp/templates/mybase.html:32
 msgid "Language"
 msgstr "ভাষা"
 
-#: ihp/templates/base.html:204 ihp/templates/base.html.py:205
+#: ihp/templates/base.html:433 ihp/templates/base.html:434
 msgid "Username"
 msgstr "ইউজারনেম"
 
-#: ihp/templates/base.html:208 ihp/templates/base.html.py:209
+#: ihp/templates/base.html:437 ihp/templates/base.html:438
 msgid "Password"
 msgstr "পাসওয়ার্ড"
 
-#: ihp/templates/base.html:212
+#: ihp/templates/base.html:441
 msgid "Remember Me"
 msgstr "আমাকে মনে রাখুন"
 
-#: ihp/templates/base.html:228
+#: ihp/templates/base.html:457
 msgid "Menu"
 msgstr "তালিকা"
 
-#: ihp/templates/base.html:232
+#: ihp/templates/base.html:461
 msgid "Upload Layers"
 msgstr "আপলোড স্তরসমূহ"
 
-#: ihp/templates/base.html:234
+#: ihp/templates/base.html:463
 msgid "Profile"
 msgstr "প্রোফাইল"
 
-#: ihp/templates/base.html:235
+#: ihp/templates/base.html:464
 msgid "Recent Activity"
 msgstr "সাম্প্রতিক কার্যকলাপ"
 
-#: ihp/templates/base.html:236
+#: ihp/templates/base.html:465
 msgid "Inbox"
 msgstr "ইনবক্স"
 
-#: ihp/templates/base.html:238
+#: ihp/templates/base.html:467
 msgid "Notifications"
 msgstr "বিজ্ঞপ্তি"
 
-#: ihp/templates/base.html:241
+#: ihp/templates/base.html:470
 msgid "Announcements"
 msgstr "ঘোষনা"
 
-#: ihp/templates/base.html:244
+#: ihp/templates/base.html:472 ihp/templates/invitations/forms/_invite.html:7
+#, fuzzy
+#| msgid "Invite User"
+msgid "Invite Users"
+msgstr "ব্যবহারকারী আমন্ত্রণ করুন"
+
+#: ihp/templates/base.html:474
 msgid "Remote Services"
 msgstr "রিমোট সেবা"
 
-#: ihp/templates/base.html:245
-msgid "Invite User"
-msgstr "ব্যবহারকারী আমন্ত্রণ করুন"
-
-#: ihp/templates/base.html:247
+#: ihp/templates/base.html:476
 msgid "GeoServer"
 msgstr "GeoServer"
 
-#: ihp/templates/base.html:250
+#: ihp/templates/base.html:480
+msgid "Monitoring"
+msgstr ""
+
+#: ihp/templates/base.html:483
 msgid "Admin"
 msgstr "অ্যাডমিন"
 
-#: ihp/templates/base.html:255
+#: ihp/templates/base.html:488
 msgid "Help"
 msgstr "সাহায্য করুন"
 
-#: ihp/templates/base.html:261
+#: ihp/templates/base.html:494
 msgid "Log out"
 msgstr "লগ আউট"
 
-#: ihp/templates/base.html:298
-msgid "Type your search here ..."
-msgstr "এখানে আপনার অনুসন্ধান টাইপ করুন ..."
-
+#: ihp/templates/base.html:616
 #: ihp/templates/base/_resourcebase_info_panel.html:6
 #: ihp/templates/metadata_detail.html:43
 msgid "Title"
 msgstr "খেতাব"
 
+#: ihp/templates/base.html:617
+#, fuzzy
+#| msgid "Are you sure you want to remove"
+msgid "Message. Do you want to proceed?"
+msgstr "আপনি নিশ্চিত ভাবে সরাতে চান কি"
+
+#: ihp/templates/base.html:631
+msgid "Confirm"
+msgstr "নিশ্চিত করা"
+
+#: ihp/templates/base.html:634
+msgid "Some text in the modal"
+msgstr ""
+
+#: ihp/templates/base.html:637
+msgid "Cancel"
+msgstr "বাতিল করুন"
+
+#: ihp/templates/base.html:638 ihp/templates/layers/layouts/panels.html:523
+msgid "OK"
+msgstr ""
+
 #: ihp/templates/base/_resourcebase_info_panel.html:11
-#: ihp/templates/base/_resourcebase_info_panel.html:104
+#: ihp/templates/base/_resourcebase_info_panel.html:107
 msgid "SRID"
 msgstr ""
 
 #: ihp/templates/base/_resourcebase_info_panel.html:16
-#: ihp/templates/base/_resourcebase_info_panel.html:109
-#: ihp/templates/metadata_detail.html:57 ihp/templates/metadata_detail.html:193
+#: ihp/templates/base/_resourcebase_info_panel.html:112
+#: ihp/templates/metadata_detail.html:57 ihp/templates/metadata_detail.html:203
 msgid "License"
 msgstr "লাইসেন্স"
 
@@ -270,25 +436,29 @@ msgstr "বিমূর্ত"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:34
 #: ihp/templates/metadata_detail.html:71
-#: ihp/templates/search/_general_filters.html:66
 msgid "Date"
 msgstr "তারিখ"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:45
-#: ihp/templates/layers/layer_detail.html:511
+#: ihp/templates/layers/layer_detail.html:722
 #: ihp/templates/metadata_detail.html:76
 msgid "Type"
 msgstr "প্রকার"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:50
-#: ihp/templates/metadata_detail.html:81 ihp/templates/metadata_detail.html:142
-#: ihp/templates/metadata_detail.html:284
-#: ihp/templates/metadata_detail.html:360
-#: ihp/templates/search/_h_keywords_filter.html:3
+#: ihp/templates/metadata_detail.html:81 ihp/templates/metadata_detail.html:152
+#: ihp/templates/metadata_detail.html:294
+#: ihp/templates/metadata_detail.html:370
 msgid "Keywords"
 msgstr "মূলশব্দ"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:62
+#: ihp/templates/documents/document_metadata_advanced.html:58
+#: ihp/templates/documents/layouts/doc_panels.html:111
+#: ihp/templates/layers/layer_metadata_advanced.html:79
+#: ihp/templates/layers/layouts/panels.html:329
+#: ihp/templates/maps/layouts/map_panels.html:114
+#: ihp/templates/maps/map_metadata_advanced.html:58
 #: ihp/templates/metadata_detail.html:88
 msgid "Category"
 msgstr "শ্রেণী"
@@ -299,61 +469,302 @@ msgid "Regions"
 msgstr "অঞ্চল"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:84
-#: ihp/templates/metadata_detail.html:112
-msgid "Owner"
-msgstr "মালিক"
+#: ihp/templates/metadata_detail.html:122
+msgid "Responsible"
+msgstr ""
 
 #: ihp/templates/base/_resourcebase_info_panel.html:89
+#: ihp/templates/documents/document_metadata.html:42
+#: ihp/templates/documents/document_metadata.html:66
+#: ihp/templates/documents/document_metadata_advanced.html:33
+#: ihp/templates/documents/document_metadata_advanced.html:82
+#: ihp/templates/layers/layer_metadata.html:53
+#: ihp/templates/layers/layer_metadata.html:84
+#: ihp/templates/layers/layer_metadata_advanced.html:44
+#: ihp/templates/layers/layer_metadata_advanced.html:124
+#: ihp/templates/maps/map_metadata.html:68
+#: ihp/templates/maps/map_metadata_advanced.html:82
 msgid "Point of Contact"
 msgstr "যোগাযোগ পয়েন্ট"
 
 #: ihp/templates/base/_resourcebase_info_panel.html:94
+#: ihp/templates/documents/layouts/doc_panels.html:130
+#: ihp/templates/layers/layouts/panels.html:349
+#: ihp/templates/maps/layouts/map_panels.html:133
+#: ihp/templates/metadata_detail.html:112
 #, fuzzy
 #| msgid "Groups"
 msgid "Group"
 msgstr "গ্রুপ"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:121
-#: ihp/templates/metadata_detail.html:206
+#: ihp/templates/base/_resourcebase_info_panel.html:124
+#: ihp/templates/metadata_detail.html:216
 msgid "Maintenance Frequency"
 msgstr "রক্ষণাবেক্ষণ ফ্রিকোয়েন্সি"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:129
-#: ihp/templates/metadata_detail.html:211
+#: ihp/templates/base/_resourcebase_info_panel.html:132
+#: ihp/templates/metadata_detail.html:221
 msgid "Restrictions"
 msgstr "বিধিনিষেধ"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:137
-#: ihp/templates/metadata_detail.html:220
+#: ihp/templates/base/_resourcebase_info_panel.html:140
+#: ihp/templates/metadata_detail.html:230
 msgid "Edition"
 msgstr "সংস্করণ"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:145
-#: ihp/templates/metadata_detail.html:225
+#: ihp/templates/base/_resourcebase_info_panel.html:148
+#: ihp/templates/metadata_detail.html:235
 msgid "Purpose"
 msgstr "উদ্দেশ্য"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:155
-#: ihp/templates/metadata_detail.html:235
+#: ihp/templates/base/_resourcebase_info_panel.html:158
+#: ihp/templates/metadata_detail.html:245
 msgid "Temporal Extent"
 msgstr "টেম্পোরাল ব্যাপ্তি"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:160
-#: ihp/templates/metadata_detail.html:240
+#: ihp/templates/base/_resourcebase_info_panel.html:163
+#: ihp/templates/metadata_detail.html:250
 msgid "Data Quality"
 msgstr "ডেটা কোয়ালিটির"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:165
-#: ihp/templates/metadata_detail.html:245
+#: ihp/templates/base/_resourcebase_info_panel.html:168
+#: ihp/templates/metadata_detail.html:255
 msgid "Supplemental Information"
 msgstr "প্রাসঙ্গিক তথ্য"
 
-#: ihp/templates/base/_resourcebase_info_panel.html:170
-#: ihp/templates/metadata_detail.html:250
+#: ihp/templates/base/_resourcebase_info_panel.html:173
+#: ihp/templates/metadata_detail.html:260
 msgid "Spatial Representation Type"
 msgstr "স্থানিক প্রতিনিধিত্ব প্রকার"
 
-#: ihp/templates/faq_page_template.html:69
+#: ihp/templates/doc_page_template.html:10 ihp/templates/mybase.html:24
+#, fuzzy
+#| msgid "Getting Started"
+msgid "Get Started"
+msgstr "শুরু"
+
+#: ihp/templates/documents/document_detail.html:44
+msgid "External Resource"
+msgstr "এক্সটার্নাল রিসোর্স"
+
+#: ihp/templates/documents/document_detail.html:73
+msgid "Rate this document"
+msgstr "এই নথিটি রেটিং করুন"
+
+#: ihp/templates/documents/document_detail.html:77
+#: ihp/templates/layers/layer_detail.html:267
+#: ihp/templates/maps/map_detail.html:107
+msgid "Average Rating"
+msgstr "মাঝামাঝি নির্ধারণ"
+
+#: ihp/templates/documents/document_detail.html:97
+#: ihp/templates/layers/layer_detail.html:451
+#: ihp/templates/maps/map_detail.html:134
+msgid "Metadata Detail"
+msgstr ""
+
+#: ihp/templates/documents/document_detail.html:105
+#: ihp/templates/documents/document_detail.html:107
+#: ihp/templates/documents/document_detail.html:109
+msgid "Download Document"
+msgstr "ডাউনলোড ডকুমেন্ট"
+
+#: ihp/templates/documents/document_detail.html:113
+#: ihp/templates/layers/layer_detail.html:291
+msgid "Request Download"
+msgstr "ডাউনলোডের অনুরোধ"
+
+#: ihp/templates/documents/document_detail.html:121
+#: ihp/templates/layers/layer_detail.html:458
+#: ihp/templates/maps/map_detail.html:141
+#, fuzzy
+#| msgid "Request Download"
+msgid "Request change"
+msgstr "ডাউনলোডের অনুরোধ"
+
+#: ihp/templates/documents/document_detail.html:127
+#: ihp/templates/documents/document_detail.html:136
+msgid "Edit Document"
+msgstr "সম্পাদনা ডকুমেন্ট"
+
+#: ihp/templates/documents/document_detail.html:144
+#: ihp/templates/documents/document_metadata.html:17
+#: ihp/templates/layers/layer_detail.html:478
+#: ihp/templates/layers/layer_metadata.html:19
+#: ihp/templates/maps/map_detail.html:184
+#: ihp/templates/maps/map_metadata.html:20
+#: ihp/templates/metadata_detail.html:32
+msgid "Metadata"
+msgstr "মেটাডাটা"
+
+#: ihp/templates/documents/document_detail.html:145
+#: ihp/templates/layers/layer_detail.html:479
+#: ihp/templates/maps/map_detail.html:185
+msgid "Wizard"
+msgstr ""
+
+#: ihp/templates/documents/document_detail.html:146
+#: ihp/templates/layers/layer_detail.html:480
+#: ihp/templates/maps/map_detail.html:186
+msgid "Advanced Edit"
+msgstr ""
+
+#: ihp/templates/documents/document_detail.html:152
+#: ihp/templates/layers/layer_detail.html:516
+#: ihp/templates/layers/layouts/panels.html:273
+#: ihp/templates/maps/layouts/map_panels.html:59
+#: ihp/templates/maps/map_detail.html:192
+msgid "Thumbnail"
+msgstr "Thumbnail"
+
+#: ihp/templates/documents/document_detail.html:153
+#: ihp/templates/layers/layer_detail.html:499
+#: ihp/templates/maps/map_detail.html:194
+#, fuzzy
+#| msgid "uploaded"
+msgid "Upload"
+msgstr "আপলোড"
+
+#: ihp/templates/documents/document_detail.html:159
+msgid "Document"
+msgstr "নথি"
+
+#: ihp/templates/documents/document_detail.html:161
+#: ihp/templates/layers/layer_detail.html:525
+msgid "Replace"
+msgstr "প্রতিস্থাপন"
+
+#: ihp/templates/documents/document_detail.html:164
+#: ihp/templates/layers/layer_detail.html:531
+#: ihp/templates/maps/map_detail.html:202
+msgid "Remove"
+msgstr "অপসারণ"
+
+#: ihp/templates/documents/document_detail.html:171
+#: ihp/templates/documents/document_detail.html:207
+#: ihp/templates/layers/layer_detail.html:435
+#: ihp/templates/layers/layer_detail.html:538
+#: ihp/templates/layers/layer_detail.html:588
+#: ihp/templates/maps/map_detail.html:163
+#: ihp/templates/maps/map_detail.html:208
+#: ihp/templates/maps/map_detail.html:314
+#: ihp/templates/maps/map_detail.html:334
+msgid "Close"
+msgstr "ঘনিষ্ঠ"
+
+#: ihp/templates/documents/document_detail.html:178
+#: ihp/templates/documents/document_detail.html:185
+#: ihp/templates/layers/layer_detail.html:550
+#: ihp/templates/layers/layer_detail.html:558
+msgid "Download Metadata"
+msgstr "ডাউনলোড মেটাডাটা"
+
+#: ihp/templates/documents/document_detail.html:214
+#, fuzzy
+#| msgid "Resource using this document"
+msgid "Resources using this document"
+msgstr "এই নথির ব্যবহার করে সম্পদ"
+
+#: ihp/templates/documents/document_detail.html:216
+msgid "List of resources using this document:"
+msgstr "এই নথির ব্যবহার করে সম্পদের তালিকা:"
+
+#: ihp/templates/documents/document_detail.html:222
+msgid "This document is not related to any maps or layers"
+msgstr "এই ডকুমেন্টের কোন মানচিত্র বা স্তর এর সাথে সম্পর্কিত করা হয় না"
+
+#: ihp/templates/documents/document_detail.html:230
+msgid "Click the button below to change the permissions of this document."
+msgstr "এই ডকুমেন্টের অনুমতি পরিবর্তন করতে নিচের বাটনে ক্লিক করুন."
+
+#: ihp/templates/documents/document_detail.html:231
+msgid "Change Document Permissions"
+msgstr "ডকুমেন্ট অনুমতি পরিবর্তন করুন"
+
+#: ihp/templates/documents/document_list.html:5
+#: ihp/templates/documents/document_list.html:14
+#, fuzzy
+#| msgid "Explore Layers"
+msgid "Explore Library"
+msgstr "স্তরসমূহ টেলিভিশন"
+
+#: ihp/templates/documents/document_list.html:12
+msgid "Upload Documents"
+msgstr "আপলোড ডকুমেন্টস"
+
+#: ihp/templates/documents/document_metadata.html:17
+#, python-format
+msgid "for %(document_title)s"
+msgstr ""
+
+#: ihp/templates/documents/document_metadata.html:35
+#: ihp/templates/documents/document_metadata_advanced.html:26
+#: ihp/templates/layers/layer_metadata.html:46
+#: ihp/templates/layers/layer_metadata_advanced.html:37
+#: ihp/templates/maps/map_metadata.html:44
+#: ihp/templates/maps/map_metadata_advanced.html:34
+msgid "Error updating metadata.  Please check the following fields: "
+msgstr "ত্রুটি আপডেট মেটাডেটা. নিম্নোক্ত ক্ষেত্রসমূহ চেক করুন:"
+
+#: ihp/templates/documents/document_metadata.html:38
+#: ihp/templates/documents/document_metadata_advanced.html:29
+#: ihp/templates/layers/layer_metadata.html:49
+#: ihp/templates/layers/layer_metadata_advanced.html:40
+#: ihp/templates/metadata_detail.html:341
+msgid "Metadata Author"
+msgstr "মেটাডাটা লেখক"
+
+#: ihp/templates/documents/document_metadata.html:71
+#: ihp/templates/documents/document_metadata_advanced.html:87
+#: ihp/templates/layers/layer_metadata.html:89
+#: ihp/templates/layers/layer_metadata_advanced.html:129
+#: ihp/templates/maps/map_metadata.html:73
+#: ihp/templates/maps/map_metadata_advanced.html:87
+msgid "Metadata Provider"
+msgstr "মেটাডাটা সরবরাহকারী"
+
+#: ihp/templates/documents/document_metadata.html:77
+#: ihp/templates/layers/layer_metadata.html:97
+#: ihp/templates/maps/map_metadata.html:79
+msgid "<< Back"
+msgstr ""
+
+#: ihp/templates/documents/document_metadata.html:78
+#: ihp/templates/documents/document_metadata_advanced.html:48
+#: ihp/templates/documents/document_metadata_advanced.html:92
+#: ihp/templates/layers/layer_metadata.html:98
+#: ihp/templates/layers/layer_metadata_advanced.html:69
+#: ihp/templates/layers/layer_metadata_advanced.html:137
+#: ihp/templates/maps/map_metadata.html:80
+#: ihp/templates/maps/map_metadata_advanced.html:49
+#: ihp/templates/maps/map_metadata_advanced.html:93
+msgid "Update"
+msgstr "আপডেট"
+
+#: ihp/templates/documents/document_metadata.html:79
+#: ihp/templates/layers/layer_metadata.html:99
+#: ihp/templates/maps/map_metadata.html:81
+#, fuzzy
+#| msgid "Next"
+msgid "Next >>"
+msgstr "পরবর্তী"
+
+#: ihp/templates/documents/document_metadata_advanced.html:16
+msgid "Explore Documents"
+msgstr "ডকুমেন্টস এবং পুরুষ"
+
+#: ihp/templates/documents/document_metadata_advanced.html:17
+#: ihp/templates/layers/layer_metadata_advanced.html:17
+#: ihp/templates/maps/map_metadata_advanced.html:17
+msgid "Edit Metadata"
+msgstr "সম্পাদনা মেটাডেটা"
+
+#: ihp/templates/documents/document_metadata_advanced.html:22
+msgid "Editing details for"
+msgstr "সম্পাদনার জন্য বিবরণ"
+
+#: ihp/templates/faq_page_template.html:10
+#: ihp/templates/faq_page_template.html:98
 msgid "Frequently Asked Questions"
 msgstr ""
 
@@ -361,59 +772,60 @@ msgstr ""
 msgid "Welcome!"
 msgstr "স্বাগতম!"
 
-#: ihp/templates/index.html:33
+#: ihp/templates/index.html:34
 #, fuzzy
 #| msgid "Welcome"
 msgid "Welcome to "
 msgstr "স্বাগত"
 
-#: ihp/templates/index.html:121
+#: ihp/templates/index.html:122
 msgid "Welcome"
 msgstr "স্বাগত"
 
-#: ihp/templates/index.html:122
+#: ihp/templates/index.html:123
 msgid ""
 "GeoNode is an open source platform for sharing geospatial data and maps."
 msgstr ""
 "GeoNode ভৌগলিক অবস্থান বিষয়ক প্রযুক্তিবিদ্যা তথ্য এবং মানচিত্র ভাগ করে নেওয়ার জন্য "
 "একটি ওপেন সোর্স প্ল্যাটফর্ম."
 
-#: ihp/templates/index.html:123
+#: ihp/templates/index.html:124
 msgid ""
 "If you have any questions about the software or service, join our <a href="
 "\"http://lists.osgeo.org/cgi-bin/mailman/listinfo/geonode-users\">mailing "
 "list</a>."
 msgstr ""
 
-#: ihp/templates/index.html:124
+#: ihp/templates/index.html:125
 msgid "Need help?"
 msgstr "সাহায্য প্রয়োজন?"
 
-#: ihp/templates/index.html:124
+#: ihp/templates/index.html:125
 msgid "Getting Started"
 msgstr "শুরু"
 
-#: ihp/templates/index.html:128
+#: ihp/templates/index.html:129
 msgid "Welcome to the Water Information Network System"
 msgstr ""
 
-#: ihp/templates/index.html:129
+#: ihp/templates/index.html:130
 msgid "by the International Hydrological Programme of UNESCO"
 msgstr ""
 
-#: ihp/templates/index.html:143 ihp/templates/index.html.py:153
-#: ihp/templates/index.html:163 ihp/templates/metadata_detail.html:103
+#: ihp/templates/index.html:144 ihp/templates/index.html:154
+#: ihp/templates/index.html:164 ihp/templates/metadata_detail.html:103
 #: ihp/templates/metadata_detail.html:106
+#: ihp/templates/metadata_detail.html:109
 msgid "No"
 msgstr "না"
 
-#: ihp/templates/index.html:143 ihp/templates/layers/layer_detail.html:365
+#: ihp/templates/index.html:144 ihp/templates/layers/layer_detail.html:523
 msgid "Layer"
 msgid_plural "Layers"
 msgstr[0] "স্তর"
 msgstr[1] "স্তর সমূহ"
 
-#: ihp/templates/index.html:144
+#: ihp/templates/index.html:145
 msgid ""
 "Click to search for geospatial data published by other users, organizations "
 "and public sources. Download data in standard formats."
@@ -421,21 +833,22 @@ msgstr ""
 "অন্যান্য ব্যবহারকারীদের, প্রতিষ্ঠান এবং পাবলিক সূত্র দ্বারা প্রকাশ ভৌগলিক অবস্থান "
 "বিষয়ক প্রযুক্তিবিদ্যা তথ্য অনুসন্ধান করার জন্য ক্লিক করুন. মান বিন্যাসে ডাউনলোড করা তথ্য."
 
-#: ihp/templates/index.html:146
+#: ihp/templates/index.html:147
 msgid "Add layers"
 msgstr "স্থর সমূহ যুক্ত করুন"
 
-#: ihp/templates/index.html:148
+#: ihp/templates/index.html:149
 msgid "Explore layers"
 msgstr "স্তর অন্বেষণ"
 
-#: ihp/templates/index.html:153 ihp/templates/maps/map_view.html:6
+#: ihp/templates/index.html:154 ihp/templates/maps/map_detail.html:200
+#: ihp/templates/maps/map_view.html:7
 msgid "Map"
 msgid_plural "Maps"
 msgstr[0] "মানচিত্রসমূহ"
 msgstr[1] "মানচিত্র সমূহ"
 
-#: ihp/templates/index.html:154
+#: ihp/templates/index.html:155
 #, fuzzy
 #| msgid ""
 #| "Data is available for browsing, aggregating and styling to generate maps "
@@ -448,21 +861,21 @@ msgstr ""
 "ডেটা শুধুমাত্র নির্দিষ্ট ব্যবহারকারীদের প্রকাশ্যে ভাগ বা সীমিত করা যাবে যা মানচিত্র "
 "উৎপন্ন করতে ব্রাউজিং, aggregating এবং স্টাইলিং জন্য উপলব্ধ."
 
-#: ihp/templates/index.html:156
+#: ihp/templates/index.html:157
 msgid "Create maps"
 msgstr "মানচিত্র তৈরি করুন"
 
-#: ihp/templates/index.html:158
+#: ihp/templates/index.html:159
 msgid "Explore maps"
 msgstr "মানচিত্র সমূহ উম্মোচন করুন"
 
-#: ihp/templates/index.html:163
+#: ihp/templates/index.html:164
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "ব্যবহারকারী"
 msgstr[1] "ব্যবহারকারী"
 
-#: ihp/templates/index.html:164
+#: ihp/templates/index.html:165
 #, fuzzy
 #| msgid ""
 #| "GeoNode allows registered users to easily upload geospatial data in "
@@ -474,225 +887,278 @@ msgstr ""
 "GeoNode নিবন্ধিত ব্যবহারকারীরা সহজেই shapefile এবং GeoTiff সহ বিভিন্ন ফরম্যাটের "
 "মধ্যে ভৌগলিক অবস্থান বিষয়ক প্রযুক্তিবিদ্যা তথ্য আপলোড করতে পারবেন."
 
-#: ihp/templates/index.html:165
+#: ihp/templates/index.html:166
 msgid "See users"
 msgstr "ব্যবহারকারীদের দেখুন"
 
-#: ihp/templates/layers/layer_detail.html:65
+#: ihp/templates/invitations/forms/_invite.html:13
+msgid "Max. 200 email addresses"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:63
+#, fuzzy
+#| msgid "Services"
+msgid "Service is"
+msgstr "সেবা"
+
+#: ihp/templates/layers/layer_detail.html:63
+msgid "online"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:63
+msgid "offline"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:87
+msgid "Layer WMS GetCapabilities document"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:97
 msgid "Filter Granules"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:68
+#: ihp/templates/layers/layer_detail.html:100
 msgid "Active Filter:"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:74
+#: ihp/templates/layers/layer_detail.html:106
 msgid "Granule ID"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:75
+#: ihp/templates/layers/layer_detail.html:107
 msgid "Bounding Box"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:76
+#: ihp/templates/layers/layer_detail.html:108
 msgid "Time"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:77
+#: ihp/templates/layers/layer_detail.html:109
 msgid "Elevation"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:78
+#: ihp/templates/layers/layer_detail.html:110
 msgid "Actions"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:140
+#: ihp/templates/layers/layer_detail.html:172
 msgid "Dimension"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:141
+#: ihp/templates/layers/layer_detail.html:173
 msgid "Enabled"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:142
+#: ihp/templates/layers/layer_detail.html:174
 msgid "Regex"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:147
+#: ihp/templates/layers/layer_detail.html:179
 msgid "TIME"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:148
-#: ihp/templates/layers/layer_detail.html:153
+#: ihp/templates/layers/layer_detail.html:180
+#: ihp/templates/layers/layer_detail.html:185
 msgid "True"
 msgstr "সত্য"
 
-#: ihp/templates/layers/layer_detail.html:148
-#: ihp/templates/layers/layer_detail.html:153
+#: ihp/templates/layers/layer_detail.html:180
+#: ihp/templates/layers/layer_detail.html:185
 msgid "False"
 msgstr "মিথ্যা"
 
-#: ihp/templates/layers/layer_detail.html:152
+#: ihp/templates/layers/layer_detail.html:184
 msgid "ELEVATION"
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:163
+#: ihp/templates/layers/layer_detail.html:195
 msgid "Attribute Name"
 msgstr "নাম গুন"
 
-#: ihp/templates/layers/layer_detail.html:164
+#: ihp/templates/layers/layer_detail.html:196
+#: ihp/templates/layers/layer_metadata_advanced.html:107
+#: ihp/templates/layers/layouts/panels.html:545
 msgid "Label"
 msgstr "লেবেল"
 
-#: ihp/templates/layers/layer_detail.html:165
+#: ihp/templates/layers/layer_detail.html:197
+#: ihp/templates/layers/layer_metadata_advanced.html:108
+#: ihp/templates/layers/layouts/panels.html:546
 msgid "Description"
 msgstr "বিবরণ"
 
-#: ihp/templates/layers/layer_detail.html:167
+#: ihp/templates/layers/layer_detail.html:199
 msgid "Range"
 msgstr "পরিসর"
 
-#: ihp/templates/layers/layer_detail.html:168
+#: ihp/templates/layers/layer_detail.html:200
 msgid "Average"
 msgstr "গড়"
 
-#: ihp/templates/layers/layer_detail.html:169
+#: ihp/templates/layers/layer_detail.html:201
 msgid "Median"
 msgstr "মধ্যমা"
 
-#: ihp/templates/layers/layer_detail.html:170
+#: ihp/templates/layers/layer_detail.html:202
 msgid "Standard Deviation"
 msgstr "পরিমিত ব্যবধান"
 
-#: ihp/templates/layers/layer_detail.html:231
+#: ihp/templates/layers/layer_detail.html:263
 msgid "Rate this layer"
 msgstr "এই স্তর রেটিং করুন"
 
-#: ihp/templates/layers/layer_detail.html:235
-msgid "Average Rating"
-msgstr "মাঝামাঝি নির্ধারণ"
+#: ihp/templates/layers/layer_detail.html:283
+msgid "Analyze with"
+msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:252
-#: ihp/templates/layers/layer_detail.html:265
+#: ihp/templates/layers/layer_detail.html:288
+#: ihp/templates/layers/layer_detail.html:301
 msgid "Download Layer"
 msgstr "ডাউনলোড লেয়ার"
 
-#: ihp/templates/layers/layer_detail.html:255
-msgid "Request Download"
-msgstr "ডাউনলোডের অনুরোধ"
+#: ihp/templates/layers/layer_detail.html:335
+#, fuzzy
+#| msgid "Are you sure you want to log out?"
+msgid "Do you want to filter it?"
+msgstr "আপনি লগ আউট করার ব্যাপারে নিশ্চিত?"
 
-#: ihp/templates/layers/layer_detail.html:304
-#: ihp/templates/layers/layer_detail.html:377
-#: ihp/templates/layers/layer_detail.html:423
-msgid "Close"
-msgstr "ঘনিষ্ঠ"
-
-#: ihp/templates/layers/layer_detail.html:316
-msgid "Metadata Detail"
+#: ihp/templates/layers/layer_detail.html:338
+msgid "Loading..."
 msgstr ""
 
-#: ihp/templates/layers/layer_detail.html:322
-#: ihp/templates/layers/layer_detail.html:329
+#: ihp/templates/layers/layer_detail.html:342
+#, fuzzy
+#| msgid "Select an attribute"
+msgid "Filter by attributes"
+msgstr "একটি বৈশিষ্ট্য নির্বাচন করুন"
+
+#: ihp/templates/layers/layer_detail.html:349
+msgid "Match"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:364
+#, fuzzy
+#| msgid "The following users:"
+msgid "of the following:"
+msgstr "নিম্নলিখিত ব্যবহারকারী:"
+
+#: ihp/templates/layers/layer_detail.html:371
+#: ihp/templates/layers/layer_metadata_advanced.html:106
+#: ihp/templates/layers/layouts/panels.html:544
+msgid "Attribute"
+msgstr "গুণ"
+
+#: ihp/templates/layers/layer_detail.html:388
+msgid "Operator"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:422
+msgid "Pick your download format:"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:464
+#: ihp/templates/layers/layer_detail.html:471
 msgid "Edit Layer"
 msgstr "সম্পাদনা লেয়ার"
 
-#: ihp/templates/layers/layer_detail.html:336
-#: ihp/templates/metadata_detail.html:32
-msgid "Metadata"
-msgstr "মেটাডাটা"
-
-#: ihp/templates/layers/layer_detail.html:337
-msgid "Wizard"
-msgstr ""
-
-#: ihp/templates/layers/layer_detail.html:338
-msgid "Advanced Edit"
-msgstr ""
-
-#: ihp/templates/layers/layer_detail.html:339
+#: ihp/templates/layers/layer_detail.html:481
 #, fuzzy
 #| msgid "Download Metadata"
 msgid "Upload Metadata"
 msgstr "ডাউনলোড মেটাডাটা"
 
-#: ihp/templates/layers/layer_detail.html:346
-#: ihp/templates/layers/layer_detail.html:477
+#: ihp/templates/layers/layer_detail.html:484
+msgid "Gazetteer"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:492
+#: ihp/templates/layers/layer_detail.html:508
+#: ihp/templates/layers/layer_detail.html:663
 msgid "Styles"
 msgstr "স্টাইলস"
 
-#: ihp/templates/layers/layer_detail.html:348
+#: ihp/templates/layers/layer_detail.html:494
+#: ihp/templates/layers/layer_detail.html:496
+#: ihp/templates/layers/layer_detail.html:509
+#: ihp/templates/layers/layouts/panels.html:219
+#: ihp/templates/layers/layouts/panels.html:288
+#: ihp/templates/maps/layouts/map_panels.html:74
+#: ihp/templates/maps/map_detail.html:201
 msgid "Edit"
 msgstr "সম্পাদনা"
 
-#: ihp/templates/layers/layer_detail.html:350
-#, fuzzy
-#| msgid "uploaded"
-msgid "Upload"
-msgstr "আপলোড"
-
-#: ihp/templates/layers/layer_detail.html:351
+#: ihp/templates/layers/layer_detail.html:500
 msgid "Manage"
 msgstr "পরিচালনা করা"
 
-#: ihp/templates/layers/layer_detail.html:358
-msgid "Thumbnail"
-msgstr "Thumbnail"
-
-#: ihp/templates/layers/layer_detail.html:359
+#: ihp/templates/layers/layer_detail.html:517
+#: ihp/templates/maps/map_detail.html:193
 msgid "Set"
 msgstr "স্থাপন"
 
-#: ihp/templates/layers/layer_detail.html:367
-msgid "Replace"
-msgstr "প্রতিস্থাপন"
+#: ihp/templates/layers/layer_detail.html:528
+msgid "Edit data"
+msgstr "তথ্য পরিবর্তন"
 
-#: ihp/templates/layers/layer_detail.html:370
-msgid "Remove"
-msgstr "অপসারণ"
+#: ihp/templates/layers/layer_detail.html:546
+#, fuzzy
+#| msgid "Edit Layer"
+msgid "View Layer"
+msgstr "সম্পাদনা লেয়ার"
 
-#: ihp/templates/layers/layer_detail.html:385
-#: ihp/templates/layers/layer_detail.html:393
-msgid "Download Metadata"
-msgstr "ডাউনলোড মেটাডাটা"
-
-#: ihp/templates/layers/layer_detail.html:431
+#: ihp/templates/layers/layer_detail.html:596
 msgid "Legend"
 msgstr "কিংবদন্তী"
 
-#: ihp/templates/layers/layer_detail.html:445
+#: ihp/templates/layers/layer_detail.html:616
 msgid "Maps using this layer"
 msgstr "এই স্তর ব্যবহার করে মানচিত্র"
 
-#: ihp/templates/layers/layer_detail.html:447
+#: ihp/templates/layers/layer_detail.html:618
 msgid "List of maps using this layer:"
 msgstr "এই স্তর ব্যবহার ম্যাপের তালিকা:"
 
-#: ihp/templates/layers/layer_detail.html:453
+#: ihp/templates/layers/layer_detail.html:624
 msgid "This layer is not currently used in any maps."
 msgstr "এই স্তর বর্তমানে কোনো ম্যাপের ব্যবহার করা না হয়."
 
-#: ihp/templates/layers/layer_detail.html:458
+#: ihp/templates/layers/layer_detail.html:629
 msgid "Create a map using this layer"
 msgstr "এই স্তর ব্যবহার করে একটি মানচিত্র তৈরি করুন"
 
-#: ihp/templates/layers/layer_detail.html:459
+#: ihp/templates/layers/layer_detail.html:630
 msgid "Click the button below to generate a new map based on this layer."
 msgstr "এই স্তর উপর ভিত্তি করে একটি নতুন মানচিত্র উৎপন্ন করতে নিচের বাটনে ক্লিক করুন."
 
-#: ihp/templates/layers/layer_detail.html:460
-#: ihp/templates/search/_search_content.html:16
+#: ihp/templates/layers/layer_detail.html:631
 msgid "Create a Map"
 msgstr "একটি মানচিত্র তৈরি করুন"
 
-#: ihp/templates/layers/layer_detail.html:465
+#: ihp/templates/layers/layer_detail.html:635
+msgid "Add the layer to an existing map"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:643
+#, fuzzy
+#| msgid "Click the button below to change the permissions of this layer."
+msgid "Click the button below to add the layer to the selected map."
+msgstr "এই স্তর অনুমতি পরিবর্তন করতে নিচের বাটনে ক্লিক করুন."
+
+#: ihp/templates/layers/layer_detail.html:645
+#, fuzzy
+#| msgid "Edit Map"
+msgid "Add to Map"
+msgstr "সম্পাদনা ম্যাপ"
+
+#: ihp/templates/layers/layer_detail.html:652
 msgid "Documents related to this layer"
 msgstr "এই স্তর সংক্রান্ত ডকুমেন্টস"
 
-#: ihp/templates/layers/layer_detail.html:466
+#: ihp/templates/layers/layer_detail.html:653
 msgid "List of documents related to this layer:"
 msgstr "এই স্তর সংক্রান্ত নথি তালিকা:"
 
-#: ihp/templates/layers/layer_detail.html:478
+#: ihp/templates/layers/layer_detail.html:664
 msgid ""
 "The following styles are associated with this layer. Choose a style to view "
 "it in the preview map."
@@ -700,35 +1166,361 @@ msgstr ""
 "নিম্নলিখিত শৈলী এই স্তর সঙ্গে যুক্ত হয়. প্রাকদর্শন মানচিত্র তা দেখতে একটি শৈলী চয়ন "
 "করুন."
 
-#: ihp/templates/layers/layer_detail.html:491
+#: ihp/templates/layers/layer_detail.html:678
+#: ihp/templates/layers/layer_detail.html:692
 msgid "No styles associated with this layer"
 msgstr "এই স্তর সঙ্গে যুক্ত কোন শৈলী"
 
-#: ihp/templates/layers/layer_detail.html:500
-msgid "Permissions"
-msgstr "অনুমতি"
+#: ihp/templates/layers/layer_detail.html:701
+#, fuzzy
+#| msgid "Create a map using this layer"
+msgid "Clear the Server Cache of this layer"
+msgstr "এই স্তর ব্যবহার করে একটি মানচিত্র তৈরি করুন"
 
-#: ihp/templates/layers/layer_detail.html:501
+#: ihp/templates/layers/layer_detail.html:702
+#, fuzzy
+#| msgid "Click the button below to change the permissions of this layer."
+msgid "Click the button below to wipe the tile-cache of this layer."
+msgstr "এই স্তর অনুমতি পরিবর্তন করতে নিচের বাটনে ক্লিক করুন."
+
+#: ihp/templates/layers/layer_detail.html:703
+msgid "Empty Tiled-Layer Cache"
+msgstr ""
+
+#: ihp/templates/layers/layer_detail.html:712
 msgid "Click the button below to change the permissions of this layer."
 msgstr "এই স্তর অনুমতি পরিবর্তন করতে নিচের বাটনে ক্লিক করুন."
 
-#: ihp/templates/layers/layer_detail.html:502
+#: ihp/templates/layers/layer_detail.html:713
 msgid "Change Layer Permissions"
 msgstr "পরিবর্তন লেয়ার অনুমতি"
 
-#: ihp/templates/layers/layer_detail.html:509
+#: ihp/templates/layers/layer_detail.html:720
 msgid "External service layer"
 msgstr "বাহ্যিক সেবা স্তর"
 
-#: ihp/templates/layers/layer_detail.html:510
+#: ihp/templates/layers/layer_detail.html:721
 msgid "Source"
 msgstr "উত্স"
 
-#: ihp/templates/maps/map_edit.html:6
+#: ihp/templates/layers/layer_edit.html:57
+#: ihp/templates/layers/layer_map.html:57
+#: ihp/templates/layers/layer_style_edit.html:57
+#, fuzzy
+#| msgid "Layers"
+msgid "layers"
+msgstr "স্তরসমূহ"
+
+#: ihp/templates/layers/layer_metadata.html:19
+#, python-format
+msgid "for %(layer_title)s"
+msgstr ""
+
+#: ihp/templates/layers/layer_metadata.html:37
+#: ihp/templates/layers/layer_metadata_advanced.html:28
+msgid ""
+"Note: this layer's orginal metadata was populated and preserved by importing "
+"a metadata XML file.\n"
+"          This metadata cannot be edited."
+msgstr ""
+
+#: ihp/templates/layers/layer_metadata.html:40
+#: ihp/templates/layers/layer_metadata_advanced.html:31
+#, fuzzy
+#| msgid ""
+#| "Note: this map's orginal metadata was populated by importing a metadata "
+#| "XML file.\n"
+#| "        GeoNode's metadata import supports a subset of ISO, FGDC, and "
+#| "Dublin Core metadata elements.\n"
+#| "        Some of your original metadata may have been lost."
+msgid ""
+"Note: this layer's orginal metadata was populated by importing a metadata "
+"XML file.\n"
+"          GeoNode's metadata import supports a subset of ISO, FGDC, and "
+"Dublin Core metadata elements.\n"
+"          Some of your original metadata may have been lost."
+msgstr ""
+"উল্লেখ্য: এই ম্যাপ এর মূল মিটাডাটা একটি মেটাডাটা XML ফাইল ইম্পোর্ট দ্বারা পূর্ণ ছিল. "
+"GeoNode এর মেটাডেটা আমদানি আইএসও, FGDC, এবং ডাবলিন কোর মেটাডাটা উপাদানের "
+"একটি উপসেট সমর্থন করে. আপনার মূল মেটাডাটা কিছু হারিয়ে হয়ে থাকতে পারে."
+
+#: ihp/templates/layers/layer_metadata.html:62
+#: ihp/templates/layers/layer_metadata_advanced.html:53
+#: ihp/templates/layers/layer_metadata_advanced.html:102
+msgid "Attributes"
+msgstr "আরোপ করা"
+
+#: ihp/templates/layers/layer_metadata.html:96
+#: ihp/templates/layers/layer_metadata_advanced.html:68
+#: ihp/templates/layers/layer_metadata_advanced.html:136
+#: ihp/templates/metadata_detail.html:28
+msgid "Return to Layer"
+msgstr ""
+
+#: ihp/templates/layers/layer_metadata_advanced.html:16
+msgid "Explore Layers"
+msgstr "স্তরসমূহ টেলিভিশন"
+
+#: ihp/templates/layers/layer_metadata_advanced.html:22
+#, python-format
+msgid ""
+"\n"
+"        Editing details for %(layer_title)s\n"
+"      "
+msgstr ""
+"\n"
+"জন্য সম্পাদনার বিবরণ %(layer_title)s এর"
+
+#: ihp/templates/layers/layer_metadata_advanced.html:109
+#: ihp/templates/layers/layouts/panels.html:547
+msgid "Display Order"
+msgstr "প্রদর্শন আদেশ"
+
+#: ihp/templates/layers/layouts/panels.html:214
+msgid "Done!"
+msgstr ""
+
+#: ihp/templates/layers/layouts/panels.html:222
+msgid "Preview"
+msgstr "প্রিভিউ"
+
+#: ihp/templates/layers/layouts/panels.html:225
+#, fuzzy
+#| msgid "Ratings"
+msgid "Settings"
+msgstr "সৈনিকগণ"
+
+#: ihp/templates/layers/layouts/panels.html:234
+#: ihp/templates/layers/layouts/panels.html:237
+msgid "Mandatory"
+msgstr ""
+
+#: ihp/templates/layers/layouts/panels.html:240
+#, fuzzy
+#| msgid "Time Options"
+msgid "Optional"
+msgstr "টাইম বিকল্প"
+
+#: ihp/templates/layers/layouts/panels.html:245
+#, fuzzy
+#| msgid "Edit Metadata"
+msgid "Basic Metadata"
+msgstr "সম্পাদনা মেটাডেটা"
+
+#: ihp/templates/layers/layouts/panels.html:248
+msgid "Location and Licenses"
+msgstr ""
+
+#: ihp/templates/layers/layouts/panels.html:251
+#, fuzzy
+#| msgid "Download Metadata"
+msgid "Optional Metadata"
+msgstr "ডাউনলোড মেটাডাটা"
+
+#: ihp/templates/layers/layouts/panels.html:254
+#, fuzzy
+#| msgid "Attributes"
+msgid "Dataset Attributes"
+msgstr "আরোপ করা"
+
+#: ihp/templates/layers/layouts/panels.html:282
+#: ihp/templates/maps/layouts/map_panels.html:68
+msgid "Save"
+msgstr "সংরক্ষণ করুন"
+
+#: ihp/templates/layers/layouts/panels.html:331
+#: ihp/templates/layers/layouts/panels.html:351
+#, fuzzy
+#| msgid "This action affects the following maps:"
+msgid "Choose one of the following..."
+msgstr "এই কর্ম নিম্নলিখিত ম্যাপের প্রভাবিত:"
+
+#: ihp/templates/layers/layouts/panels.html:445
+#, fuzzy
+#| msgid "Download Metadata"
+msgid "Other, Optional, Metadata"
+msgstr "ডাউনলোড মেটাডাটা"
+
+#: ihp/templates/layers/layouts/panels.html:487
+msgid "Responsible Parties"
+msgstr ""
+
+#: ihp/templates/layers/layouts/panels.html:495
+#, fuzzy
+#| msgid "Change Layer Permissions"
+msgid "Owner and Permissions"
+msgstr "পরিবর্তন লেয়ার অনুমতি"
+
+#: ihp/templates/layers/layouts/panels.html:517
+#, fuzzy
+#| msgid "Message Inbox"
+msgid "Message box"
+msgstr "বার্তা ইনবক্স"
+
+#: ihp/templates/layers/layouts/panels.html:584
+#, fuzzy
+#| msgid "Is Published"
+msgid "Publishing"
+msgstr "প্রকাশিত"
+
+#: ihp/templates/layers/layouts/panels.html:613
+#, fuzzy
+#| msgid "Notice settings"
+msgid "Other Settings"
+msgstr "Notice settings"
+
+#: ihp/templates/maps/map_detail.html:26
+msgid "maps"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:84
+msgid "Map layers WMS GetCapabilities document"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:103
+msgid "Rate this Map"
+msgstr "এই মানচিত্রের মূল্যায়ন"
+
+#: ihp/templates/maps/map_detail.html:128
+#: ihp/templates/maps/map_detail.html:151
+msgid "Download Map"
+msgstr "ডাউনলোড ম্যাপ"
+
+#: ihp/templates/maps/map_detail.html:170
+#: ihp/templates/maps/map_detail.html:177 ihp/templates/maps/map_edit.html:7
 msgid "Edit Map"
 msgstr "সম্পাদনা ম্যাপ"
 
-#: ihp/templates/maps/map_new.html:6
+#: ihp/templates/maps/map_detail.html:216
+#: ihp/templates/maps/map_detail.html:218
+#, fuzzy
+#| msgid "View Map"
+msgid "View Map"
+msgstr "মানচিত্র দেখুন"
+
+#: ihp/templates/maps/map_detail.html:229
+msgid "Map Layers"
+msgstr "মানচিত্র স্তরসমূহ"
+
+#: ihp/templates/maps/map_detail.html:230
+msgid "This map uses the following layers:"
+msgstr "এই মানচিত্রের নিচের স্তর ব্যবহার করে:"
+
+#: ihp/templates/maps/map_detail.html:246
+msgid "Documents related to this map"
+msgstr "এই ম্যাপ এর সাথে সম্পর্কিত ডকুমেন্টস"
+
+#: ihp/templates/maps/map_detail.html:247
+msgid "List of documents related to this map:"
+msgstr "এই ম্যাপ এর সাথে সম্পর্কিত নথি তালিকা:"
+
+#: ihp/templates/maps/map_detail.html:259
+msgid "Specify which users can view or modify this map"
+msgstr "ব্যবহারকারীদের দেখতে পারেন যা নির্দিষ্ট করুন অথবা এই ম্যাপ পরিবর্তন"
+
+#: ihp/templates/maps/map_detail.html:260
+msgid "Change Permissions of this Map"
+msgstr "এই মানচিত্র পরিবর্তন অনুমতি"
+
+#: ihp/templates/maps/map_detail.html:266
+msgid "Copy this map"
+msgstr "এই ম্যাপ কপি করুন"
+
+#: ihp/templates/maps/map_detail.html:267
+msgid "Duplicate this map and modify it for your own purposes"
+msgstr "এই ম্যাপ সদৃশ এবং আপনার নিজের কাজের জন্য এটি পরিবর্তন"
+
+#: ihp/templates/maps/map_detail.html:268
+msgid "Create a New Map"
+msgstr "একটি নতুন মানচিত্র তৈরি করুন"
+
+#: ihp/templates/maps/map_detail.html:272
+#, fuzzy
+#| msgid "Copy this map"
+msgid "Embed this map"
+msgstr "এই ম্যাপ কপি করুন"
+
+#: ihp/templates/maps/map_detail.html:273
+#, fuzzy
+#| msgid "Duplicate this map and modify it for your own purposes"
+msgid "Embed this map to your own sites"
+msgstr "এই ম্যাপ সদৃশ এবং আপনার নিজের কাজের জন্য এটি পরিবর্তন"
+
+#: ihp/templates/maps/map_detail.html:277
+#, fuzzy
+#| msgid "Edit Map"
+msgid "Embed Map"
+msgstr "সম্পাদনা ম্যাপ"
+
+#: ihp/templates/maps/map_detail.html:280
+msgid "Embed Iframe Link"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:282
+msgid "Embed Widget Link"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:284
+#, fuzzy
+#| msgid "Download Layer"
+msgid "Download Leaflet page"
+msgstr "ডাউনলোড লেয়ার"
+
+#: ihp/templates/maps/map_detail.html:304
+msgid "Embed Iframe"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:307
+msgid ""
+"To embed this map, add the following code snippet and customize its "
+"properties (scrolling, width, height) based on your needs to your site"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:326
+msgid "Embed Widget"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:329
+msgid "To embed this map, copy the following code snippet into your own page"
+msgstr ""
+
+#: ihp/templates/maps/map_detail.html:333
+msgid "Copy to Clipboard"
+msgstr ""
+
+#: ihp/templates/maps/map_metadata.html:20
+#, python-format
+msgid "for %(map_title)s"
+msgstr ""
+
+#: ihp/templates/maps/map_metadata.html:38
+#: ihp/templates/maps/map_metadata_advanced.html:28
+msgid ""
+"Note: this map's orginal metadata was populated by importing a metadata XML "
+"file.\n"
+"        GeoNode's metadata import supports a subset of ISO, FGDC, and Dublin "
+"Core metadata elements.\n"
+"        Some of your original metadata may have been lost."
+msgstr ""
+"উল্লেখ্য: এই ম্যাপ এর মূল মিটাডাটা একটি মেটাডাটা XML ফাইল ইম্পোর্ট দ্বারা পূর্ণ ছিল. "
+"GeoNode এর মেটাডেটা আমদানি আইএসও, FGDC, এবং ডাবলিন কোর মেটাডাটা উপাদানের "
+"একটি উপসেট সমর্থন করে. আপনার মূল মেটাডাটা কিছু হারিয়ে হয়ে থাকতে পারে."
+
+#: ihp/templates/maps/map_metadata_advanced.html:16
+msgid "Explore Maps"
+msgstr "মানচিত্র টেলিভিশন"
+
+#: ihp/templates/maps/map_metadata_advanced.html:22
+#, python-format
+msgid ""
+"\n"
+"        Editing details for %(map_title)s\n"
+"      "
+msgstr ""
+"\n"
+"জন্য সম্পাদনার বিবরণ %(map_title)s"
+
+#: ihp/templates/maps/map_new.html:7
 #, fuzzy
 #| msgid "View Map"
 msgid "New Map"
@@ -736,10 +1528,6 @@ msgstr "মানচিত্র দেখুন"
 
 #: ihp/templates/metadata_detail.html:26
 msgid "Return to Document"
-msgstr ""
-
-#: ihp/templates/metadata_detail.html:28
-msgid "Return to Layer"
 msgstr ""
 
 #: ihp/templates/metadata_detail.html:30
@@ -753,175 +1541,268 @@ msgid "Identification"
 msgstr ""
 
 #: ihp/templates/metadata_detail.html:102
-msgid "Published"
-msgstr ""
+#, fuzzy
+#| msgid "Not provided"
+msgid "Approved"
+msgstr "উপলব্ধ নেই"
 
 #: ihp/templates/metadata_detail.html:103
 #: ihp/templates/metadata_detail.html:106
+#: ihp/templates/metadata_detail.html:109
 msgid "Yes"
 msgstr ""
 
 #: ihp/templates/metadata_detail.html:105
+#: ihp/templates/photologue/photo_detail.html:9
+msgid "Published"
+msgstr ""
+
+#: ihp/templates/metadata_detail.html:108
 msgid "Featured"
 msgstr "বৈশিষ্ট্য"
 
-#: ihp/templates/metadata_detail.html:120
-#: ihp/templates/metadata_detail.html:262
-#: ihp/templates/metadata_detail.html:338
-msgid "Name"
-msgstr "নাম"
-
-#: ihp/templates/metadata_detail.html:123
-#: ihp/templates/metadata_detail.html:265
-#: ihp/templates/metadata_detail.html:341
+#: ihp/templates/metadata_detail.html:133
+#: ihp/templates/metadata_detail.html:275
+#: ihp/templates/metadata_detail.html:351
 msgid "email"
 msgstr "ইমেইল"
 
-#: ihp/templates/metadata_detail.html:126
-#: ihp/templates/metadata_detail.html:268
-#: ihp/templates/metadata_detail.html:344
-msgid "Position"
-msgstr "অবস্থান"
-
-#: ihp/templates/metadata_detail.html:129
-#: ihp/templates/metadata_detail.html:271
-#: ihp/templates/metadata_detail.html:347
-msgid "Organization"
-msgstr "প্রতিষ্ঠান"
-
-#: ihp/templates/metadata_detail.html:132
-#: ihp/templates/metadata_detail.html:274
-#: ihp/templates/metadata_detail.html:350
+#: ihp/templates/metadata_detail.html:142
+#: ihp/templates/metadata_detail.html:284
+#: ihp/templates/metadata_detail.html:360
 msgid "Location"
 msgstr "অঞ্চল"
 
-#: ihp/templates/metadata_detail.html:135
-#: ihp/templates/metadata_detail.html:277
-#: ihp/templates/metadata_detail.html:353
+#: ihp/templates/metadata_detail.html:145
+#: ihp/templates/metadata_detail.html:287
+#: ihp/templates/metadata_detail.html:363
 msgid "Voice"
 msgstr "স্বর"
 
-#: ihp/templates/metadata_detail.html:138
-#: ihp/templates/metadata_detail.html:280
-#: ihp/templates/metadata_detail.html:356
+#: ihp/templates/metadata_detail.html:148
+#: ihp/templates/metadata_detail.html:290
+#: ihp/templates/metadata_detail.html:366
 msgid "Fax"
 msgstr "ফ্যাক্স"
 
-#: ihp/templates/metadata_detail.html:153
+#: ihp/templates/metadata_detail.html:163
 #, fuzzy
 #| msgid "format"
 msgid "Information"
 msgstr "বিন্যাস"
 
-#: ihp/templates/metadata_detail.html:158
+#: ihp/templates/metadata_detail.html:168
 msgid "Identification Image"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:167
+#: ihp/templates/metadata_detail.html:177
 msgid "Spatial Resolution"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:170
-msgid "Projetion System"
-msgstr ""
+#: ihp/templates/metadata_detail.html:180
+#, fuzzy
+#| msgid "projection"
+msgid "Projection System"
+msgstr "অভিক্ষেপ"
 
-#: ihp/templates/metadata_detail.html:173
+#: ihp/templates/metadata_detail.html:183
 msgid "Extension x0"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:176
+#: ihp/templates/metadata_detail.html:186
 msgid "Extension x1"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:179
+#: ihp/templates/metadata_detail.html:189
 msgid "Extension y0"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:182
+#: ihp/templates/metadata_detail.html:192
 msgid "Extension y1"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:187
+#: ihp/templates/metadata_detail.html:197
 msgid "Features"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:257
+#: ihp/templates/metadata_detail.html:267
 msgid "Contact Points"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:298
+#: ihp/templates/metadata_detail.html:308
 msgid "References"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:303
+#: ihp/templates/metadata_detail.html:313
 msgid "Link Online"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:306
+#: ihp/templates/metadata_detail.html:316
 msgid "Metadata Page"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:310
+#: ihp/templates/metadata_detail.html:320
 msgid "Online Link"
 msgstr ""
 
-#: ihp/templates/metadata_detail.html:331
-msgid "Metadata Author"
-msgstr "মেটাডাটা লেখক"
-
-#: ihp/templates/mybase.html:24
+#: ihp/templates/photologue/photo_detail.html:21
 #, fuzzy
-#| msgid "Getting Started"
-msgid "Get Started"
-msgstr "শুরু"
+#| msgid "This CSW server contains the following services"
+msgid "This photo is found in the following galleries"
+msgstr "এই CSW সার্ভার নিম্নলিখিত পরিষেবাগুলি রয়েছে"
 
-#: ihp/templates/search/_extent_filter.html:3
-msgid "Extent"
-msgstr "ব্যাপ্তি"
-
-#: ihp/templates/search/_general_filters.html:4
-msgid "Categories"
-msgstr "ফোরাম"
-
-#: ihp/templates/search/_general_filters.html:51
-msgid "Owners"
+#: ihp/templates/pinax/notifications/account_active/account_active_subject.txt:1
+msgid "Welcome to IHP-WINS/Bienvenue sur IHP-WINS"
 msgstr ""
 
-#: ihp/templates/search/_general_filters.html:68
-msgid "Date begins after:"
-msgstr "তারিখ পরে শুরু:"
-
-#: ihp/templates/search/_general_filters.html:69
-#: ihp/templates/search/_general_filters.html:73
-msgid "yyyy-mm-dd"
-msgstr "yyyy-mm-dd"
-
-#: ihp/templates/search/_general_filters.html:72
-msgid "Date ends before:"
-msgstr "জন্ম আগে শেষ:"
-
-#: ihp/templates/search/_search_content.html:11
-msgid "Set permissions"
-msgstr "অনুমতি স্থাপন করুন"
-
-#: ihp/templates/search/_search_content.html:23
-msgid "Filters"
+#: ihp/templates/pinax/notifications/account_active/full.txt:3
+msgid "Your account has been approved and is now active."
 msgstr ""
 
-#: ihp/templates/search/_search_content.html:24
-msgid "Clear"
-msgstr "স্পষ্ট"
+#: ihp/templates/pinax/notifications/account_active/full.txt:5
+msgid "You can use the login form at"
+msgstr ""
 
-#: ihp/templates/search/_search_content.html:34
+#: ihp/templates/pinax/notifications/account_active/short.txt:3
+#, fuzzy
+#| msgid "Account activated"
+msgid "Your account is now active"
+msgstr "একাউন্ট চালু হয়েছে"
+
+#: ihp/templates/pinax/notifications/document_comment/full.txt:2
+#: ihp/templates/pinax/notifications/layer_comment/full.txt:2
+#: ihp/templates/pinax/notifications/map_comment/full.txt:2
+msgid "Dear contributor"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/document_comment/full.txt:3
+#: ihp/templates/pinax/notifications/layer_comment/full.txt:3
+#: ihp/templates/pinax/notifications/map_comment/full.txt:3
+#, fuzzy
+#| msgid "See users"
+msgid "The user"
+msgstr "ব্যবহারকারীদের দেখুন"
+
+#: ihp/templates/pinax/notifications/document_comment/full.txt:3
+msgid "has posted a new comment on the document"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/document_comment/full.txt:4
+msgid "You can visit the documents's page here:"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/document_comment/full.txt:5
+#: ihp/templates/pinax/notifications/email_body.txt:11
+#: ihp/templates/pinax/notifications/layer_comment/full.txt:5
+msgid "The IHP-WINS Team"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/document_comment/short.txt:3
+msgid "IHP-WINS: A new comment has been posted on a document"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/email_body.txt:3
+#, fuzzy
+#| msgid "You have the following incomplete uploads"
+msgid "You have received the following notice from"
+msgstr "আপনি নিম্নলিখিত অসম্পূর্ণ আপলোডসমূহ আছে"
+
+#: ihp/templates/pinax/notifications/email_body.txt:8
+msgid "If you want to change how you receive notifications, please go to "
+msgstr ""
+
+#: ihp/templates/pinax/notifications/email_subject.txt:1
+#, fuzzy, python-format
+#| msgid "Send message"
+msgid "%(message)s"
+msgstr "বার্তা পাঠান"
+
+#: ihp/templates/pinax/notifications/layer_comment/full.txt:3
+msgid "has posted a new comment on the layer"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/layer_comment/full.txt:4
+msgid "You can visit the layer's page here:"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/layer_comment/short.txt:3
+msgid "IHP-WINS: A new comment has been posted on a layer"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/map_comment/full.txt:3
+msgid "has posted a new comment on the map"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/map_comment/full.txt:4
+msgid "You can visit the map's page here:"
+msgstr ""
+
+#: ihp/templates/pinax/notifications/map_comment/short.txt:3
+msgid "IHP-WINS: A new comment has been posted on a map"
+msgstr ""
+
+#: ihp/templates/socialaccount/signup.html:6
+#, fuzzy
+#| msgid "Sign up"
+msgid "Signup"
+msgstr "সাইন আপ করুন"
+
+#: ihp/templates/socialaccount/signup.html:9
+#: ihp/templates/socialaccount/signup.html:21
+#, fuzzy
+#| msgid "Sign up"
+msgid "Sign Up"
+msgstr "সাইন আপ করুন"
+
+#: ihp/templates/socialaccount/signup.html:11
 #, python-format
-msgid "%(facet_type | title)s"
-msgid_plural "%(facet_type | title)s"
-msgstr[0] ""
-msgstr[1] ""
-
-#: ihp/templates/search/_search_content.html:34
-msgid "found"
+msgid ""
+"You are about to use your %(provider_name)s account to login to\n"
+"%(site_name)s. As a final step, please complete the following form:"
 msgstr ""
+
+#: ihp/templates/survey/survey.html:6 ihp/templates/survey/survey.html:7
+msgid "Survey"
+msgstr ""
+
+#: ihp/templates/survey/survey.html:12
+#, fuzzy
+#| msgid "Download"
+msgid "Download Survey"
+msgstr "ডাউনলোড"
+
+#: ihp/templates/survey/survey.html:23
+#, fuzzy
+#| msgid "Request Download"
+msgid "Proceed to download"
+msgstr "ডাউনলোডের অনুরোধ"
+
+#: ihp/templates/survey/survey.html:28
+msgid "Downloading"
+msgstr "ডাউনলোড"
+
+#: ihp/templates/survey/survey.html:29
+msgid "Thank you for completing our survey!"
+msgstr ""
+
+#: ihp/templates/survey/survey.html:30
+msgid ""
+"If the download doesn't start automatically in a few seconds, please click "
+msgstr ""
+
+#: ihp/templates/survey/survey.html:31
+msgid "here"
+msgstr ""
+
+#: ihp/templates/survey/survey.html:31
+msgid "to access the download URL directly"
+msgstr ""
+
+#: ihp/templates/survey/survey.html:32
+#, fuzzy
+#| msgid "party who authored the resource"
+msgid "Go back to the resource page."
+msgstr "সম্পদ রচনা যারা পার্টি"
 
 #: ihp/templates/time_series.html:6
 #, fuzzy
@@ -932,6 +1813,39 @@ msgstr "সিরিজ"
 #: ihp/templates/time_series.html:12
 msgid "Coming soon..."
 msgstr ""
+
+#~ msgid "Sorry, registrations are not open at this time."
+#~ msgstr "দুঃখিত, নিবন্ধীকরণের এই সময়ে খোলা হয় না."
+
+#~ msgid "Documents"
+#~ msgstr "কাগজপত্র"
+
+#~ msgid "Type your search here ..."
+#~ msgstr "এখানে আপনার অনুসন্ধান টাইপ করুন ..."
+
+#~ msgid "Owner"
+#~ msgstr "মালিক"
+
+#~ msgid "Extent"
+#~ msgstr "ব্যাপ্তি"
+
+#~ msgid "Categories"
+#~ msgstr "ফোরাম"
+
+#~ msgid "Date begins after:"
+#~ msgstr "তারিখ পরে শুরু:"
+
+#~ msgid "yyyy-mm-dd"
+#~ msgstr "yyyy-mm-dd"
+
+#~ msgid "Date ends before:"
+#~ msgstr "জন্ম আগে শেষ:"
+
+#~ msgid "Set permissions"
+#~ msgstr "অনুমতি স্থাপন করুন"
+
+#~ msgid "Clear"
+#~ msgstr "স্পষ্ট"
 
 #~ msgid "computer program or routine"
 #~ msgstr "কম্পিউটার প্রোগ্রাম বা রুটিন"
@@ -1180,9 +2094,6 @@ msgstr ""
 #~ msgid "Should this resource be advertised in home page?"
 #~ msgstr "এই সম্পদ হোম পেজ এ বিজ্ঞাপনে করা উচিত?"
 
-#~ msgid "Is Published"
-#~ msgstr "প্রকাশিত"
-
 #~ msgid "Should this resource be published and searchable?"
 #~ msgstr "এই সম্পদ প্রকাশিত এবং অনুসন্ধানযোগ্য করা উচিত?"
 
@@ -1310,59 +2221,8 @@ msgstr ""
 #~ msgid "URL"
 #~ msgstr "URL টি"
 
-#~ msgid "External Resource"
-#~ msgstr "এক্সটার্নাল রিসোর্স"
-
-#~ msgid "Rate this document"
-#~ msgstr "এই নথিটি রেটিং করুন"
-
-#~ msgid "Download Document"
-#~ msgstr "ডাউনলোড ডকুমেন্ট"
-
-#~ msgid "Edit Document"
-#~ msgstr "সম্পাদনা ডকুমেন্ট"
-
-#~ msgid "Document"
-#~ msgstr "নথি"
-
-#~ msgid "Resource using this document"
-#~ msgstr "এই নথির ব্যবহার করে সম্পদ"
-
-#~ msgid "List of resources using this document:"
-#~ msgstr "এই নথির ব্যবহার করে সম্পদের তালিকা:"
-
 #~ msgid "This document is related to a "
 #~ msgstr "এই নথির একটি সঙ্গে সম্পর্কযুক্ত"
-
-#~ msgid "This document is not related to any maps or layers"
-#~ msgstr "এই ডকুমেন্টের কোন মানচিত্র বা স্তর এর সাথে সম্পর্কিত করা হয় না"
-
-#~ msgid "Click the button below to change the permissions of this document."
-#~ msgstr "এই ডকুমেন্টের অনুমতি পরিবর্তন করতে নিচের বাটনে ক্লিক করুন."
-
-#~ msgid "Change Document Permissions"
-#~ msgstr "ডকুমেন্ট অনুমতি পরিবর্তন করুন"
-
-#~ msgid "Explore Documents"
-#~ msgstr "ডকুমেন্টস এবং পুরুষ"
-
-#~ msgid "Upload Documents"
-#~ msgstr "আপলোড ডকুমেন্টস"
-
-#~ msgid "Edit Metadata"
-#~ msgstr "সম্পাদনা মেটাডেটা"
-
-#~ msgid "Editing details for"
-#~ msgstr "সম্পাদনার জন্য বিবরণ"
-
-#~ msgid "Error updating metadata.  Please check the following fields: "
-#~ msgstr "ত্রুটি আপডেট মেটাডেটা. নিম্নোক্ত ক্ষেত্রসমূহ চেক করুন:"
-
-#~ msgid "Update"
-#~ msgstr "আপডেট"
-
-#~ msgid "Metadata Provider"
-#~ msgstr "মেটাডাটা সরবরাহকারী"
 
 #~ msgid "Deleting"
 #~ msgstr "মোছা"
@@ -1496,9 +2356,6 @@ msgstr ""
 
 #~ msgid "Logo"
 #~ msgstr "লোগো"
-
-#~ msgid "Email"
-#~ msgstr "ইমেইল"
 
 #~ msgid "Access"
 #~ msgstr "প্রবেশ্য"
@@ -1686,9 +2543,6 @@ msgstr ""
 #~ "results"
 #~ msgstr "অ্যাট্রিবিউট ফলাফল চিহ্নিত প্রদর্শন করা উচিত ক্রম যা নির্দিষ্ট করে"
 
-#~ msgid "count"
-#~ msgstr "গণনা"
-
 #~ msgid "count value for this field"
 #~ msgstr "এই ক্ষেত্রের জন্য মান গণনা"
 
@@ -1749,34 +2603,8 @@ msgstr ""
 #~ msgid "Submit"
 #~ msgstr "দাখিল করুন"
 
-#~ msgid "Edit data"
-#~ msgstr "তথ্য পরিবর্তন"
-
-#~ msgid "Explore Layers"
-#~ msgstr "স্তরসমূহ টেলিভিশন"
-
-#~ msgid "This action affects the following maps:"
-#~ msgstr "এই কর্ম নিম্নলিখিত ম্যাপের প্রভাবিত:"
-
 #~ msgid "No maps are using this layer"
 #~ msgstr "কোন মানচিত্র এই স্তর ব্যবহার করছেন"
-
-#~ msgid ""
-#~ "\n"
-#~ "        Editing details for %(layer_title)s\n"
-#~ "      "
-#~ msgstr ""
-#~ "\n"
-#~ "জন্য সম্পাদনার বিবরণ %(layer_title)s এর"
-
-#~ msgid "Attributes"
-#~ msgstr "আরোপ করা"
-
-#~ msgid "Attribute"
-#~ msgstr "গুণ"
-
-#~ msgid "Display Order"
-#~ msgstr "প্রদর্শন আদেশ"
 
 #~ msgid "Remove Layers"
 #~ msgstr "স্তর অপসারণ"
@@ -1790,9 +2618,6 @@ msgstr ""
 #~ msgid "Incomplete Uploads"
 #~ msgstr "অসম্পূর্ণ আপলোড"
 
-#~ msgid "You have the following incomplete uploads"
-#~ msgstr "আপনি নিম্নলিখিত অসম্পূর্ণ আপলোডসমূহ আছে"
-
 #~ msgid "last updated on"
 #~ msgstr "গত আপডেট"
 
@@ -1804,9 +2629,6 @@ msgstr ""
 
 #~ msgid "Are you sure you want to delete this upload?"
 #~ msgstr "যদি আপনি এই আপলোড মুছে ফেলার ব্যাপারে নিশ্চিত?"
-
-#~ msgid "Cancel"
-#~ msgstr "বাতিল করুন"
 
 #~ msgid "Delete, and don't ask me again."
 #~ msgstr "মুছে দিন, এবং আবার আমাকে জিজ্ঞাসা করবেন না."
@@ -1880,9 +2702,6 @@ msgstr ""
 #~ "<a href=\"http://prj2epsg.org/search\" target=\"_\">prj2epsg</a> এবং "
 #~ "নিম্নলিখিত লিখুন:"
 
-#~ msgid "Next"
-#~ msgstr "পরবর্তী"
-
 #~ msgid ""
 #~ "\n"
 #~ "        There is a problem recognizing the projection of this data. "
@@ -1911,9 +2730,6 @@ msgstr ""
 #~ "এই তথ্য দিয়ে, GeoNode অক্ষাংশ ও দ্রাঘিমাংশ স্থানাঙ্ক থাকে বৈশিষ্ট্যাবলী যা "
 #~ "অনুমান, কিন্তু সঠিক বৈশিষ্ট্যাবলী নীচের নির্বাচন করা হয় তা নিশ্চিত করুন সক্ষম."
 
-#~ msgid "Select an attribute"
-#~ msgstr "একটি বৈশিষ্ট্য নির্বাচন করুন"
-
 #~ msgid ""
 #~ "We did not detect columns that could be used for the latitude and "
 #~ "longitude.\n"
@@ -1937,9 +2753,6 @@ msgstr ""
 
 #~ msgid "Editing details for "
 #~ msgstr "জন্য সম্পাদনার বিবরণ"
-
-#~ msgid "Time Options"
-#~ msgstr "টাইম বিকল্প"
 
 #~ msgid "Choose time attribute"
 #~ msgstr "সময় অ্যাট্রিবিউট চয়ন করুন"
@@ -2141,9 +2954,6 @@ msgstr ""
 #~ msgid "zoom"
 #~ msgstr "জুম্"
 
-#~ msgid "projection"
-#~ msgstr "অভিক্ষেপ"
-
 #~ msgid "center X"
 #~ msgstr "কেন্দ্র এক্স"
 
@@ -2192,50 +3002,14 @@ msgstr ""
 #~ msgid "JSON Configuration"
 #~ msgstr "JSON কনফিগারেশন"
 
-#~ msgid "Explore Maps"
-#~ msgstr "মানচিত্র টেলিভিশন"
-
-#~ msgid "Create a New Map"
-#~ msgstr "একটি নতুন মানচিত্র তৈরি করুন"
-
 #~ msgid "GeoExplorer"
 #~ msgstr "GeoExplorer"
-
-#~ msgid "Rate this Map"
-#~ msgstr "এই মানচিত্রের মূল্যায়ন"
-
-#~ msgid "Download Map"
-#~ msgstr "ডাউনলোড ম্যাপ"
 
 #~ msgid "Download Data Layers"
 #~ msgstr "ডেটা স্তরসমূহ ডাউনলোড"
 
 #~ msgid "Download Web Map Context"
 #~ msgstr "ওয়েব মানচিত্র প্রসঙ্গের ডাউনলোড"
-
-#~ msgid "Map Layers"
-#~ msgstr "মানচিত্র স্তরসমূহ"
-
-#~ msgid "This map uses the following layers:"
-#~ msgstr "এই মানচিত্রের নিচের স্তর ব্যবহার করে:"
-
-#~ msgid "Documents related to this map"
-#~ msgstr "এই ম্যাপ এর সাথে সম্পর্কিত ডকুমেন্টস"
-
-#~ msgid "List of documents related to this map:"
-#~ msgstr "এই ম্যাপ এর সাথে সম্পর্কিত নথি তালিকা:"
-
-#~ msgid "Specify which users can view or modify this map"
-#~ msgstr "ব্যবহারকারীদের দেখতে পারেন যা নির্দিষ্ট করুন অথবা এই ম্যাপ পরিবর্তন"
-
-#~ msgid "Change Permissions of this Map"
-#~ msgstr "এই মানচিত্র পরিবর্তন অনুমতি"
-
-#~ msgid "Copy this map"
-#~ msgstr "এই ম্যাপ কপি করুন"
-
-#~ msgid "Duplicate this map and modify it for your own purposes"
-#~ msgstr "এই ম্যাপ সদৃশ এবং আপনার নিজের কাজের জন্য এটি পরিবর্তন"
 
 #~ msgid "Map WMS"
 #~ msgstr "মানচিত্র WMS"
@@ -2254,9 +3028,6 @@ msgstr ""
 
 #~ msgid "Publish Map WMS"
 #~ msgstr "মানচিত্র WMS প্রকাশ করুন"
-
-#~ msgid "Download"
-#~ msgstr "ডাউনলোড"
 
 #~ msgid ""
 #~ "\n"
@@ -2299,9 +3070,6 @@ msgstr ""
 #~ "অবশেষে, মানচিত্র তারা এই GeoNode থেকে সরাসরি পাওয়া যায় না, কারণ ডাউনলোড "
 #~ "করা না হবে, যা এই তিনটি স্তরের মধ্যে রয়েছে:"
 
-#~ msgid "Downloading"
-#~ msgstr "ডাউনলোড"
-
 #~ msgid "Retry"
 #~ msgstr "পুনরায় চেষ্টা করা"
 
@@ -2313,26 +3081,6 @@ msgstr ""
 
 #~ msgid "Download Failed"
 #~ msgstr "ডাউনলোড ব্যর্থ"
-
-#~ msgid ""
-#~ "\n"
-#~ "        Editing details for %(map_title)s\n"
-#~ "      "
-#~ msgstr ""
-#~ "\n"
-#~ "জন্য সম্পাদনার বিবরণ %(map_title)s"
-
-#~ msgid ""
-#~ "Note: this map's orginal metadata was populated by importing a metadata "
-#~ "XML file.\n"
-#~ "        GeoNode's metadata import supports a subset of ISO, FGDC, and "
-#~ "Dublin Core metadata elements.\n"
-#~ "        Some of your original metadata may have been lost."
-#~ msgstr ""
-#~ "উল্লেখ্য: এই ম্যাপ এর মূল মিটাডাটা একটি মেটাডাটা XML ফাইল ইম্পোর্ট দ্বারা পূর্ণ "
-#~ "ছিল. GeoNode এর মেটাডেটা আমদানি আইএসও, FGDC, এবং ডাবলিন কোর মেটাডাটা "
-#~ "উপাদানের একটি উপসেট সমর্থন করে. আপনার মূল মেটাডাটা কিছু হারিয়ে হয়ে থাকতে "
-#~ "পারে."
 
 #~ msgid "You are not permitted to delete this map."
 #~ msgstr "আপনি এই মানচিত্র মুছে করার অনুমতি নেই."
@@ -2355,23 +3103,11 @@ msgstr ""
 #~ msgid "An unknown error has occured."
 #~ msgstr "একটি অজানা ত্রুটি ঘটেছে."
 
-#~ msgid "Personal info"
-#~ msgstr "ব্যক্তিগত তথ্য"
-
-#~ msgid "Important dates"
-#~ msgstr "গুরুত্বপূর্ণ তারিখগুলি"
-
-#~ msgid "Extended profile"
-#~ msgstr "বর্ধিত বৃত্তান্ত"
-
 #~ msgid "Password changed successfully."
 #~ msgstr "পাসওয়ার্ড সফলভাবে পরিবর্তন."
 
 #~ msgid "Change password: %s"
 #~ msgstr "পাসওয়ার্ড পরিবর্তন করুন: %s"
-
-#~ msgid "party who authored the resource"
-#~ msgstr "সম্পদ রচনা যারা পার্টি"
 
 #~ msgid ""
 #~ "party who has processed the data in a manner such that the resource has "
@@ -2415,24 +3151,6 @@ msgstr ""
 
 #~ msgid "Email Address"
 #~ msgstr "ইমেল ঠিকানা"
-
-#~ msgid "User following you"
-#~ msgstr "ব্যবহারকারী আপনি নিম্নলিখিত"
-
-#~ msgid "Another user has started following you"
-#~ msgstr "অন্য ব্যবহারকারী তোমাকে অনুসরণ শুর করেছে।"
-
-#~ msgid "User requested access"
-#~ msgstr "ব্যবহারকারী প্রবেশের অনুরোধ করেছেন"
-
-#~ msgid "A new user has requested access to the site"
-#~ msgstr "একজন নতুন ব্যবহারকারী প্রবেশের জন্য অনুরোধ করেছেন"
-
-#~ msgid "Account activated"
-#~ msgstr "একাউন্ট চালু হয়েছে"
-
-#~ msgid "This account is now active and can log in the site"
-#~ msgstr "এই একাউন্টটি বর্তমানে সচল এবং সাইটে প্রবেশ করা যাবে"
 
 #~ msgid "Organization Name"
 #~ msgstr "প্রতিষ্ঠানের নাম"
@@ -2524,9 +3242,6 @@ msgstr ""
 #~ msgid "Not provided."
 #~ msgstr "প্রদান করা হয়নি"
 
-#~ msgid "Not provided"
-#~ msgstr "উপলব্ধ নেই"
-
 #~ msgid "Message User"
 #~ msgstr "ব্যহারকারীকে বার্তা প্রদান"
 
@@ -2538,9 +3253,6 @@ msgstr ""
 
 #~ msgid "Upload new layers"
 #~ msgstr "নতুন স্তর আপলোড করুন"
-
-#~ msgid "Create a new map"
-#~ msgstr "একটি নতুন মানচিত্র তৈরি করুন"
 
 #~ msgid "My Activities"
 #~ msgstr "আমার কর্মকান্ড"
@@ -2650,12 +3362,6 @@ msgstr ""
 #~ msgid "Keywords:"
 #~ msgstr "মূলশব্দ:"
 
-#~ msgid "Services"
-#~ msgstr "সেবা"
-
-#~ msgid "This CSW server contains the following services"
-#~ msgstr "এই CSW সার্ভার নিম্নলিখিত পরিষেবাগুলি রয়েছে"
-
 #~ msgid "This Service contains the following layers"
 #~ msgstr "এই পরিষেবা নিম্নলিখিত স্তর রয়েছে"
 
@@ -2667,9 +3373,6 @@ msgstr ""
 
 #~ msgid "Edit Service"
 #~ msgstr "সেবা সম্পাদন"
-
-#~ msgid "Save"
-#~ msgstr "সংরক্ষণ করুন"
 
 #~ msgid "Service:"
 #~ msgstr "পরিষেবা:"
@@ -2688,9 +3391,6 @@ msgstr ""
 
 #~ msgid "Remove Remote Service"
 #~ msgstr "দূরবর্তী সেবা সরিয়ে দিন"
-
-#~ msgid "Are you sure you want to remove"
-#~ msgstr "আপনি নিশ্চিত ভাবে সরাতে চান কি"
 
 #~ msgid ""
 #~ "\n"
@@ -2788,9 +3488,6 @@ msgstr ""
 #~ msgid "Share"
 #~ msgstr "ভাগ"
 
-#~ msgid "Ratings"
-#~ msgstr "সৈনিকগণ"
-
 #~ msgid "Exif"
 #~ msgstr "বাহির"
 
@@ -2817,9 +3514,6 @@ msgstr ""
 
 #~ msgid "Anyone"
 #~ msgstr "যে কেউ"
-
-#~ msgid "The following users:"
-#~ msgstr "নিম্নলিখিত ব্যবহারকারী:"
 
 #~ msgid "The following groups:"
 #~ msgstr "নিম্নলিখিত গ্রুপ:"
@@ -2902,9 +3596,6 @@ msgstr ""
 
 #~ msgid "Forgot your password?"
 #~ msgstr "আপনার পাসওয়ার্ড ভুলে গেছেন?"
-
-#~ msgid "Are you sure you want to log out?"
-#~ msgstr "আপনি লগ আউট করার ব্যাপারে নিশ্চিত?"
 
 #~ msgid "Password reset"
 #~ msgstr "পাসওয়ার্ড রিসেট"
@@ -3024,9 +3715,6 @@ msgstr ""
 #~ msgid "User Guide"
 #~ msgstr "ইউজার গাইড"
 
-#~ msgid "GeoNode Help"
-#~ msgstr "GeoNode সহায়তা"
-
 #~ msgid ""
 #~ "This page provides helpful information about how to use the GeoNode. You "
 #~ "can use the sidebar links to navigate to what you want to know."
@@ -3097,9 +3785,6 @@ msgstr ""
 #~ msgid "No longer"
 #~ msgstr "আর"
 
-#~ msgid "Confirm"
-#~ msgstr "নিশ্চিত করা"
-
 #~ msgid "You're not %(status_slug)s anyone!"
 #~ msgstr "আপনি %(status_slug)s কেউ পারব না!"
 
@@ -3150,20 +3835,11 @@ msgstr ""
 #~ msgid "Last Sender"
 #~ msgstr "সর্বশেষ প্রেরকের"
 
-#~ msgid "Preview"
-#~ msgstr "প্রিভিউ"
-
 #~ msgid "Delete?"
 #~ msgstr "মুছবেন?"
 
-#~ msgid "Message Inbox"
-#~ msgstr "বার্তা ইনবক্স"
-
 #~ msgid "Create Message"
 #~ msgstr "বার্তা তৈরি করুন"
-
-#~ msgid "Send message"
-#~ msgstr "বার্তা পাঠান"
 
 #~ msgid "Back to Inbox"
 #~ msgstr "পিছনে ইনবক্সে"
@@ -3300,9 +3976,6 @@ msgstr ""
 
 #~ msgid "Notices"
 #~ msgstr "Notices"
-
-#~ msgid "Notice settings"
-#~ msgstr "Notice settings"
 
 #~ msgid "Observed objects"
 #~ msgstr "Observed objects"

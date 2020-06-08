@@ -1,0 +1,3 @@
+Dear contributor,<br/>
+The user {{ instance.author.username }} has posted a new comment on the layer {{ instance.content_object.title }}. <br/>
+You can visit the layer's page here: http://{{ current_site }}{% url "document_detail" instance.content_object.id %} <br/>

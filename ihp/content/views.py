@@ -1,6 +1,5 @@
 from django.http.response import HttpResponseNotFound
-from django.template import RequestContext
-from django.shortcuts import render_to_response
+from django.shortcuts import render
 from django.utils.translation import get_language
 from .models import (TermsOfUse,
                      AboutUsPageContent,
@@ -17,12 +16,12 @@ def terms_of_use_view(request):
     except TermsOfUse.DoesNotExist:
         return HttpResponseNotFound()
 
-    context = RequestContext(request, {
+    context = {
         'lang': get_language(),
         'obj' : terms_of_use
-    })
+    }
 
-    return render_to_response('terms_of_use_template.html', context_instance = context)
+    return render(request, 'terms_of_use_template.html', context=context)
 
 
 def about_us_content_view(request):
@@ -34,13 +33,13 @@ def about_us_content_view(request):
 
     partners = PartnerIcon.objects.filter().order_by('name').all()
 
-    context = RequestContext(request, {
+    context = {
         'lang': get_language(),
         'obj' : about_us_content,
         'partners' : partners
-    })
+    }
 
-    return render_to_response('about_us_content_template.html', context_instance = context)
+    return render(request, 'about_us_content_template.html', context=context)
 
 
 def contact_us_content_view(request):
@@ -50,12 +49,12 @@ def contact_us_content_view(request):
     except ContactUsPageContent.DoesNotExist:
         return HttpResponseNotFound()
 
-    context = RequestContext(request, {
+    context = {
         'lang': get_language(),
         'obj' : contact_us_content
-    })
+    }
 
-    return render_to_response('contact_us_content_template.html', context_instance = context)
+    return render(request, 'contact_us_content_template.html', context=context)
 
 
 def faq_page_view(request):
@@ -65,12 +64,12 @@ def faq_page_view(request):
     except FaqTopic.DoesNotExist:
         return HttpResponseNotFound()
 
-    context = RequestContext(request, {
+    context = {
         'lang': get_language(),
         'obj' : faq_topics
-    })
+    }
 
-    return render_to_response('faq_page_template.html', context_instance = context)
+    return render(request, 'faq_page_template.html', context=context)
 
 
 def documentation_page_view(request, pk=1):
@@ -88,11 +87,11 @@ def documentation_page_view(request, pk=1):
     except DocumentationPage.DoesNotExist:
         return HttpResponseNotFound()
 
-    context = RequestContext(request, {
+    context = {
         'lang': get_language(),
         'obj' : doc_pages,
         'toc' : toc,
         'pk' : int(pk)
-    })
+    }
 
-    return render_to_response('doc_page_template.html', context_instance = context)
+    return render(request, 'doc_page_template.html', context=context)

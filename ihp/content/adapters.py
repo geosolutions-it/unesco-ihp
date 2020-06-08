@@ -10,9 +10,9 @@ import logging
 import traceback
 
 from django import forms
+from django.urls import reverse
 from django.conf import settings
 from django.core.exceptions import ValidationError
-from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.utils.module_loading import import_string
 from django.contrib.auth import get_user_model
@@ -33,7 +33,7 @@ def populate_username(first_name, last_name):
     fname = u''.join(e for e in first_name if e in string.ascii_letters or '-' == e).lower()
     lname = u''.join(e for e in last_name if e in string.ascii_letters or '-' == e).lower()
     printable = set(string.printable)
-    return filter(lambda x: x in printable, u'{}.{}'.format(fname, lname).encode('utf-8').strip())
+    return u''.join(filter(lambda x: x in printable, u'{}.{}'.format(fname, lname).strip()))
 
 
 def get_user_lookup_kwargs(kwargs):
@@ -59,6 +59,9 @@ class UnescoLocalAccountAdapter(LocalAccountAdapter):
     def clean_recommendation(self, recommendation):
         return recommendation
 
+    def clean_request_to_join_group(self, request_to_join_group):
+        return request_to_join_group
+
     def populate_username(self, request, user):
         # validate the already generated username with django validation
         # if it passes use that, otherwise use django-allauth's way of
@@ -67,7 +70,7 @@ class UnescoLocalAccountAdapter(LocalAccountAdapter):
         # safe_username = user_username(user)
         try:
             safe_username = populate_username(user_field(user, 'first_name'), user_field(user, 'last_name'))
-        except Exception, e:
+        except Exception as e:
             traceback.print_exc()
             raise forms.ValidationError(e)
             # safe_username = self.generate_unique_username([
@@ -111,6 +114,14 @@ class UnescoLocalAccountAdapter(LocalAccountAdapter):
         user = super(UnescoLocalAccountAdapter, self).save_user(request, sociallogin, form=form)
         if form:
             recommendation = form.cleaned_data["recommendation"]
+            organization = form.cleaned_data["organization"]
+            position = form.cleaned_data["position"]
+            country = form.cleaned_data["country"]
+            request_to_join_group = form.cleaned_data["request_to_join_group"]
             user_field(user, 'recommendation', recommendation or None)
+            user_field(user, 'organization', organization or None)
+            user_field(user, 'position', position or None)
+            user_field(user, 'country', country or None)
+            user.request_to_join_group.add(*request_to_join_group)
             user.save()
         return user

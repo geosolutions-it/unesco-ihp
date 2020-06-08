@@ -1,7 +1,20 @@
+{% load static from staticfiles %}
 {% load floppyforms %}
 {% load i18n %}
-<!--<link href="{{ STATIC_URL }}lib/css/bootstrap-select.min.css?v={{ VERSION }}" rel="stylesheet" />-->
-<script type="text/javascript" src="{{ STATIC_URL}}geonode/js/utils/thumbnail.js"></script>
+<!--<link href="{% static "lib/css/bootstrap-select.css" %}" rel="stylesheet" />-->
+
+<!-- Required to make select2 fields work for autocomplete -->
+<link href="{% static "vendor/select2/dist/css/select2.css" %}" type="text/css" media="screen" rel="stylesheet" />
+<link href="{% static "autocomplete_light/select2.css" %}" type="text/css" media="screen" rel="stylesheet" />
+<script type="text/javascript" src="{% static "admin/js/vendor/jquery/jquery.js" %}"></script>
+<script type="text/javascript" src="{% static "autocomplete_light/jquery.init.js" %}"></script>
+<script type="text/javascript" src="{% static "vendor/select2/dist/js/select2.full.js" %}"></script>
+<script type="text/javascript" src="{% static "vendor/select2/dist/js/i18n/en.js" %}"></script>
+<script type="text/javascript" src="{% static "autocomplete_light/autocomplete.init.js" %}"></script>
+<script type="text/javascript" src="{% static "autocomplete_light/forward.js" %}"></script>
+<script type="text/javascript" src="{% static "autocomplete_light/select2.js" %}"></script>
+<script type="text/javascript" src="{% static "autocomplete_light/jquery.post-setup.js" %}"></script>
+
 <style>
 /* general panel styles */
 #mdeditor_form .panel-group .panel{
@@ -198,18 +211,18 @@ span.grippy::after {
   content: '.. .. .. ..';
 }
 </style>
-<button class="btn btn-success metadata-edit-done" id="btn_upd_md_done" type="submit" style="float:right; opacity: 0;" >Done!</button>
+<button class="btn btn-success metadata-edit-done" id="btn_upd_md_done" type="submit" style="float:right; opacity: 0;" >{% trans "Done!" %}</button>
 
 {% block body_outer %}
 <ul id="md_tabs" class="nav nav-tabs">
     <li id="metadata_edit_tab" class="active">
-        <a data-toggle="tab" href="#edit-metadata"><i class="fa fa-pencil"></i> Edit</a>
+        <a data-toggle="tab" href="#edit-metadata"><i class="fa fa-pencil"></i>{% trans "Edit" %}</a>
     </li>
     <li id="preview_tab" dhref="#preview">
-        <a data-toggle="tab" href="#preview"><i class="fa fa-camera"></i> Preview</a>
+        <a data-toggle="tab" href="#preview"><i class="fa fa-camera"></i>{% trans "Preview" %}</a>
     </li>
     <li id="settings_tab" dhref="#settings">
-        <a data-toggle="tab" href="#settings"><i class="fa fa-cog"></i> Settings</a>
+        <a data-toggle="tab" href="#settings"><i class="fa fa-cog"></i>{% trans "Settings" %}</a>
     </li>
 </ul>
 
@@ -218,27 +231,27 @@ span.grippy::after {
   <div id="completeness-hints" class="progress">
 
   <div class="mandatory-hint progress-bar" role="progressbar" style="width:25%">
-    Mandatory
+    {% trans "Mandatory" %}
   </div>
   <div class="advanced-hint progress-bar" role="progressbar" style="width:25%">
-    Mandatory
+    {% trans "Mandatory" %}
   </div>
   <div class="progress-bar" role="progressbar" style="width:50%">
-    Optional
+    {% trans "Optional" %}
   </div>
 </div>
   <ul class="wizard--progress wizard--progress--medium">
       <li data-step="1" id="first" class="is-active" data-toggle="tab" href="#mandatory">
-          <a>Basic Metadata</a>
+          <a>{% trans "Basic Metadata" %}</a>
       </li>
       <li data-step="2" id="second"  data-toggle="tab" href="#advanced">
-          <a>Location and Licenses</a>
+          <a>{% trans "Location and Licenses" %}</a>
       </li>
       <li data-step="3" data-toggle="tab" href="#ownership">
-          <a>Optional Metadata</a>
+          <a>{% trans "Optional Metadata" %}</a>
       </li>
       <li data-step="4"  data-toggle="tab" href="#dataset">
-          <a>Dataset Attributes</a>
+          <a>{% trans "Dataset Attributes" %}</a>
       </li>
   </ul>
     <div id="mandatory" class="tab-pane fade in active">
@@ -294,11 +307,14 @@ span.grippy::after {
                                 </div>
                                 <div class="col-lg-5">
                                     <div class="col-lg-12">
+                                        <span><label for="{{ layer_form.date_type|id }}">{{ layer_form.keywords.label }}</label></span>
                                         {{ layer_form.keywords }}
                                     </div>
+                                    {% if THESAURI_FILTERS %}
                                     <div class="col-lg-12 thesauri_keywords">
                                         {{ tkeywords_form }}
                                     </div>
+                                    {% endif %}
                                     <div class="col-lg-6 col-xs-12">
                                         <span><label for="{{ layer_form.date_type|id }}">{{ layer_form.date_type.label }}</label></span>
                                         <!--<p class="xxs-font-size">(Identification of when a given event occurred)</p>-->
@@ -312,7 +328,7 @@ span.grippy::after {
                                     <div id="basicCategoryInfo" class="col-lg-12">
                                         <span><label for="{{ category_form.category_choice_field|id }}" class="control-label required-field">{% trans "Category" %}</label></span>
                                         <select
-                                            title="Choose one of the following..."
+                                            title="{% trans "Choose one of the following..." %}"
                                             data-live-search="true"
                                             data-size="5"
                                             name="category_choice_field"
@@ -332,7 +348,7 @@ span.grippy::after {
                                     <div id="basicGroupInfo" class="col-lg-12">
                                         <span><label for="id_resource-group" class="control-label required-field">{% trans "Group" %}</label></span>
                                         <select
-                                            title="Choose one of the following..."
+                                            title="{% trans "Choose one of the following..." %}"
                                             data-live-search="true"
                                             data-size="5"
                                             name="resource-group"
@@ -369,6 +385,7 @@ span.grippy::after {
                                 <div class="col-lg-4">
                                     <div>
                                         <span><label for="{{ layer_form.language|id }}">{{ layer_form.language.label }}</label></span>
+                                        <!--<p class="xxs-font-size">(Language used within the dataset)</p>-->
                                         {{ layer_form.language }}
                                     </div>
                                     <!-- div>
@@ -425,13 +442,15 @@ span.grippy::after {
         <div class="panel-group"><div class="panel panel-default"><div class="panel-body">
         <div>
             <div class="col-xs-12 col-lg-4">
-              <p>Other, Optional, Metadata</p>
+              <p>{% trans "Other, Optional, Metadata" %}</p>
                 <div>
                     <span><label for="{{ layer_form.purpose|id }}">{{ layer_form.purpose.label }}</label></span>
+                    <!--<p class="xxs-font-size">(Brief narrative summary of the intentions with which the resource/s ...)</p>-->
                     {{ layer_form.purpose }}
                 </div>
                 <div>
                     <span><label for="{{ layer_form.supplemental_information|id }}">{{ layer_form.supplemental_information.label }}</label></span>
+                    <!--<p class="xxs-font-size">(Any other descriptive information about the dataset)</p>-->
                     {{ layer_form.supplemental_information }}
                 </div>
             </div>
@@ -439,10 +458,12 @@ span.grippy::after {
                 <div class="col-xs-12">
                     <div style="margin-top: 5px">
                         <span><label for="{{ layer_form.maintenance_frequency|id }}">{{ layer_form.maintenance_frequency.label }}</label></span>
+                        <!--<p class="xxs-font-size">(Identification of when a given event occurred)</p>-->
                         {{ layer_form.maintenance_frequency }}
                     </div>
                     <div style="margin-top: 5px">
                         <span><label for="{{ layer_form.spatial_representation_type|id }}">{{ layer_form.spatial_representation_type.label }}</label></span>
+                        <!--<p class="xxs-font-size">(Method used to represent geographic information in the dataset)</p>-->
                         {{ layer_form.spatial_representation_type }}
                     </div>
                     <div>
@@ -463,7 +484,7 @@ span.grippy::after {
             </div>
             <div class="col-xs-12 col-lg-3">
               <div class="panel panel-default" style="margin-top: 5px">
-                          <div class="panel-heading">Responsible Parties</div>
+                          <div class="panel-heading">{% trans "Responsible Parties" %}</div>
                           <div class="panel-body">
                               <span><label for="{{ layer_form.poc|id }}">{{ layer_form.poc.label }}</label></span>
                               {{ layer_form.poc }}
@@ -471,14 +492,16 @@ span.grippy::after {
                       </div>
 
                       <div class="panel panel-default">
-                          <div class="panel-heading">Owner and Permissions</div>
+                          <div class="panel-heading">{% trans "Owner and Permissions" %}</div>
                           <div class="panel-body">
                               <div>
                                   <span><label for="{{ layer_form.owner|id }}">{{ layer_form.owner.label }}</label></span>
+                                  <!--<p class="xxs-font-size">(Owner of the cited resource)</p>-->
                                   {{ layer_form.owner }}
                               </div>
                               <div>
                                   <span><label for="{{ layer_form.metadata_author|id }}">{{ layer_form.metadata_author.label }}</label></span>
+                                  <!--<p class="xxs-font-size">(Author of the metadata)</p>-->
                                   {{ layer_form.metadata_author }}
                               </div>
                              {% if GEONODE_SECURITY_ENABLED %}
@@ -491,13 +514,13 @@ span.grippy::after {
                                   <div class="modal-content">
                                     <div class="modal-header">
                                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                      <h4 class="modal-title" id="exampleModalLabel">Message box</h4>
+                                      <h4 class="modal-title" id="exampleModalLabel">{% trans "Message box" %}</h4>
                                     </div>
                                     <div class="modal-body">
                                       ...
                                     </div>
                                     <div class="modal-footer">
-                                      <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "OK" %}</button>
                                     </div>
                                   </div>
                                 </div>
@@ -546,9 +569,9 @@ span.grippy::after {
 <div id="preview" class="tab-pane fade" style="overflow: hidden;">
     <!-- <iframe id="preview_encoder_iframe" height="100%" width="100%" style="width:0;height:0;border:0;border:none;" src="{% url 'layer_metadata_detail' resource.alternate %}"></iframe> -->
     {% if metadataxsl %}
-        <iframe id="preview_encoder_iframe" frameborder="0" scrolling="no" onload="if(this.contentWindow.document.body) {$('#preview').height(this.contentWindow.document.body.scrollHeight)}" src="/showmetadata/xsl/{{resource.id}}"></iframe>
+        <iframe id="preview_encoder_iframe" frameborder="0" scrolling="yes" onload="if(this.contentWindow.document.body) {$('#preview').height(this.contentWindow.document.body.scrollHeight)}" src="/showmetadata/xsl/{{resource.id}}"></iframe>
     {% else %}
-        <iframe id="preview_encoder_iframe" frameborder="0" scrolling="no" onload="if(this.contentWindow.document.body) {$('#preview').height(this.contentWindow.document.body.scrollHeight)}" src="/catalogue/csw_to_extra_format/{{resource.uuid}}/{{resource.title}}.html"></iframe>
+        <iframe id="preview_encoder_iframe" frameborder="0" scrolling="yes" onload="if(this.contentWindow.document.body) {$('#preview').height(this.contentWindow.document.body.scrollHeight)}" src="/catalogue/csw_to_extra_format/{{resource.uuid}}/{{resource.title}}.html"></iframe>
     {% endif %}
 </div>
 <div id="settings" class="tab-pane fade" style="overflow: hidden;">
@@ -558,7 +581,7 @@ span.grippy::after {
           <div class="panel panel-default">
               <div class="panel-body">
                 <div class="panel panel-default" >
-                    <div class="panel-heading">Publishing</div>
+                    <div class="panel-heading">{% trans "Publishing" %}</div>
                       <div class="panel-body">
                         <div>
                             <span><label for="{{ layer_form.metadata_uploaded_preserve|id }}">{{ layer_form.metadata_uploaded_preserve.label }}</label></span>
@@ -587,7 +610,7 @@ span.grippy::after {
           <div class="panel panel-default">
               <div class="panel-body">
                 <div class="panel panel-default" >
-                  <div class="panel-heading">Other Settings</div>
+                  <div class="panel-heading">{% trans "Other Settings" %}</div>
                   <div class="panel-body">
                     <div>
                         <span><label for="{{ layer_form.is_mosaic|id }}">{{ layer_form.is_mosaic.label }}</label></span>
