@@ -1,4 +1,3 @@
-{% load i18n %}
-{% trans "Dear contributor" %},<br/>
-{% trans "The user" %} {{ instance.author.username }} {% trans "has posted a new comment on the map" %} {{ instance.content_object.title }}. <br/>
-{% trans "You can visit the map's page here:" %} http://{{ current_site }}{% url "document_detail" instance.content_object.id %} <br/>
+Dear contributor,<br/>
+The user {{ instance.author.username }} has posted a new comment on the map {{ instance.content_object.title }}. <br/>
+You can visit the map's page here: http://{{ current_site }}{% url "document_detail" instance.content_object.id %} <br/>
