@@ -390,7 +390,7 @@ DEFAULT_MS2_BACKGROUNDS = [
         "name": "mapnik",
         "source": "osm",
         "group": "background",
-        "visibility": True
+        "visibility": False
     },
     {
         "type": "tileprovider",
@@ -441,17 +441,6 @@ DEFAULT_MS2_BACKGROUNDS = [
 ]
 
 if MAPBOX_ACCESS_TOKEN:
-    MAPBOX_STREETS = {
-        "type": "tileprovider",
-        "title": "MapBox Streets",
-        "provider": "MapBoxStyle",
-        "name": "MapBox Streets",
-        "accessToken": "%s" % MAPBOX_ACCESS_TOKEN,
-        "source": "streets-v11",
-        "thumbURL": "https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/6/33/23?access_token=%s" % MAPBOX_ACCESS_TOKEN,
-        "group": "background",
-        "visibility": True
-    }
     MAPBOX_SATELLITE = {
         "type": "tileprovider",
         "title": "MapBox Satellite",
@@ -463,7 +452,18 @@ if MAPBOX_ACCESS_TOKEN:
         "group": "background",
         "visibility": False
     }
-    DEFAULT_MS2_BACKGROUNDS = [MAPBOX_STREETS,MAPBOX_SATELLITE] + DEFAULT_MS2_BACKGROUNDS
+    MAPBOX_STREETS = {
+        "type": "tileprovider",
+        "title": "MapBox Streets",
+        "provider": "MapBoxStyle",
+        "name": "MapBox Streets",
+        "accessToken": "%s" % MAPBOX_ACCESS_TOKEN,
+        "source": "streets-v11",
+        "thumbURL": "https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/6/33/23?access_token=%s" % MAPBOX_ACCESS_TOKEN,
+        "group": "background",
+        "visibility": True
+    }
+    DEFAULT_MS2_BACKGROUNDS = [MAPBOX_SATELLITE,MAPBOX_STREETS] + DEFAULT_MS2_BACKGROUNDS
 
 if BING_API_KEY:
     BING_BASEMAPS = [
