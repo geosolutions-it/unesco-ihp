@@ -1,0 +1,16 @@
+# /etc/systemd/system/ihp-uwsgi.service
+[Unit]
+Description=IHP-WINS uWSGI http daemon
+After=network.target
+
+[Service]
+# EnvironmentFile=/home/geosolutions/work/repo/ihp/.env
+User=geosolutions
+Group=www-data
+Type=simple
+ExecStart=/bin/bash -c 'source /home/geosolutions/.virtualenvs/geonode3/bin/activate && cd /home/geosolutions/work/repo/uwsgi && uwsgi ihp_uwsgi.ini'
+Restart=on-failure
+RestartSec=10s
+
+[Install]
+WantedBy=multi-user.target
