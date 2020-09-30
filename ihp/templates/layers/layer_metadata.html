@@ -12,16 +12,16 @@
 {{ block.super }}
 {% endblock head %}
 
-{% block body_class %}data{% endblock body_class %}
+{% block body_class %}{% trans "data" %}{% endblock body_class %}
 
 {% block body_outer %}
 <div class="container-fluid page-header" style="position: relative;">
   <h2 class="page-title">{% trans "Metadata" %}&nbsp;{% blocktrans with layer.title as layer_title %}for {{ layer_title }}{% endblocktrans %}</h2>
       <div id="profileCompleteness" class="alert alert-info" style="position: absolute; right: 0; top: 0; padding: 4px;">
-        <strong>Completeness</strong>
+        <strong>{% trans "Completeness" %}</strong>
         <div style="padding: 2px;">
-          <small class="completed text-success" style="display: none; "><i class="fa fa-check"></i>Metadata Schema mandatory fields completed</small>
-          <small class="not-completed text-danger" style="display: none; "><i class="fa fa-remove"></i>Check Schema mandatory fields</small>
+          <small class="completed text-success" style="display: none; "><i class="fa fa-check"></i>{% trans "Metadata Schema mandatory fields completed" %}</small>
+          <small class="not-completed text-danger" style="display: none; "><i class="fa fa-remove"></i>{% trans "Check Schema mandatory fields" %}</small>
         </div>
         <div class="progress" style="margin-bottom:2px;">
         <div class="progress-bar progress-bar-striped" role="progress-bar" >
@@ -83,12 +83,12 @@
             <fieldset class="form-controls modal-forms modal hide fade" id="poc_form" >
               <h2>{% trans "Point of Contact" %}</h2>
               {{ poc_form|as_bootstrap }}
-              <button type='button' class="modal-cloose-btn btn btn-primary">Done</button>
+              <button type='button' class="modal-cloose-btn btn btn-primary">{% trans "Done" %}</button>
             </fieldset>
             <fieldset class="form-controls modal-forms modal hide fade" id="metadata_form">
               <h2>{% trans "Metadata Provider" %}</h2>
                 {{ author_form|as_bootstrap }}
-              <button type='button' class="modal-cloose-btn btn btn-primary">Done</button>
+              <button type='button' class="modal-cloose-btn btn btn-primary">{% trans "Done" %}</button>
             </fieldset>
 
             {% if not layer.metadata_uploaded_preserve %}
@@ -105,3 +105,30 @@
 
 {{ block.super }}
 {% endblock body_outer %}
+
+{% block extra_script %}
+  {{ block.super }}
+  <script type="text/javascript">
+    {% autoescape off %}
+    tinyMCE_default_config = {{ TINYMCE_DEFAULT_CONFIG }};
+    tinyMCE_default_config['file_picker_callback'] = function (callback, value, meta) {
+        /* Provide file and text for the link dialog */
+        if (meta.filetype === 'file') {
+          callback('https://www.google.com/logos/google.jpg', { text: 'My text' });
+        }
+
+        /* Provide image and alt text for the image dialog */
+        if (meta.filetype === 'image') {
+          callback('https://www.google.com/logos/google.jpg', { alt: 'My alt text' });
+        }
+
+        /* Provide alternative source and posted for the media dialog */
+        if (meta.filetype === 'media') {
+          callback('movie.mp4', { source2: 'alt.ogg', poster: 'https://www.google.com/logos/google.jpg' });
+        }
+      };
+    console.log(tinyMCE_default_config);
+    tinyMCE.init(tinyMCE_default_config);
+    {% endautoescape %}
+  </script>
+{% endblock extra_script %}
