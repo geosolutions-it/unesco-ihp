@@ -427,13 +427,13 @@
                           {% if link.name == 'Original Dataset' %}
                             {% original_link_available resource.id link.url as original_dwn_link_available %}
                             {% if original_dwn_link_available %}
-                            <li><a href="{{ link.url }}" target="_blank" id="{{ link.name | slugify }}" class="urls">{% trans link.name %}</a></li>
+                            <li><a href="{{ resource | get_survey_route }}?download_url={{ link.url | urlencode }}&next={% url "layer_detail" resource.layer.service_typename %}" target="_blank" id="{{ link.name | slugify }}" class="urls">{% trans link.name %}</a></li>
                             {% else %}
                             <!-- Hide the link instead. Uncomment the lines below to present a warning to the users. -->
                             <!-- li><a href="javascript:thumbnailFeedbacks('{% trans "No data available for this resource. Please contact a system administrator or a manager." %}', '{% trans "Warning" %}');" id="{{ link.name | slugify }}" class="urls">{% trans link.name %}</a></li -->
                             {% endif %}
                           {% else %}
-                            <li><a href="{{ link.url }}" target="_blank" id="{{ link.name | slugify }}" class="urls">{% trans link.name %}</a></li>
+                            <li><a href="{{ resource | get_survey_route }}?download_url={{ link.url | urlencode }}&next={% url "layer_detail" resource.layer.service_typename %}" target="_blank" id="{{ link.name | slugify }}" class="urls">{% trans link.name %}</a></li>
                           {% endif %}
                         {% endfor %}
                       </ul>
