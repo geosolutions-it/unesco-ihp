@@ -8,6 +8,7 @@
 {% load base_tags %}
 {% load guardian_tags %}
 {% load client_lib_tags %}
+{% load get_survey_route %}
 
 {% block title %}{{ resource.title }} — {{ block.super }}{% endblock %}
 
@@ -147,14 +148,14 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <button type="buttDownload Mapon" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="myModalLabel">{% trans "Download Map" %}</h4>
               </div>
               <div class="modal-body">
                 <ul>
                     {% if links %}
                         {% for link in links %}
-                            <li><a href="{{ link.url }}">{{ link.name }}</a></li>
+                            <li><a href="{{ resource | get_survey_route }}?download_url={{ link.url | urlencode }}&next={% url "map_detail" resource.map.pk %}" target="_blank">{{ link.name }}</a></li>
                         {% endfor %}
                     {% endif %}
                 <ul>
