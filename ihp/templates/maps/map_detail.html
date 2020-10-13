@@ -8,6 +8,7 @@
 {% load base_tags %}
 {% load guardian_tags %}
 {% load client_lib_tags %}
+{% load get_survey_route %}
 
 {% block title %}{{ resource.title }} — {{ block.super }}{% endblock %}
 
@@ -154,7 +155,7 @@
                 <ul>
                     {% if links %}
                         {% for link in links %}
-                            <li><a href="{{ link.url }}">{{ link.name }}</a></li>
+                            <li><a href="{{ resource | get_survey_route }}?download_url={{ link.url | urlencode }}&next={% url "map_detail" resource.map.pk %}" target="_blank">{{ link.name }}</a></li>
                         {% endfor %}
                     {% endif %}
                 <ul>
