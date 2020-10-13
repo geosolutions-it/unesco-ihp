@@ -21,7 +21,7 @@ class SurveyView(View):
         survey_enabled = SurveyConfiguration.load().survey_enabled
         survey_cookies = request.COOKIES.get(u'ihp_dlsurvey', None)
 
-        if not survey_enabled or (survey_enabled and survey_cookies):
+        if not survey_enabled or (survey_enabled and survey_cookies) or request.user.is_superuser:
             return HttpResponseRedirect(download_url)
 
         return render(request, self.template_name, {
