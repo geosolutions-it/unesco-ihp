@@ -1,33 +1,32 @@
-FROM python:2.7.16-stretch
-MAINTAINER GeoNode development team
+FROM python:3.8.3-buster
+LABEL GeoNode development team
 
 RUN mkdir -p /usr/src/ihp
 
+# Enable postgresql-client-11.2
+RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list
+RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+
 # This section is borrowed from the official Django image but adds GDAL and others
 RUN apt-get update && apt-get install -y \
-		gcc \
-                zip \
-		gettext \
-		postgresql-client libpq-dev \
-		sqlite3 \
-                python-gdal python-psycopg2 \
-                python-imaging python-lxml \
-                python-dev libgdal-dev \
-                python-ldap \
-                libmemcached-dev libsasl2-dev zlib1g-dev \
-                python-pylibmc \
-                uwsgi uwsgi-plugin-python \
-	--no-install-recommends && rm -rf /var/lib/apt/lists/*
+        libpq-dev python-dev libxml2-dev \
+        libxml2 libxslt1-dev zlib1g-dev libjpeg-dev \
+        libmemcached-dev libldap2-dev libsasl2-dev libffi-dev
 
-
-RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
-RUN apt-get update && apt-get install -y geoip-bin
+RUN apt-get update && apt-get install -y \
+        gcc zip gettext geoip-bin cron \
+        postgresql-client-11 \
+        sqlite3 spatialite-bin libsqlite3-mod-spatialite \
+        python3-gdal python3-psycopg2 python3-ldap \
+        python3-pip python3-pil python3-lxml python3-pylibmc \
+        python3-dev libgdal-dev \
+        uwsgi uwsgi-plugin-python3 \
+    --no-install-recommends && rm -rf /var/lib/apt/lists/*
 
 # add bower and grunt command
 COPY . /usr/src/ihp/
 WORKDIR /usr/src/ihp
 
-RUN apt-get update && apt-get -y install cron
 COPY monitoring-cron /etc/cron.d/monitoring-cron
 RUN chmod 0644 /etc/cron.d/monitoring-cron
 RUN crontab /etc/cron.d/monitoring-cron
@@ -39,20 +38,31 @@ RUN chmod +x /usr/bin/wait-for-databases
 RUN chmod +x /usr/src/ihp/tasks.py \
     && chmod +x /usr/src/ihp/entrypoint.sh
 
-# Upgrade pip
-RUN pip install pip==20.1
+COPY celery.sh /usr/bin/celery-commands
+RUN chmod +x /usr/bin/celery-commands
 
-# To understand the next section (the need for requirements.txt and setup.py)
-# Please read: https://packaging.python.org/requirements/
+# Prepraing dependencies
+RUN apt-get update && apt-get install -y devscripts build-essential debhelper pkg-kde-tools sharutils
+# RUN git clone https://salsa.debian.org/debian-gis-team/proj.git /tmp/proj
+# RUN cd /tmp/proj && debuild -i -us -uc -b && dpkg -i ../*.deb
 
-# fix for known bug in system-wide packages
-RUN ln -fs /usr/lib/python2.7/plat-x86_64-linux-gnu/_sysconfigdata*.py /usr/lib/python2.7/
+# Install pip packages
+RUN pip install pip --upgrade
+RUN pip install --upgrade --no-cache-dir --src /usr/src -r requirements.txt \
+    && pip install pygdal==$(gdal-config --version).* \
+    && pip install flower==0.9.4
 
-# app-specific requirements
-RUN pip install --upgrade --no-cache-dir --src /usr/src -r requirements.txt
 RUN pip install --upgrade -e .
 
-# Install pygdal (after requirements for numpy 1.16)
-RUN pip install pygdal==$(gdal-config --version).*
+# Activate "memcached"
+RUN apt install memcached
+RUN pip install pylibmc \
+    && pip install sherlock
 
-ENTRYPOINT service cron restart && /usr/src/ihp/entrypoint.sh
+# Install "geonode-contribs" apps
+RUN cd /usr/src; git clone https://github.com/GeoNode/geonode-contribs.git -b master
+# Install logstash and centralized dashboard dependencies
+RUN cd /usr/src/geonode-contribs/geonode-logstash; pip install --upgrade -e . \
+	cd /usr/src/geonode-contribs/ldap; pip install --upgrade -e .
+
+ENTRYPOINT service cron restart && service memcached restart && /usr/src/ihp/entrypoint.sh
