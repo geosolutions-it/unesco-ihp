@@ -218,6 +218,8 @@ def fixtures(ctx):
     print("**************************fixtures********************************")
     ctx.run("python manage.py loaddata sample_admin \
 --settings={0}".format(_localsettings()), pty=True)
+    ctx.run("python manage.py loaddata /usr/src/ihp/fixtures/sample_admin_ihp.json \
+--settings={0}".format(_localsettings()), pty=True)
     ctx.run("python manage.py loaddata /tmp/default_oauth_apps_docker.json \
 --settings={0}".format(_localsettings()), pty=True)
     ctx.run("python manage.py loaddata /tmp/default_site.json \
