@@ -1,0 +1,314 @@
+{
+    "proxyUrl": {
+        "url": "proxy/?url=",
+        "useCORS": []
+    },
+    "useAuthenticationRules": true,
+    "authenticationRules": [
+        {
+            "urlPattern": ".*geoserver.*",
+            "authkeyParamName": "access_token",
+            "method": "authkey"
+        },
+        {
+            "urlPattern": ".*gs.*",
+            "authkeyParamName": "access_token",
+            "method": "authkey"
+        },
+        {
+            "urlPattern": ".*api/v2.*",
+            "method": "bearer"
+        }
+    ],
+    "translationsPath": [
+        "/static/mapstore/ms-translations",
+        "/static/mapstore/gn-translations",
+        "/static/mapstore/translations"
+    ],
+    "geoNodeApi": {
+        "endpointAdapter": "/mapstore/rest",
+        "endpointAutocomplete": "/base/autocomplete_response",
+        "endpointV1": "/api",
+        "endpointV2": "/api/v2"
+    },
+    "geoNodeConfiguration": {
+        "theme": {
+            "variant": "light",
+            "color": "#2c689c",
+            "navbar": {
+                "style": {
+                    "backgroundImage": "url(/static/img/texture.jpg)",
+                    "backgroundRepeat": "repeat-x",
+                    "fontWeight": "bold"
+                }
+            },
+            "hero": {
+                "style": {
+                    "backgroundImage": "url(/static/img/home/shutterstock_579332875.jpg)",
+                    "backgroundSize": "cover",
+                    "backgroundPosition": "center",
+                    "backgroundRepeat": "no-repeat"
+                }
+            },
+            "jumbotron": {
+                "style": {
+                    "maxWidth": 1440
+                }
+            }
+        },
+        "filters": {
+            "fields": {
+                "options": [
+                    {
+                        "id": "polymorphic_ctype_id",
+                        "labelId": "gnhome.resourceTypes",
+                        "placeholderId": "gnhome.resourceTypesPlaceholder",
+                        "type": "select",
+                        "options": ["58", "52", "57"]
+                    },
+                    {
+                        "id": "category.identifier",
+                        "labelId": "gnhome.categories",
+                        "placeholderId": "gnhome.categoriesPlaceholder",
+                        "type": "select",
+                        "options": ["boundaries", "society"]
+                    },
+                    {
+                        "id": "keywords.name",
+                        "labelId": "gnhome.keywords",
+                        "placeholderId": "gnhome.keywordsPlaceholder",
+                        "type": "select",
+                        "options": ["features", "test", "map"]
+                    },
+                    {
+                        "id": "regions.name",
+                        "labelId": "gnhome.regions",
+                        "placeholderId": "gnhome.regionsPlaceholder",
+                        "type": "select",
+                        "options": ["Global", "Africa", "Central Africa", "West AfricaPacific", "Kiribati"]
+                    },
+                    {
+                        "id": "owner.username",
+                        "labelId": "gnhome.owners",
+                        "placeholderId": "gnhome.ownersPlaceholder",
+                        "type": "select",
+                        "options": ["admin"]
+                    }
+                ]
+            },
+            "order": {
+                "defaultLabelId": "gnhome.orderBy",
+                "options": [
+                    {
+                        "label": "Most recent",
+                        "labelId": "gnhome.mostRecent",
+                        "value": "-date"
+                    },
+                    {
+                        "label": "Less recent",
+                        "labelId": "gnhome.lessRecent",
+                        "value": "date"
+                    },
+                    {
+                        "label": "A Z",
+                        "labelId": "gnhome.aZ",
+                        "value": "title"
+                    },
+                    {
+                        "label": "Z A",
+                        "labelId": "gnhome.zA",
+                        "value": "-title"
+                    },
+                    {
+                        "label": "Most popular",
+                        "labelId": "gnhome.mostPopular",
+                        "value": "popular_count"
+                    }
+                ]
+            },
+            "extent": {
+                "layers": [
+                    {
+                        "type": "osm",
+                        "title": "Open Street Map",
+                        "name": "mapnik",
+                        "source": "osm",
+                        "group": "background",
+                        "visibility": true
+                    }
+                ],
+                "style": {
+                    "color": "#397AAB",
+                    "opacity": 0.8,
+                    "fillColor": "#397AAB",
+                    "fillOpacity": 0.4,
+                    "weight": 4
+                }
+            }
+        },
+        "navbar": {
+            "logo": [
+                {
+                    "src": "/static/img/unesco_ihp_en_transparent.png",
+                    "href": "#/",
+                    "style": {
+                        "minHeight": 80
+                    }
+                }
+            ],
+            "items": [
+                {
+                    "labelId": "gnhome.register",
+                    "type": "link",
+                    "href": "/account/signup/?next=/",
+                    "authenticated": false
+                },
+                {
+                    "labelId": "gnhome.signIn",
+                    "type": "link",
+                    "href": "/account/login/?next=/",
+                    "authenticated": false
+                },
+                {
+                    "image": "${user.avatar}",
+                    "type": "dropdown",
+                    "authenticated": true,
+                    "items": [
+                        {
+                            "type": "link",
+                            "href": "/layers/upload",
+                            "labelId": "gnhome.uploadLayers",
+                            "faIcon": "cloud-upload-alt"
+                        },
+                        { "type": "divider" },
+                        {
+                            "type": "link",
+                            "href": "/people/profile/admin/",
+                            "labelId": "gnhome.profile",
+                            "faIcon": "user"
+                        },
+                        {
+                            "type": "link",
+                            "href": "/social/recent-activity",
+                            "labelId": "gnhome.recentActivity",
+                            "faIcon": "fire"
+                        },
+                        {
+                            "type": "link",
+                            "href": "/messages/inbox/",
+                            "labelId": "gnhome.inbox",
+                            "faIcon": "inbox"
+                        },
+                        {
+                            "type": "link",
+                            "href": "/notifications/settings/",
+                            "labelId": "gnhome.notifications",
+                            "faIcon": "bell"
+                        },
+                        {
+                            "type": "link",
+                            "href": "/announcements/",
+                            "labelId": "gnhome.announcements",
+                            "faIcon": "bullhorn"
+                        },
+                        {
+                            "type": "link",
+                            "href": "/invitations/geonode-send-invite/",
+                            "labelId": "gnhome.inviteUsers",
+                            "faIcon": "edit"
+                        },
+                        {
+                            "type": "link",
+                            "href": "/services/",
+                            "labelId": "gnhome.remoteServices",
+                            "faIcon": "globe"
+                        },
+                        { "type": "divider" },
+                        {
+                            "type": "link",
+                            "href": "/geoserver/",
+                            "labelId": "gnhome.geoServer",
+                            "allowedGroups": ["admin"],
+                            "faIcon": "cogs"
+                        },
+                        {
+                            "type": "link",
+                            "href": "/monitoring/",
+                            "labelId": "gnhome.monitoring",
+                            "allowedGroups": ["admin"],
+                            "faIcon": "heartbeat"
+                        },
+                        {
+                            "type": "link",
+                            "href": "/admin/",
+                            "labelId": "gnhome.admin",
+                            "allowedGroups": ["admin"],
+                            "faIcon": "cog"
+                        },
+                        { "type": "divider" },
+                        {
+                            "type": "link",
+                            "href": "/help/",
+                            "labelId": "gnhome.help",
+                            "faIcon": "question-circle"
+                        },
+                        { "type": "divider" },
+                        {
+                            "type": "link",
+                            "href": "/account/logout/?next=/",
+                            "labelId": "gnhome.logOut"
+                        }
+                    ]
+                }
+            ]
+        },
+        "menu": {
+            "items": [
+                {
+                    "labelId": "gnhome.layers",
+                    "type": "link",
+                    "href": "/layers/?limit=25"
+                },
+                {
+                    "labelId": "gnhome.maps",
+                    "type": "link",
+                    "href": "/maps/?limit=25"
+                },
+                {
+                    "labelId": "gnhome.library",
+                    "type": "link",
+                    "href": "/documents/?limit=25"
+                },
+                {
+                    "labelId": "gnhome.people",
+                    "type": "link",
+                    "href": "/people/"
+                },
+                {
+                    "labelId": "gnhome.groups",
+                    "type": "link",
+                    "href": "/groups/"
+                }
+            ]
+        },
+        "footer": {
+            "items": [
+                {
+                    "labelId": "gnhome.aboutUs",
+                    "type": "link",
+                    "href": "/about-us"
+                },
+                {
+                    "labelId": "gnhome.termsOfUse",
+                    "type": "link",
+                    "href": "/terms-of-use"
+                },
+                {
+                    "labelId": "gnhome.getStarted",
+                    "type": "link",
+                    "href": "/get-started/1/"
+                }
+            ]
+        }
+    }
+}

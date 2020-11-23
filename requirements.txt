@@ -1,4 +1,6 @@
--e git+https://github.com/GeoNode/geonode.git@3.x#egg=GeoNode
+-e git+https://github.com/GeoNode/geonode-mapstore-client.git@rest_api_v2_geonode_spa_homepage#egg=django_geonode_mapstore_client
+-e git+https://github.com/GeoNode/django-mapstore-adapter.git@rest_api_v2_geonode_apps#egg=django_mapstore_adapter
+-e git+https://github.com/GeoNode/geonode.git@rest_api_v2_geonode_apps#egg=GeoNode
 # For the reason of the allauth fork see https://github.com/geosolutions-it/unesco-ihp/issues/279
 -e git+https://github.com/geosolutions-it/django-allauth.git#egg=django-allauth
 pycountry==19.8.18
