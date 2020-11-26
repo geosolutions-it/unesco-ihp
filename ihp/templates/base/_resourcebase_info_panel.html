@@ -21,7 +21,7 @@
         {{ bullet }}<br/><br/>
       {% endfor %}
       {% if resource.license.url %}
-        + For more info see <a href="{{ resource.license.url }}">{{ resource.license.url }}</a>.
+        + {% trans "For more info see" %} <a href="{{ resource.license.url }}">{{ resource.license.url }}</a>.
       {% endif %}
     </dd>
 
@@ -31,7 +31,15 @@
     {% endif %}
 
     {% if resource.date %}
+    {% if resource.date_type == 'creation' %}
+    <dt>{% trans "Creation Date" %}</dt>
+    {% elif resource.date_type == 'publication' %}
+    <dt>{% trans "Pubblication Date" %}</dt>
+    {% elif resource.date_type == 'revision' %}
+    <dt>{% trans "Revision Date" %}</dt>
+    {% else %}
     <dt>{% trans resource.date_type|title %} {% trans "Date" %}</dt>
+    {% endif %}
       {% if resource.date_type == 'creation' %}
         <dd itemprop="dateCreated" datetime="{{ resource.date|date:"c"}}">{{ resource.date }}</dd>
       {% elif resource.date_type == 'publication' %}
@@ -46,24 +54,39 @@
     <dd>{{ resource.display_type }}</dd>
     {% endif %}
 
-    {% if resource.keywords.count > 0 %}
+    {% if resource.keywords.count > 0 or resource.tkeywords.count > 0 %}
     <dt>{% trans "Keywords" %}</dt>
-    <dd itemprop="keywords">
+      <dd itemprop="keywords">
       {% for keyword in resource.keywords.all %}
-  <a itemscope itemtype="http://schema.org/Text" href="{% url "search" %}?keywords__slug__in={{ keyword.slug }}" >
+        <a itemscope itemtype="http://schema.org/Text" href="{% url "search" %}?keywords__slug__in={{ keyword.slug }}" >
           {{ keyword.name }}
         </a>
         {% if not forloop.last %},{% endif %}
       {% endfor %}
-    </dd>
+      {% if THESAURI_FILTERS %}
+        {% if resource.tkeywords.count > 0 %}
+          {% get_current_language as LANGUAGE_CODE %}
+          {% for keyword in resource.tkeywords.all %}
+            <a itemscope itemtype="http://schema.org/Text" href="{% url "search" %}?tkeywords__id__in={{ keyword.id }}">
+              {% for label in keyword.labels %}
+                {% if forloop.first %},{% endif %}
+                {% if label.lang == LANGUAGE_CODE %}
+                  {{ label }}
+                {% endif %}
+              {% endfor %}
+            </a>
+          {% endfor %}
+        {% endif %}
+      {% endif %}
+      </dd>
     {% endif %}
 
     {% if resource.category %}
     <dt>{% trans "Category" %}</dt>
-    <dd><a href="{% url "search" %}?category__identifier__in={{ resource.category.identifier }}">{{ resource.category }}</a> {% if resource.category.description %}<a href="#category-more" data-toggle="collapse" data-target=".category-more"><i class="fa fa-info-circle"></i></a>{% endif %}</dd>
+    <dd><a href="{% url "search" %}?category__identifier__in={{ resource.category.identifier }}">{% trans resource.category.gn_description %}</a> {% if resource.category.description %}<a href="#category-more" data-toggle="collapse" data-target=".category-more"><i class="fa fa-info-circle"></i></a>{% endif %}</dd>
       {% if resource.category.description %}
       <dd class="category-more collapse">
-        {{ resource.category.description }}
+        {% trans resource.category.description %}
       </dd>
       {% endif %}
     {% endif %}
@@ -95,8 +118,15 @@
     <dd><a href="/groups/group/{{ resource.group.name }}/activity/">{{ group }}</a> </dd>
     {% endif %}
 
+    {% if resource.doi %}
     <dt>{% trans "DOI" %}</dt>
     <dd>{{ resource.doi }}</dd>
+    {% endif %}
+
+    {% if resource.attribution %}
+    <dt>{% trans "Attribution" %}</dt>
+    <dd>{{ resource.attribution }}</dd>
+    {% endif %}
 
   </dl>
 
@@ -116,16 +146,14 @@
           {{ bullet }}<br/><br/>
         {% endfor %}
         {% if resource.license.url %}
-          + For more info see <a href="{{ resource.license.url }}">{{ resource.license.url }}</a>.
+          + {% trans "For more info see" %} <a href="{{ resource.license.url }}">{{ resource.license.url }}</a>.
         {% endif %}
       </dd>
     {% endif %}
 
-    <dt>{% trans "Maintenance Frequency" %}</dt>
     {% if resource.maintenance_frequency %}
+    <dt>{% trans "Maintenance Frequency" %}</dt>
     <dd>{{ resource.maintenance_frequency_title }}</dd>
-    {% else %}
-    <dd></dd>
     {% endif %}
 
     {% if resource.restriction_code_type or resource.constraints_other %}
@@ -137,11 +165,9 @@
         {% endif %}</dd>
     {% endif %}
 
-    <dt>{% trans "Edition" %}</dt>
     {% if resource.edition %}
+    <dt>{% trans "Edition" %}</dt>
     <dd>{{ resource.edition}}</dd>
-    {% else %}
-    <dd></dd>
     {% endif %}
 
     {% if resource.purpose %}
