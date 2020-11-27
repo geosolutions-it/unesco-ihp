@@ -67,32 +67,28 @@
                         "options": ["58", "52", "57"]
                     },
                     {
-                        "id": "category.identifier",
                         "labelId": "gnhome.categories",
                         "placeholderId": "gnhome.categoriesPlaceholder",
                         "type": "select",
-                        "options": ["boundaries", "society"]
+                        "suggestionsRequestKey": "categories"
                     },
                     {
-                        "id": "keywords.name",
                         "labelId": "gnhome.keywords",
                         "placeholderId": "gnhome.keywordsPlaceholder",
                         "type": "select",
-                        "options": ["features", "test", "map"]
+                        "suggestionsRequestKey": "keywords"
                     },
                     {
-                        "id": "regions.name",
                         "labelId": "gnhome.regions",
                         "placeholderId": "gnhome.regionsPlaceholder",
                         "type": "select",
-                        "options": ["Global", "Africa", "Central Africa", "West AfricaPacific", "Kiribati"]
+                        "suggestionsRequestKey": "regions"
                     },
                     {
-                        "id": "owner.username",
                         "labelId": "gnhome.owners",
                         "placeholderId": "gnhome.ownersPlaceholder",
                         "type": "select",
-                        "options": ["admin"]
+                        "suggestionsRequestKey": "owners"
                     }
                 ]
             },
@@ -183,7 +179,7 @@
                         { "type": "divider" },
                         {
                             "type": "link",
-                            "href": "/people/profile/admin/",
+                            "href": "${user.hrefProfile}",
                             "labelId": "gnhome.profile",
                             "faIcon": "user"
                         },
