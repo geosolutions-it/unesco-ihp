@@ -31,6 +31,16 @@
         "endpointV1": "/api",
         "endpointV2": "/api/v2"
     },
+    "supportedLocales": {
+        "en": {
+            "code": "en-US",
+            "description": "English"
+        },
+        "fr": {
+            "code": "fr-FR",
+            "description": "Français"
+        }
+    },
     "geoNodeConfiguration": {
         "theme": {
             "variant": "light",
@@ -54,6 +64,9 @@
                 "style": {
                     "maxWidth": 1440
                 }
+            },
+            "languageSelector": {
+                "inline": true
             }
         },
         "filters": {
