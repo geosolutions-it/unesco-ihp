@@ -351,25 +351,6 @@
     {% endif %}
     {% include 'rating.html' %}
     <script type="text/javascript">
-        $(document).ready(function () {
-            post_url = '{% url 'map_embed_widget' resource.id %}';
-            var formatted_data = "";
-            $.post(post_url, function (data) {
-                data = data.split("\n");
-                data_row = data.length;
-                for (var i=0; i < data_row;i++) {
-                    formatted_data += data[i] + "\n";
-                }
-                $('#embed-widget-body').text(formatted_data);
-            });
-        });
-        var clipboard = new ClipboardJS('.btn');
-        clipboard.on('success', function(e) {
-            alert("Code copied");
-        });
-        clipboard.on('error', function(e) {
-            alert("Oops.. something went wrong");
-        });
      $(function() {
       {% verbatim %}
       // Publish layer group
