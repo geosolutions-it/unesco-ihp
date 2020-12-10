@@ -2,12 +2,13 @@
 {% load i18n %}
 {% load staticfiles %}
 {% load dialogos_tags %}
-{% load agon_ratings_tags %}
+{% load pinax_ratings_tags %}
 {% load bootstrap_tags %}
 {% load pagination_tags %}
 {% load base_tags %}
 {% load guardian_tags %}
 {% load client_lib_tags %}
+{% load get_survey_route %}
 
 {% block title %}{{ resource.title }} — {{ block.super }}{% endblock %}
 
@@ -49,18 +50,6 @@
        z-index: 10000;
     }
 
-    #watermark{
-        display: block;
-        background: url(../../static/img/unesco_ihp_en_transparent.png) center center no-repeat;
-        background-size: 182px;
-        width: 182px;
-        height: 110px;
-        position: absolute;
-        top: -20px;
-        right: 580px;
-        bottom: 0;
-        z-index: 10000;
-    }
     .watermark-link {
         bottom: 0px;
         position: absolute;
@@ -146,6 +135,14 @@
                <button class="btn btn-primary btn-md btn-block" >{% trans "Metadata Detail" %}</button>
            </a>
         </li>
+        {% display_edit_request_button resource request.user perms_list as display_request_button %}
+          {% if display_request_button %}
+            <li class="list-group-item">
+                <a href="{% url "owner_rights_request" resource.id %}">
+                    <button class="btn btn-primary btn-md btn-block">{% trans "Request change" %}</button>
+                </a>
+            </li>
+          {% endif %}
 
         <div class="modal fade" id="download-map" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
           <div class="modal-dialog">
@@ -158,7 +155,7 @@
                 <ul>
                     {% if links %}
                         {% for link in links %}
-                            <li><a href="{{ link.url }}">{{ link.name }}</a></li>
+                            <li><a href="{{ resource | get_survey_route }}?download_url={{ link.url | urlencode }}&next={% url "map_detail" resource.map.pk %}" target="_blank">{{ link.name }}</a></li>
                         {% endfor %}
                     {% endif %}
                 <ul>

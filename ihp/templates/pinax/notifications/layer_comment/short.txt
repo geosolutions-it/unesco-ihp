@@ -1,0 +1,3 @@
+{% load i18n %}
+
+{% trans "IHP-WINS: A new comment has been posted on a layer" %}

@@ -23,6 +23,7 @@ from django.conf.urls import url
 from django.contrib.sitemaps.views import sitemap
 from django.views.generic import TemplateView
 from geonode.sitemap import LayerSitemap
+from ihp.survey.views import SurveyView
 from ihp.content.views import (terms_of_use_view,
                                about_us_content_view,
                                contact_us_content_view,
@@ -61,4 +62,7 @@ urlpatterns = [
                     contact_us_content_view,
                     name='contact-us'),
                 url(r'^photologue/', include('photologue.urls', namespace='photologue')),
+                url(r'^survey/(?P<app_label>\w+)/(?P<model>\w+)/(?P<resource_id>\d+)/$',
+                    SurveyView.as_view(),
+                    name='survey'),
               ] + geonode.urls.urlpatterns

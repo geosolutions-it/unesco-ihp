@@ -1,4 +1,5 @@
--e git+https://github.com/geosolutions-it/geonode.git@unesco_ihp_2.10.2#egg=GeoNode
-
-pycountry
-django-photologue==3.7  # the later releases depend on django >= 1.11
+-e git+https://github.com/GeoNode/geonode.git@master#egg=GeoNode
+# For the reason of the allauth fork see https://github.com/geosolutions-it/unesco-ihp/issues/279
+-e git+https://github.com/geosolutions-it/django-allauth.git#egg=django-allauth
+pycountry==19.8.18
+django-photologue==3.10

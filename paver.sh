@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/.virtualenvs/geonode/bin/activate
+source ~/.virtualenvs/geonode3/bin/activate
 
 pushd $(dirname $0)
 

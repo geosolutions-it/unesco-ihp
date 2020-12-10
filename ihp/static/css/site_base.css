@@ -43,7 +43,7 @@ footer {
     right: 0px;
     position: fixed;
     left: 0px;
-    z-index: 500;
+    z-index: 1030;
 }
 
 footer a {
@@ -61,6 +61,19 @@ footer a:visited {
 p,input
 {
     font-family: Monda,Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;color:#000
+}
+#watermark{
+        display: block;
+        background: url(../../static/img/unesco_ihp_en_transparent.png) center center no-repeat;
+        background-size: 182px;
+        width: 182px;
+        height: 110px;
+        position: absolute;
+        top: -20px;
+        left: 20px;
+        bottom: 0;
+        /*one below footer and header*/
+        z-index: 1029;
 }
 
 #holder
@@ -147,7 +160,11 @@ body.timeseries li#nav_timeseries a {
 
 nav_layers {font-size:16px}
 
-.nav > li,
+.nav > li {
+  position: relative;
+  display: block;
+}
+
 .nav > li > a {
   position: relative;
   display: block;
@@ -168,7 +185,6 @@ nav_layers {font-size:16px}
   background-color: #fff;
   border: 1px solid #ddd;
   overflow: hidden;
-  white-space: nowrap;
   text-overflow: ellipsis;
   word-wrap: break-word;
 }
@@ -226,7 +242,7 @@ a:hover {font-family: Monda,Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;col
     background-image: url("../img/texture.jpg");
     /* background: url(../img/texture.jpg) 1px 0 no-repeat; */
     background-repeat: repeat-x;
-    font-size:16px;
+    font-size:14px;
     background-size: auto 110px;
 }
 
@@ -315,7 +331,7 @@ nav.filter h4 {
 }
 
 #navbar .navbar-form {
-    overflow: hidden;
+    /*overflow: hidden;*/
     padding: 0;
     float: right;
     width: 175px;
@@ -674,7 +690,7 @@ label[for="id_resource-constraints_other"]{ font-size: 0; }
 /* ** END ** */
 
 .carousel-inner {
-   # height: 500px;
+    /*height: 500px;*/
 }
 
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {
@@ -1120,4 +1136,38 @@ padding:0;
 .glyphicon-tree-deciduous:before {
     content: "\e200"}
 .glyphicon-chevron-right:before {
-    content: "\224"}
+    content: "\224"}}
+
+/** Autocomplete styling **/
+.autocomplete-input #text_search_input,
+.autocomplete-input #region_search_input {
+  width: 100%;
+}
+.autocomplete-input .ac-results {
+  position: absolute;
+  border: 1px solid #eeeeee;
+  border-top: none;
+  border-radius: 5px;
+  outline-width: 0;
+  text-indent: 5px;
+  margin-top: 35px;
+  z-index: 10000;
+}
+.autocomplete-input .ac-results .result-wrapper {
+  border-bottom: 1px solid #eeeeee;
+  padding: 3px;
+  background-color: white;
+}
+.autocomplete-input .ac-results .result-wrapper:hover {
+  background-color: #eeeeee;
+  opacity: 1;
+}
+.autocomplete-input .ac-results .result-wrapper:last-child {
+  border-bottom: none;
+}
+.autocomplete-input .ac-results .result-wrapper .ac-result {
+  border: none;
+  text-decoration: none;
+  color: black;
+  padding: 0px;
+}

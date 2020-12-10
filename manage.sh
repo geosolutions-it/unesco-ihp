@@ -1,8 +1,2 @@
-#!/bin/bash
-
-source ~/.virtualenvs/geonode/bin/activate
-
-pushd $(dirname $0)
-
-DJANGO_SETTINGS_MODULE=ihp.settings python manage.py $@
-
+. $HOME/.override_env
+/usr/local/bin/python /usr/src/ihp/manage.py $@

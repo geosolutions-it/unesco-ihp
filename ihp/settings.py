@@ -19,17 +19,21 @@
 #########################################################################
 
 # Django settings for the GeoNode project.
-import ast
 import os
-from urlparse import urlparse, urlunparse
+import ast
+
+try:
+    from urllib.parse import urlparse, urlunparse
+    from urllib.request import urlopen, Request
+except ImportError:
+    from urllib2 import urlopen, Request
+    from urlparse import urlparse, urlunparse
 # Load more settings from a file called local_settings.py if it exists
 try:
     from ihp.local_settings import *
 #    from geonode.local_settings import *
 except ImportError:
     from geonode.settings import *
-
-DEBUG = ast.literal_eval(os.getenv('DEBUG', 'False'))
 
 #
 # General Django development settings
@@ -52,8 +56,7 @@ WSGI_APPLICATION = "{}.wsgi.application".format(PROJECT_NAME)
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = os.getenv('LANGUAGE_CODE', "en")
 
-if PROJECT_NAME not in INSTALLED_APPS:
-    INSTALLED_APPS += ('photologue', 'sortedm2m', 'ihp', 'ihp.content')
+INSTALLED_APPS += ('photologue', 'sortedm2m', 'ihp', 'ihp.content', 'ihp.people', 'ihp.survey')
 
 # Location of url mappings
 ROOT_URLCONF = os.getenv('ROOT_URLCONF', '{}.urls'.format(PROJECT_NAME))
@@ -74,7 +77,7 @@ loaders = TEMPLATES[0]['OPTIONS'].get('loaders') or ['django.template.loaders.fi
 TEMPLATES[0]['OPTIONS']['loaders'] = loaders
 TEMPLATES[0].pop('APP_DIRS', None)
 
-CLIENT_RESULTS_LIMIT = 5
+CLIENT_RESULTS_LIMIT = 25
 API_LIMIT_PER_PAGE = 1000
 FREETEXT_KEYWORDS_READONLY = True
 RESOURCE_PUBLISHING = True
@@ -99,6 +102,12 @@ LICENSES = {
     'METADATA': 'never',
 }
 
+AUTH_USER_MODEL = os.getenv('AUTH_USER_MODEL', 'ihp_people.IHPProfile')
+AUTH_USER_AUTOCOMPLETE = os.getenv('AUTH_USER_AUTOCOMPLETE', 'IHPProfileProfileAutocomplete')
+
+# allow registered users to sign in using their username or email
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+
 # prevent signing up by default
 ACCOUNT_OPEN_SIGNUP = True
 ACCOUNT_EMAIL_REQUIRED = True
@@ -121,10 +130,10 @@ SOCIALACCOUNT_AUTO_SIGNUP = False
 SOCIALACCOUNT_FORMS = {
     "signup": "ihp.content.forms.UnescoSocialAccountSignupForm",
 }
-INSTALLED_APPS += (
-    'allauth.socialaccount.providers.linkedin_oauth2',
-    'allauth.socialaccount.providers.facebook',
-)
+#INSTALLED_APPS += (
+#    'allauth.socialaccount.providers.linkedin_oauth2',
+#    'allauth.socialaccount.providers.facebook',
+#)
 
 SOCIALACCOUNT_PROVIDERS = {
     'linkedin_oauth2': {
@@ -178,7 +187,8 @@ NOTIFICATION_ENABLED = True
 # PINAX_NOTIFICATIONS_LANGUAGE_MODEL = "allauth.account.Account"
 
 # notifications backends
-_EMAIL_BACKEND = "pinax.notifications.backends.email.EmailBackend"
+# _EMAIL_BACKEND = "pinax.notifications.backends.email.EmailBackend"
+_EMAIL_BACKEND = "geonode.notifications_backend.EmailBackend"
 PINAX_NOTIFICATIONS_BACKENDS = [
     ("email", _EMAIL_BACKEND),
 ]
@@ -189,7 +199,7 @@ PINAX_NOTIFICATIONS_LOCK_WAIT_TIMEOUT = -1
 
 # PINAX_NOTIFICATIONS_HOOKSET = "pinax.notifications.hooks.DefaultHookSet"
 NOTIFICATIONS_ENABLED_BY_DEFAULT = False
-PINAX_NOTIFICATIONS_HOOKSET = "geonode.people.hooks.IHPNotificationsHookSet"
+PINAX_NOTIFICATIONS_HOOKSET = "ihp.people.hooks.IHPNotificationsHookSet"
 
 # pinax.notifications
 # or notification
@@ -201,71 +211,25 @@ if NOTIFICATION_ENABLED and 'pinax.notifications' not in INSTALLED_APPS:
 # set to true to have multiple recipients in /message/create/
 USER_MESSAGES_ALLOW_MULTIPLE_RECIPIENTS = True
 
-# GEOIP_PATH = "/usr/local/share/GeoIP"
-GEOIP_PATH = os.path.join(os.path.dirname(__file__), '..', 'GeoLiteCity.dat')
-
 UNOCONV_ENABLE = True
-
 if UNOCONV_ENABLE:
    UNOCONV_EXECUTABLE = '/usr/bin/unoconv'
    UNOCONV_TIMEOUT = 60  # seconds
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': True,
-    'formatters': {
-        'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d '
-                      '%(thread)d %(message)s'
-        },
-        'simple': {
-            'format': '%(message)s',
-        },
-    },
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
-    },
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple'
-        },
-        'mail_admins': {
-            'level': 'INFO', 'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler',
-        }
-    },
-    "loggers": {
-        "django": {
-            "handlers": ["console"], "level": "INFO", },
-        "geonode": {
-            "handlers": ["console"], "level": "DEBUG", },
-        "gsconfig.catalog": {
-            "handlers": ["console"], "level": "INFO", },
-        "owslib": {
-            "handlers": ["console"], "level": "INFO", },
-        "pycsw": {
-            "handlers": ["console"], "level": "INFO", },
-        "ihp": {
-            "handlers": ["console"], "level": "DEBUG", },
-        },
-    }
-
 # Security stuff
 API_LOCKDOWN = False
-MIDDLEWARE_CLASSES += ('django.middleware.security.SecurityMiddleware',)
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
 CSRF_COOKIE_HTTPONLY = False
+CORS_ORIGIN_ALLOW_ALL = True
 X_FRAME_OPTIONS = 'DENY'
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_SSL_REDIRECT = False
 SECURE_HSTS_SECONDS = 3600
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+AUTO_ASSIGN_REGISTERED_MEMBERS_TO_REGISTERED_MEMBERS_GROUP_NAME = False
 
 # Choose thumbnail generator -- this is the default generator
 THUMBNAIL_GENERATOR = "geonode.layers.utils.create_gs_thumbnail_geonode"
@@ -286,3 +250,124 @@ if not DEBUG and not S3_STATIC_ENABLED and not S3_MEDIA_ENABLED:
     if CACHE_BUSTING_MEDIA_ENABLED:
         DEFAULT_FILE_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
+# Settings for MONITORING plugin
+MONITORING_ENABLED = ast.literal_eval(os.environ.get('MONITORING_ENABLED', 'True'))
+
+MONITORING_CONFIG = os.getenv("MONITORING_CONFIG", None)
+MONITORING_HOST_NAME = os.getenv("MONITORING_HOST_NAME", HOSTNAME)
+MONITORING_SERVICE_NAME = os.getenv("MONITORING_SERVICE_NAME", 'geonode')
+
+# how long monitoring data should be stored
+MONITORING_DATA_TTL = timedelta(days=int(os.getenv("MONITORING_DATA_TTL", 365)))
+
+# this will disable csrf check for notification config views,
+# use with caution - for dev purpose only
+MONITORING_DISABLE_CSRF = ast.literal_eval(os.environ.get('MONITORING_DISABLE_CSRF', 'False'))
+
+# For GRAVATAR provider this hast to be complete URL
+AVATAR_GRAVATAR_DEFAULT = f'{SITEURL}static/avatar/img/default.jpg'
+
+if MONITORING_ENABLED:
+    if 'geonode.monitoring' not in INSTALLED_APPS:
+        INSTALLED_APPS += ('geonode.monitoring',)
+    if 'geonode.monitoring.middleware.MonitoringMiddleware' not in MIDDLEWARE:
+        MIDDLEWARE += \
+            ('geonode.monitoring.middleware.MonitoringMiddleware',)
+
+    # skip certain paths to not to mud stats too much
+    MONITORING_SKIP_PATHS = ('/api/o/',
+                             '/monitoring/',
+                             '/admin',
+                             '/jsi18n',
+                             STATIC_URL,
+                             MEDIA_URL,
+                             re.compile('^/[a-z]{2}/admin/'),
+                             )
+
+    # configure aggregation of past data to control data resolution
+    # list of data age, aggregation, in reverse order
+    # for current data, 1 minute resolution
+    # for data older than 1 day, 1-hour resolution
+    # for data older than 2 weeks, 1 day resolution
+    MONITORING_DATA_AGGREGATION = (
+        (timedelta(seconds=0), timedelta(minutes=1),),
+        (timedelta(days=1), timedelta(minutes=60),),
+        (timedelta(days=14), timedelta(days=1),),
+    )
+
+    CELERY_BEAT_SCHEDULE['collect_metrics'] = {
+        'task': 'geonode.monitoring.tasks.collect_metrics',
+        'schedule': 600.0,
+    }
+
+USER_ANALYTICS_ENABLED = ast.literal_eval(os.getenv('USER_ANALYTICS_ENABLED', 'True'))
+USER_ANALYTICS_GZIP = ast.literal_eval(os.getenv('USER_ANALYTICS_GZIP', 'True'))
+
+GEOIP_PATH = os.getenv('GEOIP_PATH', os.path.join(PROJECT_ROOT, 'GeoIPCities.dat'))
+
+# -- END Settings for MONITORING plugin
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d '
+                      '%(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(message)s',
+        },
+    },
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'handlers': {
+        'console': {
+            'level': 'ERROR',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+        'mail_admins': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'django.utils.log.AdminEmailHandler',
+        }
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"], "level": "ERROR", },
+        "geonode": {
+            "handlers": ["console"], "level": "INFO", },
+        "geoserver-restconfig.catalog": {
+            "handlers": ["console"], "level": "ERROR", },
+        "owslib": {
+            "handlers": ["console"], "level": "ERROR", },
+        "pycsw": {
+            "handlers": ["console"], "level": "ERROR", },
+        "celery": {
+            "handlers": ["console"], "level": "DEBUG", },
+        "mapstore2_adapter.plugins.serializers": {
+            "handlers": ["console"], "level": "DEBUG", },
+        "geonode_logstash.logstash": {
+            "handlers": ["console"], "level": "DEBUG", },
+    },
+}
+
+CENTRALIZED_DASHBOARD_ENABLED = ast.literal_eval(os.getenv('CENTRALIZED_DASHBOARD_ENABLED', 'False'))
+if CENTRALIZED_DASHBOARD_ENABLED and USER_ANALYTICS_ENABLED and 'geonode_logstash' not in INSTALLED_APPS:
+    INSTALLED_APPS += ('geonode_logstash',)
+
+    CELERY_BEAT_SCHEDULE['dispatch_metrics'] = {
+        'task': 'geonode_logstash.tasks.dispatch_metrics',
+        'schedule': 3600.0,
+    }
+
+LDAP_ENABLED = ast.literal_eval(os.getenv('LDAP_ENABLED', 'False'))
+if LDAP_ENABLED and 'geonode_ldap' not in INSTALLED_APPS:
+    INSTALLED_APPS += ('geonode_ldap',)
+
+# Add your specific LDAP configuration after this comment:
+# https://docs.geonode.org/en/master/advanced/contrib/#configuration

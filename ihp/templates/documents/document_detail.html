@@ -1,10 +1,11 @@
 {% extends "documents/document_base.html" %}
 {% load i18n %}
 {% load dialogos_tags %}
-{% load agon_ratings_tags %}
+{% load pinax_ratings_tags %}
 {% load bootstrap_tags %}
 {% load base_tags %}
 {% load guardian_tags %}
+{% load get_survey_route %}
 
 {% block title %}{{ resource.title }} — {{ block.super }}{% endblock %}
 
@@ -101,11 +102,11 @@
       <li class="list-group-item">
       {% if "download_resourcebase" in perms_list %}
         {% if resource.extension|lower in imgtypes and resource.doc_file %}
-          <a style="text-decoration:none;" target="_blank" href="{% url "document_download" resource.id %}"><button class="btn btn-primary btn-md btn-block">{% trans "Download Document" %}</button></a>
+          <a style="text-decoration:none;" target="_blank" href="{{ resource | get_survey_route }}?download_url={% url "document_download" resource.id %}&next={% url "document_detail" resource.id %}"><button class="btn btn-primary btn-md btn-block">{% trans "Download Document" %}</button></a>
         {% elif resource.doc_file %}
-          <a style="text-decoration:none;" target="_blank" href="{% url "document_download" resource.id %}"><button class="btn btn-primary btn-md btn-block">{% trans "Download Document" %}</button></a>
+          <a style="text-decoration:none;" target="_blank" href="{{ resource | get_survey_route }}?download_url={% url "document_download" resource.id %}&next={% url "document_detail" resource.id %}"><button class="btn btn-primary btn-md btn-block">{% trans "Download Document" %}</button></a>
         {% elif  resource.doc_url %}
-          <a style="text-decoration:none;" target="_blank" href="{{ resource.doc_url }}"><button class="btn btn-primary btn-md btn-block">{% trans "Download Document" %}</button></a>
+          <a style="text-decoration:none;" target="_blank" href="{{ resource | get_survey_route }}?download_url={{ resource.doc_url }}&next={% url "document_detail" resource.id %}"><button class="btn btn-primary btn-md btn-block">{% trans "Download Document" %}</button></a>
         {%  endif %}
       {% else %}
         {% if request.user.is_authenticated %}
@@ -113,10 +114,20 @@
         {%  endif %}
       {%  endif %}
       </li>
-
+      {% display_edit_request_button resource request.user perms_list as display_request_button %}
+        {% if display_request_button %}
+            <li class="list-group-item">
+                <a href="{% url "owner_rights_request" resource.id %}">
+                    <button class="btn btn-primary btn-md btn-block">{% trans "Request change" %}</button>
+                </a>
+            </li>
+        {% endif %}
+      {% if "change_resourcebase_metadata" in perms_list or "change_resourcebase" in perms_list or "delete_resourcebase" in perms_list or "change_layer_style" in layer_perms %}
       <li class="list-group-item">
         <button class="btn btn-primary btn-md btn-block" data-toggle="modal" data-target="#edit-document">{% trans "Edit Document" %}</button>
       </li>
+      {% endif %}
+
       <div class="modal fade" id="edit-document" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -139,7 +150,7 @@
                 <div class="col-sm-3">
                   <i class="fa fa-photo fa-3x"></i>
                   <h4>{% trans "Thumbnail" %}</h4>
-                  <a class="btn btn-default btn-block btn-xs" href="{% url "document_thumb_upload" resource.id %}" id="set_thumbnail">{% trans "Set" %}</a>
+                  <a class="btn btn-default btn-block btn-xs" href="{% url "thumbnail_upload" resource.id %}" id="set_thumbnail">{% trans "Upload" %}</a>
                 </div>
                 {% endif %}
                 {% if "change_resourcebase" in perms_list or "delete_resourcebase" in perms_list %}
@@ -179,8 +190,8 @@
 					Full metadata
 					</h5>
 					<ul style="list-style: outside none none;padding: 0;">
-						<li><a target="_blank" href="../catalogue/csw_to_extra_format/{{resource.uuid}}/{{resource.title}}.txt"> Text format </a></li>
-						<li><a target="_blank" href="../catalogue/csw_to_extra_format/{{resource.uuid}}/{{resource.title}}.html"> HTML format </a></li>
+						<li><a target="_blank" href="{{ resource | get_survey_route }}?download_url=../../../../catalogue/csw_to_extra_format/{{resource.uuid}}/{{resource.title}}.txt&next={% url "document_detail" resource.id %}"> Text format </a></li>
+						<li><a target="_blank" href="{{ resource | get_survey_route }}?download_url=../../../../catalogue/csw_to_extra_format/{{resource.uuid}}/{{resource.title}}.html&next={% url "document_detail" resource.id %}"> HTML format </a></li>
 					</ul>
 				</div>
 			  <h5 class="modal-title" id="myModalLabel">
@@ -188,7 +199,7 @@
 			  </h5>
               <ul style="list-style: outside none none;padding: 0;">
                 {% for link in metadata %}
-                <li><a href="{{ link.url }}">{{ link.name }}</a></li>
+                <li><a href="{{ resource | get_survey_route }}?download_url={{ link.url | urlencode }}&next={% url "document_detail" resource.id %}">{{ link.name }}</a></li>
                 {% endfor %}
               </ul>
             </div>
