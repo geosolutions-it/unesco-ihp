@@ -73,11 +73,10 @@
             "fields": {
                 "options": [
                     {
-                        "id": "polymorphic_ctype_id",
                         "labelId": "gnhome.resourceTypes",
                         "placeholderId": "gnhome.resourceTypesPlaceholder",
                         "type": "select",
-                        "options": ["58", "52", "57"]
+                        "suggestionsRequestKey": "resourceTypes"
                     },
                     {
                         "labelId": "gnhome.categories",
