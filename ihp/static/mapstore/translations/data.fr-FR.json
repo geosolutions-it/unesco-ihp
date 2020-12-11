@@ -13,7 +13,9 @@
             "geoServer": "GeoServer",
             "monitoring": "Monitoring",
             "help": "Help",
-            "library": "Library",
+            "library": "Bibliothèque",
+            "people": "Utilisateurs",
+            "groups": "Groupes",
             "aboutUs": "About Us",
             "termsOfUse": "Terms of Use",
             "getStarted": "Get Started"
