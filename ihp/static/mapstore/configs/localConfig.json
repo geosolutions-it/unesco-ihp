@@ -67,6 +67,14 @@
             },
             "languageSelector": {
                 "inline": true
+            },
+            "footer": {
+                "bg": "rgb(32, 59, 100)",
+                "color": "#ffffff",
+                "link": {
+                    "color": "#ffffff",
+                    "hoverColor": "#dddddd"
+                }
             }
         },
         "filters": {
@@ -157,7 +165,7 @@
         "navbar": {
             "logo": [
                 {
-                    "src": "/static/img/unesco_ihp_en_transparent.png",
+                    "src": "/static/img/sector_sc_ihp_en_color.svg",
                     "href": "#/",
                     "style": {
                         "minHeight": 80
@@ -280,17 +288,20 @@
                 {
                     "labelId": "gnhome.layers",
                     "type": "link",
-                    "href": "/layers/?limit=25"
+                    "href": "/layers/?limit=25",
+                    "badge": "${layersTotalCount}"
                 },
                 {
                     "labelId": "gnhome.maps",
                     "type": "link",
-                    "href": "/maps/?limit=25"
+                    "href": "/maps/?limit=25",
+                    "badge": "${mapsTotalCount}"
                 },
                 {
                     "labelId": "gnhome.library",
                     "type": "link",
-                    "href": "/documents/?limit=25"
+                    "href": "/documents/?limit=25",
+                    "badge": "${documentsTotalCount}"
                 },
                 {
                     "labelId": "gnhome.people",
@@ -302,6 +313,17 @@
                     "type": "link",
                     "href": "/groups/"
                 }
+            ],
+            "rightItems": [
+                {
+                    "labelId": "gnhome.getStarted",
+                    "type": "link",
+                    "href": "/get-started/1/",
+                    "style": {
+                        "fontWeight": "bold"
+                    }
+                },
+                { "type": "divider" }
             ]
         },
         "footer": {
