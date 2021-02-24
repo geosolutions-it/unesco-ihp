@@ -350,21 +350,9 @@
                         },
                         {
                             "type": "link",
-                            "href": "/announcements/",
-                            "labelId": "gnhome.announcements",
-                            "faIcon": "bullhorn"
-                        },
-                        {
-                            "type": "link",
                             "href": "/invitations/geonode-send-invite/",
                             "labelId": "gnhome.inviteUsers",
                             "faIcon": "edit"
-                        },
-                        {
-                            "type": "link",
-                            "href": "/services/",
-                            "labelId": "gnhome.remoteServices",
-                            "faIcon": "globe"
                         },
                         {
                             "type": "divider"
