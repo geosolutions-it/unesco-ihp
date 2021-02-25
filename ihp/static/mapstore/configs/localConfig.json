@@ -352,7 +352,10 @@
                             "type": "link",
                             "href": "/announcements/",
                             "labelId": "gnhome.announcements",
-                            "faIcon": "bullhorn"
+                            "faIcon": "bullhorn",
+                            "allowedGroups": [
+                                "admin"
+                            ]
                         },
                         {
                             "type": "link",
@@ -364,7 +367,10 @@
                             "type": "link",
                             "href": "/services/",
                             "labelId": "gnhome.remoteServices",
-                            "faIcon": "globe"
+                            "faIcon": "globe",
+                            "allowedGroups": [
+                                "admin"
+                            ]
                         },
                         {
                             "type": "divider"
