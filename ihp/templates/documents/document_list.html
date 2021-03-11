@@ -2,7 +2,7 @@
 {% load i18n %}
 {% load staticfiles %}
 
-{% block title %} {% trans "Explore Library" %} - {{ block.super }} {% endblock %}
+{% block title %} {% trans "Explore Documents" %} - {{ block.super }} {% endblock %}
 
 {% block body_class %}documents documents-list explore{% endblock %}
 
@@ -35,9 +35,4 @@
   {% with include_spatial='true' %}
     {% include 'search/search_scripts.html' %}
   {% endwith %}
-{% endblock extra_script %}</title>
-</head>
-<body>
-
-</body>
-</html>
+{% endblock extra_script %}

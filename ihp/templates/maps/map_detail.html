@@ -77,8 +77,8 @@
 
           {% if USE_GEOSERVER and DISPLAY_WMS_LINKS %}
           <p>
-            {% if request.user.is_authenticated and 'access_token' in request.session %}
-              <a href="{% url 'capabilities_map' resource.id %}?access_token={{ request.session.access_token }}">
+            {% if request.user.is_authenticated and access_token %}
+              <a href="{% url 'capabilities_map' resource.id %}?access_token={{access_token}}">
             {% else %}
               <a href="{% url 'capabilities_map' resource.id %}">
             {% endif %}
@@ -166,51 +166,62 @@
             </div>
           </div>
         </div>
-        {% if "change_resourcebase" in perms_list  or "change_resourcebase_metadata" in perms_list %}
-        <li class="list-group-item">
-          <button class="btn btn-primary btn-md btn-block" data-toggle="modal" data-target="#edit-map">{% trans "Edit Map" %}</button>
-        </li>
-        <div class="modal fade" id="edit-map" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">{% trans "Edit Map" %}</h4>
-              </div>
-              <div class="modal-body">
-                <div class="row edit-modal">
-                  {% if "change_resourcebase_metadata" in perms_list %}
-                  <div class="col-sm-3">
-                    <i class="fa fa-list-alt fa-3x"></i>
-                    <h4>{% trans "Metadata" %}</h4>
-                    <a class="btn btn-default btn-block btn-xs" href="{% url "map_metadata" resource.id %}">{% trans "Wizard" %}</a>
-                    <a class="btn btn-default btn-block btn-xs" href="{% url "map_metadata_advanced" resource.id %}">{% trans "Advanced Edit" %}</a>
-                  </div>
-                  {% endif %}
-                  {% if "change_resourcebase" in perms_list %}
-                  <div class="col-sm-3">
-                    <i class="fa fa-photo fa-3x"></i>
-                    <h4>{% trans "Thumbnail" %}</h4>
-                    <a class="btn btn-default btn-block btn-xs" href="#" id="set_thumbnail">{% trans "Set" %}</a>
-                    <a class="btn btn-default btn-block btn-xs" href="{% url "thumbnail_upload" resource.resourcebase_ptr.id %}">{% trans "Upload" %}</a>
-                  </div>
-                  {% endif %}
-                  {% if "change_resourcebase" in perms_list %}
-                  <div class="col-sm-3">
-                    <i class="fa fa-map-marker fa-3x"></i>
-                    <h4>{% trans "Map" %}</h4>
-                    <a class="btn btn-default btn-block btn-xs" href="{% url "map_edit" resource.id %}">{% trans "Edit" %}</a>
-                    <a class="btn btn-danger btn-block btn-xs" href="{% url "map_remove" resource.id %}">{% trans "Remove" %}</a>
-                  </div>
-                  {% endif %}
+
+        {% if not READ_ONLY_MODE %}
+          {% if "change_resourcebase" in perms_list  or "change_resourcebase_metadata" in perms_list %}
+          <li class="list-group-item">
+            <button class="btn btn-primary btn-md btn-block" data-toggle="modal" data-target="#edit-map">{% trans "Editing Tools" %}</button>
+          </li>
+          <div class="modal fade" id="edit-map" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title" id="myModalLabel">{% trans "Editing Tools" %}</h4>
                 </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Close" %}</button>
+                <div class="modal-body">
+                  <div class="row edit-modal">
+                    {% if "change_resourcebase_metadata" in perms_list %}
+                    <div class="col-sm-3">
+                      <i class="fa fa-list-alt fa-3x"></i>
+                      <h4>{% trans "Metadata" %}</h4>
+                      <a class="btn btn-default btn-block btn-xs" href="{% url "map_metadata" resource.id %}">{% trans "Wizard" %}</a>
+                      <a class="btn btn-default btn-block btn-xs" href="{% url "map_metadata_advanced" resource.id %}">{% trans "Advanced Edit" %}</a>
+                    </div>
+                    {% endif %}
+                    {% if "change_resourcebase" in perms_list %}
+                    <div class="col-sm-3">
+                      <i class="fa fa-photo fa-3x"></i>
+                      <h4>{% trans "Thumbnail" %}</h4>
+                      <a class="btn btn-default btn-block btn-xs" href="#" id="set_thumbnail">{% trans "Set" %}</a>
+                      <a class="btn btn-default btn-block btn-xs" href="{% url "thumbnail_upload" resource.resourcebase_ptr.id %}">{% trans "Upload" %}</a>
+                    </div>
+                    {% endif %}
+                    {% if "change_resourcebase" in perms_list %}
+                    <div class="col-sm-3">
+                      <i class="fa fa-map-marker fa-3x"></i>
+                      <h4>{% trans "Map" %}</h4>
+                      <a class="btn btn-default btn-block btn-xs" href="{% url "map_edit" resource.id %}">{% trans "Edit" %}</a>
+                      <a class="btn btn-danger btn-block btn-xs" href="{% url "map_remove" resource.id %}">{% trans "Remove" %}</a>
+                    </div>
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Close" %}</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+          {% endif %}
+        {% endif %}
+        {% display_edit_request_button resource request.user perms_list as display_request_button %}
+        {% if display_request_button %}
+            <li class="list-group-item">
+                <a href="{% url "owner_rights_request" resource.id %}">
+                    <button class="btn btn-primary btn-md btn-block">{% trans "Request change" %}</button>
+                </a>
+            </li>
         {% endif %}
         <li class="list-group-item">
         {% if "change_resourcebase" not in perms_list and "change_resourcebase_metadata" not in perms_list %}
@@ -253,20 +264,27 @@
         </li>
         {% endif %}
 
-        {% if "change_resourcebase_permissions" in perms_list %}
-        <li class="list-group-item">
-          <h4>{% trans "Permissions" %}</h4>
-          <p>{% trans "Specify which users can view or modify this map" %}</p>
-          <button class="btn btn-primary btn-md btn-block" data-toggle="modal" data-target="#_permissions">{% trans "Change Permissions of this Map" %}</button>
-        </li>
-        {% include "_permissions_form.html" %}
+        {% if GEONODE_SECURITY_ENABLED %}
+          {% if "change_resourcebase_permissions" in perms_list %}
+            {% if not READ_ONLY_MODE %}
+              <li class="list-group-item">
+                <h4>{% trans "Permissions" %}</h4>
+                <p>{% trans "Specify which users can view or modify this map" %}</p>
+                <button class="btn btn-primary btn-md btn-block" data-toggle="modal" data-target="#_permissions">{% trans "Change Permissions of this Map" %}</button>
+              </li>
+            {% endif %}
+          {% include "_permissions_form.html" %}
+          {% endif %}
         {% endif %}
 
-        <li class="list-group-item">
-          <h4>{% trans "Copy this map" %}</h4>
-          <p>{% trans "Duplicate this map and modify it for your own purposes" %}</p>
-          <a href="{% url "new_map" %}?copy={{ resource.id }}" class="btn btn-default btn-md btn-block">{% trans "Create a New Map" %}</a>
-        </li>
+        {% if not READ_ONLY_MODE %}
+          <li class="list-group-item">
+            <h4>{% trans "Copy this map" %}</h4>
+            <p>{% trans "Duplicate this map and modify it for your own purposes" %}</p>
+            <a href="{% url "new_map" %}?copy={{ resource.id }}" class="btn btn-default btn-md btn-block">{% trans "Create a New Map" %}</a>
+          </li>
+        {% endif %}
+
         {% if OGC_SERVER.default.BACKEND == 'geonode.qgis_server' %}
           <li class="list-group-item">
               <h4>{% trans "Embed this map" %}</h4>
@@ -278,8 +296,6 @@
                   <ul class="dropdown-menu btn-block" id="embed-map-list">
                       <li id="embed-iframe-link">
                           <a href="#">{% trans "Embed Iframe Link" %}</a></li>
-                      <li id="embed-widget-link">
-                          <a href="#">{% trans "Embed Widget Link" %}</a></li>
                       <li>
                           <a href="{% url 'map_download_leaflet' resource.id %}">{% trans "Download Leaflet page" %}</a></li>
                   </ul>
@@ -316,27 +332,6 @@
             </div>
         </div>
     </div>
-
-    <div class="modal fade" id="embed-widget" tabindex="-1" role="dialog" aria-labelledby="Embed Widget"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">{% trans "Embed Widget" %}</h4>
-                </div>
-                <div class="modal-body">
-                    <p>{% trans "To embed this map, copy the following code snippet into your own page" %}:</p>
-                    <pre id="embed-widget-body" style="font-size: 0.5em"></pre>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-clipboard-target="#embed-widget-body">{% trans "Copy to Clipboard" %}</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Close" %}</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
   {% endblock %}
 
 {% block extra_script %}

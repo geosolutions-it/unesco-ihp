@@ -8,11 +8,16 @@
 {% load base_tags %}
 {% load guardian_tags %}
 {% load client_lib_tags %}
+{% load proxy_lib_tags %}
+{% load layer_tags %}
 {% load get_survey_route %}
 
 {% block title %}{{ resource.title|default:resource.alternate }} — {{ block.super }}{% endblock %}
 
 {% block head %}
+
+  <META HTTP-EQUIV="Access-Control-Allow-Origin" CONTENT="{{ SITEURL }}">
+
   {% if TWITTER_CARD %}
     {% include "base/_resourcebase_twittercard.html" %}
   {% endif %}
@@ -26,7 +31,7 @@
 {% endblock %}
 
 
-{% block body_class %}layers{% endblock %}
+{% block body_class %}{% trans "layers" %}{% endblock %}
 
 {% block body_outer %}
 {% block style %}
@@ -60,7 +65,7 @@
 
 <div class="page-header">
     <h2 class="page-title">{{ resource.title|default:resource.alternate }}</h2>
-    {% if online and storeType == 'remoteStore' %}<em><i class="fa fa-power-off {% if online %}text-success{% else %}text-danger{% endif %}"></i> {% trans "Service is" %} {% if online %}{% trans "online" %}{% else %}{% trans "offline" %}{% endif %} </em>{% endif %}
+    {% if storeType == 'remoteStore' %}<em><i class="fa fa-power-off {% if online %}text-success{% else %}text-danger{% endif %}"></i> {% trans "Service is" %} {% if online %}{% trans "online" %}{% else %}{% trans "offline" %}{% endif %} </em>{% endif %}
 </div>
 
 <div class="row">
@@ -79,8 +84,8 @@
 
         {% if USE_GEOSERVER and DISPLAY_WMS_LINKS %}
         <p>
-          {% if request.user.is_authenticated and 'access_token' in request.session %}
-            <a href="{% url 'capabilities_layer' resource.id %}?access_token={{ request.session.access_token }}">
+          {% if request.user.is_authenticated and access_token %}
+            <a href="{% url 'capabilities_layer' resource.id %}?access_token={{access_token}}">
           {% else %}
             <a href="{% url 'capabilities_layer' resource.id %}">
           {% endif %}
@@ -95,7 +100,7 @@
             <form method="GET" action="{% url "layer_detail" resource.layer.service_typename %}">
                 {% csrf_token %}
                 <input type="text" id="filter" name="filter" style="witdh:400px"/>&nbsp;<input type="submit" value='{% trans "Filter Granules" %}'/>
-                </br>
+                <br/>
                 {% if filter %}
                 <strong>{% trans "Active Filter:" %}</strong> <em>{{ filter }}</em>
                 {% endif %}
@@ -119,8 +124,8 @@
                     <td>{% if feature.properties.time %}{{ feature.properties.time }}{% endif %}</td>
                     <!-- td>{% if feature.properties.elevation %}{{ feature.properties.elevation }}{% endif %}</td -->
                     <td>
-                        <a class="btn btn-xs" href="#" onclick="doPreview('{{ resource.service_typename }}', '{{ feature.id }}', '{{ granules.crs.properties.name }}', '{{ feature.geometry.coordinates }}', {% if feature.properties.time %}'{{ feature.properties.time }}'{% else %}null{% endif %});"><img alt="Granule Preview" title="Granule Preview" src="{% static 'lib/img/map_go.png' %}"/></a>
-                        <a class="btn btn-xs" href="{% url "layer_granule_remove" feature.id resource.service_typename %}"><img alt="Granule Remove" title="Granule Remove" src="{% static 'lib/img/cancel-on.png' %}"/></a>
+                        <a class="btn btn-xs" href="#" onclick="doPreview('{{ resource.service_typename }}', '{{ feature.id }}', '{{ granules.crs.properties.name }}', '{{ feature.geometry.coordinates }}', {% if feature.properties.time %}'{{ feature.properties.time }}'{% else %}null{% endif %});"><img alt="{% trans "Granule Preview" %}" title="{% trans "Granule Preview" %}" src="{% static 'lib/img/map_go.png' %}"/></a>
+                        <a class="btn btn-xs" href="{% url "layer_granule_remove" feature.id resource.service_typename %}"><img alt="{% trans "Granule Remove" %}" title="{% trans "Granule Remove" %}" src="{% static 'lib/img/cancel-on.png' %}"/></a>
                         <script language="Javascript">
                             function doPreview(layer_name, feature_id, srs, the_geom, time) {
                                 var map = app.mapPanel.map;
@@ -246,16 +251,6 @@
       </article>
       {% endif %}
 
-      {% if GEOGIG_ENABLED and resource.link_set.geogig %}
-        {% with "_geogig_layer_detail.html" as geogig_template %}
-        <article id="geogig" class="tab-pane">
-          {% with resource as obj %}
-            {% include geogig_template %}
-          {% endwith %}
-        </article>
-        {% endwith %}
-      {% endif %}
-
       {% if DISPLAY_RATINGS %}
       <article id="rate" class="tab-pane">
         <!-- TODO: Move this to a reusable template snippet -->
@@ -271,6 +266,11 @@
       </article>
       {% endif %}
 
+      {% if FAVORITE_ENABLED %}
+      <article class="tab-pane" id="favorite">
+        {% include "favorite/_favorite.html" %}
+      </article>
+      {% endif %}
     </div>
 
   </div>
@@ -304,10 +304,10 @@
             <div class="tabbable">
                 <ul class="nav nav-tabs">
                     {% if links %}
-                    <li class="active"><a href="#download_tab1" data-toggle="tab">Images</a></li>
+                    <li class="active"><a href="#download_tab1" data-toggle="tab">{% trans "Images" %}</a></li>
                     {% endif %}
                     {% if links_download %}
-                    <li><a href="#download_tab2" data-toggle="tab">Data</a></li>
+                    <li><a href="#download_tab2" data-toggle="tab">{% trans "Data" %}</a></li>
                     {% endif %}
                 </ul>
                 <div class="tab-content">
@@ -330,102 +330,114 @@
                     <div class="tab-pane" id="download_tab2">
                     {% endif %}
                       </br>
+
+                      <!-- DOWNLOAD FILTER - START -->
+
                       {% if layer_type == "vector" %}
-                        <button type="button" id = "button-toggle" class="btn btn-primary btn-circle" data-toggle="button" data-toggle="tooltip" title="Click to filter the layer">
+                        <button type="button" id = "button-toggle" class="btn btn-primary btn-circle" data-toggle="button" data-toggle="tooltip" title="{% trans "Click to filter the layer" %}">
                           {% trans "Do you want to filter it?" %}
                         </button>
-                        <img src="{% static 'lib/css/geonode_icon.png' %}" class="gear pull-right loading_msg" witdth="30" height="30" style="margin-right:10px; display:none"/>
+                        <img src="{% static 'geonode/img/geonode_icon.png' %}" class="gear pull-right loading_msg" witdth="30" height="30" style="margin-right:10px; display:none"/>
                         <div class="pull-right loading_msg" style="margin-right:10px;margin-top:5px;display:none">{% trans "Loading..." %}</div>
                         </br></br>
                       {% endif %}
-                      <ul class="nav nav-tabs" id="tabContent" style="display: none;">
+                        <ul class="nav nav-tabs" id="tabContent" style="display: none;">
                           <li class="active"><a href="#query_builder" data-toggle="tab">{% trans "Filter by attributes" %}</a></li>
-                      </ul>
+                        </ul>
                       </br>
 
-                      <div class="tab-content query_builder_tab" style="display:none;">  <!--  added now-->
+                      <div class="tab-content query_builder_tab" style="display:none;">
                         <div id="query_builder" class="tab-pane fade in active">
-                          <div class="form-inline">
+                            <div class="form-inline">
                             {% trans "Match" %}
-                            <div class="input-group" style=" display: inline-table; vertical-align: middle; width: auto;  ">
-                              <div class="input-group-btn" id="drop_operator_list">
-                               <div class="btn-group btn-group-xs">
-                                  <div class="dropdown">
-                                    <button class="btn btn-primary btn-xs dropdown-toggle" id="modal-button-and-or" type="button" data-toggle="dropdown" data-target="#" value="AND">
-                                      <span class="caret"></span></button>
-                                      <ul class="dropdown-menu dropdown-menu-and-or" id="and-or_list" data-modal-button-id="and-or">
-                                       <li><a href="#" id="AND">all</a></li>
-                                       <li><a href="#" id="OR">any</a></li>
-                                      </ul>
+                              <div class="input-group" style=" display: inline-table; vertical-align: middle; width: auto;  ">
+                                <div class="input-group-btn" id="drop_operator_list">
+                                <div class="btn-group btn-group-xs">
+                                    <div class="dropdown">
+                                      <button class="btn btn-primary btn-xs dropdown-toggle" id="modal-button-and-or" type="button" data-toggle="dropdown" value="AND">
+                                        <span class="caret"></span></button>
+                                        <ul class="dropdown-menu dropdown-menu-and-or" id="and-or_list" data-modal-button-id="and-or">
+                                          <li><a href="#" id="AND">{% trans "all" %}</a></li>
+                                          <li><a href="#" id="OR">{% trans "any" %}</a></li>
+                                        </ul>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
                             {% trans "of the following:" %}
-                          </div>
-                          </br></br>
-                          <div class="input-group" id = "query-filter-tools">
-                            <div class="input-group-btn">
-                              <div class="btn-group btn-group-sm">
-                                <div class="dropdown">
-                                  <button class="btn btn-primary dropdown-toggle" id="modal-button-attributes" type="button" data-toggle="dropdown" data-target="#">{% trans "Attribute" %}
-                                      <span class="caret"></span></button>
-                                    <ul class="dropdown-menu dropdown-menu-attribute" id="attribute_list" data-modal-button-id="attribute">
-                                      {% if schema %}
-                                        {% for key, values in schema.properties.items %}
-                                          <li><a href="#" id= {{ key }} data-type= {{ values }} data-schema= 'yes'>{{ key }}</a></li>
-                                        {% endfor %}
-                                      {% else %}
-                                        {% for attribute in resource.attributes %}
-                                          <li><a href="#" id= {{ attribute }} data-type= 'string' data-schema= 'no'> {{ attribute }} </a></li>
-                                        {% endfor %}
-                                      {% endif %}
+                            </div>
+                            </br></br>
+                            <div class="input-group" id = "query-filter-tools">
+                              <div class="input-group-btn">
+                                <div class="btn-group btn-group-sm">
+                                    <div class="dropdown">
+                                      <button class="btn btn-primary dropdown-toggle" id="modal-button-attributes" type="button" data-toggle="dropdown">{% trans "Attribute" %}<span class="caret"></span></button>
+                                      <ul class="dropdown-menu dropdown-menu-attribute" id="attribute_list" data-modal-button-id="attribute">
+                                        {% if schema %}
+                                          {% for key, values in schema.properties.items %}
+                                            <li><a href="#" id={{ key }} data-type={{ values }} data-schema= 'yes'>{{ key }}</a></li>
+                                          {% endfor %}
+                                        {% elif resource.attributes %}
+                                          {% for attribute in resource.attributes %}
+                                            <li><a href="#" id={{ attribute.attribute }} data-type='string' data-schema='no'>{{ attribute }}</a></li>
+                                          {% endfor %}
+                                        {% endif %}
+                                      </ul>
+                                    </div>
+                                </div>
+                                <div class="btn-group btn-group-sm">
+                                  <div class="dropdown">
+                                    <button class="btn btn-primary dropdown-toggle" id="modal-button-operator" type="button" data-toggle="dropdown">{% trans "Operator" %}<span class="caret"></span></button>
+                                    <ul class="dropdown-menu dropdown-menu-operator" id="operator_list" data-modal-button-id="operator">
+                                      <li><a href="#" id="=">=</a></li>
+                                      <li><a href="#" id="&lt;&gt;">&lt;&gt;</a></li>
+                                      <li><a href="#" id="&gt;">&gt;</a></li>
+                                      <li><a href="#" id="&lt;">&lt;</a></li>
+                                      <li><a href="#" id="&gt;=">&gt;=</a></li>
+                                      <li><a href="#" id="&lt;=">&lt;=</a></li>
+                                      <li role="separator" class="divider"></li>
+                                      <li><a href="#" id=" LIKE ">LIKE</a></li>
                                     </ul>
+                                  </div>
                                 </div>
                               </div>
-                              <div class="btn-group btn-group-sm">
-                                <div class="dropdown">
-                                  <button class="btn btn-primary dropdown-toggle" id="modal-button-operator" type="button" data-toggle="dropdown" data-target="#">{% trans "Operator" %}
-                                      <span class="caret"></span></button>
-                                  <ul class="dropdown-menu dropdown-menu-operator" id="operator_list" data-modal-button-id="operator">
-                                   <li><a href="#" id="=">=</a></li>
-                                     <li><a href="#" id="&lt;&gt;">&lt;&gt;</a></li>
-                                     <li><a href="#" id="&gt;">&gt;</a></li>
-                                     <li><a href="#" id="&lt;">&lt;</a></li>
-                                     <li><a href="#" id="&gt;=">&gt;=</a></li>
-                                     <li><a href="#" id="&lt;=">&lt;=</a></li>
-                                     <li role="separator" class="divider"></li>
-                                     <li><a href="#" id=" LIKE ">LIKE</a></li>
-                                  </ul>
-                                </div>
+                              <select class="form-control js-data-array" style="position:static;" id="single_value" placeholder="" data-toggle="tooltip" title=""></select>
+                              <div class="input-group-btn" id="button_query">
+                                <a href="#" id="query_part" class="btn btn-primary btn-mg" data-toggle="modal" data-target="#myModal" title=""><span class="glyphicon glyphicon-plus"></span></a>
                               </div>
                             </div>
-                            <input type="text" class="form-control js-data-array" style="position:static;" id="single_value" placeholder="" data-toggle="tooltip" title="">
-                            <div class="input-group-btn" id="button_query">
-                              <a href="#" id="query_part" class="btn btn-primary btn-mg" data-toggle="modal" data-target="#myModal" title=""><span class="glyphicon glyphicon-plus"></span></a>
+                            </br>
+                            <div class="text_area">
+                              <div class="form-group" id="added_rules"></div>
+                              <div>
+                                  <p id="whole_query"> </p>
+                              </div>
                             </div>
+                            <label style="font-weight: normal;">{% trans "Feature limit" %}: </label>
+                            <input type="text" id="max_features" name="filter" style="width: 50px"/>
+                            <a href='#' id="clear_filter" style="float:right;">{% trans "Clear" %}</a> </br>
                           </div>
-                          </br>
-                          <div class="text_area">
-                            <div class="form-group" id="added_rules"></div>
-                            <div>
-                                <p id="whole_query"> </p>
-                            </div>
-                          </div>
-                          <label style="font-weight: normal;">Feature limit: </label>
-                          <input type="text" id="max_features" name="filter" style="width: 50px"/>
-                          <a href='#' id="clear_filter" style="float:right;">Clear</a> </br>
-                        </div>
                         <hr id="hr_filter_layer" />
                       </div>
-                      <li>
-                          <h4>{% trans "Pick your download format:" %}</h4>
-                          <ul>
-                            {% for link in links_download %}
+
+                      <!-- DOWNLOAD FILTER - END -->
+
+                      <h4>{% trans "Pick your download format:" %}</h4>
+                      <ul>
+                        {% for link in links_download %}
+                          {% if link.name == 'Original Dataset' %}
+                            {% original_link_available resource.id link.url as original_dwn_link_available %}
+                            {% if original_dwn_link_available %}
                             <li><a href="{{ resource | get_survey_route }}?download_url={{ link.url | urlencode }}&next={% url "layer_detail" resource.layer.service_typename %}" target="_blank" id="{{ link.name | slugify }}" class="urls">{% trans link.name %}</a></li>
-                            {% endfor %}
-                          </ul>
-                      </li>
+                            {% else %}
+                            <!-- Hide the link instead. Uncomment the lines below to present a warning to the users. -->
+                            <!-- li><a href="javascript:thumbnailFeedbacks('{% trans "No data available for this resource. Please contact a system administrator or a manager." %}', '{% trans "Warning" %}');" id="{{ link.name | slugify }}" class="urls">{% trans link.name %}</a></li -->
+                            {% endif %}
+                          {% else %}
+                            <li><a href="{{ resource | get_survey_route }}?download_url={{ link.url | urlencode }}&next={% url "layer_detail" resource.layer.service_typename %}" target="_blank" id="{{ link.name | slugify }}" class="urls">{% trans link.name %}</a></li>
+                          {% endif %}
+                        {% endfor %}
+                      </ul>
                     </div>
                 {% endif %}
                 </div>
@@ -459,87 +471,90 @@
             </a>
         </li>
     {% endif %}
-    {% if "change_resourcebase_metadata" in perms_list or "change_resourcebase" in perms_list or "delete_resourcebase" in perms_list or "change_layer_style" in layer_perms %}
-    <li class="list-group-item">
-      <button class="btn btn-primary btn-md btn-block" data-toggle="modal" data-target="#edit-layer">{% trans "Edit Layer" %}</button>
-    </li>
-    <div class="modal fade" id="edit-layer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title" id="myModalLabel">{% trans "Edit Layer" %}</h4>
-          </div>
-          <div class="modal-body">
-            <div class="row edit-modal">
-              {% if "change_resourcebase_metadata" in perms_list %}
-              <div class="col-sm-3">
-                <i class="fa fa-list-alt fa-3x"></i>
-                <h4>{% trans "Metadata" %}</h4>
-                <a class="btn btn-default btn-block btn-xs" href="{% url "layer_metadata" resource.service_typename %}">{% trans "Wizard" %}</a>
-                <a class="btn btn-default btn-block btn-xs" href="{% url "layer_metadata_advanced" resource.service_typename %}">{% trans "Advanced Edit" %}</a>
-                <a class="btn btn-default btn-block btn-xs" href="{% url "layer_metadata_upload" resource.service_typename %}">{% trans "Upload Metadata" %}</a>
-                {% if USE_WORLDMAP %}
-                  <a class="btn btn-default btn-block btn-xs" href="/layers/{{ resource.service_typename }}/searchable-fields">{% trans "Search" %}</a>
-                  <a class="btn btn-default btn-block btn-xs" href="/gazetteer/edit/{{ resource.service_typename }}">{% trans "Gazetteer" %}</a>
-                {% endif %}
-              </div>
-              {% endif %}
-              {% if GEOSERVER_BASE_URL and not resource.service %}
-                {% if "change_layer_style" in layer_perms %}
-                <div class="col-sm-3">
-                  <i class="fa fa-tint fa-3x"></i>
-                  <h4>{% trans "Styles" %}</h4>
-                  {% if preview == 'geoext' or preview == 'react' or  preview == 'leaflet' or preview == 'maploom' %}
-                    <a class="btn btn-default btn-block btn-xs style-edit" data-dismiss="modal" href="#">{% trans "Edit" %}</a>
-                  {% else %}
-                    <a class="btn btn-default btn-block btn-xs style-edit" href="{% url "layer_sld_edit" resource.service_typename %}">{% trans "Edit" %}</a>
-                  {% endif %}
-                  {% if resource.storeType != "remoteStore" %}
-                  <a class="btn btn-default btn-block btn-xs" href="{% url "layer_sld_upload" resource.service_typename %}">{% trans "Upload" %}</a>
-                  <a class="btn btn-default btn-block btn-xs" href="{% url "layer_style_manage" resource.service_typename %}">{% trans "Manage" %}</a>
-                  {% endif %}
-                </div>
-                {% endif %}
-              {% elif OGC_SERVER.default.BACKEND == 'geonode.qgis_server' and not resource.service %}
-                {% if "change_layer_style" in layer_perms and preview == 'leaflet' %}
-                <div class="col-sm-3">
-                  <i class="fa fa-tint fa-3x"></i>
-                  <h4>{% trans "Styles" %}</h4>
-                  <a class="btn btn-default btn-block btn-xs style-edit" data-dismiss="modal" href="#">{% trans "Edit" %}</a>
-                </div>
-                {% endif %}
-              {% endif %}
-              {% if "change_resourcebase" in perms_list %}
-              <div class="col-sm-3">
-                <i class="fa fa-photo fa-3x"></i>
-                <h4>{% trans "Thumbnail" %}</h4>
-                <a class="btn btn-default btn-block btn-xs" href="#" id="set_thumbnail">{% trans "Set" %}</a>
-              </div>
-              {% endif %}
-              {% if "change_resourcebase" in perms_list or "delete_resourcebase" in perms_list or "change_layer_data" in layer_perms %}
-              <div class="col-sm-3">
-                <i class="fa fa-square-o fa-3x rotate-45"></i>
-                <h4>{% trans "Layer" %}</h4>
-                {% if "change_resourcebase" in perms_list and resource.storeType != "remoteStore" %}
-                <a class="btn btn-default btn-block btn-xs" href="{% url "layer_replace" resource.service_typename %}">{% trans "Replace" %}</a>
-                {% endif %}
-                {% if resource.storeType == 'dataStore' and "change_layer_data" in layer_perms and OGC_SERVER.default.BACKEND == 'geonode.geoserver' %}
-                <a class="btn btn-default btn-block btn-xs" href="{% url "new_map" %}?layer={{resource.service_typename}}&storeType={{resource.storeType}}">{% trans "Edit data" %}</a>
-                {% endif %}
-                {% if "delete_resourcebase" in perms_list %}
-                <a class="btn btn-danger btn-block btn-xs" href="{% url "layer_remove" resource.service_typename %}">{% trans "Remove" %}</a>
-                {% endif %}
-              </div>
-              {% endif %}
+    {% if not READ_ONLY_MODE %}
+      {% if "change_resourcebase_metadata" in perms_list or "change_resourcebase" in perms_list or "delete_resourcebase" in perms_list or "change_layer_style" in layer_perms %}
+      <li class="list-group-item">
+        <button class="btn btn-primary btn-md btn-block" data-toggle="modal" data-target="#edit-layer">{% trans "Editing Tools" %}</button>
+      </li>
+      <div class="modal fade" id="edit-layer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel">{% trans "Edit Layer" %}</h4>
             </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Close" %}</button>
+            <div class="modal-body">
+              <div class="row edit-modal">
+                {% if "change_resourcebase_metadata" in perms_list %}
+                <div class="col-sm-3">
+                  <i class="fa fa-list-alt fa-3x"></i>
+                  <h4>{% trans "Metadata" %}</h4>
+                  <a class="btn btn-default btn-block btn-xs" href="{% url "layer_metadata" resource.service_typename %}">{% trans "Wizard" %}</a>
+                  <a class="btn btn-default btn-block btn-xs" href="{% url "layer_metadata_advanced" resource.service_typename %}">{% trans "Advanced Edit" %}</a>
+                  <a class="btn btn-default btn-block btn-xs" href="{% url "layer_metadata_upload" resource.service_typename %}">{% trans "Upload Metadata" %}</a>
+                </div>
+                {% endif %}
+                {% if GEOSERVER_BASE_URL and not resource.service %}
+                  {% if "change_layer_style" in layer_perms %}
+                    {% if resource.storeType != "remoteStore" %}
+                    <div class="col-sm-3">
+                      <i class="fa fa-tint fa-3x"></i>
+                      <h4>{% trans "Styles" %}</h4>
+                      {% if preview == 'react' or preview == 'leaflet' %}
+                        <a class="btn btn-default btn-block btn-xs style-edit" data-dismiss="modal" href="#">{% trans "Edit" %}</a>
+                      {% else %}
+                        <a class="btn btn-default btn-block btn-xs style-edit" href="{% url "layer_sld_edit" resource.service_typename %}">{% trans "Edit" %}</a>
+                      {% endif %}
+                      <a class="btn btn-default btn-block btn-xs" href="{% url "layer_sld_upload" resource.service_typename %}">{% trans "Upload" %}</a>
+                      <a class="btn btn-default btn-block btn-xs" href="{% url "layer_style_manage" resource.service_typename %}">{% trans "Manage" %}</a>
+                    </div>
+                    {% endif %}
+                  {% endif %}
+                {% elif OGC_SERVER.default.BACKEND == 'geonode.qgis_server' and not resource.service %}
+                  {% if "change_layer_style" in layer_perms and preview == 'leaflet' %}
+                  <div class="col-sm-3">
+                    <i class="fa fa-tint fa-3x"></i>
+                    <h4>{% trans "Styles" %}</h4>
+                    <a class="btn btn-default btn-block btn-xs style-edit" data-dismiss="modal" href="#">{% trans "Edit" %}</a>
+                  </div>
+                  {% endif %}
+                {% endif %}
+                {% if "change_resourcebase" in perms_list %}
+                <div class="col-sm-3">
+                  <i class="fa fa-photo fa-3x"></i>
+                  <h4>{% trans "Thumbnail" %}</h4>
+                  {% if resource.storeType != "remoteStore" %}
+                    <a class="btn btn-default btn-block btn-xs" href="#" id="set_thumbnail">{% trans "Set" %}</a>
+                  {% endif %}
+                  <a class="btn btn-default btn-block btn-xs" href="{% url "thumbnail_upload" resource.resourcebase_ptr.id %}">{% trans "Upload" %}</a>
+                </div>
+                {% endif %}
+                {% if "change_resourcebase" in perms_list or "delete_resourcebase" in perms_list or "change_layer_data" in layer_perms %}
+                <div class="col-sm-3">
+                  <i class="fa fa-square-o fa-3x rotate-45"></i>
+                  <h4>{% trans "Layer" %}</h4>
+                  {% if "change_resourcebase" in perms_list and resource.storeType != "remoteStore" %}
+                  <a class="btn btn-default btn-block btn-xs" href="{% url "layer_replace" resource.service_typename %}">{% trans "Replace" %}</a>
+                  {% endif %}
+                  {% if "change_layer_data" in layer_perms and OGC_SERVER.default.BACKEND == 'geonode.geoserver' %}
+                    {% if layer_type != "raster" and resource.storeType != "remoteStore" %}
+                    <a class="btn btn-default btn-block btn-xs" href="{% url "new_map" %}?layer={{resource.service_typename}}&storeType={{resource.storeType}}">{% trans "Edit data" %}</a>
+                    {% endif %}
+                  {% endif %}
+                  {% if "delete_resourcebase" in perms_list %}
+                  <a class="btn btn-danger btn-block btn-xs" href="{% url "layer_remove" resource.service_typename %}">{% trans "Remove" %}</a>
+                  {% endif %}
+                </div>
+                {% endif %}
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">{% trans "Close" %}</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      {% endif %}
     {% endif %}
 
     <li class="list-group-item">
@@ -560,7 +575,7 @@
           <div class="modal-body">
 		    <div style="margin-bottom:20px">
 				 <h5 class="modal-title" id="myModalLabel">
-				Full metadata
+				{% trans "Full metadata" %}
 				 </h5>
                  <ul>
  					<li><a target="_blank" href="{{ resource | get_survey_route }}?download_url=../../../../catalogue/csw_to_extra_format/{{resource.uuid}}/{{resource.title}}.txt&next={% url "layer_detail" resource.layer.service_typename %}"> Text format </a></li>
@@ -569,7 +584,7 @@
 			</div>
 		    <div style="margin-bottom:20px">
 			<h5 class="modal-title" id="myModalLabel">
-			Standard Metadata - XML format
+			{% trans "Standard Metadata - XML format" %}
 			</h5>
             <ul>
               {% for link in metadata %}
@@ -578,7 +593,7 @@
             <ul>
             </div>
             {% if resource.storeType == 'dataStore' %}
-            <h5 class="modal-title" id="myModalLabel">Attribute Information</h5>
+            <h5 class="modal-title" id="myModalLabel">{% trans "Attribute Information" %}</h5>
             <ul>
               <li><a href="{{ resource | get_survey_route }}?download_url={{ resource.get_absolute_url }}/feature_catalogue&next={% url "layer_detail" resource.layer.service_typename %}" target="_blank">ISO Feature Catalogue</a></li>
             <ul>
@@ -594,42 +609,54 @@
     {% if resource.get_legend %}
     <li class="list-group-item">
       <h4 class="list-group-item-heading">{%trans "Legend" %}</h4>
-      {% for style in resource.styles.all %}
-          {% if resource.default_style == style %}
+      {% if resource.default_style %}
+      {% get_all_resource_styles resource as resource_styles_all%}
+      {% for style in resource_styles_all %}
+          {% if resource.default_style == style or resource.default_style.name == style.name or resource.default_style.sld_title == style.sld_title %}
               {% for legend in resource.get_legend %}
-                  {% if legend.link_type == 'image' and style.name in legend.url %}
-                    <!-- p>{{ style.sld_title|default:style.name }}</p -->
-                    {% if request.user.is_authenticated and 'access_token' in request.session %}
-                        <p><img id="legend_icon" src="{{ legend.url }}&access_token={{ request.session.access_token }}"></p>
+                  {% get_sld_name_from_url style.sld_url as sld_name %}
+                  {% with "STYLE="|add:sld_name as style_name %}
+                  {% if legend.link_type == 'image' and style_name in legend.url %}
+                    <p id="legend_sld_title" style="font-size:10px">{{ style.sld_title|default:style.name }}</p>
+                    {% if request.user.is_authenticated and access_token %}
+                        <p><img id="legend_icon" src="{{ legend.url }}&access_token={{access_token}}"></p>
                     {% else %}
                         <p><img id="legend_icon" src="{{ legend.url }}"></p>
                     {% endif %}
                   {% else %}
                   <div id='legend_placeholder'></div>
                   {% endif %}
+                  {% endwith %}
               {% endfor %}
           {% endif %}
       {% endfor %}
+      {% else %}
+        {% for legend in resource.get_legend %}
+            <p><img id="legend_icon" src="{{ legend.url }}"></p>
+        {% endfor %}
+      {% endif %}
     </li>
     {% endif %}
     <li class="list-group-item">
       <h4>{% trans "Maps using this layer" %}</h4>
-      {% if resource.maps %}
+      {% if map_layers %}
         <p>{% trans "List of maps using this layer:" %}</p>
         {% endif %}
         <ul class="list-unstyled">
-          {% for maplayer in resource.maps %}
+          {% for maplayer in map_layers %}
             <li><a href="{{ maplayer.map.get_absolute_url }}">{{ maplayer.map.title }}</a></li>
           {% empty %}
             <li>{% trans "This layer is not currently used in any maps." %}</li>
           {% endfor %}
         </ul>
     </li>
-    <li class="list-group-item">
-      <h4>{% trans "Create a map using this layer" %}</h4>
-      <p>{% trans "Click the button below to generate a new map based on this layer." %}</p>
-        <a href="{% url "new_map" %}?layer={{resource.service_typename}}" class="btn btn-primary btn-block">{% trans "Create a Map" %}</a>
-    </li>
+    {% if not READ_ONLY_MODE %}
+      <li class="list-group-item">
+        <h4>{% trans "Create a map using this layer" %}</h4>
+        <p>{% trans "Click the button below to generate a new map based on this layer." %}</p>
+          <a href="{% url "new_map" %}?layer={{resource.service_typename}}" class="btn btn-primary btn-block">{% trans "Create a Map" %}</a>
+      </li>
+    {% endif %}
     {% if maps %}
         <li class="list-group-item">
             <h4>{% trans "Add the layer to an existing map" %}</h4>
@@ -659,16 +686,18 @@
     </li>
     {% endif %}
 
+    {% if OGC_SERVER.default.BACKEND == 'geonode.geoserver' and resource.storeType != "remoteStore" %}
     <li class="list-group-item">
       <h4>{% trans "Styles" %}</h4>
        <p>{% trans "The following styles are associated with this layer. Choose a style to view it in the preview map." %}</p>
        <ul class="list-unstyled">
         {% if OGC_SERVER.default.BACKEND == 'geonode.geoserver' %}
-            {% for style in resource.styles.all %}
+            {% get_all_resource_styles resource as resource_styles_all%}
+            {% for style in resource_styles_all %}
             <li>
               {% if resource.default_style == style %}
               <input type="radio" checked name="style" id="{{ style.name }}" value="{{ style.sld_title|default_if_none:style.name }}"/>
-              (default style)
+              {% trans "(default style)" %}
               {% else %}
               <input type="radio" name="style" id="{{ style.name }}" value="{{ style.sld_title|default_if_none:style.name }}"/>
               {% endif %}
@@ -682,7 +711,7 @@
             <li>
               {% if resource.qgis_layer.default_style == style %}
               <input type="radio" checked name="style" id="{{ style.name }}" value="{{ style.title }}"/>
-              (default style)
+              {% trans "(default style)" %}
               {% else %}
               <input type="radio" name="style" id="{{ style.name }}" value="{{ style.title }}"/>
               {% endif %}
@@ -694,38 +723,68 @@
         {% endif %}
       </ul>
     </li>
+    {% endif %}
+
+    {% if resource.storeType == "remoteStore" %}
+    <li class="list-group-item">
+      <h4>{% trans "External service layer" %}</h4>
+      <div>{% trans "Source" %}: <a href="/services/{{resource.remote_service.id}}">{{ resource.remote_service.title }}</a>
+      </div>
+      <div>{% trans "Type" %}: {{ resource.remote_service.type }}</div>
+    </li>
+    {% endif %}
 
     {% if OGC_SERVER.default.BACKEND == 'geonode.geoserver' %}
-        {% if "change_resourcebase" in perms_list %}
+      {% if "change_resourcebase" in perms_list and resource.storeType != "remoteStore" %}
+        {% if not READ_ONLY_MODE %}
+        <li class="list-group-item">
+          <h4>{% trans "Refresh Attributes and Statistics of this layer" %}</h4>
+          <p>{% trans "Click the button below to allow GeoNode refreshing the list of available Layer Attributes. If the option 'WPS_ENABLED' has been also set on the backend, it will recalculate their statistics too." %}</p>
+            <a href="#" class="btn btn-primary btn-block" data-dismiss="modal" id="attributes_sats_refresh">{% trans "Refresh Attributes and Statistics" %}</a>
+        </li>
+        {% endif %}
         <li class="list-group-item">
           <h4>{% trans "Clear the Server Cache of this layer" %}</h4>
           <p>{% trans "Click the button below to wipe the tile-cache of this layer." %}</p>
             <a href="#" class="btn btn-primary btn-block" data-dismiss="modal" id="tiledlayer_refresh">{% trans "Empty Tiled-Layer Cache" %}</a>
         </li>
-        {% endif %}
+      {% endif %}
     {% endif %}
 
     {% if GEONODE_SECURITY_ENABLED %}
-    {% if "change_resourcebase_permissions" in perms_list %}
-    <li class="list-group-item">
-      <h4>{% trans "Permissions" %}</h4>
-      <p>{% trans "Click the button below to change the permissions of this layer." %}</p>
-      <p><a href="#modal_perms" data-toggle="modal" class="btn btn-primary btn-block" data-target="#_permissions">{% trans "Change Layer Permissions" %}</a></p>
-    </li>
-    {% endif %}
-    {% endif %}
-
-    {% if resource.storeType == "remoteStore" %}
-    <li class="list-group-item">
-            <h4>{% trans "External service layer" %}</h4>
-            <div>{% trans "Source" %}: <a href="/services/{{resource.service.id}}">{{ resource.service.title }}</a></div>
-            <div>{% trans "Type" %}: {{ resource.service.type }}</div>
-    </li>
+      {% if "change_resourcebase_permissions" in perms_list %}
+        {% if not READ_ONLY_MODE %}
+          <li class="list-group-item">
+            <h4>{% trans "Permissions" %}</h4>
+            <p>{% trans "Click the button below to change the permissions of this layer." %}</p>
+            <p><a href="#modal_perms" data-toggle="modal" class="btn btn-primary btn-block" data-target="#_permissions">{% trans "Change Layer Permissions" %}</a></p>
+            {% if USE_GEOSERVER and DELAYED_SECURITY_SIGNALS %}
+              <a href="#" class="btn btn-primary btn-block" data-dismiss="modal" id="security_refresh">{% trans "Sync permissions immediately" %}</a>
+            {% endif %}
+          </li>
+        {% endif %}
+      {% endif %}
     {% endif %}
 
     {% include "base/_resourcebase_contact_snippet.html" %}
   </ul>
 
+  <div class="modal fade" style="width: 100%; height: 100%;" id="_perms_processing" data-backdrop="static" data-keyboard="false" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h1>{% trans "Processing..." %}</h1>
+              </div>
+              <div class="modal-body">
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+                      {% trans "Updating Permissions..." %}
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 
   {% if GEONODE_SECURITY_ENABLED %}
     {% include "_permissions_form.html" %}
@@ -737,12 +796,6 @@
 
 {% block extra_script %}
 {{ block.super }}
-    {% if GEOGIG_ENABLED and resource.link_set.geogig %}
-        {% with "_geogig_scripts.html" as geogig_scripts_template %}
-            {% include  geogig_scripts_template %}
-        {% endwith %}
-    {% endif %}
-
     {% if request.user.is_authenticated %}
         {% user_rating_js request.user resource "layer" %}
     {% else %}
@@ -750,48 +803,42 @@
     {% endif %}
     {% include 'rating.html' %}
     {% include 'request_download.html' %}
-    {% if DISPLAY_SOCIAL %}
-     (function() {
-       var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-       po.src = 'https://apis.google.com/js/plusone.js';
-       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-     })();
-    {% endif %}
-    <script type="text/javascript">
-       $("#comment_submit_btn").click(function(event) {
-            $.ajax({
-              type: "POST",
-              url: $("#form_post_comment").attr('action'),
-              data: $("#form_post_comment").serialize(),
-              success: function() {
-                $('#form_post_comment_div').modal().find('form')[0].reset();
-                $('#form_post_comment_div').modal('hide');
-                $('#comments_section').load(window.location.pathname + ' #comments_section',
-                		function(){$(this).children().unwrap()})
-              }
-            });
-            return false;
-          });
 
-    {% if resource.get_legend.link_type == 'json' %}
-    $.getJSON('{{ resource.get_legend_url }}', function (data) {
-        var legend = data.layers[0].legend;
-        var items = [];
-        $.each(legend, function (key, dvalue) {
-            items.push('<li><img src="data:image/png;base64,' + dvalue.imageData + '">'+dvalue.label+'</li>');
+    <script type="text/javascript">
+      $("#comment_submit_btn").click(function(event) {
+          $.ajax({
+            type: "POST",
+            url: $("#form_post_comment").attr('action'),
+            data: $("#form_post_comment").serialize(),
+            success: function() {
+              $('#form_post_comment_div').modal().find('form')[0].reset();
+              $('#form_post_comment_div').modal('hide');
+              $('#comments_section').load(window.location.pathname + ' #comments_section',
+                  function(){$(this).children().unwrap()})
+            }
+          });
+          return false;
         });
 
-        $('<ul/>', {
-            'class': 'arcgis-legend',
-            html: items.join('')
+        {% if resource.get_legend.link_type == 'json' %}
+        $.getJSON('{{ resource.get_legend_url }}', function (data) {
+            var legend = data.layers[0].legend;
+            var items = [];
+            $.each(legend, function (key, dvalue) {
+                items.push('<li><img src="data:image/png;base64,' + dvalue.imageData + '">'+dvalue.label+'</li>');
+            });
 
-        }).appendTo('#legend_placeholder');
-    });
-    {% endif %}
-        </script>
+            $('<ul/>', {
+                'class': 'arcgis-legend',
+                html: items.join('')
+
+            }).appendTo('#legend_placeholder');
+        });
+        {% endif %}
+    </script>
 
     {% block thumbnail_script %}
-        <script type="text/javascript">
+      <script type="text/javascript">
             {% if preview == 'react' %}
             $('#set_thumbnail').click(function(){
               window.setThumbnail({{resource.id}})
@@ -803,10 +850,11 @@
               $('#edit-layer').modal('toggle');
             });
             {% endif %}
-        </script>
+      </script>
     {% endblock thumbnail_script %}
 
-    <script type="text/javascript">
+  <script type="text/javascript">
+
       // set default values for the logical operator list
       $("#modal-button-and-or:first-child").text($("#AND").text());
       $("#and-or_list li:not(.divider)").addClass('selected');
@@ -851,7 +899,7 @@
         attribute_data_schema = $("#attribute_list li.selected a").attr('data-schema');
         if(attribute_list == null || operator_list == null || single_value_input == "" ||  logical_operator_dropdown == null){
           if($("#missing-values").length == 0) {
-            $( "#query-filter-tools" ).after( "<p id='missing-values'> Select all values from menus.</p>" );
+            $("#query-filter-tools").after( "<p id='missing-values'> Select all values from menus.</p>" );
           }
         } else {
             if($("#missing-values").length !== 0) {
@@ -860,7 +908,7 @@
             // validation that user enters a string for a string attribute or a number for a number attribute
             var single_value_input = '';
             try {
-                single_value_input = ($('#single_value').select2('data').text).trim();
+                single_value_input = ($('#single_value').select2('data')[0].text).trim();
             } catch (err) {
                 single_value_input = '';
             }
@@ -869,15 +917,19 @@
               if($("#wrong-data-type").length !== 0) {
                   $('#wrong-data-type').empty();
               }
-              $( "#query-filter-tools" ).after( "<p id='wrong-data-type'> You entered a string. Not a number.</p>" );
+              $("#query-filter-tools").after( "<p id='wrong-data-type'> You entered a string. Not a number.</p>" );
             } else {
               $( "p" ).remove( "#wrong-data-type" );
               // check of single_value_input; string or number
-              if (isNaN(single_value_input)){
-                let checkArr = ["=", "<>", ">", "<", ">=", "<="];
-                if (checkArr.includes(operator_list)) {
-                  single_value_input = "'" + single_value_input + "'";
-                } else if (operator_list == " LIKE ") {
+              let checkArr = ["=", "<>", ">", "<", ">=", "<="];
+              if (checkArr.includes(operator_list)) {
+                if (isNaN(single_value_input)){
+                  single_value_input = "'" + single_value_input.replace(/'/g, "''") + "'";
+                }
+              } else if (operator_list == " LIKE ") {
+                if(single_value_input.indexOf('%') >= 0) {
+                  single_value_input = "'" + single_value_input.replace(/%/g, '%25') + "'";
+                } else {
                   single_value_input = "'%25" + single_value_input + "%25'";
                 }
               }
@@ -921,7 +973,7 @@
         }
         idValue = $(this).attr("id");
 
-        if (typeof all_urls !== 'undefined') {
+        if (idValue !== "original-dataset" && typeof all_urls !== 'undefined') {
             url_main = all_urls[idValue]
           if(cql_filters.length >1) {
             addressValue = url_main + complete_cql
@@ -949,8 +1001,8 @@
               url: whole_url,
               data: { json_data: JSON.stringify({ layer_name: layer_name, filtered_attributes: filtered_attributes }) },
               beforeSend: function (xhr) {
-              {% if request.user.is_authenticated and 'access_token' in request.session %}
-                xhr.setRequestHeader ("Authorization", "Bearer {{ request.session.access_token }}");
+              {% if request.user.is_authenticated and access_token %}
+                xhr.setRequestHeader ("Authorization", "Bearer {{access_token}}");
               {% endif %}
                 $( ".loading_msg" ).show();
               },
@@ -962,31 +1014,24 @@
                   $("#modal-button-attributes:first-child").text($(this).text()).val($(this).text());
 
                   // functionality added for the autocomplete
-                  property_name = $("#modal-button-attributes:first-child").text();
-
+                  property_name = $(this).attr("id");
                   attribute_values = data['feature_properties'];
                   selected_data = attribute_values[$.trim(property_name)];
-
                   selected_data_prepare = [];
                   for (i = 0; i < selected_data.length; i++) {
-                    jsonString = {
+                    var jsonString = {
                       id: i,
                       text: selected_data[i].toString()
                     };
-                    selected_data_val = jsonString;
-                    selected_data_prepare.push(selected_data_val);
+                    selected_data_prepare.push(jsonString);
                   }
-                  $(".js-data-array").select2({
+
+                  $("#single_value").empty();
+                  $("#single_value").select2({
                     data: selected_data_prepare,
                     // allow new values by the user
-                    createSearchChoice:function(term, data) {
-                      if ($(data).filter( function() {
-                        return this.text.localeCompare(term)===0;
-                      }).length===0) {
-                        return {id:term, text:term};
-                      }
-                    },
-                  })
+                    tags: true
+                  });
                 });
                 ajax_loaded = true;
               }
@@ -994,14 +1039,13 @@
           } else {
             $('#tabContent, .query_builder_tab').show();
           }
-
         } else {
           $("#button-toggle").css(enable_filter_style);
           $('#tabContent, .query_builder_tab').hide();
         }
         // clear filters
         $(document.body).on("click", "#clear_filter",function(e){
-          $( "#added_rules" ).empty();
+          $('#added_rules').empty();
           $('#max_features').val("");
           query=[];
           $("#button-toggle").removeClass( "clicked" );
@@ -1013,9 +1057,22 @@
       {% if show_popup %}
         $('#download-layer').modal('toggle');
       {% endif %}
-    </script>
+
+  </script>
 
     {% if GEONODE_SECURITY_ENABLED %}
     {% include "_permissions_form_js.html" %}
+      <script type='text/javascript'>
+            $(function() {
+                if (sessionStorage.getItem("security_refresh_trigger")) {
+                    sessionStorage.clear();
+                    $("#security_refresh").trigger('click');
+                }
+            });
+      </script>
+    {% endif %}
+
+    {% if FAVORITE_ENABLED %}
+    {% include "favorite/_favorite_js.html" %}
     {% endif %}
 {% endblock extra_script %}
