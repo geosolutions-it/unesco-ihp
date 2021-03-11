@@ -1,0 +1,24 @@
+{
+    "locale": "fr-FR",
+    "messages": {
+        "gnhome": {
+            "description": "<div style=\"text-align:right;padding-bottom:2rem;\"><h1 style=\"font-size:38px;\">Welcome to the Water Information Network System</h1><h1 style=\"font-size:26px;font-weight:bold;font-style:italic;\">by the Intergovernmental Hydrological Programme of UNESCO</h1><br><img src=\"static/img/logo_ihp_white.png\"></div>",
+            "uploadLayers": "Upload Layers",
+            "profile": "Profile",
+            "recentActivity": "Recent Activity",
+            "inbox": "Inbox",
+            "notifications": "Notifications",
+            "announcements": "Announcements",
+            "inviteUsers": "Invite Users",
+            "geoServer": "GeoServer",
+            "monitoring": "Monitoring",
+            "help": "Help",
+            "library": "Bibliothèque",
+            "people": "Utilisateurs",
+            "groups": "Groupes",
+            "aboutUs": "About Us",
+            "termsOfUse": "Terms of Use",
+            "getStarted": "Get Started"
+        }
+    }
+}

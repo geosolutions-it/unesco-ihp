@@ -390,7 +390,7 @@ DEFAULT_MS2_BACKGROUNDS = [
         "name": "mapnik",
         "source": "osm",
         "group": "background",
-        "visibility": True
+        "visibility": False
     },
     {
         "type": "tileprovider",
@@ -441,18 +441,29 @@ DEFAULT_MS2_BACKGROUNDS = [
 ]
 
 if MAPBOX_ACCESS_TOKEN:
-    MAPBOX_BASEMAPS = {
+    MAPBOX_SATELLITE = {
         "type": "tileprovider",
-        "title": "MapBox streets-v11",
+        "title": "MapBox Satellite",
         "provider": "MapBoxStyle",
-        "name": "MapBox streets-v11",
+        "name": "MapBox Satellite",
+        "accessToken": "%s" % MAPBOX_ACCESS_TOKEN,
+        "source": "satellite-v9",
+        "thumbURL": "https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/6/33/23?access_token=%s" % MAPBOX_ACCESS_TOKEN,
+        "group": "background",
+        "visibility": True
+    }
+    MAPBOX_STREETS = {
+        "type": "tileprovider",
+        "title": "MapBox Streets",
+        "provider": "MapBoxStyle",
+        "name": "MapBox Streets",
         "accessToken": "%s" % MAPBOX_ACCESS_TOKEN,
         "source": "streets-v11",
         "thumbURL": "https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/6/33/23?access_token=%s" % MAPBOX_ACCESS_TOKEN,
         "group": "background",
-        "visibility": True
+        "visibility": False
     }
-    DEFAULT_MS2_BACKGROUNDS = [MAPBOX_BASEMAPS,] + DEFAULT_MS2_BACKGROUNDS
+    DEFAULT_MS2_BACKGROUNDS = [MAPBOX_SATELLITE,MAPBOX_STREETS] + DEFAULT_MS2_BACKGROUNDS
 
 if BING_API_KEY:
     BING_BASEMAPS = [

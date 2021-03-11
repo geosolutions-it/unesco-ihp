@@ -1,0 +1,733 @@
+{
+    "proxyUrl": {
+        "url": "proxy/?url=",
+        "useCORS": []
+    },
+    "useAuthenticationRules": true,
+    "authenticationRules": [
+        {
+            "urlPattern": ".*geoserver.*",
+            "authkeyParamName": "access_token",
+            "method": "authkey"
+        },
+        {
+            "urlPattern": ".*gs.*",
+            "authkeyParamName": "access_token",
+            "method": "authkey"
+        },
+        {
+            "urlPattern": ".*api/v2.*",
+            "method": "bearer"
+        }
+    ],
+    "translationsPath": [
+        "/static/mapstore/ms-translations",
+        "/static/mapstore/gn-translations",
+        "/static/mapstore/translations"
+    ],
+    "geoNodeApi": {
+        "endpointAdapter": "/mapstore/rest",
+        "endpointAutocomplete": "/base/autocomplete_response",
+        "endpointV1": "/api",
+        "endpointV2": "/api/v2"
+    },
+    "mapLayout": {
+        "preview": {
+            "left": {
+                "sm": 300,
+                "md": 500,
+                "lg": 600
+            },
+            "right": {
+                "md": "41%"
+            },
+            "bottom": {
+                "sm": 0
+            }
+        },
+        "viewer": {
+            "left": {
+                "sm": 300,
+                "md": 500,
+                "lg": 600
+            },
+            "right": {
+                "md": 658
+            },
+            "bottom": {
+                "sm": 30
+            }
+        }
+    },
+    "monitorState": [
+        {
+            "name": "router",
+            "path": "router.location.pathname"
+        },
+        {
+            "name": "browser",
+            "path": "browser"
+        }
+    ],
+    "projectionDefs": [
+        {
+            "code": "EPSG:3003",
+            "def": "+proj=tmerc +lat_0=0 +lon_0=9 +k=0.9996 +x_0=1500000 +y_0=0 +ellps=intl+towgs84=-104.1,-49.1,-9.9,0.971,-2.917,0.714,-11.68 +units=m +no_defs",
+            "extent": [
+                1241482.0019,
+                973563.1609,
+                1830078.9331,
+                5215189.0853
+            ],
+            "worldExtent": [
+                6.6500,
+                8.8000,
+                12.0000,
+                47.0500
+            ]
+        },
+        {
+            "code": "EPSG:3785",
+            "def": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs",
+            "extent": [
+                -20026376.39,
+                -19971868.88,
+                20026376.39,
+                19971868.88
+            ],
+            "worldExtent": [
+                -180.0,
+                -90.0,
+                180.0,
+                90.0
+            ]
+        },
+        {
+            "code": "EPSG:32632",
+            "def": "+proj=utm +zone=32 +datum=WGS84 +units=m +no_defs",
+            "extent": [
+                166021.44,
+                0.00,
+                534994.66,
+                9329005.18
+            ],
+            "worldExtent": [
+                6.0,
+                0.0,
+                12.0,
+                84.0
+            ]
+        },
+        {
+            "code": "EPSG:32647",
+            "def": "+proj=utm +zone=47 +datum=WGS84 +units=m +no_defs",
+            "extent": [
+                166021.44,
+                0.00,
+                534994.66,
+                9329005.18
+            ],
+            "worldExtent": [
+                96.0,
+                0.0,
+                102.0,
+                84.0
+            ]
+        },
+        {
+            "code": "EPSG:32736",
+            "def": "+proj=utm +zone=36 +south +datum=WGS84 +units=m +no_defs",
+            "extent": [
+                441867.78,
+                1116915.04,
+                833978.56,
+                10000000.00
+            ],
+            "worldExtent": [
+                30.0,
+                -80.0,
+                36.0,
+                0.0
+            ]
+        }
+    ],
+    "supportedLocales": {
+        "en": {
+            "code": "en-US",
+            "description": "English"
+        },
+        "fr": {
+            "code": "fr-FR",
+            "description": "Français"
+        }
+    },
+    "geoNodeConfiguration": {
+        "theme": {
+            "variant": "light",
+            "color": "#2c689c",
+            "navbar": {
+                "style": {
+                    "backgroundImage": "url(/static/img/texture.jpg)",
+                    "backgroundRepeat": "repeat-x",
+                    "fontWeight": "bold"
+                }
+            },
+            "hero": {
+                "style": {
+                    "backgroundImage": "url(/static/img/home/shutterstock_579332875.jpg)",
+                    "backgroundSize": "cover",
+                    "backgroundPosition": "center",
+                    "backgroundRepeat": "no-repeat"
+                }
+            },
+            "jumbotron": {
+                "style": {
+                    "maxWidth": 1440
+                }
+            },
+            "languageSelector": {
+                "inline": true
+            },
+            "footer": {
+                "bg": "rgb(32, 59, 100)",
+                "color": "#ffffff",
+                "link": {
+                    "color": "#ffffff",
+                    "hoverColor": "#dddddd"
+                }
+            }
+        },
+        "filters": {
+            "fields": {
+                "options": [
+                    {
+                        "labelId": "gnhome.resourceTypes",
+                        "placeholderId": "gnhome.resourceTypesPlaceholder",
+                        "type": "select",
+                        "suggestionsRequestKey": "resourceTypes"
+                    },
+                    {
+                        "labelId": "gnhome.categories",
+                        "placeholderId": "gnhome.categoriesPlaceholder",
+                        "type": "select",
+                        "suggestionsRequestKey": "categories"
+                    },
+                    {
+                        "labelId": "gnhome.keywords",
+                        "placeholderId": "gnhome.keywordsPlaceholder",
+                        "type": "select",
+                        "suggestionsRequestKey": "keywords"
+                    },
+                    {
+                        "labelId": "gnhome.regions",
+                        "placeholderId": "gnhome.regionsPlaceholder",
+                        "type": "select",
+                        "suggestionsRequestKey": "regions"
+                    },
+                    {
+                        "labelId": "gnhome.owners",
+                        "placeholderId": "gnhome.ownersPlaceholder",
+                        "type": "select",
+                        "suggestionsRequestKey": "owners"
+                    }
+                ]
+            },
+            "order": {
+                "defaultLabelId": "gnhome.orderBy",
+                "options": [
+                    {
+                        "label": "Most recent",
+                        "labelId": "gnhome.mostRecent",
+                        "value": "-date"
+                    },
+                    {
+                        "label": "Less recent",
+                        "labelId": "gnhome.lessRecent",
+                        "value": "date"
+                    },
+                    {
+                        "label": "A Z",
+                        "labelId": "gnhome.aZ",
+                        "value": "title"
+                    },
+                    {
+                        "label": "Z A",
+                        "labelId": "gnhome.zA",
+                        "value": "-title"
+                    },
+                    {
+                        "label": "Most popular",
+                        "labelId": "gnhome.mostPopular",
+                        "value": "popular_count"
+                    }
+                ]
+            },
+            "extent": {
+                "layers": [
+                    {
+                        "type": "osm",
+                        "title": "Open Street Map",
+                        "name": "mapnik",
+                        "source": "osm",
+                        "group": "background",
+                        "visibility": true
+                    }
+                ],
+                "style": {
+                    "color": "#397AAB",
+                    "opacity": 0.8,
+                    "fillColor": "#397AAB",
+                    "fillOpacity": 0.4,
+                    "weight": 4
+                }
+            }
+        },
+        "navbar": {
+            "logo": [
+                {
+                    "src": "/static/img/sector_sc_ihp_en_color.svg",
+                    "href": "#/",
+                    "style": {
+                        "minHeight": 80
+                    },
+                    "sm": {
+                        "style": {
+                            "minHeight": 40
+                        }
+                    }
+                }
+            ],
+            "items": [
+                {
+                    "labelId": "gnhome.register",
+                    "type": "link",
+                    "href": "/account/signup/?next=/",
+                    "authenticated": false
+                },
+                {
+                    "labelId": "gnhome.signIn",
+                    "type": "link",
+                    "href": "/account/login/?next=/",
+                    "authenticated": false
+                },
+                {
+                    "image": "${user.avatar}",
+                    "type": "dropdown",
+                    "authenticated": true,
+                    "items": [
+                        {
+                            "type": "link",
+                            "href": "/layers/upload",
+                            "labelId": "gnhome.uploadLayers",
+                            "faIcon": "cloud-upload-alt"
+                        },
+                        {
+                            "type": "divider"
+                        },
+                        {
+                            "type": "link",
+                            "href": "${user.hrefProfile}",
+                            "labelId": "gnhome.profile",
+                            "faIcon": "user"
+                        },
+                        {
+                            "type": "link",
+                            "href": "/social/recent-activity",
+                            "labelId": "gnhome.recentActivity",
+                            "faIcon": "fire"
+                        },
+                        {
+                            "type": "link",
+                            "href": "/messages/inbox/",
+                            "labelId": "gnhome.inbox",
+                            "faIcon": "inbox"
+                        },
+                        {
+                            "type": "link",
+                            "href": "/notifications/settings/",
+                            "labelId": "gnhome.notifications",
+                            "faIcon": "bell"
+                        },
+                        {
+                            "type": "link",
+                            "href": "/announcements/",
+                            "labelId": "gnhome.announcements",
+                            "faIcon": "bullhorn",
+                            "allowedGroups": [
+                                "admin"
+                            ]
+                        },
+                        {
+                            "type": "link",
+                            "href": "/invitations/geonode-send-invite/",
+                            "labelId": "gnhome.inviteUsers",
+                            "faIcon": "edit"
+                        },
+                        {
+                            "type": "link",
+                            "href": "/services/",
+                            "labelId": "gnhome.remoteServices",
+                            "faIcon": "globe",
+                            "allowedGroups": [
+                                "admin"
+                            ]
+                        },
+                        {
+                            "type": "divider"
+                        },
+                        {
+                            "type": "link",
+                            "href": "/geoserver/",
+                            "labelId": "gnhome.geoServer",
+                            "allowedGroups": [
+                                "admin"
+                            ],
+                            "faIcon": "cogs"
+                        },
+                        {
+                            "type": "link",
+                            "href": "/monitoring/",
+                            "labelId": "gnhome.monitoring",
+                            "allowedGroups": [
+                                "admin"
+                            ],
+                            "faIcon": "heartbeat"
+                        },
+                        {
+                            "type": "link",
+                            "href": "/admin/",
+                            "labelId": "gnhome.admin",
+                            "allowedGroups": [
+                                "admin"
+                            ],
+                            "faIcon": "cog"
+                        },
+                        {
+                            "type": "divider"
+                        },
+                        {
+                            "type": "link",
+                            "href": "/help/",
+                            "labelId": "gnhome.help",
+                            "faIcon": "question-circle"
+                        },
+                        {
+                            "type": "divider"
+                        },
+                        {
+                            "type": "link",
+                            "href": "/account/logout/?next=/",
+                            "labelId": "gnhome.logOut"
+                        }
+                    ]
+                }
+            ]
+        },
+        "menu": {
+            "items": [
+                {
+                    "labelId": "gnhome.layers",
+                    "type": "link",
+                    "href": "/layers/?limit=25",
+                    "badge": "${layersTotalCount}"
+                },
+                {
+                    "labelId": "gnhome.maps",
+                    "type": "link",
+                    "href": "/maps/?limit=25",
+                    "badge": "${mapsTotalCount}"
+                },
+                {
+                    "labelId": "gnhome.library",
+                    "type": "link",
+                    "href": "/documents/?limit=25",
+                    "badge": "${documentsTotalCount}"
+                },
+                {
+                    "labelId": "gnhome.people",
+                    "type": "link",
+                    "href": "/people/"
+                },
+                {
+                    "labelId": "gnhome.groups",
+                    "type": "link",
+                    "href": "/groups/"
+                }
+            ],
+            "rightItems": [
+                {
+                    "labelId": "gnhome.getStarted",
+                    "type": "link",
+                    "href": "/get-started/1/",
+                    "style": {
+                        "fontWeight": "bold"
+                    }
+                },
+                {
+                    "type": "divider"
+                }
+            ]
+        },
+        "footer": {
+            "items": [
+                {
+                    "labelId": "gnhome.aboutUs",
+                    "type": "link",
+                    "href": "/about-us"
+                },
+                {
+                    "labelId": "gnhome.termsOfUse",
+                    "type": "link",
+                    "href": "/terms-of-use"
+                },
+                {
+                    "labelId": "gnhome.getStarted",
+                    "type": "link",
+                    "href": "/get-started/1/"
+                }
+            ]
+        }
+    },
+    "plugins": {
+        "map_embed": [
+            {
+                "name": "Map",
+                "cfg": {
+                    "shouldLoadFont": false,
+                    "tools": [],
+                    "mapOptions": {
+                        "openlayers": {
+                            "attribution": {
+                                "container": "#footer-attribution-container"
+                            },
+                            "interactions": {
+                                "pinchRotate": false,
+                                "altShiftDragRotate": false
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "name": "Identify",
+                "cfg": {
+                    "viewerOptions": {
+                        "container": "{context.ReactSwipe}"
+                    }
+                },
+                "override": {
+                    "Toolbar": {
+                        "position": 11,
+                        "alwaysVisible": false
+                    }
+                }
+            },
+            {
+                "name": "Toolbar",
+                "id": "NavigationBar",
+                "cfg": {
+                    "id": "navigationBar",
+                    "layout": "horizontal"
+                }
+            },
+            {
+                "name": "MapLoading",
+                "override": {
+                    "Toolbar": {
+                        "alwaysVisible": true
+                    }
+                }
+            },
+            {
+                "name": "ZoomAll",
+                "override": {
+                    "Toolbar": {
+                        "alwaysVisible": false
+                    }
+                }
+            },
+            {
+                "name": "ZoomIn",
+                "override": {
+                    "Toolbar": {
+                        "alwaysVisible": true
+                    }
+                }
+            },
+            {
+                "name": "ZoomOut",
+                "override": {
+                    "Toolbar": {
+                        "alwaysVisible": true
+                    }
+                }
+            },
+            {
+                "name": "Expander"
+            },
+            {
+                "name": "MapFooter"
+            },
+            {
+                "name": "TOC",
+                "cfg": {
+                    "activateQueryTool": false,
+                    "activateAddLayerButton": false,
+                    "activateMetedataTool": false,
+                    "activateSettingsTool": false,
+                    "activateRemoveLayer": false,
+                    "activateRemoveGroup": false,
+                    "activateFilterLayer": false
+                }
+            },
+            {
+                "name": "DrawerMenu"
+            }
+        ],
+        "layer_embed": [
+            {
+                "name": "Map",
+                "cfg": {
+                    "shouldLoadFont": false,
+                    "tools": [],
+                    "mapOptions": {
+                        "openlayers": {
+                            "attribution": {
+                                "container": "#footer-attribution-container"
+                            },
+                            "interactions": {
+                                "pinchRotate": false,
+                                "altShiftDragRotate": false
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "name": "Identify",
+                "cfg": {
+                    "viewerOptions": {
+                        "container": "{context.ReactSwipe}"
+                    }
+                },
+                "override": {
+                    "Toolbar": {
+                        "position": 11,
+                        "alwaysVisible": false
+                    }
+                }
+            },
+            {
+                "name": "Toolbar",
+                "id": "NavigationBar",
+                "cfg": {
+                    "id": "navigationBar",
+                    "layout": "horizontal"
+                }
+            },
+            {
+                "name": "MapLoading",
+                "override": {
+                    "Toolbar": {
+                        "alwaysVisible": true
+                    }
+                }
+            },
+            {
+                "name": "ZoomAll",
+                "override": {
+                    "Toolbar": {
+                        "alwaysVisible": false
+                    }
+                }
+            },
+            {
+                "name": "ZoomIn",
+                "override": {
+                    "Toolbar": {
+                        "alwaysVisible": true
+                    }
+                }
+            },
+            {
+                "name": "ZoomOut",
+                "override": {
+                    "Toolbar": {
+                        "alwaysVisible": true
+                    }
+                }
+            },
+            {
+                "name": "Expander"
+            },
+            {
+                "name": "MapFooter"
+            }
+        ],
+        "map_preview": [
+            {
+                "name": "Map",
+                "cfg": {
+                    "shouldLoadFont": false,
+                    "tools": [],
+                    "mapOptions": {
+                        "openlayers": {
+                            "attribution": {
+                                "container": "#footer-attribution-container"
+                            },
+                            "interactions": {
+                                "pinchRotate": false,
+                                "altShiftDragRotate": false
+                            }
+                        }
+                    }
+                }
+            },
+            {
+                "name": "Identify",
+                "cfg": {
+                    "showFullscreen": false,
+                    "dock": true,
+                    "position": "right",
+                    "size": 0.4,
+                    "fluid": true,
+                    "viewerOptions": {
+                        "container": "{context.ReactSwipe}"
+                    }
+                },
+                "override": {
+                    "Toolbar": {
+                        "position": 11,
+                        "alwaysVisible": false
+                    }
+                }
+            },
+            {
+                "name": "Toolbar",
+                "id": "NavigationBar",
+                "cfg": {
+                    "id": "navigationBar"
+                }
+            },
+            {
+                "name": "ZoomIn",
+                "override": {
+                    "Toolbar": {
+                        "alwaysVisible": true
+                    }
+                }
+            },
+            {
+                "name": "ZoomOut",
+                "override": {
+                    "Toolbar": {
+                        "alwaysVisible": true
+                    }
+                }
+            },
+            {
+                "name": "MapFooter"
+            }
+        ]
+    }
+}

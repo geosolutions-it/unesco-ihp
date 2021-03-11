@@ -64,7 +64,7 @@ p,input
 }
 #watermark{
         display: block;
-        background: url(../../static/img/unesco_ihp_en_transparent.png) center center no-repeat;
+        background: url(../../static/img/sector_sc_ihp_en_color.svg) center center no-repeat;
         background-size: 182px;
         width: 182px;
         height: 110px;
@@ -451,8 +451,8 @@ label[for="id_resource-constraints_other"]{ font-size: 0; }
 
     .navbar > .container .navbar-brand,
     .navbar > .container-fluid .navbar-brand {
-      background: url(../img/unesco_ihp_en_transparent.png) 1px 0 no-repeat;
-      background-size: 360px 104px;
+      background: url(../img/sector_sc_ihp_en_color.svg) 1px 0 no-repeat;
+      background-size: auto 104px;
       height: 110px;
       margin-left: -110px;
       margin-right: 0px;
@@ -504,8 +504,8 @@ label[for="id_resource-constraints_other"]{ font-size: 0; }
 @media (max-width: 1400px) {
   .navbar > .container .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
-    background: url(../img/unesco_ihp_en_transparent.png) 1px 0 no-repeat;
-    background-size: 360px 104px;
+    background: url(../img/sector_sc_ihp_en_color.svg) 1px 0 no-repeat;
+    background-size: auto 104px;
     height: 110px;
     margin-left: 0px;
     margin-right: 0px;
