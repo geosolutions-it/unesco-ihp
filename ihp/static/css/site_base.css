@@ -21,14 +21,8 @@
 #home {font-size:11px;background:#ccc;}
 #baseline {font-size:12px}
 
-html
-{
-    height: 100%;
-}
-
 body
 {
-    height: 100%;
     font-family: Monda, Lato, 'Open Sans', 'Arial', sans-serif;
     font-size: 14px;
     background:white;
