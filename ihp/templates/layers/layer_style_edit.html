@@ -9,7 +9,7 @@
 {% load guardian_tags %}
 {% load client_lib_tags %}
 
-{% block title %}{{ resource.title|default:resource.alternate }} — {{ block.super }}{% endblock %}
+{% block title %}{{ resource.title|default:resource.alternate }}{{ block.super }}{% endblock %}
 
 {% block head %}
   {% if TWITTER_CARD %}
