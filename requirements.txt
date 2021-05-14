@@ -1,4 +1,4 @@
-# -e git+https://github.com/GeoNode/geonode.git@3.2.x#egg=GeoNode
+-e git+https://github.com/geosolutions-it/geonode.git@ihp-wins-geonode-3.2.x#egg=GeoNode
 # For the reason of the allauth fork see https://github.com/geosolutions-it/unesco-ihp/issues/279
 -e git+https://github.com/geosolutions-it/django-allauth.git#egg=django-allauth
 pycountry==19.8.18
